@@ -1,0 +1,11 @@
+{
+  "material-icon-theme.folders.associations": {
+    "storefront": "cart",
+    "catalogue": "dump",
+    ".agents": "claude",
+    "convex": "database",
+    "dashboard": "content",
+    ".cj-docs": "store",
+    ".medusa": "template"
+  },
+}
