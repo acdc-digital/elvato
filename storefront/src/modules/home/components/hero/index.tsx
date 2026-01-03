@@ -1,34 +1,123 @@
-import { Github } from "@medusajs/icons"
-import { Button, Heading } from "@medusajs/ui"
+"use client"
+
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const Hero = () => {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
-        <span>
-          <Heading
-            level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
+    <div className="h-[85vh] w-full border-b border-black relative bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_80px_1fr] h-full">
+        {/* Left: Content */}
+        <div className="flex flex-col justify-center px-6 py-8 lg:px-12 lg:py-10 bg-white order-1">
+          <h1 className="m-0 text-3xl lg:text-5xl font-bold leading-tight font-sans">
+            Brandable domains for your next project.
+          </h1>
+          <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
+            Brandlesse is a curated collection of premium .coms – handpicked, brand-ready, and available to be transferred to you today.
+          </p>
+          <LocalizedClientLink
+            href="/store"
+            className="inline-flex items-center justify-center gap-2 mt-8 lg:mt-10 px-9 py-4 bg-black text-white text-sm font-medium rounded-full border-none transition-all duration-200 hover:bg-gray-800 max-w-fit"
           >
-            Ecommerce Starter Template
-          </Heading>
-          <Heading
-            level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
-          >
-            Powered by Medusa and Next.js
-          </Heading>
-        </span>
-        <a
-          href="https://github.com/medusajs/nextjs-starter-medusa"
-          target="_blank"
-        >
-          <Button variant="secondary">
-            View on GitHub
-            <Github />
-          </Button>
-        </a>
+            GET A DOMAIN
+          </LocalizedClientLink>
+
+          {/* Mobile Ticker (horizontal) */}
+          <div className="block lg:hidden border-t border-black overflow-hidden mt-8 -mx-6 px-0">
+            <div className="flex">
+              <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
+                {[...Array(12)].map((_, i) => (
+                  <div key={i} className="flex items-center mr-4 flex-shrink-0 py-3">
+                    <div className="w-7 mr-3">
+                      <img 
+                        src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                        alt=""
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <p className="m-0 text-xl font-bold font-sans text-black">com</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
+                {[...Array(12)].map((_, i) => (
+                  <div key={`dup-${i}`} className="flex items-center mr-4 flex-shrink-0 py-3">
+                    <div className="w-7 mr-3">
+                      <img 
+                        src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                        alt=""
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <p className="m-0 text-xl font-bold font-sans text-black">com</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Middle: Vertical Ticker */}
+        <div className="hidden lg:flex items-center justify-center order-2 bg-white border-l border-r border-black overflow-hidden relative">
+          <div className="flex flex-col overflow-hidden h-full">
+            <div className="flex flex-col animate-ticker-vertical">
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="flex flex-col items-center py-3">
+                  <div className="w-8 h-8 mb-2">
+                    <img 
+                      src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                      alt=""
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  <span className="writing-vertical text-2xl font-bold font-sans text-black rotate-180">com</span>
+                </div>
+              ))}
+              {[...Array(8)].map((_, i) => (
+                <div key={`dup-${i}`} className="flex flex-col items-center py-3">
+                  <div className="w-8 h-8 mb-2">
+                    <img 
+                      src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                      alt=""
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  <span className="writing-vertical text-2xl font-bold font-sans text-black rotate-180">com</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Hero Image */}
+        <div className="order-3 bg-gray-100 flex items-center justify-center min-h-[200px] lg:min-h-0">
+          <img 
+            src="//brandlesse.com/cdn/shop/files/Square_Logo.png?v=1763595913" 
+            alt="BRANDLESSE"
+            className="w-[70%] max-w-[400px] h-auto object-contain"
+          />
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes ticker {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes ticker-vertical {
+          0% { transform: translateY(0%); }
+          100% { transform: translateY(-50%); }
+        }
+        .animate-ticker {
+          animation: ticker 32s infinite linear;
+        }
+        .animate-ticker-vertical {
+          animation: ticker-vertical 20s infinite linear;
+        }
+        .writing-vertical {
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+        }
+      `}</style>
     </div>
   )
 }

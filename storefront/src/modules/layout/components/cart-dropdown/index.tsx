@@ -82,10 +82,22 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <PopoverButton className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base"
+            className="hover:text-ui-fg-base flex items-center gap-1"
             href="/cart"
             data-testid="nav-cart-link"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+          >
+            <svg 
+              className="w-5 h-5" 
+              viewBox="0 0 64 64" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="3"
+            >
+              <path d="M11.375 17.863h41.25v36.75h-41.25z" />
+              <path d="M22.25 18c0-7.105 4.35-9 9.75-9s9.75 1.895 9.75 9" />
+            </svg>
+            <span className="text-sm">({totalItems})</span>
+          </LocalizedClientLink>
         </PopoverButton>
         <Transition
           show={cartDropdownOpen}

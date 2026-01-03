@@ -18,21 +18,26 @@ export default async function Home(props: {
 
   const { countryCode } = params
 
+  console.log("Home Page - Country Code:", countryCode)
+
   const region = await getRegion(countryCode)
+  console.log("Home Page - Region:", region?.id, region?.name)
 
   const { collections } = await listCollections({
     fields: "id, handle, title",
   })
+  console.log("Home Page - Collections:", collections?.length, collections?.map(c => c.title))
 
   if (!collections || !region) {
+    console.log("Home Page - Missing collections or region, returning null")
     return null
   }
 
   return (
     <>
       <Hero />
-      <div className="py-12">
-        <ul className="flex flex-col gap-x-6">
+      <div className="py-6">
+        <ul className="flex flex-col">
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
