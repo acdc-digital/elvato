@@ -89,12 +89,24 @@ const Hero = () => {
         </div>
 
         {/* Right: Hero Image */}
-        <div className="order-3 bg-gray-100 flex items-center justify-center min-h-[200px] lg:min-h-0">
+        <div className="order-3 bg-gray-100 relative min-h-[200px] lg:min-h-0 overflow-hidden">
           <img 
-            src="//brandlesse.com/cdn/shop/files/Square_Logo.png?v=1763595913" 
-            alt="BRANDLESSE"
-            className="w-[70%] max-w-[400px] h-auto object-contain"
+            src="/solo2.jpg" 
+            alt="Elvato"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: '30% center' }}
           />
+          {/* Overlay image - hugs left border, hidden on mobile */}
+          <img 
+            src="/crinkle-v2.svg" 
+            alt=""
+            className="hidden lg:block absolute -left-5 top-1/2 -translate-y-1/2 h-[115%] w-auto object-contain"
+          />
+          {/* Discount text overlay */}
+          {/* <div className="absolute top-24 left-44 font-mono text-white flex flex-col leading-tight">
+            <span className="text-lg lg:text-6xl font-black">75%</span>
+            <span className="text-sm lg:text-6xl font-normal">off</span>
+          </div> */}
         </div>
       </div>
 

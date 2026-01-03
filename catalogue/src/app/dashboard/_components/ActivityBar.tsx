@@ -4,10 +4,11 @@ import {
   FileText, 
   Calendar, 
   Package, 
-  Crown,
+  Barcode,
   BarChart3, 
   Settings,
   User,
+  Trash2,
   LucideIcon 
 } from "lucide-react";
 
@@ -15,6 +16,7 @@ export type PanelType =
   | "dashboard"
   | "products" 
   | "categories"
+  | "trash"
   | "reports"
   | "calendar"
   | "settings"
@@ -28,9 +30,10 @@ interface ActivityBarProps {
 
 export function ActivityBar({ activePanel, onPanelChange }: ActivityBarProps) {
   const activityItems: Array<{ id: PanelType; icon: LucideIcon; label: string }> = [
-    { id: "dashboard", icon: Crown, label: "Dashboard" },
+    { id: "dashboard", icon: Barcode, label: "Dashboard" },
     { id: "products", icon: Package, label: "Products" },
     { id: "categories", icon: FileText, label: "Categories" },
+    { id: "trash", icon: Trash2, label: "Trash" },
     { id: "reports", icon: BarChart3, label: "Reports" },
     { id: "calendar", icon: Calendar, label: "Calendar" },
     { id: "account", icon: User, label: "Account" },

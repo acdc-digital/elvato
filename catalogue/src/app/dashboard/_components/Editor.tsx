@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react";
 import { PanelType } from "./ActivityBar";
+import { ProductList } from "./ProductList";
+import { TrashList } from "./TrashList";
+import { ProductForm } from "./ProductForm";
 
-interface Tab {
+export interface Tab {
   id: string;
   title: string;
-  type: string;
+  type: "products" | "trash" | "product-detail" | "new-product";
+  productId?: string; // For product-detail tabs
 }
 
 interface EditorProps {
@@ -16,9 +20,9 @@ interface EditorProps {
 
 export function Editor({}: EditorProps) {
   const [tabs, setTabs] = useState<Tab[]>([
-    { id: "welcome", title: "Welcome", type: "welcome" }
+    { id: "products", title: "Products", type: "products" }
   ]);
-  const [activeTabId, setActiveTabId] = useState("welcome");
+  const [activeTabId, setActiveTabId] = useState("products");
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
   const closeTab = (tabId: string) => {
@@ -29,33 +33,92 @@ export function Editor({}: EditorProps) {
     }
   };
 
+  // Open a new tab for a specific product
+  const openProductTab = useCallback((productId: string, productName: string) => {
+    const existingTab = tabs.find(tab => tab.productId === productId);
+    
+    if (existingTab) {
+      // Tab already exists, just switch to it
+      setActiveTabId(existingTab.id);
+    } else {
+      // Create new product detail tab
+      const newTab: Tab = {
+        id: `product-${productId}`,
+        title: productName,
+        type: "product-detail",
+        productId,
+      };
+      setTabs(prev => [...prev, newTab]);
+      setActiveTabId(newTab.id);
+    }
+  }, [tabs]);
+
+  // Open new product form tab
+  const openNewProductTab = useCallback(() => {
+    const existingTab = tabs.find(tab => tab.type === "new-product");
+    
+    if (existingTab) {
+      setActiveTabId(existingTab.id);
+    } else {
+      const newTab: Tab = {
+        id: `new-product-${Date.now()}`,
+        title: "New Product",
+        type: "new-product",
+      };
+      setTabs(prev => [...prev, newTab]);
+      setActiveTabId(newTab.id);
+    }
+  }, [tabs]);
+
+  // Handle product save - close tab and switch to products
+  const handleProductSaved = useCallback((productId: string) => {
+    // Close the new product tab
+    const newProductTab = tabs.find(tab => tab.type === "new-product");
+    if (newProductTab) {
+      closeTab(newProductTab.id);
+    }
+    // Switch to products tab
+    setActiveTabId("products");
+  }, [tabs]);
+
   const renderContent = () => {
     const activeTab = tabs.find(tab => tab.id === activeTabId);
     
     if (!activeTab) {
       return (
-        <div className="p-4 space-y-3">
-          <div className="inline-block px-3 py-1 bg-[#252526] border border-[#2d2d2d] rounded text-xs text-[#cccccc]">
-            Welcome to Elvato Catalogue
-          </div>
-          <div className="inline-block px-3 py-1 bg-[#252526] border border-[#2d2d2d] rounded text-xs text-[#cccccc]">
-            Product management powered by Convex
-          </div>
+        <div className="flex-1 flex items-center justify-center text-[#858585]">
+          No tab selected
         </div>
       );
     }
 
-    // Future: Render different content based on activePanel and tab type
-    return (
-      <div className="p-4 space-y-3 space-x-2">
-        <div className="inline-block px-3 py-1 bg-[#252526] border border-[#2d2d2d] rounded text-xs text-[#cccccc]">
-          Welcome to Elvato Catalogue
-        </div>
-        <div className="inline-block px-3 py-1 bg-[#252526] border border-[#2d2d2d] rounded text-xs text-[#cccccc]">
-          Product management powered by Convex
-        </div>
-      </div>
-    );
+    // Render content based on tab type
+    switch (activeTab.type) {
+      case "products":
+        return <ProductList onProductClick={openProductTab} onAddProduct={openNewProductTab} />;
+      
+      case "trash":
+        return <TrashList onProductClick={openProductTab} />;
+      
+      case "new-product":
+        return (
+          <ProductForm
+            onSave={handleProductSaved}
+            onCancel={() => closeTab(activeTab.id)}
+          />
+        );
+      
+      case "product-detail":
+        // Empty content for now - will be filled in during testing
+        return (
+          <div className="flex-1 flex items-center justify-center text-[#858585]">
+            {/* Product detail view for: {activeTab.productId} */}
+          </div>
+        );
+      
+      default:
+        return null;
+    }
   };
 
   return (
