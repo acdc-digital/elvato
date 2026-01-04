@@ -37,33 +37,33 @@ const Hero = () => {
           </div>
 
           {/* Mobile Ticker (horizontal) */}
-          <div className="block lg:hidden border-t border-black overflow-hidden mt-8 -mx-6 px-0 h-14">
-            <div className="flex flex-nowrap h-full items-center">
+          <div className="block lg:hidden border-t border-black overflow-hidden mt-8 -mx-6 px-0 h-12">
+            <div className="flex flex-nowrap h-full items-center overflow-y-hidden">
               <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
                 {[...Array(12)].map((_, i) => (
-                  <div key={i} className="flex items-center mr-4 flex-shrink-0 py-3">
-                    <div className="w-7 mr-3">
+                  <div key={i} className="flex items-center mr-4 flex-shrink-0 py-2">
+                    <div className="w-6 mr-2">
                       <img 
                         src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
                         alt=""
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="m-0 text-xl font-bold font-sans text-black">com</p>
+                    <p className="m-0 text-lg font-bold font-sans text-black leading-none">com</p>
                   </div>
                 ))}
               </div>
               <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
                 {[...Array(12)].map((_, i) => (
-                  <div key={`dup-${i}`} className="flex items-center mr-4 flex-shrink-0 py-3">
-                    <div className="w-7 mr-3">
+                  <div key={`dup-${i}`} className="flex items-center mr-4 flex-shrink-0 py-2">
+                    <div className="w-6 mr-2">
                       <img 
                         src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
                         alt=""
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="m-0 text-xl font-bold font-sans text-black">com</p>
+                    <p className="m-0 text-lg font-bold font-sans text-black leading-none">com</p>
                   </div>
                 ))}
               </div>
