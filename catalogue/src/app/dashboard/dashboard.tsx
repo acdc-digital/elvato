@@ -13,7 +13,7 @@ import {
 } from "./_components";
 
 export function Dashboard() {
-  const [activePanel, setActivePanel] = useState<PanelType>("dashboard");
+  const [activePanel, setActivePanel] = useState<PanelType>("products");
   const [isTerminalCollapsed, setIsTerminalCollapsed] = useState(true);
 
   return (

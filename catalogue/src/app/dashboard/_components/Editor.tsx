@@ -1,16 +1,17 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react";
 import { PanelType } from "./ActivityBar";
 import { ProductList } from "./ProductList";
 import { TrashList } from "./TrashList";
 import { ProductForm } from "./ProductForm";
+import { InventoryList } from "./InventoryList";
 
 export interface Tab {
   id: string;
   title: string;
-  type: "products" | "trash" | "product-detail" | "new-product";
+  type: "products" | "inventory" | "trash" | "product-detail" | "new-product";
   productId?: string; // For product-detail tabs
 }
 
@@ -18,12 +19,41 @@ interface EditorProps {
   activePanel: PanelType;
 }
 
-export function Editor({}: EditorProps) {
+// Map panel types to tab configurations
+const panelToTab: Record<string, { id: string; title: string; type: Tab["type"] }> = {
+  products: { id: "products", title: "Products", type: "products" },
+  inventory: { id: "inventory", title: "Inventory", type: "inventory" },
+  trash: { id: "trash", title: "Trash", type: "trash" },
+};
+
+export function Editor({ activePanel }: EditorProps) {
   const [tabs, setTabs] = useState<Tab[]>([
     { id: "products", title: "Products", type: "products" }
   ]);
   const [activeTabId, setActiveTabId] = useState("products");
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+
+  // Respond to sidebar panel changes - open or switch to corresponding tab
+  useEffect(() => {
+    if (activePanel && panelToTab[activePanel]) {
+      const tabConfig = panelToTab[activePanel];
+      const existingTab = tabs.find(tab => tab.id === tabConfig.id);
+      
+      if (existingTab) {
+        // Tab exists, switch to it
+        setActiveTabId(existingTab.id);
+      } else {
+        // Create new tab
+        const newTab: Tab = {
+          id: tabConfig.id,
+          title: tabConfig.title,
+          type: tabConfig.type,
+        };
+        setTabs(prev => [...prev, newTab]);
+        setActiveTabId(newTab.id);
+      }
+    }
+  }, [activePanel]);
 
   const closeTab = (tabId: string) => {
     const newTabs = tabs.filter(tab => tab.id !== tabId);
@@ -77,8 +107,8 @@ export function Editor({}: EditorProps) {
     if (newProductTab) {
       closeTab(newProductTab.id);
     }
-    // Switch to products tab
-    setActiveTabId("products");
+    // Switch to inventory tab
+    setActiveTabId("inventory");
   }, [tabs]);
 
   const renderContent = () => {
@@ -96,6 +126,9 @@ export function Editor({}: EditorProps) {
     switch (activeTab.type) {
       case "products":
         return <ProductList onProductClick={openProductTab} onAddProduct={openNewProductTab} />;
+      
+      case "inventory":
+        return <InventoryList />;
       
       case "trash":
         return <TrashList onProductClick={openProductTab} />;

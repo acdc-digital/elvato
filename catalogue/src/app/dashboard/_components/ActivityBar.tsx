@@ -13,8 +13,8 @@ import {
 } from "lucide-react";
 
 export type PanelType = 
-  | "dashboard"
-  | "products" 
+  | "products"
+  | "inventory" 
   | "categories"
   | "trash"
   | "reports"
@@ -30,8 +30,8 @@ interface ActivityBarProps {
 
 export function ActivityBar({ activePanel, onPanelChange }: ActivityBarProps) {
   const activityItems: Array<{ id: PanelType; icon: LucideIcon; label: string }> = [
-    { id: "dashboard", icon: Barcode, label: "Dashboard" },
-    { id: "products", icon: Package, label: "Products" },
+    { id: "products", icon: Barcode, label: "Products" },
+    { id: "inventory", icon: Package, label: "Inventory" },
     { id: "categories", icon: FileText, label: "Categories" },
     { id: "trash", icon: Trash2, label: "Trash" },
     { id: "reports", icon: BarChart3, label: "Reports" },

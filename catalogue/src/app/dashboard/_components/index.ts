@@ -12,6 +12,12 @@ export { TrashList } from "./TrashList";
 export { ActionToolbar } from "./ActionToolbar";
 export { ProductForm } from "./ProductForm";
 
+// CJ Dropshipping / Inventory components
+export { InventoryList } from "./InventoryList";
+export { InventoryFilterPanel } from "./InventoryFilterPanel";
+export { InventoryToolbar } from "./InventoryToolbar";
+export { CJProductRow } from "./CJProductRow";
+
 export type { PanelType } from "./ActivityBar";
 export type { Tab } from "./Editor";
 export type { Product } from "./ProductRow";

@@ -4,26 +4,41 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 const Hero = () => {
   return (
-    <div className="h-[85vh] w-full border-b border-black relative bg-white">
+    <div className="min-h-[85vh] lg:h-[85vh] w-full border-b border-black relative bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_80px_1fr] h-full">
         {/* Left: Content */}
-        <div className="flex flex-col justify-center px-6 py-8 lg:px-12 lg:py-10 bg-white order-1">
-          <h1 className="m-0 text-3xl lg:text-5xl font-bold leading-tight font-sans">
-            Brandable domains for your next project.
-          </h1>
-          <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
-            Brandlesse is a curated collection of premium .coms – handpicked, brand-ready, and available to be transferred to you today.
-          </p>
-          <LocalizedClientLink
-            href="/store"
-            className="inline-flex items-center justify-center gap-2 mt-8 lg:mt-10 px-9 py-4 bg-black text-white text-sm font-medium rounded-full border-none transition-all duration-200 hover:bg-gray-800 max-w-fit"
-          >
-            GET A DOMAIN
-          </LocalizedClientLink>
+        <div className="flex flex-col px-6 py-8 lg:px-12 lg:py-10 bg-white order-1">
+          {/* Badges */}
+          <div className="flex flex-wrap gap-3 mb-8 lg:mb-auto">
+            {['pendants', 'chandeliers', 'ceiling', 'wall', 'desk & floor', 'controls', 'sale'].map((badge) => (
+              <button 
+                key={badge}
+                className="px-5 py-3 bg-white text-black text-sm font-mono uppercase tracking-wide transition-all duration-200 border border-black hover:bg-gray-100 rounded-md"
+              >
+                {badge}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex flex-col justify-center flex-1">
+            <h1 className="m-0 text-3xl lg:text-5xl font-bold leading-tight font-sans">
+              Brandable domains for your next project.
+            </h1>
+            <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
+              Brandlesse is a curated collection of premium .coms – handpicked, brand-ready, and available to be transferred to you today.
+            </p>
+            
+            <LocalizedClientLink
+              href="/store"
+              className="inline-flex items-center justify-center gap-2 mt-8 lg:mt-10 px-9 py-4 bg-black text-white text-sm font-medium rounded-full border-none transition-all duration-200 hover:bg-gray-800 max-w-fit"
+            >
+              GET A DOMAIN
+            </LocalizedClientLink>
+          </div>
 
           {/* Mobile Ticker (horizontal) */}
-          <div className="block lg:hidden border-t border-black overflow-hidden mt-8 -mx-6 px-0">
-            <div className="flex">
+          <div className="block lg:hidden border-t border-black overflow-hidden mt-8 -mx-6 px-0 h-14">
+            <div className="flex flex-nowrap h-full items-center">
               <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
                 {[...Array(12)].map((_, i) => (
                   <div key={i} className="flex items-center mr-4 flex-shrink-0 py-3">
