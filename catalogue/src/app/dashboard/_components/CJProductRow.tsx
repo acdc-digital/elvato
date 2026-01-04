@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ExternalLink, Video, Truck, TrendingUp, Package } from "lucide-react";
 import { CJProduct } from "@/types/cj-dropshipping";
+import { ProductImageModal } from "./ProductImageModal";
 
 interface CJProductRowProps {
   product: CJProduct;
@@ -15,6 +17,7 @@ export function CJProductRow({
   isSelected, 
   onSelect, 
 }: CJProductRowProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const handleCheckboxClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -25,6 +28,11 @@ export function CJProductRow({
     // Open CJ product page
     const cjUrl = `https://www.cjdropshipping.com/product/${product.sku || product.id}`;
     window.open(cjUrl, "_blank", "noopener,noreferrer");
+  };
+
+  const handleImageClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsModalOpen(true);
   };
 
   // Format price display
@@ -72,7 +80,11 @@ export function CJProductRow({
       </div>
 
       {/* 2. Product Image */}
-      <div className="w-16 h-16 bg-[#252526] border border-[#2d2d2d] rounded shrink-0 flex items-center justify-center overflow-hidden">
+      <button 
+        onClick={handleImageClick}
+        className="w-16 h-16 bg-[#252526] border border-[#2d2d2d] rounded shrink-0 flex items-center justify-center overflow-hidden hover:border-[#007acc] transition-colors cursor-pointer"
+        title="Click to view all images"
+      >
         {product.bigImage ? (
           <img 
             src={product.bigImage} 
@@ -83,7 +95,7 @@ export function CJProductRow({
         ) : (
           <Package className="w-6 h-6 text-[#858585]" />
         )}
-      </div>
+      </button>
 
       {/* 3. Product Info - Name / SKU / Description */}
       <div className="flex-1 min-w-0 space-y-1">
@@ -149,6 +161,15 @@ export function CJProductRow({
           <span>CJ</span>
         </button>
       </div>
+
+      {/* Image Modal */}
+      <ProductImageModal
+        productId={product.id}
+        productName={product.nameEn || 'Untitled Product'}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        initialImage={product.bigImage}
+      />
     </div>
   );
 }

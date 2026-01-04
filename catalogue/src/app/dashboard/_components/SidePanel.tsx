@@ -11,17 +11,17 @@ export function SidePanel({ activePanel }: SidePanelProps) {
 
   const renderPanelContent = () => {
     switch (activePanel) {
-      case "dashboard":
+      case "products":
         return (
           <div className="flex flex-col gap-4 p-4">
             <div>
-              <h3 className="text-xs font-semibold text-[#cccccc] mb-2">Dashboard Overview</h3>
+              <h3 className="text-xs font-semibold text-[#cccccc] mb-2">Products</h3>
               <div className="space-y-1">
                 <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Quick Stats
+                  All Products
                 </button>
                 <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Recent Activity
+                  Add New
                 </button>
               </div>
             </div>

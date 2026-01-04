@@ -169,7 +169,7 @@ export async function POST() {
 
     return NextResponse.json({
       success: true,
-      tokenExpiry: tokenCache ? tokenCache.accessTokenExpiry.toISOString() : null,
+      tokenExpiry: (tokenCache as CJTokenState | null)?.accessTokenExpiry.toISOString() ?? null,
     });
   } catch (error) {
     console.error('CJ Auth refresh error:', error);

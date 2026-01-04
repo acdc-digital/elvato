@@ -84,6 +84,29 @@ export interface CJProduct {
   createAt: number;         // Create timestamp
   warehouseInventoryNum?: number; // Total inventory
   description?: string;     // Product description (with enable_description)
+  variants?: CJProductVariant[]; // Product variants (from detail API)
+}
+
+// Product variant type for detailed product info
+export interface CJProductVariant {
+  vid: string;              // Variant ID
+  pid: string;              // Product ID
+  variantName?: string;     // Variant name (Chinese)
+  variantNameEn?: string;   // Variant name (English)
+  variantSku: string;       // Variant SKU
+  variantImage: string;     // Variant image URL
+  variantStandard?: string; // Variant specification
+  variantUnit?: string;     // Variant selling unit
+  variantProperty?: string; // Variant property type
+  variantKey?: string;      // Variant attribute keywords
+  variantLength?: number;   // Length in mm
+  variantWidth?: number;    // Width in mm
+  variantHeight?: number;   // Height in mm
+  variantVolume?: number;   // Volume in mm3
+  variantWeight?: number;   // Weight in grams
+  variantSellPrice?: number; // Sell price in USD
+  variantSugSellPrice?: number; // Suggested sell price in USD
+  createTime?: number;      // Creation timestamp
 }
 
 export interface CJProductListResponse {
@@ -101,6 +124,30 @@ export interface CJProductListResponse {
       keyWord?: string;
       keyWordOld?: string;
     };
+  };
+}
+
+// Product detail response (for single product query)
+export interface CJProductDetailResponse {
+  code: number;
+  result: boolean;
+  message?: string;
+  data: {
+    pid: string;
+    productName: string;
+    productNameEn: string;
+    productSku: string;
+    productImage: string;
+    productWeight: number;
+    productType: string;
+    productUnit?: string;
+    categoryId?: string;
+    categoryName?: string;
+    description?: string;
+    sellPrice?: string;
+    variants: CJProductVariant[];
+    productVideo?: string;
+    status?: number;
   };
 }
 
