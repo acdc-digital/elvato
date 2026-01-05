@@ -57,28 +57,28 @@ const Hero = () => {
               <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
                 {[...Array(12)].map((_, i) => (
                   <div key={i} className="flex items-center mr-4 flex-shrink-0 py-3">
-                    <div className="w-7 mr-3">
+                    <div className="w-7 mr-5">
                       <img 
-                        src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                        src="/scroll-E.svg" 
                         alt=""
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="m-0 text-xl font-bold font-sans text-black">com</p>
+                    <p className="m-0 text-xl font-bold font-sans text-black">{i % 2 === 0 ? 'COUPON' : 'SAVE15'}</p>
                   </div>
                 ))}
               </div>
               <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
                 {[...Array(12)].map((_, i) => (
                   <div key={`dup-${i}`} className="flex items-center mr-4 flex-shrink-0 py-3">
-                    <div className="w-7 mr-3">
+                    <div className="w-7 mr-5">
                       <img 
-                        src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                        src="/scroll-E.svg" 
                         alt=""
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="m-0 text-xl font-bold font-sans text-black">com</p>
+                    <p className="m-0 text-xl font-bold font-sans text-black">{i % 2 === 0 ? 'COUPON' : 'SAVE15'}</p>
                   </div>
                 ))}
               </div>
@@ -92,26 +92,26 @@ const Hero = () => {
             <div className="flex flex-col animate-ticker-vertical">
               {[...Array(8)].map((_, i) => (
                 <div key={i} className="flex flex-col items-center py-3">
-                  <div className="w-8 h-8 mb-2">
+                  <div className="w-8 h-8 mb-4">
                     <img 
-                      src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                      src="/scroll-E.svg" 
                       alt=""
                       className="w-full h-auto"
                     />
                   </div>
-                  <span className="writing-vertical text-2xl font-bold font-sans text-black rotate-180">com</span>
+                  <span className="writing-vertical text-2xl font-bold font-sans text-black rotate-180">{i % 2 === 0 ? 'COUPON' : 'SAVE15'}</span>
                 </div>
               ))}
               {[...Array(8)].map((_, i) => (
                 <div key={`dup-${i}`} className="flex flex-col items-center py-3">
-                  <div className="w-8 h-8 mb-2">
+                  <div className="w-8 h-8 mb-4">
                     <img 
-                      src="//brandlesse.com/cdn/shop/files/Favicon_HD_White.png?v=1763590593" 
+                      src="/scroll-E.svg" 
                       alt=""
                       className="w-full h-auto"
                     />
                   </div>
-                  <span className="writing-vertical text-2xl font-bold font-sans text-black rotate-180">com</span>
+                  <span className="writing-vertical text-2xl font-bold font-sans text-black rotate-180">{i % 2 === 0 ? 'COUPON' : 'SAVE15'}</span>
                 </div>
               ))}
             </div>
