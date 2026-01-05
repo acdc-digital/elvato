@@ -69,6 +69,7 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
+        // "rubik-wet-paint": ["var(--font-rubik-wet-paint)", "cursive"],
       },
       keyframes: {
         ring: {

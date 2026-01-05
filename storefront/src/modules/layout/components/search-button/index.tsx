@@ -93,7 +93,7 @@ const SearchButton = () => {
   return (
     <button
       onClick={() => setSearchOpen(true)}
-      className="h-full flex items-center hover:text-ui-fg-base"
+      className="h-full flex items-center text-black hover:text-gray-400 transition-colors"
       aria-label="Search"
       data-testid="nav-search-button"
     >

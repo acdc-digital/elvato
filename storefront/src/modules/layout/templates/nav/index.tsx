@@ -8,6 +8,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import SearchButton from "@modules/layout/components/search-button"
+import { Button } from "@/components/ui/button"
 
 export default async function Nav() {
   const [regions, locales, currentLocale] = await Promise.all([
@@ -36,49 +37,64 @@ export default async function Nav() {
           </div>
 
           {/* Center: Navigation Links */}
-          <div className="hidden small:flex items-center gap-x-8 h-full">
-            <div className="h-full">
-              <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
-            </div>
-            <LocalizedClientLink
-              href="/store"
-              className="text-sm uppercase tracking-wider hover:text-ui-fg-base transition-colors font-mono"
-              data-testid="nav-browse-link"
-            >
-              BROWSE DOMAINS
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href="/about"
-              className="text-sm uppercase tracking-wider hover:text-ui-fg-base transition-colors font-mono"
-              data-testid="nav-about-link"
-            >
-              ABOUT US
-            </LocalizedClientLink>
-            <LocalizedClientLink
-              href="/how-it-works"
-              className="text-sm uppercase tracking-wider hover:text-ui-fg-base transition-colors font-mono"
-              data-testid="nav-how-link"
-            >
-              HOW IT WORKS
-            </LocalizedClientLink>
+          <div className="hidden small:flex items-center gap-x-2 h-full">
+            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+              <div className="h-full flex items-center">
+                <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
+              </div>
+            </Button>
+            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+              <LocalizedClientLink
+                href="/store"
+                data-testid="nav-browse-link"
+              >
+                COLLECTIONS
+              </LocalizedClientLink>
+            </Button>
+            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+              <LocalizedClientLink
+                href="/about"
+                data-testid="nav-about-link"
+              >
+                ABOUT US
+              </LocalizedClientLink>
+            </Button>
+            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+              <LocalizedClientLink
+                href="/how-it-works"
+                data-testid="nav-how-link"
+              >
+                HOW IT WORKS
+              </LocalizedClientLink>
+            </Button>
+
+            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+              <LocalizedClientLink
+                href="/how-it-works"
+                data-testid="nav-how-link"
+              >
+                TRADE
+              </LocalizedClientLink>
+            </Button>
           </div>
 
           {/* Right: Search, Account, Cart */}
           <div className="flex items-center gap-x-6 h-full">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
+            <div className="hidden small:flex items-center gap-x-2 h-full">
               <SearchButton />
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base text-sm uppercase tracking-wider font-mono"
-                href="/account"
-                data-testid="nav-account-link"
-              >
-                ACCOUNT
-              </LocalizedClientLink>
+              <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+                <LocalizedClientLink
+                  href="/account"
+                  data-testid="nav-account-link"
+                >
+                  ACCOUNT
+                </LocalizedClientLink>
+              </Button>
             </div>
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex items-center gap-1"
+                  className="text-black hover:text-gray-400 transition-colors flex items-center gap-1"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >

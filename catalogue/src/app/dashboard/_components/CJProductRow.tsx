@@ -1,7 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ExternalLink, Video, Truck, TrendingUp, Package } from "lucide-react";
+import { ExternalLink, Video, Truck, TrendingUp, Package, X } from "lucide-react";
 import { CJProduct } from "@/types/cj-dropshipping";
 
 interface CJProductRowProps {
@@ -10,11 +11,116 @@ interface CJProductRowProps {
   onSelect: (productId: string, checked: boolean) => void;
 }
 
+/**
+ * Simple Image Lightbox - displays single image expanded
+ */
+function ImageLightbox({ 
+  src, 
+  alt, 
+  onClose 
+}: { 
+  src: string; 
+  alt: string; 
+  onClose: () => void; 
+}) {
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  return (
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 p-2 text-white/70 hover:text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors z-10"
+        aria-label="Close"
+      >
+        <X className="w-6 h-6" />
+      </button>
+      
+      {/* Image container */}
+      <div 
+        className="relative max-w-[85vw] max-h-[85vh] flex items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================================
+ * TODO: Multi-Image Gallery Lightbox (commented out for performance)
+ * ============================================================================
+ * This fetches all product images when opened, but is slow with many images.
+ * Re-enable when we optimize the image loading strategy.
+ * 
+ * import { useCallback } from "react";
+ * import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
+ * 
+ * function ImageGalleryLightbox({ 
+ *   productId,
+ *   initialImage,
+ *   alt, 
+ *   onClose 
+ * }: { 
+ *   productId: string;
+ *   initialImage: string;
+ *   alt: string; 
+ *   onClose: () => void; 
+ * }) {
+ *   const [images, setImages] = useState<string[]>([initialImage]);
+ *   const [currentIndex, setCurrentIndex] = useState(0);
+ *   const [isLoading, setIsLoading] = useState(true);
+ *   const [error, setError] = useState<string | null>(null);
+ *
+ *   useEffect(() => {
+ *     const fetchImages = async () => {
+ *       try {
+ *         const response = await fetch(`/api/cj/products/${productId}`);
+ *         const data = await response.json();
+ *         if (data.success && data.images && data.images.length > 0) {
+ *           setImages(data.images);
+ *         }
+ *       } catch (err) {
+ *         console.error('Failed to fetch product images:', err);
+ *         setError('Could not load additional images');
+ *       } finally {
+ *         setIsLoading(false);
+ *       }
+ *     };
+ *     fetchImages();
+ *   }, [productId]);
+ *
+ *   // ... navigation logic, thumbnail strip, etc.
+ * }
+ * ============================================================================
+ */
+
 export function CJProductRow({ 
   product, 
   isSelected, 
   onSelect, 
 }: CJProductRowProps) {
+  const [showLightbox, setShowLightbox] = useState(false);
   
   const handleCheckboxClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -71,8 +177,14 @@ export function CJProductRow({
         />
       </div>
 
-      {/* 2. Product Image */}
-      <div className="w-16 h-16 bg-[#252526] border border-[#2d2d2d] rounded shrink-0 flex items-center justify-center overflow-hidden">
+      {/* 2. Product Image - Click to enlarge */}
+      <button 
+        onClick={() => product.bigImage && setShowLightbox(true)}
+        className={`w-16 h-16 bg-[#252526] border border-[#2d2d2d] rounded shrink-0 flex items-center justify-center overflow-hidden transition-all ${
+          product.bigImage ? 'cursor-zoom-in hover:border-[#007acc] hover:ring-1 hover:ring-[#007acc]' : ''
+        }`}
+        title={product.bigImage ? "Click to enlarge" : undefined}
+      >
         {product.bigImage ? (
           <img 
             src={product.bigImage} 
@@ -83,7 +195,16 @@ export function CJProductRow({
         ) : (
           <Package className="w-6 h-6 text-[#858585]" />
         )}
-      </div>
+      </button>
+
+      {/* Image Lightbox Modal */}
+      {showLightbox && product.bigImage && (
+        <ImageLightbox
+          src={product.bigImage}
+          alt={product.nameEn || 'Product image'}
+          onClose={() => setShowLightbox(false)}
+        />
+      )}
 
       {/* 3. Product Info - Name / SKU / Description */}
       <div className="flex-1 min-w-0 space-y-1">

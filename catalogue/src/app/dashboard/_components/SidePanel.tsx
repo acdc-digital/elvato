@@ -54,44 +54,13 @@ export function SidePanel({ activePanel }: SidePanelProps) {
           </div>
         );
       
-      case "categories":
+      case "editorial":
         return (
           <div className="flex flex-col gap-4 p-4">
             <div>
-              <h3 className="text-xs font-semibold text-[#cccccc] mb-2">Categories</h3>
+              <h3 className="text-xs font-semibold text-[#cccccc] mb-2">Editorial</h3>
               <div className="space-y-1">
-                <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  All Categories
-                </button>
-                <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Collections
-                </button>
-                <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Tags
-                </button>
-                <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Attributes
-                </button>
-              </div>
-            </div>
-          </div>
-        );
-      
-      case "reports":
-        return (
-          <div className="flex flex-col gap-4 p-4">
-            <div>
-              <h3 className="text-xs font-semibold text-[#cccccc] mb-2">Catalogue Reports</h3>
-              <div className="space-y-1">
-                <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Product Performance
-                </button>
-                <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Inventory Levels
-                </button>
-                <button className="w-full text-left px-2 py-1.5 text-xs text-[#cccccc] hover:bg-[#2d2d2d] rounded">
-                  Category Analysis
-                </button>
+                <p className="text-xs text-[#858585]">Content coming soon...</p>
               </div>
             </div>
           </div>

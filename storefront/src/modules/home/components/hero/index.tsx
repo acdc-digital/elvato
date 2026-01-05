@@ -1,43 +1,58 @@
 "use client"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
 
 const Hero = () => {
   return (
-    <div className="min-h-[85vh] lg:h-[85vh] w-full border-b border-black relative bg-white">
+    <div className="min-h-[75vh] lg:h-[75vh] w-full border-b border-black relative bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_80px_1fr] h-full">
         {/* Left: Content */}
-        <div className="flex flex-col px-6 py-8 lg:px-12 lg:py-10 bg-white order-1">
-          {/* Badges */}
-          <div className="flex flex-wrap gap-3 mb-8 lg:mb-auto">
-            {['pendants', 'chandeliers', 'ceiling', 'wall', 'desk & floor', 'controls', 'sale'].map((badge) => (
-              <button 
-                key={badge}
-                className="px-5 py-3 bg-white text-black text-sm font-mono uppercase tracking-wide transition-all duration-200 border border-black hover:bg-gray-100 rounded-md"
-              >
-                {badge}
-              </button>
-            ))}
+        <div className="flex flex-col bg-white order-1">
+          {/* Buttons */}
+          <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
+            <ButtonGroup className="flex-wrap">
+              {['pendants', 'chandeliers', 'ceiling', 'wall', 'desk & floor', 'controls', 'sale'].map((badge) => (
+                <Button 
+                  key={badge}
+                  variant="link"
+                  className="font-mono uppercase tracking-wide"
+                >
+                  {badge}
+                </Button>
+              ))}
+            </ButtonGroup>
           </div>
 
-          <div className="flex flex-col justify-center flex-1">
-            <h1 className="m-0 text-3xl lg:text-5xl font-bold leading-tight font-sans">
-              Brandable domains for your next project.
+          <div className="flex flex-col justify-center flex-1 px-6 pt-0 pb-8 lg:px-10 lg:pt-0 lg:pb-10">
+            <h1 className="m-0 text-4xl lg:text-7xl font-semibold leading-tight font-sans">
+              Contemporary lighting for your next project.
             </h1>
             <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
-              Brandlesse is a curated collection of premium .coms – handpicked, brand-ready, and available to be transferred to you today.
+              Elvato lighting is a curated collection of affordable – handpicked lighting designs
+              sourced from top manufacturers around the world.
             </p>
             
-            <LocalizedClientLink
-              href="/store"
-              className="inline-flex items-center justify-center gap-2 mt-8 lg:mt-10 px-9 py-4 bg-black text-white text-sm font-medium rounded-full border-none transition-all duration-200 hover:bg-gray-800 max-w-fit"
-            >
-              GET A DOMAIN
-            </LocalizedClientLink>
+            <div className="flex flex-row gap-4 mt-8 lg:mt-10">
+              <LocalizedClientLink
+                href="/store"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-black text-white text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-white hover:text-black"
+              >
+                SHOP NOW
+              </LocalizedClientLink>
+
+              <LocalizedClientLink
+                href="/store"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
+              >
+                DESIGN SERVICES
+              </LocalizedClientLink>
+            </div>
           </div>
 
           {/* Mobile Ticker (horizontal) */}
-          <div className="block lg:hidden border-t border-black overflow-hidden mt-8 -mx-6 px-0 h-14">
+          <div className="hidden border-t border-black overflow-hidden mt-8 -mx-6 px-0 h-14">
             <div className="flex flex-nowrap h-full items-center">
               <div className="flex whitespace-nowrap animate-ticker flex-shrink-0">
                 {[...Array(12)].map((_, i) => (
@@ -105,6 +120,16 @@ const Hero = () => {
 
         {/* Right: Hero Image */}
         <div className="order-3 bg-gray-100 relative min-h-[200px] lg:min-h-0 overflow-hidden">
+          {/* Grid of squares at the top */}
+          <div className="absolute top-0 left-0 right-0 z-10 grid grid-cols-5">
+            {[...Array(5)].map((_, i) => (
+              <div 
+                key={i}
+                className="aspect-square bg-white border-t lg:border-t-0 border-b border-r border-black"
+              />
+            ))}
+          </div>
+          
           <img 
             src="/solo2.jpg" 
             alt="Elvato"
