@@ -9,7 +9,7 @@ const Hero = () => {
     <div className="min-h-[75vh] lg:h-[75vh] w-full border-b border-black relative bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_80px_1fr] h-full">
         {/* Left: Content */}
-        <div className="flex flex-col bg-white order-1">
+        <div className="flex flex-col order-1" style={{ background: 'linear-gradient(to bottom right, #f8f8f8, #ffffff)' }}>
           {/* Buttons */}
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
             <ButtonGroup className="flex-wrap">
