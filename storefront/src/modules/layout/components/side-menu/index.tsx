@@ -29,7 +29,8 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
   const languageToggleState = useToggleState()
   const headerHeight = 96
   const bannerHeight = 45  // Adjusted to connect with header border
-  const [menuTop, setMenuTop] = useState(headerHeight + bannerHeight)
+  const [menuTop, setMenuTop] = useState<number | null>(null)
+  const [countrySelectOpen, setCountrySelectOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +49,9 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Use default value for SSR, actual value after hydration
+  const topValue = menuTop ?? (headerHeight + bannerHeight)
+
   return (
     <div className="h-full">
       <div className="flex items-center h-full">
@@ -57,20 +61,29 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
               <div className="relative flex h-full">
                 <Popover.Button
                   data-testid="nav-menu-button"
-                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none text-sm uppercase tracking-wider font-mono text-black"
+                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none focus:ring-0 focus:border-none focus-visible:outline-none focus-visible:ring-0 text-sm uppercase tracking-wider font-mono text-black underline-offset-4 hover:underline"
                 >
                   MENU
                 </Popover.Button>
               </div>
 
-              {open && (
+              <Transition
+                show={open}
+                as={Fragment}
+                enter="transition-opacity ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity ease-in duration-300"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
                 <div
-                  className="fixed inset-0 z-[50] pointer-events-auto"
-                  style={{ top: `${menuTop}px` }}
+                  className="fixed inset-0 z-[50] pointer-events-auto bg-transparent"
+                  style={{ top: `${topValue}px` }}
                   onClick={close}
                   data-testid="side-menu-backdrop"
                 />
-              )}
+              </Transition>
 
               <Transition
                 show={open}
@@ -83,9 +96,10 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                 leaveTo="-translate-x-full"
               >
                 <PopoverPanel 
-                  className="fixed left-0 bottom-0 w-[400px] z-[51] bg-white border-r border-black"
+                  className="fixed left-0 bottom-0 w-[400px] z-[51] border-r border-black"
                   style={{ 
-                    top: `${menuTop}px`
+                    top: `${topValue}px`,
+                    background: 'linear-gradient(to bottom right, #f8f8f8, #ffffff)'
                   }}
                 >
                   <div
@@ -102,13 +116,13 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                           <XMark className="text-black" size={24} />
                         </button>
                       </div>
-                      <ul className="flex flex-col gap-6 items-start justify-start">
+                      <ul className="flex flex-col gap-4 items-start justify-start">
                         {Object.entries(SideMenuItems).map(([name, href]) => {
                           return (
                             <li key={name}>
                               <LocalizedClientLink
                                 href={href}
-                                className="text-3xl lg:text-4xl font-semibold leading-tight font-sans text-black hover:opacity-60 transition-opacity"
+                                className="text-lg uppercase tracking-wider font-mono text-black hover:opacity-60 transition-opacity"
                                 onClick={close}
                                 data-testid={`${name.toLowerCase()}-link`}
                               >
@@ -140,20 +154,20 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
                         </div>
                       )}
                       <div
-                        className="flex justify-between"
-                        onMouseEnter={countryToggleState.open}
-                        onMouseLeave={countryToggleState.close}
+                        className="flex justify-between relative"
                       >
                         {regions && (
                           <CountrySelect
                             toggleState={countryToggleState}
                             regions={regions}
+                            isOpen={countrySelectOpen}
+                            setIsOpen={setCountrySelectOpen}
                           />
                         )}
                         <ArrowRightMini
                           className={clx(
                             "transition-transform duration-150 text-black",
-                            countryToggleState.state ? "-rotate-90" : ""
+                            countrySelectOpen ? "-rotate-90" : ""
                           )}
                         />
                       </div>

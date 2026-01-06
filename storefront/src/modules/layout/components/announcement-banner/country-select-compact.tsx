@@ -10,7 +10,6 @@ import {
 import { Fragment, useEffect, useMemo, useState, useRef } from "react"
 import ReactCountryFlag from "react-country-flag"
 
-import { StateType } from "@lib/hooks/use-toggle-state"
 import { useParams, usePathname } from "next/navigation"
 import { updateRegion } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
@@ -21,18 +20,16 @@ type CountryOption = {
   label: string
 }
 
-type CountrySelectProps = {
-  toggleState: StateType
+type CountrySelectCompactProps = {
   regions: HttpTypes.StoreRegion[]
-  isOpen: boolean
-  setIsOpen: (open: boolean) => void
 }
 
-const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelectProps) => {
+const CountrySelectCompact = ({ regions }: CountrySelectCompactProps) => {
   const [current, setCurrent] = useState<
     | { country: string | undefined; region: string; label: string | undefined }
     | undefined
   >(undefined)
+  const [isOpen, setIsOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
   const { countryCode } = useParams()
@@ -81,7 +78,7 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
   }
 
   return (
-    <div ref={containerRef}>
+    <div className="relative" ref={containerRef}>
       <Listbox
         as="span"
         onChange={handleChange}
@@ -92,10 +89,9 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
         }
       >
         <ListboxButton 
-          className="flex items-center gap-x-2 text-sm font-mono text-black hover:opacity-60 transition-opacity focus:outline-none cursor-pointer"
+          className="flex items-center gap-x-1.5 text-sm font-mono text-black hover:opacity-60 transition-opacity focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="uppercase">Shipping to:</span>
           {current && (
             <>
               {/* @ts-ignore */}
@@ -107,7 +103,7 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
                 }}
                 countryCode={current.country ?? ""}
               />
-              <span className="uppercase">{current.label}</span>
+              <span className="uppercase">{current.country}</span>
             </>
           )}
         </ListboxButton>
@@ -119,7 +115,7 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
           leaveTo="opacity-0"
         >
           <ListboxOptions
-            className="absolute bottom-full right-0 mb-1 max-h-[300px] overflow-y-scroll z-[900] bg-white border border-black text-sm font-mono uppercase text-black no-scrollbar w-48 focus:outline-none"
+            className="absolute top-full right-0 mt-1 max-h-[300px] overflow-y-scroll z-[900] bg-white border border-black text-sm font-mono uppercase text-black no-scrollbar w-48 focus:outline-none"
             static
           >
             {options?.map((o, index) => {
@@ -149,4 +145,4 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
   )
 }
 
-export default CountrySelect
+export default CountrySelectCompact

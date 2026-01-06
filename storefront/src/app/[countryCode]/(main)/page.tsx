@@ -2,6 +2,8 @@ import { Metadata } from "next"
 
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
+import CtaBanner from "@modules/home/components/cta-banner"
+import SecondaryHero from "@modules/home/components/secondary-hero"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
@@ -36,11 +38,13 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
+      <CtaBanner />
       <div className="py-6">
         <ul className="flex flex-col">
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
+      <SecondaryHero />
     </>
   )
 }

@@ -38,11 +38,9 @@ export default async function Nav() {
 
           {/* Center: Navigation Links */}
           <div className="hidden small:flex items-center gap-x-2 h-full">
-            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
-              <div className="h-full flex items-center">
-                <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
-              </div>
-            </Button>
+            <div className="h-full flex items-center">
+              <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
+            </div>
             <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
               <LocalizedClientLink
                 href="/store"
