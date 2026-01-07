@@ -1,3 +1,3 @@
 # Elvato
 
-![Elvato Storefront](./public/readme-img.png)
+![Elvato Storefront](./public/README-v2.svg)

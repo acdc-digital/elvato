@@ -7,9 +7,9 @@ import { ButtonGroup } from "@/components/ui/button-group"
 const Hero = () => {
   return (
     <div className="min-h-[75vh] lg:h-[75vh] w-full border-b border-black relative bg-white">
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_80px_1fr] h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
         {/* Left: Content */}
-        <div className="flex flex-col order-1" style={{ background: 'linear-gradient(to bottom right, #f8f8f8, #ffffff)' }}>
+        <div className="flex flex-col order-1" style={{ background: 'linear-gradient(to right, #F5F5F5, #FFFFFF)' }}>
           {/* Buttons */}
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
             <ButtonGroup className="flex-wrap">
@@ -17,7 +17,7 @@ const Hero = () => {
                 <Button 
                   key={badge}
                   variant="link"
-                  className="font-mono uppercase tracking-wide"
+                  className={`font-mono uppercase tracking-wide ${badge === 'sale' ? 'text-red-600' : ''}`}
                 >
                   {badge}
                 </Button>
@@ -44,7 +44,7 @@ const Hero = () => {
 
               <LocalizedClientLink
                 href="/store"
-                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white opacity-70"
               >
                 DESIGN SERVICES
               </LocalizedClientLink>
@@ -87,7 +87,7 @@ const Hero = () => {
         </div>
 
         {/* Middle: Vertical Ticker */}
-        <div className="hidden lg:flex items-center justify-center order-2 bg-white border-l border-r border-black overflow-hidden relative">
+        {/* <div className="hidden lg:flex items-center justify-center order-2 bg-white border-l border-r border-black overflow-hidden relative">
           <div className="flex flex-col overflow-hidden h-full">
             <div className="flex flex-col animate-ticker-vertical">
               {[...Array(8)].map((_, i) => (
@@ -116,22 +116,64 @@ const Hero = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Right: Hero Image */}
         <div className="order-3 bg-gray-100 relative min-h-[200px] lg:min-h-0 overflow-hidden">
           {/* Grid of squares at the top */}
           <div className="absolute top-0 left-0 right-0 z-10 grid grid-cols-5">
             {[...Array(5)].map((_, i) => (
-              <div 
+              <LocalizedClientLink
                 key={i}
-                className="aspect-square bg-white border-t lg:border-t-0 border-b border-r border-black"
-              />
+                href="#"
+                className="aspect-square bg-white border-t lg:border-t-0 border-b border-r border-black overflow-hidden relative block"
+              >
+                <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-mono uppercase z-10">
+                  Featured
+                </div>
+                {i === 0 && (
+                  <img 
+                    src="/H-feature-2.jpg" 
+                    alt="Featured"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                {i === 1 && (
+                  <div className="w-full h-full bg-[#AAAAAA]">
+                    <img 
+                      src="/H-feature-3.jpg" 
+                      alt="Featured"
+                      className="w-full h-full object-cover scale-125 -translate-y-5 -translate-x-3"
+                    />
+                  </div>
+                )}
+                {i === 2 && (
+                  <img 
+                    src="/H-feature-4.jpg" 
+                    alt="Featured"
+                    className="w-full h-full object-cover scale-125 translate-y-1"
+                  />
+                )}
+                {i === 3 && (
+                  <img 
+                    src="/H-feature-5.jpg" 
+                    alt="Featured"
+                    className="w-full h-full object-cover scale-125 -translate-y-2"
+                  />
+                )}
+                {i === 4 && (
+                  <img 
+                    src="/H-feature-6.png" 
+                    alt="Featured"
+                    className="w-full h-full object-cover scale-110"
+                  />
+                )}
+              </LocalizedClientLink>
             ))}
           </div>
           
           <img 
-            src="/solo2.jpg" 
+            src="/hero-2.jpg" 
             alt="Elvato"
             className="w-full h-full object-cover"
             style={{ objectPosition: '30% center' }}
@@ -140,7 +182,15 @@ const Hero = () => {
           <img 
             src="/crinkle-v2.svg" 
             alt=""
-            className="hidden lg:block absolute -left-5 top-1/2 -translate-y-1/2 h-[115%] w-auto object-contain"
+            className="hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 h-[115%] w-auto object-contain z-20"
+          />
+          {/* Gradient overlay on crinkle */}
+          <div 
+            className="hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 h-[115%] w-[120px] z-20 pointer-events-none"
+            style={{ 
+              background: 'linear-gradient(to right, #F5F5F5, transparent)',
+              mixBlendMode: 'overlay'
+            }}
           />
           {/* Discount text overlay */}
           {/* <div className="absolute top-24 left-44 font-mono text-white flex flex-col leading-tight">

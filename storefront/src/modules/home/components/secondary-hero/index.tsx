@@ -5,16 +5,16 @@ const SecondaryHero = () => {
     <div className="w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
         {/* Left Panel - Image */}
-        <div className="relative bg-white">
+        <div className="relative bg-white flex items-left justify-left p-8 lg:p-12 order-2 lg:order-1">
           <img 
             src="/Controls-Hero2.svg" 
             alt="Controls Hero"
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-contain"
           />
         </div>
 
         {/* Right Panel - Content */}
-        <div className="flex flex-col justify-center px-6 py-8 lg:px-10 lg:py-10" style={{ background: 'white' }}>
+        <div className="flex flex-col justify-center px-6 py-8 lg:px-10 lg:py-10 order-1 lg:order-2" style={{ background: 'white' }}>
           <h2 className="m-0 text-3xl lg:text-7xl font-semibold leading-tight font-sans">
             Lighting controls & design services.
           </h2>
