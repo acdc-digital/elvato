@@ -29,7 +29,7 @@ export default async function ProductRail({
 
   if (!pricedProducts || pricedProducts.length === 0) {
     return (
-      <div className="px-8 small:px-12 py-10">
+      <div className="px-8 small:px-12 pt-4 pb-6">
         <div className="flex justify-between mb-6">
           <Text className="txt-xlarge">{collection.title}</Text>
           <InteractiveLink href={`/collections/${collection.handle}`}>
@@ -42,20 +42,56 @@ export default async function ProductRail({
   }
 
   return (
-    <div className="px-8 small:px-12 py-10">
+    <div className="px-8 small:px-12 pt-4 pb-6">
       <div className="flex justify-between mb-6">
         <Text className="txt-xlarge">{collection.title}</Text>
         <InteractiveLink href={`/collections/${collection.handle}`}>
           View all
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-6 gap-y-8">
+      <ul className="grid grid-cols-2 small:grid-cols-6 gap-x-6 gap-y-8">
         {pricedProducts &&
           pricedProducts.map((product) => (
             <li key={product.id}>
               <ProductPreview product={product} region={region} isFeatured />
             </li>
           ))}
+        {/* Advertising Card */}
+        <li>
+          <div className="border-2 border-black rounded-2xl overflow-hidden bg-white">
+            <div className="m-2 border-2 border-black rounded-t-xl overflow-hidden bg-gray-100 aspect-[3/4] flex items-center justify-center">
+              <div className="text-center p-4">
+                <p className="text-2xl font-bold">Ad Space</p>
+              </div>
+            </div>
+            <div className="flex flex-col py-4 px-2">
+              <p className="text-sm text-black font-normal text-center">
+                Your Ad Here
+              </p>
+              <div className="flex items-center justify-center mt-1">
+                <span className="text-sm text-gray-500">Promotional Content</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        {/* Advertising Card 2 */}
+        <li>
+          <div className="border-2 border-black rounded-2xl overflow-hidden bg-white">
+            <div className="m-2 border-2 border-black rounded-t-xl overflow-hidden bg-gray-100 aspect-[3/4] flex items-center justify-center">
+              <div className="text-center p-4">
+                <p className="text-2xl font-bold">Ad Space</p>
+              </div>
+            </div>
+            <div className="flex flex-col py-4 px-2">
+              <p className="text-sm text-black font-normal text-center">
+                Your Ad Here
+              </p>
+              <div className="flex items-center justify-center mt-1">
+                <span className="text-sm text-gray-500">Promotional Content</span>
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   )

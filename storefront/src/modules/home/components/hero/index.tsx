@@ -30,7 +30,7 @@ const Hero = () => {
               Contemporary lighting for your next project.
             </h1>
             <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
-              Elvato lighting is a curated collection of +1200 affordable – handpicked lighting designs
+              Elvato lighting is a curated collection of +800 affordable – handpicked lighting designs
               sourced from top manufacturers around the world.
             </p>
             
@@ -44,7 +44,7 @@ const Hero = () => {
 
               <LocalizedClientLink
                 href="/store"
-                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white opacity-70"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
               >
                 DESIGN SERVICES
               </LocalizedClientLink>

@@ -28,11 +28,12 @@ export default async function Nav() {
               className="flex items-center"
               data-testid="nav-logo-link"
             >
-              <img 
-                src="/Elvato.svg" 
-                alt="Elvato"
-                className="h-10 w-auto small:h-12"
-              />
+              <span 
+                className="text-4xl small:text-5xl font-black italic text-black"
+                style={{ fontFamily: 'var(--font-fraunces)' }}
+              >
+                Elvato.
+              </span>
             </LocalizedClientLink>
           </div>
 

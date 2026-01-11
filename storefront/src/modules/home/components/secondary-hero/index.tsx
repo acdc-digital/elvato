@@ -2,41 +2,102 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 const SecondaryHero = () => {
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
+    <div className="w-full border-t border-black overflow-hidden min-h-[70vh] lg:h-[65vh]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 relative h-full">
+        {/* Crinkle overlay - positioned at grid level to span across panels */}
+        <img 
+          src="/crinkle-leftv2.svg" 
+          alt=""
+          className="hidden lg:block absolute left-1/2 -translate-x-20 top-1/2 -translate-y-1/2 h-[120%] w-auto object-cover z-10 pointer-events-none"
+        />
+        
         {/* Left Panel - Image */}
-        <div className="relative bg-white flex items-left justify-left p-8 lg:p-12 order-2 lg:order-1">
-          <img 
-            src="/Controls-Hero2.svg" 
-            alt="Controls Hero"
-            className="w-full h-auto object-contain"
-          />
+        <div className="relative bg-white order-2 lg:order-1">
+          {/* Grid of squares at the top */}
+          <div className="grid grid-cols-5 lg:w-[95%] border-t lg:border-t-0 border-black">
+            {[...Array(5)].map((_, i) => (
+              <LocalizedClientLink
+                key={i}
+                href="#"
+                className="aspect-square bg-gray-200 border-b border-r border-black overflow-hidden relative block"
+              >
+                <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-mono uppercase z-10">
+                  Featured
+                </div>
+                {i === 0 && (
+                  <img 
+                    src="/controls-1v3.png" 
+                    alt="Featured"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                {i === 1 && (
+                  <img 
+                    src="/controls-2.png" 
+                    alt="Featured"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                {i === 2 && (
+                  <img 
+                    src="/controls-3v2.png" 
+                    alt="Featured"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                {i === 3 && (
+                  <img 
+                    src="/controls-4.png" 
+                    alt="Featured"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                {i === 4 && (
+                  <img 
+                    src="/controls-5.png" 
+                    alt="Featured"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </LocalizedClientLink>
+            ))}
+          </div>
+          
+          <div className="flex items-center justify-center p-2 pb-0 lg:p-2 lg:pr-16 flex-1">
+            <img 
+              src="/Controls-H2-v2.svg" 
+              alt="Controls Hero"
+              className="w-full lg:w-[75%] h-auto object-contain -translate-x-4 -translate-y-4"
+            />
+          </div>
         </div>
 
         {/* Right Panel - Content */}
-        <div className="flex flex-col justify-center px-6 py-8 lg:px-10 lg:py-10 order-1 lg:order-2" style={{ background: 'white' }}>
-          <h2 className="m-0 text-3xl lg:text-7xl font-semibold leading-tight font-sans">
-            Lighting controls & design services.
-          </h2>
-          <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
-            From smart dimmers to complete lighting control systems, our team provides 
-            expert specification and design services tailored to your project requirements.
-          </p>
-          
-          <div className="flex flex-row gap-4 mt-8 lg:mt-10">
-            <LocalizedClientLink
-              href="/store"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-black text-white text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-white hover:text-black"
-            >
-              CONTACT OUR EXPERTS
-            </LocalizedClientLink>
+        <div className="flex flex-col px-6 py-4 pb-8 lg:px-10 lg:py-4 order-1 lg:order-2 relative z-20" style={{ background: 'white' }}>
+          <div className="relative z-10">
+            <h2 className="m-0 pt-8 text-3xl lg:text-7xl font-semibold leading-tight font-sans">
+              Lighting controls & design services.
+            </h2>
+            <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
+              From smart dimmers to complete lighting control systems, our team provides 
+              expert specification and design services tailored to your project requirements.
+            </p>
+            
+            <div className="flex flex-row gap-4 mt-8 lg:mt-10">
+              <LocalizedClientLink
+                href="/store"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-black text-white text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-white hover:text-black"
+              >
+                CONTACT OUR EXPERTS
+              </LocalizedClientLink>
 
-            <LocalizedClientLink
-              href="/store"
-              className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
-            >
-              GET A QUOTE
-            </LocalizedClientLink>
+              <LocalizedClientLink
+                href="/store"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
+              >
+                GET A QUOTE
+              </LocalizedClientLink>
+            </div>
           </div>
         </div>
       </div>

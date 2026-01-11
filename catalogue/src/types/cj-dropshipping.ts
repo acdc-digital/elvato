@@ -281,3 +281,47 @@ export interface CJProductForImport {
   supplier: string;
   inventory: number;
 }
+
+// ============================================================================
+// My Products Types (from CJ web portal "My Products" section)
+// ============================================================================
+
+export interface CJMyProductSearchParams {
+  keyword?: string;         // sku/spu/product name
+  categoryId?: string;
+  startAt?: string;         // start time filter
+  endAt?: string;           // end time filter
+  isListed?: number;        // is product listed
+  visiable?: number;        // visibility status
+  hasPacked?: number;       // has packing
+  hasVirPacked?: number;    // has virtual packing
+  pageNum?: number;         // page number (1-based)
+  pageSize?: number;        // items per page
+}
+
+export interface CJMyProduct {
+  productId: string;        // CJ Product ID
+  productName: string[];    // Product names (array format)
+  nameEn: string;           // English product name
+  sku: string;              // Product SKU
+  bigImage: string;         // Main image URL
+  totalPrice: number;       // Price in USD
+  productType: number;      // Product type code
+  listedShopNum: string;    // Number of shops listed on
+  createAt: string;         // Added time to My Products
+  trialFreight?: string;    // Trial freight info
+}
+
+export interface CJMyProductListResponse {
+  code: number;
+  result: boolean;
+  message?: string;
+  data: {
+    pageNumber: number;
+    pageSize: number;
+    totalRecords: number;
+    totalPages: number;
+    content: CJMyProduct[];
+  } | null;
+  requestId?: string;
+}

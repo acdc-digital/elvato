@@ -6,7 +6,7 @@ import { ShieldCheck, Truck } from "lucide-react"
 const CtaBanner = () => {
   return (
     <div className="w-full bg-white">
-      <div className="content-container pt-8 pb-0 pr-8">
+      <div className="px-8 small:px-12 pt-8 pb-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Submittal Sheet CTA */}
           <div className="flex items-center gap-4">

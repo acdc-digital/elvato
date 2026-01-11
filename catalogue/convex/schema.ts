@@ -56,4 +56,34 @@ export default defineSchema({
     timestamp: v.number(),
   })
     .index("by_timestamp", ["timestamp"]),
+
+  // CJ My Products - synced from CJ Dropshipping "My Products" section
+  cjMyProducts: defineTable({
+    // CJ-specific identifiers
+    cjProductId: v.string(),      // CJ's productId
+    sku: v.string(),              // Product SKU
+    
+    // Product info
+    nameEn: v.string(),           // English product name
+    productNames: v.array(v.string()), // All product names from CJ
+    bigImage: v.string(),         // Main image URL
+    price: v.number(),            // Price in USD (totalPrice from CJ)
+    productType: v.number(),      // Product type code from CJ
+    listedShopNum: v.optional(v.string()), // Number of shops listed on
+    
+    // Sync metadata
+    cjCreatedAt: v.string(),      // When added to My Products on CJ (createAt from CJ)
+    syncedAt: v.number(),         // When we synced this record (Unix timestamp)
+    updatedAt: v.number(),        // Last update timestamp
+    
+    // Optional extended data (populated if we fetch details)
+    description: v.optional(v.string()),
+    categoryId: v.optional(v.string()),
+    categoryName: v.optional(v.string()),
+    supplierName: v.optional(v.string()),
+    inventory: v.optional(v.number()),
+  })
+    .index("by_cjProductId", ["cjProductId"])
+    .index("by_sku", ["sku"])
+    .index("by_syncedAt", ["syncedAt"]),
 });

@@ -4,6 +4,8 @@ import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
 import CtaBanner from "@modules/home/components/cta-banner"
 import SecondaryHero from "@modules/home/components/secondary-hero"
+import ProductGrid from "@modules/home/components/product-grid"
+import PhotoGrid from "@modules/home/components/photo-grid"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
@@ -38,12 +40,37 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
+      {/* TODO: PhotoGrid below hero */}
+      {/* <PhotoGrid /> */}
       <CtaBanner />
-      <div className="py-6">
+      <div className="pt-0 pb-4">
         <ul className="flex flex-col">
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
+      <div className="pb-4">
+        <ul className="flex flex-col">
+          <FeaturedProducts collections={collections} region={region} />
+        </ul>
+      </div>
+      <ProductGrid />
+      <div className="pb-4">
+        <ul className="flex flex-col">
+          <FeaturedProducts collections={collections} region={region} />
+        </ul>
+      </div>
+      <div className="pb-4">
+        <ul className="flex flex-col">
+          <FeaturedProducts collections={collections} region={region} />
+        </ul>
+      </div>
+      <div className="pb-16">
+        <ul className="flex flex-col">
+          <FeaturedProducts collections={collections} region={region} />
+        </ul>
+      </div>
+      {/* TODO: PhotoGrid above hero-2 */}
+      {/* <PhotoGrid /> */}
       <SecondaryHero />
     </>
   )

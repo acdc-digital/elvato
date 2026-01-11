@@ -1,13 +1,14 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
-// import { Rubik_Wet_Paint } from "next/font/google"
+import { Fraunces } from "next/font/google"
 import "styles/globals.css"
 
-// const rubikWetPaint = Rubik_Wet_Paint({
-//   weight: "400",
-//   subsets: ["latin"],
-//   variable: "--font-rubik-wet-paint",
-// })
+const fraunces = Fraunces({
+  weight: "900",
+  style: "italic",
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <body>
+      <body className={fraunces.variable}>
         <main className="relative">{props.children}</main>
       </body>
     </html>
