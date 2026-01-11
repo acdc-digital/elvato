@@ -87,7 +87,7 @@ export const upsert = mutation({
     price: v.number(),
     productType: v.number(),
     listedShopNum: v.optional(v.string()),
-    cjCreatedAt: v.string(),
+    cjCreatedAt: v.union(v.string(), v.number()),  // ISO string or Unix timestamp
     description: v.optional(v.string()),
     categoryId: v.optional(v.string()),
     categoryName: v.optional(v.string()),
@@ -134,7 +134,7 @@ export const batchUpsert = mutation({
       price: v.number(),
       productType: v.number(),
       listedShopNum: v.optional(v.string()),
-      cjCreatedAt: v.string(),
+      cjCreatedAt: v.union(v.string(), v.number()),  // ISO string or Unix timestamp
       description: v.optional(v.string()),
       categoryId: v.optional(v.string()),
       categoryName: v.optional(v.string()),

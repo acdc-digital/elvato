@@ -8,4 +8,7 @@
     ".cj-docs": "store",
     ".medusa": "template"
   },
+  "chat.tools.terminal.autoApprove": {
+    "npx medusa": true
+  },
 }
