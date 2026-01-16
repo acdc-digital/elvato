@@ -67,12 +67,12 @@ export default async function Nav() {
               </LocalizedClientLink>
             </Button>
 
-            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+            <Button variant="link" asChild className="font-mono tracking-wider text-black">
               <LocalizedClientLink
                 href="/how-it-works"
                 data-testid="nav-how-link"
               >
-                TRADE
+                LED-itorial
               </LocalizedClientLink>
             </Button>
           </div>

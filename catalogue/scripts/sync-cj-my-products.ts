@@ -11,8 +11,7 @@
  * 
  * Options:
  *   --clear    Clear all existing products before syncing
- *   --dry-run  Fetch products but don't sync to Convex
- *   --limit N  Only sync first N products (for testing)
+ *   --no-descriptions  Skip fetching individual product descriptions
  */
 
 import { config } from 'dotenv';
@@ -27,99 +26,63 @@ import { api } from '../convex/_generated/api';
 // Configuration
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:8008';
 const CONVEX_URL = process.env.NEXT_PUBLIC_CONVEX_URL;
-const BATCH_SIZE = 50; // Products per Convex mutation batch
-
-interface TransformedProduct {
-  cjProductId: string;
-  sku: string;
-  nameEn: string;
-  productNames: string[];
-  bigImage: string;
-  price: number;
-  productType: number;
-  listedShopNum?: string;
-  cjCreatedAt: string;
-}
 
 interface SyncResponse {
   success: boolean;
-  products?: TransformedProduct[];
   stats?: {
     totalInCJ: number;
     fetched: number;
+    saved: number;
+    created: number;
+    updated: number;
     pages: number;
     errors: number;
+    withDescriptions?: number;
+    removedFromShelves?: number;
   };
   error?: string;
   errors?: string[];
 }
 
-async function fetchProductsFromCJ(): Promise<SyncResponse> {
-  console.log('📡 Fetching products from CJ API...');
+async function triggerSync(options: { fetchDescriptions?: boolean }): Promise<SyncResponse> {
+  console.log('📡 Triggering CJ sync via API...');
   console.log(`   API URL: ${API_BASE_URL}/api/cj/my-products/sync`);
-  
-  const response = await fetch(`${API_BASE_URL}/api/cj/my-products/sync`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      pageSize: 100, // Max reasonable size per page
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+  if (options.fetchDescriptions !== false) {
+    console.log('   ⏳ This may take 8-15 minutes for description fetching...');
   }
-
-  return response.json();
-}
-
-async function syncToConvex(
-  convex: ConvexHttpClient,
-  products: TransformedProduct[],
-  options: { dryRun?: boolean; limit?: number }
-): Promise<{ created: number; updated: number }> {
-  let productsToSync = products;
+  console.log('   💾 Data will be saved to Convex in batches as it syncs');
   
-  if (options.limit && options.limit > 0) {
-    productsToSync = products.slice(0, options.limit);
-    console.log(`🔢 Limiting to first ${options.limit} products`);
-  }
-
-  if (options.dryRun) {
-    console.log('🧪 Dry run mode - not syncing to Convex');
-    console.log(`   Would sync ${productsToSync.length} products`);
-    return { created: 0, updated: 0 };
-  }
-
-  console.log(`📤 Syncing ${productsToSync.length} products to Convex...`);
+  // Use AbortController with 60-minute timeout
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 60 * 60 * 1000);
   
-  let totalCreated = 0;
-  let totalUpdated = 0;
-  const batches = Math.ceil(productsToSync.length / BATCH_SIZE);
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/cj/my-products/sync`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        pageSize: 100,
+        fetchDescriptions: options.fetchDescriptions !== false,
+      }),
+      signal: controller.signal,
+    });
 
-  for (let i = 0; i < productsToSync.length; i += BATCH_SIZE) {
-    const batch = productsToSync.slice(i, i + BATCH_SIZE);
-    const batchNum = Math.floor(i / BATCH_SIZE) + 1;
-    
-    process.stdout.write(`   Batch ${batchNum}/${batches} (${batch.length} products)...`);
-    
-    try {
-      const result = await convex.mutation(api.cjMyProducts.batchUpsert, {
-        products: batch,
-      });
-      
-      totalCreated += result.created;
-      totalUpdated += result.updated;
-      
-      console.log(` ✓ (${result.created} new, ${result.updated} updated)`);
-    } catch (error) {
-      console.log(` ✗ Error: ${error instanceof Error ? error.message : 'Unknown'}`);
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.status} ${response.statusText}`);
     }
-  }
 
-  return { created: totalCreated, updated: totalUpdated };
+    return response.json();
+  } catch (error) {
+    clearTimeout(timeoutId);
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error('Request timed out after 60 minutes');
+    }
+    throw error;
+  }
 }
 
 async function main() {
@@ -133,14 +96,8 @@ async function main() {
   const args = process.argv.slice(2);
   const options = {
     clear: args.includes('--clear'),
-    dryRun: args.includes('--dry-run'),
-    limit: 0,
+    noDescriptions: args.includes('--no-descriptions'),
   };
-
-  const limitIndex = args.indexOf('--limit');
-  if (limitIndex !== -1 && args[limitIndex + 1]) {
-    options.limit = parseInt(args[limitIndex + 1], 10);
-  }
 
   console.log('Options:', options);
   console.log('');
@@ -166,58 +123,55 @@ async function main() {
     console.log('');
 
     // Clear if requested
-    if (options.clear && !options.dryRun) {
+    if (options.clear) {
       console.log('🗑️  Clearing existing products...');
       const clearResult = await convex.mutation(api.cjMyProducts.clearAll, {});
       console.log(`   Deleted ${clearResult.deleted} products`);
       console.log('');
     }
 
-    // Fetch from CJ
+    // Trigger sync - API now saves directly to Convex
     const startTime = Date.now();
-    const fetchResult = await fetchProductsFromCJ();
+    const syncResult = await triggerSync({ fetchDescriptions: !options.noDescriptions });
 
-    if (!fetchResult.success) {
-      console.error('❌ Failed to fetch from CJ:', fetchResult.error);
+    if (!syncResult.success) {
+      console.error('❌ Sync failed:', syncResult.error);
       process.exit(1);
     }
 
-    const fetchDuration = ((Date.now() - startTime) / 1000).toFixed(1);
-    console.log(`✅ Fetched ${fetchResult.products?.length || 0} products in ${fetchDuration}s`);
+    const syncDuration = ((Date.now() - startTime) / 1000 / 60).toFixed(1);
+    console.log('');
+    console.log(`✅ Sync complete in ${syncDuration} minutes`);
     
-    if (fetchResult.stats) {
-      console.log(`   Total in CJ: ${fetchResult.stats.totalInCJ}`);
-      console.log(`   Pages fetched: ${fetchResult.stats.pages}`);
-      if (fetchResult.stats.errors > 0) {
-        console.log(`   ⚠️  Errors: ${fetchResult.stats.errors}`);
+    if (syncResult.stats) {
+      console.log(`   Total in CJ: ${syncResult.stats.totalInCJ}`);
+      console.log(`   Fetched: ${syncResult.stats.fetched}`);
+      console.log(`   Saved to Convex: ${syncResult.stats.saved}`);
+      console.log(`   Created: ${syncResult.stats.created}`);
+      console.log(`   Updated: ${syncResult.stats.updated}`);
+      if (syncResult.stats.withDescriptions !== undefined) {
+        console.log(`   With descriptions: ${syncResult.stats.withDescriptions}`);
+      }
+      if (syncResult.stats.removedFromShelves !== undefined && syncResult.stats.removedFromShelves > 0) {
+        console.log(`   ⚠️  Removed from shelves: ${syncResult.stats.removedFromShelves}`);
+      }
+      if (syncResult.stats.errors > 0) {
+        console.log(`   ⚠️  Errors: ${syncResult.stats.errors}`);
       }
     }
     
-    if (fetchResult.errors && fetchResult.errors.length > 0) {
+    if (syncResult.errors && syncResult.errors.length > 0) {
       console.log('   Error details:');
-      fetchResult.errors.forEach(err => console.log(`     - ${err}`));
+      syncResult.errors.forEach(err => console.log(`     - ${err}`));
     }
+
+    // Final stats from Convex
     console.log('');
-
-    // Sync to Convex
-    if (fetchResult.products && fetchResult.products.length > 0) {
-      const syncStartTime = Date.now();
-      const syncResult = await syncToConvex(convex, fetchResult.products, options);
-      const syncDuration = ((Date.now() - syncStartTime) / 1000).toFixed(1);
-      
-      console.log('');
-      console.log(`✅ Sync complete in ${syncDuration}s`);
-      console.log(`   Created: ${syncResult.created}`);
-      console.log(`   Updated: ${syncResult.updated}`);
-    } else {
-      console.log('⚠️  No products to sync');
-    }
-
-    // Final stats
-    if (!options.dryRun) {
-      console.log('');
-      const finalStats = await convex.query(api.cjMyProducts.getSyncStats, {});
-      console.log(`📊 Final Convex stats: ${finalStats.totalProducts} products`);
+    const finalStats = await convex.query(api.cjMyProducts.getSyncStats, {});
+    const removedCount = await convex.query(api.cjMyProducts.getRemovedCount, {});
+    console.log(`📊 Final Convex stats: ${finalStats.totalProducts} products`);
+    if (removedCount > 0) {
+      console.log(`   ⚠️  Total removed from shelves: ${removedCount}`);
     }
 
     console.log('');

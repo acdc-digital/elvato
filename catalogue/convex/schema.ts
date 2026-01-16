@@ -100,6 +100,10 @@ export default defineSchema({
     supplierName: v.optional(v.string()),
     inventory: v.optional(v.number()),
     
+    // CJ Product Status
+    isRemovedFromShelves: v.optional(v.boolean()), // true if CJ says "removed from shelves"
+    cjStatusMessage: v.optional(v.string()),       // Last status message from CJ API
+    
     // Staging reference - links to medusaProducts when staged
     stagedToMedusa: v.optional(v.boolean()), // true when copied to staging
     medusaProductRef: v.optional(v.id("medusaProducts")), // FK to staging table
@@ -108,6 +112,26 @@ export default defineSchema({
     .index("by_sku", ["sku"])
     .index("by_syncedAt", ["syncedAt"])
     .index("by_stagedToMedusa", ["stagedToMedusa"]),
+
+  // Products removed from CJ shelves - auto-populated during sync
+  removedFromShelves: defineTable({
+    cjProductId: v.string(),           // CJ's productId
+    sku: v.string(),                   // Product SKU
+    nameEn: v.string(),                // English product name
+    bigImage: v.optional(v.string()),  // Last known image URL
+    price: v.optional(v.number()),     // Last known price
+    cjStatusMessage: v.optional(v.string()), // Message from CJ API
+    
+    // Reference to original cjMyProducts record (if still exists)
+    cjMyProductRef: v.optional(v.id("cjMyProducts")),
+    
+    // Timestamps
+    removedAt: v.number(),             // When we detected removal
+    lastSeenAt: v.optional(v.number()), // Last time product was available
+  })
+    .index("by_cjProductId", ["cjProductId"])
+    .index("by_sku", ["sku"])
+    .index("by_removedAt", ["removedAt"]),
 
   // ---------------------------------------------------------------------------
   // MEDUSA STAGING TABLES
@@ -220,6 +244,9 @@ export default defineSchema({
     lastSyncedAt: v.optional(v.number()),    // Unix timestamp of last sync
     syncError: v.optional(v.string()),       // Error message if sync failed
     
+    // --- Image Extraction Tracking ---
+    imagesExtractedAt: v.optional(v.number()), // When images were extracted from description
+    
     // --- Timestamps ---
     createdAt: v.number(),
     updatedAt: v.number(),
@@ -244,6 +271,11 @@ export default defineSchema({
     title: v.string(),                   // Variant title (e.g., "Default", "Large")
     allowBackorder: v.boolean(),         // Allow backorders? (default: false)
     manageInventory: v.boolean(),        // Track inventory? (default: true)
+    
+    // --- VARIANT OPTIONS ---
+    // Key-value pairs matching Medusa's format
+    // e.g., { "Color Temperature": "Warm White", "Size": "40cm", "Finish": "Black" }
+    options: v.optional(v.any()),
     
     // --- Medusa Core Fields (Optional) ---
     sku: v.optional(v.string()),         // Stock Keeping Unit
@@ -338,4 +370,59 @@ export default defineSchema({
   })
     .index("by_medusaVariantId", ["medusaVariantId"])
     .index("by_currencyCode", ["currencyCode"]),
+
+  // ===========================================================================
+  // TABLE: medusaProductOptions (Child of medusaProducts)
+  // Maps to: Medusa PostgreSQL `product_option` table
+  // Defines what options a product has (e.g., "Color Temperature", "Size")
+  // ===========================================================================
+  medusaProductOptions: defineTable({
+    // --- Parent Reference ---
+    medusaProductId: v.id("medusaProducts"), // FK to parent product
+    
+    // --- Medusa Core Fields ---
+    title: v.string(),                   // Option name: "Color Temperature", "Size", "Finish"
+    
+    // --- Metadata ---
+    metadata: v.optional(v.any()),       // Custom JSON data
+    
+    // --- Sync Tracking ---
+    medusaOptionId: v.optional(v.string()), // Medusa's option ID after sync
+    
+    // --- Timestamps ---
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_medusaProductId", ["medusaProductId"])
+    .index("by_title", ["title"]),
+
+  // ===========================================================================
+  // TABLE: lightingOptionDefinitions (Master Reference Table)
+  // Defines available option types and valid values for lighting products
+  // Used for parsing CJ descriptions and creating product variants
+  // ===========================================================================
+  lightingOptionDefinitions: defineTable({
+    // --- Option Type ---
+    optionType: v.string(),              // e.g., "Color Temperature", "Size", "Finish"
+    
+    // --- Valid Values ---
+    values: v.array(v.string()),         // e.g., ["Warm White", "Cool White", "Neutral Light"]
+    
+    // --- Parsing Patterns ---
+    regexPatterns: v.optional(v.array(v.string())), // Regex patterns to find in descriptions
+    
+    // --- Display Config ---
+    displayOrder: v.number(),            // Order in UI (1 = first)
+    isRequired: v.boolean(),             // Is this option required for all products?
+    
+    // --- Metadata ---
+    description: v.optional(v.string()), // Description of this option type
+    metadata: v.optional(v.any()),       // Custom JSON data
+    
+    // --- Timestamps ---
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_optionType", ["optionType"])
+    .index("by_displayOrder", ["displayOrder"]),
 });

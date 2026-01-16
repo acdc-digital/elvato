@@ -10,6 +10,8 @@
 
 import type * as actionHistory from "../actionHistory.js";
 import type * as cjMyProducts from "../cjMyProducts.js";
+import type * as files from "../files.js";
+import type * as medusaStaging from "../medusaStaging.js";
 import type * as products from "../products.js";
 
 import type {
@@ -21,6 +23,8 @@ import type {
 declare const fullApi: ApiFromModules<{
   actionHistory: typeof actionHistory;
   cjMyProducts: typeof cjMyProducts;
+  files: typeof files;
+  medusaStaging: typeof medusaStaging;
   products: typeof products;
 }>;
 

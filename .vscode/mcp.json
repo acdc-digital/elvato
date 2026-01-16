@@ -1,8 +1,14 @@
 {
   "servers": {
+    // Medusa MCP - temporarily disabled (endpoint returning 404)
     // "medusa": {
     //   "type": "http",
     //   "url": "https://docs.medusajs.com/mcp"
-    // }
+    // },
+    "convex": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "convex@latest", "mcp", "start", "--project-dir", "${workspaceFolder}/catalogue"]
+    }
   }
 }
