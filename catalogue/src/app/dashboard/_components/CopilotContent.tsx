@@ -1,19 +1,59 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { useQuery, useMutation } from "convex/react";
+import { api } from "../../../../convex/_generated/api";
 
 export function CopilotContent() {
   const [usageInputs, setUsageInputs] = useState<Record<number, string>>({});
+  const [isInitialized, setIsInitialized] = useState(false);
+  
+  // Convex hooks
+  const savedData = useQuery(api.copilot.getUsageData);
+  const saveUsageData = useMutation(api.copilot.saveUsageData);
   
   const days = Array.from({ length: 30 }, (_, i) => i + 1);
   const percentagePerDay = 100 / 30;
 
+  // Load saved data on mount
+  useEffect(() => {
+    if (savedData && !isInitialized) {
+      // Convert string keys back to number keys for local state
+      const inputs: Record<number, string> = {};
+      Object.entries(savedData.usageInputs).forEach(([key, value]) => {
+        inputs[parseInt(key, 10)] = value;
+      });
+      setUsageInputs(inputs);
+      setIsInitialized(true);
+    } else if (savedData === null && !isInitialized) {
+      // No saved data exists, mark as initialized
+      setIsInitialized(true);
+    }
+  }, [savedData, isInitialized]);
+
+  // Debounced save function
+  const saveToConvex = useCallback(
+    async (inputs: Record<number, string>) => {
+      // Convert number keys to string keys for Convex
+      const stringKeyInputs: Record<string, string> = {};
+      Object.entries(inputs).forEach(([key, value]) => {
+        stringKeyInputs[key.toString()] = value;
+      });
+      await saveUsageData({ usageInputs: stringKeyInputs });
+    },
+    [saveUsageData]
+  );
+
   const handleUsageChange = (day: number, value: string) => {
-    setUsageInputs(prev => ({
-      ...prev,
+    const newInputs = {
+      ...usageInputs,
       [day]: value
-    }));
+    };
+    setUsageInputs(newInputs);
+    
+    // Save to Convex (debounce could be added here for performance)
+    saveToConvex(newInputs);
   };
 
   const getCumulativePercentage = (day: number): string => {
@@ -173,7 +213,7 @@ export function CopilotContent() {
                 labelStyle={{ color: '#cccccc' }}
               />
               <Legend 
-                wrapperStyle={{ color: '#cccccc' }}
+                wrapperStyle={{ color: '#cccccc', paddingTop: '20px' }}
                 iconType="line"
               />
               <Line 

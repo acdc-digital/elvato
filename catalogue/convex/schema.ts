@@ -15,6 +15,16 @@ import { v } from "convex/values";
 
 export default defineSchema({
   // ---------------------------------------------------------------------------
+  // COPILOT USAGE TRACKING
+  // ---------------------------------------------------------------------------
+  
+  copilotUsage: defineTable({
+    usageInputs: v.record(v.string(), v.string()), // Day number (as string) -> percentage input
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }),
+
+  // ---------------------------------------------------------------------------
   // LEGACY TABLES
   // ---------------------------------------------------------------------------
   
