@@ -10,6 +10,7 @@
     ".legal": "coverage",
     ".trunk": "eslint",
     "content-editor": "robot",
+    "shipping": "robot"
   },
   "chat.tools.terminal.autoApprove": {
     "npx medusa": true
