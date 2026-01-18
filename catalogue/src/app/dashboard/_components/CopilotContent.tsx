@@ -27,7 +27,8 @@ export function CopilotContent() {
     const actualUsage = parseFloat(input);
     if (isNaN(actualUsage)) return null;
     
-    const difference = percentagePerDay - actualUsage;
+    const cumulativeExpected = percentagePerDay * day;
+    const difference = cumulativeExpected - actualUsage;
     return difference.toFixed(2);
   };
 
