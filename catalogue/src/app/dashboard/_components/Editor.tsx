@@ -7,11 +7,12 @@ import { ProductList } from "./ProductList";
 import { TrashList } from "./TrashList";
 import { ProductForm } from "./ProductForm";
 import { InventoryList } from "./InventoryList";
+import { CopilotContent } from "./CopilotContent";
 
 export interface Tab {
   id: string;
   title: string;
-  type: "products" | "inventory" | "trash" | "product-detail" | "new-product";
+  type: "products" | "inventory" | "trash" | "copilot" | "product-detail" | "new-product";
   productId?: string; // For product-detail tabs
 }
 
@@ -24,6 +25,7 @@ const panelToTab: Record<string, { id: string; title: string; type: Tab["type"] 
   products: { id: "products", title: "Products", type: "products" },
   inventory: { id: "inventory", title: "Inventory", type: "inventory" },
   trash: { id: "trash", title: "Trash", type: "trash" },
+  copilot: { id: "copilot", title: "Copilot", type: "copilot" },
 };
 
 export function Editor({ activePanel }: EditorProps) {
@@ -132,6 +134,9 @@ export function Editor({ activePanel }: EditorProps) {
       
       case "trash":
         return <TrashList onProductClick={openProductTab} />;
+      
+      case "copilot":
+        return <CopilotContent />;
       
       case "new-product":
         return (

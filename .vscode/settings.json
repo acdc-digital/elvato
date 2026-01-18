@@ -6,7 +6,10 @@
     "convex": "database",
     "dashboard": "content",
     ".cj-docs": "store",
-    ".medusa": "template"
+    ".medusa": "template",
+    ".legal": "coverage",
+    ".trunk": "eslint",
+    "content-editor": "robot",
   },
   "chat.tools.terminal.autoApprove": {
     "npx medusa": true

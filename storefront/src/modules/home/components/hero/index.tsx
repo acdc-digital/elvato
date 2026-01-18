@@ -30,7 +30,7 @@ const Hero = () => {
               Contemporary lighting for your next project.
             </h1>
             <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
-              Elvato lighting is a curated collection of +800 affordable – handpicked lighting designs
+              Elvato lighting is a curated collection of +820 affordable – handpicked lighting designs
               sourced from top manufacturers around the world.
             </p>
             

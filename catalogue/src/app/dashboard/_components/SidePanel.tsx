@@ -83,6 +83,18 @@ export function SidePanel({ activePanel }: SidePanelProps) {
           </div>
         );
       
+      case "copilot":
+        return (
+          <div className="flex flex-col gap-4 p-4">
+            <div>
+              <h3 className="text-xs font-semibold text-[#cccccc] mb-2">Copilot</h3>
+              <div className="space-y-1">
+                <p className="text-xs text-[#858585]">AI assistant coming soon...</p>
+              </div>
+            </div>
+          </div>
+        );
+      
       case "settings":
         return (
           <div className="flex flex-col gap-4 p-4">

@@ -2735,3 +2735,241 @@ export const previewDescriptionParsing = query({
     };
   },
 });
+
+// =============================================================================
+// AI CONTENT GENERATION
+// =============================================================================
+
+/**
+ * Get products that need AI-generated content
+ * Returns products where metadata.aiContent is undefined
+ */
+export const getProductsNeedingContent = query({
+  args: {
+    limit: v.optional(v.number()),
+    includeWithContent: v.optional(v.boolean()), // For --force flag
+  },
+  handler: async (ctx, args) => {
+    const limit = args.limit ?? 10;
+    const products = await ctx.db.query("medusaProducts").collect();
+    
+    // Filter to products without AI content (unless includeWithContent is true)
+    const filtered = args.includeWithContent
+      ? products
+      : products.filter(p => {
+          const metadata = p.metadata as { aiContent?: unknown } | undefined;
+          return !metadata?.aiContent;
+        });
+    
+    // Take limit and fetch CJ product data for context
+    const limited = filtered.slice(0, limit);
+    
+    return Promise.all(
+      limited.map(async (product) => {
+        const cjProduct = await ctx.db.get(product.cjMyProductId);
+        return {
+          _id: product._id,
+          title: product.title,
+          description: product.description,
+          thumbnail: product.thumbnail,
+          cjOriginalTitle: cjProduct?.nameEn,
+          cjOriginalDescription: cjProduct?.description,
+          cjCategoryName: cjProduct?.categoryName,
+          hasAiContent: !!(product.metadata as { aiContent?: unknown } | undefined)?.aiContent,
+        };
+      })
+    );
+  },
+});
+
+/**
+ * Get a single product by ID for AI content generation
+ */
+export const getProductForAiContent = query({
+  args: { productId: v.id("medusaProducts") },
+  handler: async (ctx, args) => {
+    const product = await ctx.db.get(args.productId);
+    if (!product) return null;
+    
+    const cjProduct = await ctx.db.get(product.cjMyProductId);
+    
+    return {
+      _id: product._id,
+      title: product.title,
+      description: product.description,
+      thumbnail: product.thumbnail,
+      cjOriginalTitle: cjProduct?.nameEn,
+      cjOriginalDescription: cjProduct?.description,
+      cjCategoryName: cjProduct?.categoryName,
+      hasAiContent: !!(product.metadata as { aiContent?: unknown } | undefined)?.aiContent,
+    };
+  },
+});
+
+/**
+ * Update a product with AI-generated content
+ * Stores main fields directly and review data in metadata.aiContent
+ */
+export const updateProductAiContent = mutation({
+  args: {
+    productId: v.id("medusaProducts"),
+    title: v.string(),
+    subtitle: v.string(),
+    description: v.string(),
+    productType: v.string(),
+    tags: v.array(v.string()),
+    suggestedCategories: v.array(v.string()),
+    seoTitle: v.string(),
+    seoDescription: v.string(),
+    model: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const product = await ctx.db.get(args.productId);
+    if (!product) throw new Error("Product not found");
+    
+    const now = Date.now();
+    
+    // Preserve existing metadata and add aiContent
+    const existingMetadata = (product.metadata || {}) as Record<string, unknown>;
+    
+    // Store the original title before overwriting
+    const originalTitle = product.title;
+    
+    await ctx.db.patch(args.productId, {
+      title: args.title,
+      subtitle: args.subtitle,
+      description: args.description,
+      typeValue: args.productType,
+      metadata: {
+        ...existingMetadata,
+        aiContent: {
+          generatedAt: new Date(now).toISOString(),
+          model: args.model,
+          tags: args.tags,
+          suggestedCategories: args.suggestedCategories,
+          seoTitle: args.seoTitle,
+          seoDescription: args.seoDescription,
+          originalTitle: originalTitle,
+        },
+      },
+      updatedAt: now,
+    });
+    
+    // Also update the handle based on new title
+    const newHandle = args.title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+    
+    await ctx.db.patch(args.productId, { handle: newHandle });
+    
+    return { success: true, productId: args.productId };
+  },
+});
+
+/**
+ * Get AI content generation statistics
+ */
+export const getAiContentStats = query({
+  args: {},
+  handler: async (ctx) => {
+    const products = await ctx.db.query("medusaProducts").collect();
+    
+    let withContent = 0;
+    let withoutContent = 0;
+    
+    for (const product of products) {
+      const metadata = product.metadata as { aiContent?: unknown } | undefined;
+      if (metadata?.aiContent) {
+        withContent++;
+      } else {
+        withoutContent++;
+      }
+    }
+    
+    return {
+      totalProducts: products.length,
+      withAiContent: withContent,
+      withoutAiContent: withoutContent,
+      percentComplete: products.length > 0 
+        ? Math.round((withContent / products.length) * 100) 
+        : 0,
+    };
+  },
+});
+
+// =============================================================================
+// PRODUCT CLASSIFICATION
+// =============================================================================
+
+/**
+ * Update a product with new data (generic update mutation)
+ */
+export const updateProduct = mutation({
+  args: {
+    id: v.id("medusaProducts"),
+    updates: v.object({
+      title: v.optional(v.string()),
+      subtitle: v.optional(v.string()),
+      description: v.optional(v.string()),
+      handle: v.optional(v.string()),
+      status: v.optional(v.union(
+        v.literal("draft"),
+        v.literal("proposed"),
+        v.literal("published"),
+        v.literal("rejected")
+      )),
+      metadata: v.optional(v.any()),
+    }),
+  },
+  handler: async (ctx, args) => {
+    const product = await ctx.db.get(args.id);
+    if (!product) {
+      throw new Error(`Product not found: ${args.id}`);
+    }
+    
+    await ctx.db.patch(args.id, {
+      ...args.updates,
+      updatedAt: Date.now(),
+    });
+    
+    return { success: true, id: args.id };
+  },
+});
+
+/**
+ * Get classification statistics
+ */
+export const getClassificationStats = query({
+  args: {},
+  handler: async (ctx) => {
+    const products = await ctx.db.query("medusaProducts").collect();
+    
+    const stats = {
+      totalProducts: products.length,
+      classified: 0,
+      unclassified: 0,
+      byMainType: {} as Record<string, number>,
+      ledCount: 0,
+    };
+    
+    for (const product of products) {
+      const metadata = product.metadata as { classification?: { mainType: string; isLED: boolean } } | undefined;
+      const classification = metadata?.classification;
+      
+      if (classification?.mainType) {
+        stats.classified++;
+        stats.byMainType[classification.mainType] = (stats.byMainType[classification.mainType] || 0) + 1;
+        if (classification.isLED) {
+          stats.ledCount++;
+        }
+      } else {
+        stats.unclassified++;
+      }
+    }
+    
+    return stats;
+  },
+});
