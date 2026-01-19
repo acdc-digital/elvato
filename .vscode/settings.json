@@ -5,7 +5,7 @@
     ".agents": "claude",
     "convex": "database",
     "dashboard": "content",
-    ".cj-docs": "store",
+    ".wholesale": "store",
     ".medusa": "template",
     ".legal": "coverage",
     ".trunk": "eslint",
