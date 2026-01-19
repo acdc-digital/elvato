@@ -95,6 +95,18 @@ export function SidePanel({ activePanel }: SidePanelProps) {
           </div>
         );
       
+      case "image":
+        return (
+          <div className="flex flex-col gap-4 p-4">
+            <div>
+              <h3 className="text-xs font-semibold text-[#cccccc] mb-2">Images</h3>
+              <div className="space-y-1">
+                <p className="text-xs text-[#858585]">Image management coming soon...</p>
+              </div>
+            </div>
+          </div>
+        );
+      
       case "settings":
         return (
           <div className="flex flex-col gap-4 p-4">

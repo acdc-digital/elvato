@@ -11,6 +11,7 @@ import {
   Trash2,
   RefreshCw,
   Bot,
+  Image,
   LucideIcon 
 } from "lucide-react";
 
@@ -21,6 +22,7 @@ export type PanelType =
   | "trash"
   | "calendar"
   | "copilot"
+  | "image"
   | "settings"
   | "account"
   | null;
@@ -38,6 +40,7 @@ export function ActivityBar({ activePanel, onPanelChange }: ActivityBarProps) {
     { id: "trash", icon: Trash2, label: "Trash" },
     { id: "calendar", icon: Calendar, label: "Calendar" },
     { id: "copilot", icon: Bot, label: "Copilot" },
+    { id: "image", icon: Image, label: "Images" },
     { id: "account", icon: User, label: "Account" },
   ];
 

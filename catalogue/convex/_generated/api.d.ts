@@ -14,6 +14,7 @@ import type * as copilot from "../copilot.js";
 import type * as files from "../files.js";
 import type * as medusaStaging from "../medusaStaging.js";
 import type * as products from "../products.js";
+import type * as variantMapping from "../variantMapping.js";
 
 import type {
   ApiFromModules,
@@ -28,6 +29,7 @@ declare const fullApi: ApiFromModules<{
   files: typeof files;
   medusaStaging: typeof medusaStaging;
   products: typeof products;
+  variantMapping: typeof variantMapping;
 }>;
 
 /**

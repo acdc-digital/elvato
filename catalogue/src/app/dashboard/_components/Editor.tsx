@@ -12,7 +12,7 @@ import { CopilotContent } from "./CopilotContent";
 export interface Tab {
   id: string;
   title: string;
-  type: "products" | "inventory" | "trash" | "copilot" | "product-detail" | "new-product";
+  type: "products" | "inventory" | "trash" | "copilot" | "image" | "product-detail" | "new-product";
   productId?: string; // For product-detail tabs
 }
 
@@ -26,6 +26,7 @@ const panelToTab: Record<string, { id: string; title: string; type: Tab["type"] 
   inventory: { id: "inventory", title: "Inventory", type: "inventory" },
   trash: { id: "trash", title: "Trash", type: "trash" },
   copilot: { id: "copilot", title: "Copilot", type: "copilot" },
+  image: { id: "image", title: "Images", type: "image" },
 };
 
 export function Editor({ activePanel }: EditorProps) {
@@ -137,6 +138,16 @@ export function Editor({ activePanel }: EditorProps) {
       
       case "copilot":
         return <CopilotContent />;
+      
+      case "image":
+        return (
+          <div className="flex-1 flex items-center justify-center text-[#858585]">
+            <div className="text-center">
+              <p className="text-lg mb-2">Images</p>
+              <p className="text-sm">Image management coming soon...</p>
+            </div>
+          </div>
+        );
       
       case "new-product":
         return (

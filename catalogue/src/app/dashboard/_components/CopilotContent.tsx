@@ -84,20 +84,23 @@ export function CopilotContent() {
   const chartData = useMemo(() => {
     const data = [{ day: 0, expected: 0, actual: 0 }];
     
-    let cumulativeActual = 0;
+    let lastActualValue = 0;
     
     for (let i = 1; i <= 30; i++) {
       const input = usageInputs[i];
-      const actualUsage = input && input.trim() !== '' ? parseFloat(input) : 0;
       
-      if (!isNaN(actualUsage)) {
-        cumulativeActual += actualUsage;
+      // Input values are cumulative percentages, not daily amounts
+      if (input && input.trim() !== '') {
+        const actualUsage = parseFloat(input);
+        if (!isNaN(actualUsage)) {
+          lastActualValue = actualUsage;
+        }
       }
       
       data.push({
         day: i,
         expected: parseFloat((percentagePerDay * i).toFixed(2)),
-        actual: parseFloat(cumulativeActual.toFixed(2))
+        actual: parseFloat(lastActualValue.toFixed(2))
       });
     }
     

@@ -407,6 +407,70 @@ export default defineSchema({
     .index("by_title", ["title"]),
 
   // ===========================================================================
+  // TABLE: variantMapping (Variant Image Analysis)
+  // Analyzes product variants to categorize physical vs. non-physical options
+  // Used for determining image requirements per product
+  // ===========================================================================
+  variantMapping: defineTable({
+    // --- Product Reference ---
+    productId: v.id("medusaProducts"),   // FK to parent product
+    cjProductId: v.string(),             // CJ product ID for reference
+    title: v.string(),                   // Product title
+    
+    // --- Variant Counts ---
+    totalVariants: v.number(),           // Total number of variants
+    physicalVariants: v.number(),        // Unique physical combinations (need images)
+    nonPhysicalVariants: v.number(),     // Variants sharing same physical appearance
+    
+    // --- Physical Options (Require unique images) ---
+    // Options that change the visible appearance of the fixture
+    physicalOptions: v.array(v.object({
+      name: v.string(),                  // Option name (e.g., "Finish", "Number of Lights")
+      values: v.array(v.string()),       // Available values
+      count: v.number(),                 // Number of unique values
+    })),
+    
+    // --- Non-Physical Options (Share images) ---
+    // Options that don't change visible appearance
+    nonPhysicalOptions: v.array(v.object({
+      name: v.string(),                  // Option name (e.g., "Color Temperature", "Wattage")
+      values: v.array(v.string()),       // Available values
+      count: v.number(),                 // Number of unique values
+    })),
+    
+    // --- Physical Variant Groups ---
+    // Groups of variants that share the same physical appearance
+    physicalVariantGroups: v.array(v.object({
+      groupKey: v.string(),              // Unique key (e.g., "Black|3-head")
+      physicalOptionValues: v.record(v.string(), v.string()), // Physical options for this group
+      variantIds: v.array(v.id("medusaProductVariants")), // Variants in this group
+      variantCount: v.number(),          // Number of variants in group
+      assignedImageUrl: v.optional(v.string()), // Image assigned to this group
+    })),
+    
+    // --- Image Requirements ---
+    requiredImages: v.number(),          // = number of physical variant groups
+    currentImages: v.number(),           // Number of images currently on product
+    imageCoverage: v.number(),           // Percentage 0-100
+    missingImages: v.number(),           // requiredImages - currentImages (min 0)
+    
+    // --- Status ---
+    status: v.union(
+      v.literal("complete"),             // All physical variants have images
+      v.literal("partial"),              // Some physical variants missing images
+      v.literal("missing")               // No images assigned
+    ),
+    
+    // --- Timestamps ---
+    analyzedAt: v.number(),              // When analysis was performed
+    updatedAt: v.number(),
+  })
+    .index("by_productId", ["productId"])
+    .index("by_status", ["status"])
+    .index("by_missingImages", ["missingImages"])
+    .index("by_imageCoverage", ["imageCoverage"]),
+
+  // ===========================================================================
   // TABLE: lightingOptionDefinitions (Master Reference Table)
   // Defines available option types and valid values for lighting products
   // Used for parsing CJ descriptions and creating product variants
