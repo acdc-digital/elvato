@@ -10,32 +10,58 @@ import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Elvato | Contemporary Lighting for Your Next Project",
   description:
-    "A performant frontend ecommerce starter template with Next.js 15 and Medusa.",
+    "Shop 820+ curated, affordable lighting designs — pendants, chandeliers, ceiling, wall, floor & table lamps, outdoor lighting, and smart controls.",
+}
+
+/**
+ * Homepage collection display order.
+ * Collections are matched by handle and rendered in this sequence.
+ * Only collections listed here will appear on the homepage.
+ * The first group renders above the editorial break, the second below.
+ */
+const HOMEPAGE_COLLECTIONS_TOP = [
+  "Featured",       // Featured / New Arrivals — editorial curation
+  "chandeliers",    // Highest AOV, aspirational, strong visual impact
+  "pendants",       // #1 search volume in modern lighting
+  "ceiling",        // Broadest need, every room has one
+  "wall",           // Strong design-driven category
+]
+
+const HOMEPAGE_COLLECTIONS_BOTTOM = [
+  "table-floor",    // Lower price point, impulse/add-on purchases
+  "outdoor",        // Distinct audience, seasonal appeal
+  "accessories",    // Complementary add-ons
+]
+
+function sortCollectionsByPriority(
+  collections: { id: string; handle: string; title: string }[],
+  priorityHandles: string[]
+) {
+  return priorityHandles
+    .map((handle) => collections.find((c) => c.handle === handle))
+    .filter(Boolean) as typeof collections
 }
 
 export default async function Home(props: {
   params: Promise<{ countryCode: string }>
 }) {
   const params = await props.params
-
   const { countryCode } = params
 
-  console.log("Home Page - Country Code:", countryCode)
-
   const region = await getRegion(countryCode)
-  console.log("Home Page - Region:", region?.id, region?.name)
 
   const { collections } = await listCollections({
     fields: "id, handle, title",
   })
-  console.log("Home Page - Collections:", collections?.length, collections?.map(c => c.title))
 
   if (!collections || !region) {
-    console.log("Home Page - Missing collections or region, returning null")
     return null
   }
+
+  const topCollections = sortCollectionsByPriority(collections, HOMEPAGE_COLLECTIONS_TOP)
+  const bottomCollections = sortCollectionsByPriority(collections, HOMEPAGE_COLLECTIONS_BOTTOM)
 
   return (
     <>
@@ -43,32 +69,28 @@ export default async function Home(props: {
       {/* TODO: PhotoGrid below hero */}
       {/* <PhotoGrid /> */}
       <CtaBanner />
-      <div className="pt-0 pb-4">
-        <ul className="flex flex-col">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
-      <div className="pb-4">
-        <ul className="flex flex-col">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
-      <ProductGrid />
-      <div className="pb-4">
-        <ul className="flex flex-col">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
-      <div className="pb-4">
-        <ul className="flex flex-col">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
-      <div className="pb-16">
-        <ul className="flex flex-col">
-          <FeaturedProducts collections={collections} region={region} />
-        </ul>
-      </div>
+
+      {/* Primary collection rails — highest ROI categories */}
+      {topCollections.length > 0 && (
+        <div className="pt-0 pb-8">
+          <ul className="flex flex-col">
+            <FeaturedProducts collections={topCollections} region={region} />
+          </ul>
+        </div>
+      )}
+
+      {/* Editorial break — Editor's Picks / Shop by Room */}
+      {/* <ProductGrid /> */}
+
+      {/* Secondary collection rails — complementary categories */}
+      {bottomCollections.length > 0 && (
+        <div className="pb-8">
+          <ul className="flex flex-col">
+            <FeaturedProducts collections={bottomCollections} region={region} />
+          </ul>
+        </div>
+      )}
+
       {/* TODO: PhotoGrid above hero-2 */}
       {/* <PhotoGrid /> */}
       <SecondaryHero />

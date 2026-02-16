@@ -6,6 +6,52 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Image from "next/image"
 import PreviewPrice from "./price"
 
+/**
+ * Map common finish / colour names to hex values.
+ * Falls back to a neutral grey for unknown values.
+ */
+const COLOR_MAP: Record<string, string> = {
+  // Neutrals
+  white: "#FFFFFF",
+  black: "#1A1A1A",
+  gray: "#808080",
+  grey: "#808080",
+
+  // Metals
+  gold: "#D4AF37",
+  golden: "#DAA520",
+  "rose gold": "#B76E79",
+  silver: "#C0C0C0",
+  chrome: "#CCCCCC",
+  copper: "#B87333",
+  bronze: "#CD7F32",
+  brass: "#B5A642",
+  nickel: "#A9A9A9",
+  "brushed nickel": "#B0B0B0",
+  "satin nickel": "#B8B8B8",
+  "antique brass": "#986F33",
+  "antique gold": "#9E7C0C",
+  "matte black": "#222222",
+
+  // Colours
+  red: "#C0392B",
+  blue: "#2980B9",
+  green: "#27AE60",
+  amber: "#F0A30A",
+  clear: "#E8E8E8",
+  transparent: "#E0E0E0",
+  warm: "#F5DEB3",
+  cool: "#B0C4DE",
+}
+
+function getSwatchColor(value: string): string {
+  const lower = value.toLowerCase().trim()
+  return COLOR_MAP[lower] ?? "#CCCCCC"
+}
+
+/** Placeholder price range — will be replaced by dynamic pricing API */
+const PLACEHOLDER_PRICE_RANGE = "$320 - $485"
+
 export default async function ProductPreview({
   product,
   isFeatured,
@@ -15,71 +61,81 @@ export default async function ProductPreview({
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
 }) {
-  // const pricedProduct = await listProducts({
-  //   regionId: region.id,
-  //   queryParams: { id: [product.id!] },
-  // }).then(({ response }) => response.products[0])
-
-  // if (!pricedProduct) {
-  //   return null
-  // }
-
   const { cheapestPrice } = getProductPrice({
     product,
   })
+
+  // Extract finish / colour option for swatches
+  const finishOption = product.options?.find(
+    (o) => o.title?.toLowerCase() === "finish" || o.title?.toLowerCase() === "color" || o.title?.toLowerCase() === "colour"
+  )
+  const finishSwatches = (finishOption?.values ?? []).map((v: { value: string }) => ({
+    label: v.value,
+    color: getSwatchColor(v.value),
+  }))
+
+  // Total option count across ALL option types (finish + size + voltage + …)
+  const totalOptionCount = (product.options ?? []).reduce(
+    (sum, opt) => sum + (opt.values?.length ?? 0),
+    0
+  )
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group w-full">
       <div 
         data-testid="product-wrapper"
-        className="relative border border-b-0 border-black rounded-t-2xl overflow-visible bg-white group-hover:shadow-lg transition-shadow ease-in-out duration-150 w-full"
+        className="relative border border-black rounded-t-2xl rounded-b-none overflow-visible bg-white group-hover:shadow-lg transition-shadow ease-in-out duration-150 w-full"
       >
-        {/* Inner image container with fixed aspect ratio using before pseudo element */}
-        <div className="m-2 border border-black rounded-t-xl overflow-hidden bg-gray-100 relative before:content-[''] before:block before:pt-[133.33%]">
+        {/* Inner image container with fixed aspect ratio */}
+        <div className="m-2 border border-black rounded-t-xl rounded-b-none overflow-hidden bg-gray-100 relative before:content-[''] before:block before:pt-[133.33%]">
+          {/* Fixture name bar — overlays top of image */}
+          <div className="absolute top-0 left-0 right-0 z-10 bg-white border-b border-black px-2 py-1">
+            <p className="text-[11px] font-mono text-black leading-tight text-center">
+              {product.title}
+            </p>
+          </div>
           <div className="absolute inset-0">
-            <Image
-              src={product.thumbnail || product.images?.[0]?.url || ''}
-              alt={product.title || 'Product'}
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-            />
+            {(product.thumbnail || product.images?.[0]?.url) ? (
+              <Image
+                src={product.thumbnail || product.images![0].url}
+                alt={product.title || 'Product'}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs font-mono">
+                No image
+              </div>
+            )}
           </div>
         </div>
-        {/* Text inside outer container */}
-        <div className="flex flex-col py-4 px-2">
-          <Text className="text-sm text-black font-normal text-center" data-testid="product-title">
-            {product.title}
-          </Text>
-          <div className="flex items-center justify-center mt-1">
-            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-          </div>
-        </div>
-        {/* Torn receipt edge */}
-        <div className="absolute -bottom-[10px] left-[-1px] right-[-1px] h-[12px] overflow-hidden">
-          <svg 
-            viewBox="0 0 100 12" 
-            preserveAspectRatio="none" 
-            className="w-full h-full"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* White fill - no stroke */}
-            <path 
-              d="M0,0 L100,0 L100,5 Q97.5,10 95,5 Q92.5,0 90,5 Q87.5,10 85,5 Q82.5,0 80,5 Q77.5,10 75,5 Q72.5,0 70,5 Q67.5,10 65,5 Q62.5,0 60,5 Q57.5,10 55,5 Q52.5,0 50,5 Q47.5,10 45,5 Q42.5,0 40,5 Q37.5,10 35,5 Q32.5,0 30,5 Q27.5,10 25,5 Q22.5,0 20,5 Q17.5,10 15,5 Q12.5,0 10,5 Q7.5,10 5,5 Q2.5,0 0,5 Z" 
-              fill="white"
-            />
-            {/* Left side stroke */}
-            <path d="M0,0 L0,5" fill="none" stroke="black" strokeWidth="1" />
-            {/* Right side stroke */}
-            <path d="M100,0 L100,5" fill="none" stroke="black" strokeWidth="1" />
-            {/* Wavy stroke only */}
-            <path 
-              d="M0,5 Q2.5,0 5,5 Q7.5,10 10,5 Q12.5,0 15,5 Q17.5,10 20,5 Q22.5,0 25,5 Q27.5,10 30,5 Q32.5,0 35,5 Q37.5,10 40,5 Q42.5,0 45,5 Q47.5,10 50,5 Q52.5,0 55,5 Q57.5,10 60,5 Q62.5,0 65,5 Q67.5,10 70,5 Q72.5,0 75,5 Q77.5,10 80,5 Q82.5,0 85,5 Q87.5,10 90,5 Q92.5,0 95,5 Q97.5,10 100,5" 
-              fill="none"
-              stroke="black"
-              strokeWidth="1"
-            />
-          </svg>
+
+        {/* Options & pricing below image — left-aligned with inner image (m-2) */}
+        <div className="flex flex-col items-start py-3 mx-2 gap-1.5">
+          {/* Finish swatches */}
+          {finishSwatches.length > 0 && (
+            <div className="flex items-center gap-1.5">
+              {finishSwatches.slice(0, 6).map((swatch) => (
+                <span
+                  key={swatch.label}
+                  title={swatch.label}
+                  className="w-5 h-5 rounded-full border border-black/30 inline-block"
+                  style={{ backgroundColor: swatch.color }}
+                />
+              ))}
+            </div>
+          )}
+          {/* Total option count */}
+          {totalOptionCount > 0 && (
+            <p className="text-xs text-black font-mono">
+              {totalOptionCount} {totalOptionCount === 1 ? "Option" : "Options"}
+            </p>
+          )}
+          {/* Price range */}
+          <p className="text-sm text-black font-semibold mt-0.5" data-testid="product-price">
+            {PLACEHOLDER_PRICE_RANGE}
+          </p>
         </div>
       </div>
     </LocalizedClientLink>

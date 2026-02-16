@@ -11,7 +11,8 @@
     ".trunk": "eslint",
     "content-editor": "robot",
     "shipping": "robot",
-    "product-images": "robot"
+    "product-images": "robot",
+    "marketing": "robot",
   },
   "chat.tools.terminal.autoApprove": {
     "npx medusa": true
