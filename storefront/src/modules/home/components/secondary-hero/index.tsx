@@ -63,11 +63,12 @@ const SecondaryHero = () => {
             ))}
           </div>
           
-          <div className="flex items-center justify-center p-2 pb-0 lg:p-2 lg:pr-16 flex-1">
+          <div className="overflow-hidden lg:w-[96%] flex-1">
             <img 
-              src="/controls/Controls-H2-v2.svg" 
-              alt="Controls Hero"
-              className="w-full lg:w-[75%] h-auto object-contain -translate-x-4 -translate-y-4"
+              src="/controls/Lutron-Controls-Installation.png" 
+              alt="Lutron lighting controls installation"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '20% center' }}
             />
           </div>
         </div>
