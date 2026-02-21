@@ -1,8 +1,6 @@
 "use client"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { Button } from "@/components/ui/button"
-import { ButtonGroup } from "@/components/ui/button-group"
 
 const Hero = () => {
   return (
@@ -12,17 +10,26 @@ const Hero = () => {
         <div className="flex flex-col order-1" style={{ background: 'linear-gradient(to right, #F5F5F5, #FFFFFF)' }}>
           {/* Buttons */}
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
-            <ButtonGroup className="flex-wrap">
-              {['pendants', 'chandeliers', 'ceiling', 'wall', 'desk & floor', 'controls', 'sale'].map((badge) => (
-                <Button 
-                  key={badge}
-                  variant="link"
-                  className={`font-mono uppercase tracking-wide ${badge === 'sale' ? 'text-red-600' : ''}`}
+            <div className="flex flex-wrap gap-1">
+              {[
+                { label: 'Featured', href: '/collections/Featured' },
+                { label: 'Chandeliers', href: '/collections/chandeliers' },
+                { label: 'Pendants', href: '/collections/pendants' },
+                { label: 'Ceiling', href: '/collections/ceiling' },
+                { label: 'Wall', href: '/collections/wall' },
+                { label: 'Desk & Floor', href: '/collections/table-floor' },
+                { label: 'Controls', href: '/collections/accessories' },
+                { label: 'Sale', href: '/store' },
+              ].map((badge) => (
+                <LocalizedClientLink
+                  key={badge.label}
+                  href={badge.href}
+                  className={`px-3 py-1 text-sm font-mono uppercase tracking-wide hover:underline underline-offset-4 transition-all duration-200 ${badge.label === 'Sale' ? 'text-red-600' : 'text-black'}`}
                 >
-                  {badge}
-                </Button>
+                  {badge.label}
+                </LocalizedClientLink>
               ))}
-            </ButtonGroup>
+            </div>
           </div>
 
           <div className="flex flex-col justify-center flex-1 px-6 pt-0 pb-8 lg:px-10 lg:pt-0 lg:pb-10">
@@ -43,11 +50,24 @@ const Hero = () => {
               </LocalizedClientLink>
 
               <LocalizedClientLink
-                href="/store"
+                href="/design-services"
                 className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
               >
                 DESIGN SERVICES
               </LocalizedClientLink>
+            </div>
+
+            {/* Trust Signals */}
+            <div className="flex items-center gap-6 mt-6 text-xs font-mono text-gray-600">
+              <div className="flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>30-Day Guarantee</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Free Shipping $1,500+</span>
+              </div>
+              <span>820+ Curated Designs</span>
             </div>
           </div>
 
@@ -59,7 +79,7 @@ const Hero = () => {
                   <div key={i} className="flex items-center mr-4 flex-shrink-0 py-3">
                     <div className="w-7 mr-5">
                       <img 
-                        src="/scroll-E.svg" 
+                        src="/brand/brand/scroll-E.svg" 
                         alt=""
                         className="w-full h-auto"
                       />
@@ -73,7 +93,7 @@ const Hero = () => {
                   <div key={`dup-${i}`} className="flex items-center mr-4 flex-shrink-0 py-3">
                     <div className="w-7 mr-5">
                       <img 
-                        src="/scroll-E.svg" 
+                        src="/brand/scroll-E.svg" 
                         alt=""
                         className="w-full h-auto"
                       />
@@ -94,7 +114,7 @@ const Hero = () => {
                 <div key={i} className="flex flex-col items-center py-3">
                   <div className="w-8 h-8 mb-4">
                     <img 
-                      src="/scroll-E.svg" 
+                      src="/brand/scroll-E.svg" 
                       alt=""
                       className="w-full h-auto"
                     />
@@ -106,7 +126,7 @@ const Hero = () => {
                 <div key={`dup-${i}`} className="flex flex-col items-center py-3">
                   <div className="w-8 h-8 mb-4">
                     <img 
-                      src="/scroll-E.svg" 
+                      src="/brand/scroll-E.svg" 
                       alt=""
                       className="w-full h-auto"
                     />
@@ -133,7 +153,7 @@ const Hero = () => {
                 </div>
                 {i === 0 && (
                   <img 
-                    src="/H-feature-2.jpg" 
+                    src="/hero/H-feature-2.jpg" 
                     alt="Featured"
                     className="w-full h-full object-cover"
                   />
@@ -141,7 +161,7 @@ const Hero = () => {
                 {i === 1 && (
                   <div className="w-full h-full bg-[#AAAAAA]">
                     <img 
-                      src="/H-feature-3.jpg" 
+                      src="/hero/H-feature-3.jpg" 
                       alt="Featured"
                       className="w-full h-full object-cover scale-125 -translate-y-5 -translate-x-3"
                     />
@@ -149,21 +169,21 @@ const Hero = () => {
                 )}
                 {i === 2 && (
                   <img 
-                    src="/H-feature-4.jpg" 
+                    src="/hero/H-feature-4.jpg" 
                     alt="Featured"
                     className="w-full h-full object-cover scale-125 translate-y-1"
                   />
                 )}
                 {i === 3 && (
                   <img 
-                    src="/H-feature-5.jpg" 
+                    src="/hero/H-feature-5.jpg" 
                     alt="Featured"
                     className="w-full h-full object-cover scale-125 -translate-y-2"
                   />
                 )}
                 {i === 4 && (
                   <img 
-                    src="/H-feature-6.png" 
+                    src="/hero/H-feature-6.png" 
                     alt="Featured"
                     className="w-full h-full object-cover scale-110"
                   />
@@ -173,14 +193,14 @@ const Hero = () => {
           </div>
           
           <img 
-            src="/hero-2.jpg" 
+            src="/hero/hero-2.jpg" 
             alt="Elvato"
             className="w-full h-full object-cover"
             style={{ objectPosition: '30% center' }}
           />
           {/* Overlay image - hugs left border, hidden on mobile */}
           <img 
-            src="/crinkle-v2.svg" 
+            src="/overlays/crinkle-v2.svg" 
             alt=""
             className="hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 h-[115%] w-auto object-contain z-20"
           />

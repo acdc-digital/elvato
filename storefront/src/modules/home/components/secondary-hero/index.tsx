@@ -6,7 +6,7 @@ const SecondaryHero = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 relative h-full">
         {/* Crinkle overlay - positioned at grid level to span across panels */}
         <img 
-          src="/crinkle-leftv2.svg" 
+          src="/overlays/crinkle-leftv2.svg" 
           alt=""
           className="hidden lg:block absolute left-1/2 -translate-x-20 top-1/2 -translate-y-1/2 h-[120%] w-auto object-cover z-10 pointer-events-none"
         />
@@ -26,35 +26,35 @@ const SecondaryHero = () => {
                 </div>
                 {i === 0 && (
                   <img 
-                    src="/controls-1v3.png" 
+                    src="/controls/controls-1v3.png" 
                     alt="Featured"
                     className="w-full h-full object-cover"
                   />
                 )}
                 {i === 1 && (
                   <img 
-                    src="/controls-2.png" 
+                    src="/controls/controls-2.png" 
                     alt="Featured"
                     className="w-full h-full object-cover"
                   />
                 )}
                 {i === 2 && (
                   <img 
-                    src="/controls-3v2.png" 
+                    src="/controls/controls-3v2.png" 
                     alt="Featured"
                     className="w-full h-full object-cover"
                   />
                 )}
                 {i === 3 && (
                   <img 
-                    src="/controls-4.png" 
+                    src="/controls/controls-4.png" 
                     alt="Featured"
                     className="w-full h-full object-cover"
                   />
                 )}
                 {i === 4 && (
                   <img 
-                    src="/controls-5.png" 
+                    src="/controls/controls-5.png" 
                     alt="Featured"
                     className="w-full h-full object-cover"
                   />
@@ -65,7 +65,7 @@ const SecondaryHero = () => {
           
           <div className="flex items-center justify-center p-2 pb-0 lg:p-2 lg:pr-16 flex-1">
             <img 
-              src="/Controls-H2-v2.svg" 
+              src="/controls/Controls-H2-v2.svg" 
               alt="Controls Hero"
               className="w-full lg:w-[75%] h-auto object-contain -translate-x-4 -translate-y-4"
             />
@@ -85,14 +85,14 @@ const SecondaryHero = () => {
             
             <div className="flex flex-row gap-4 mt-8 lg:mt-10">
               <LocalizedClientLink
-                href="/store"
+                href="/design-services"
                 className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-black text-white text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-white hover:text-black"
               >
                 CONTACT OUR EXPERTS
               </LocalizedClientLink>
 
               <LocalizedClientLink
-                href="/store"
+                href="/design-services"
                 className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
               >
                 GET A QUOTE

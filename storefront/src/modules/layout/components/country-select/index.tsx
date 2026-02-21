@@ -51,6 +51,40 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
       .sort((a, b) => (a?.label ?? "").localeCompare(b?.label ?? ""))
   }, [regions])
 
+  const currentRegion = useMemo(() => {
+    return regions?.find((r) =>
+      r.countries?.some((c) => c.iso_2 === countryCode)
+    )
+  }, [regions, countryCode])
+
+  const { sortedOptions, separatorIndices } = useMemo(() => {
+    if (!regions || !options) return { sortedOptions: options || [], separatorIndices: new Map<number, string>() }
+
+    const currentOptions: typeof options = []
+    const otherOptions: typeof options = []
+    const indices = new Map<number, string>()
+
+    for (const o of options) {
+      if (currentRegion && o?.region === currentRegion.id) {
+        currentOptions.push(o)
+      } else {
+        otherOptions.push(o)
+      }
+    }
+
+    if (currentRegion && currentOptions.length > 0) {
+      indices.set(0, currentRegion.name || "Your Region")
+    }
+    if (otherOptions.length > 0) {
+      indices.set(currentOptions.length, "Other Regions")
+    }
+
+    return {
+      sortedOptions: [...currentOptions, ...otherOptions],
+      separatorIndices: indices,
+    }
+  }, [regions, options, currentRegion])
+
   useEffect(() => {
     if (countryCode) {
       const option = options?.find((o) => o?.country === countryCode)
@@ -122,24 +156,31 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
             className="absolute bottom-full right-0 mb-1 max-h-[300px] overflow-y-scroll z-[900] bg-white border border-black text-sm font-mono uppercase text-black no-scrollbar w-48 focus:outline-none"
             static
           >
-            {options?.map((o, index) => {
+            {sortedOptions?.map((o, index) => {
+              const separator = separatorIndices.get(index)
               return (
-                <ListboxOption
-                  key={index}
-                  value={o}
-                  className="py-2 hover:bg-gray-100 px-3 cursor-pointer flex items-center gap-x-2 focus:outline-none"
-                >
-                  {/* @ts-ignore */}
-                  <ReactCountryFlag
-                    svg
-                    style={{
-                      width: "14px",
-                      height: "14px",
-                    }}
-                    countryCode={o?.country ?? ""}
-                  />
-                  {o?.label}
-                </ListboxOption>
+                <Fragment key={index}>
+                  {separator && (
+                    <div className="px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-gray-400 bg-gray-50 border-b border-gray-100">
+                      {separator}
+                    </div>
+                  )}
+                  <ListboxOption
+                    value={o}
+                    className="py-2 hover:bg-gray-100 px-3 cursor-pointer flex items-center gap-x-2 focus:outline-none"
+                  >
+                    {/* @ts-ignore */}
+                    <ReactCountryFlag
+                      svg
+                      style={{
+                        width: "14px",
+                        height: "14px",
+                      }}
+                      countryCode={o?.country ?? ""}
+                    />
+                    {o?.label}
+                  </ListboxOption>
+                </Fragment>
               )
             })}
           </ListboxOptions>

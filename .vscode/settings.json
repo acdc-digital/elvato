@@ -5,7 +5,7 @@
     ".agents": "claude",
     "convex": "database",
     "dashboard": "content",
-    ".wholesale": "store",
+    ".supplier": "store",
     ".medusa": "template",
     ".legal": "coverage",
     ".trunk": "eslint",
@@ -13,6 +13,11 @@
     "shipping": "robot",
     "product-images": "robot",
     "marketing": "robot",
+    "brand": "images",
+    "controls": "images",
+    "hero": "images",
+    "overlays": "images",
+    "byRoom": "images"
   },
   "chat.tools.terminal.autoApprove": {
     "npx medusa": true

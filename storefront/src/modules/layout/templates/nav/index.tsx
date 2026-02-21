@@ -8,6 +8,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import SearchButton from "@modules/layout/components/search-button"
+import AccountButton from "@modules/layout/components/account-button"
 import { Button } from "@/components/ui/button"
 
 export default async function Nav() {
@@ -42,28 +43,28 @@ export default async function Nav() {
             <div className="h-full flex items-center">
               <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
             </div>
-            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+            <Button variant="link" asChild className="font-mono tracking-wider text-black">
               <LocalizedClientLink
                 href="/store"
                 data-testid="nav-browse-link"
               >
-                COLLECTIONS
+                Collections
               </LocalizedClientLink>
             </Button>
-            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+            <Button variant="link" asChild className="font-mono tracking-wider text-black">
               <LocalizedClientLink
                 href="/about"
                 data-testid="nav-about-link"
               >
-                ABOUT US
+                About us
               </LocalizedClientLink>
             </Button>
-            <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
+            <Button variant="link" asChild className="font-mono tracking-wider text-black">
               <LocalizedClientLink
                 href="/how-it-works"
                 data-testid="nav-how-link"
               >
-                HOW IT WORKS
+                How it works
               </LocalizedClientLink>
             </Button>
 
@@ -75,20 +76,21 @@ export default async function Nav() {
                 LED-itorial
               </LocalizedClientLink>
             </Button>
+            <Button variant="link" asChild className="font-mono tracking-wider text-black">
+              <LocalizedClientLink
+                href="/documents"
+                data-testid="nav-documents-link"
+              >
+                Documents
+              </LocalizedClientLink>
+            </Button>
           </div>
 
           {/* Right: Search, Account, Cart */}
           <div className="flex items-center gap-x-6 h-full">
             <div className="hidden small:flex items-center gap-x-2 h-full">
               <SearchButton />
-              <Button variant="link" asChild className="font-mono uppercase tracking-wider text-black">
-                <LocalizedClientLink
-                  href="/account"
-                  data-testid="nav-account-link"
-                >
-                  ACCOUNT
-                </LocalizedClientLink>
-              </Button>
+              <AccountButton />
             </div>
             <Suspense
               fallback={

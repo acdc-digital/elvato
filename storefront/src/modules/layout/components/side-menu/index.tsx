@@ -61,9 +61,9 @@ const SideMenu = ({ regions, locales, currentLocale }: SideMenuProps) => {
               <div className="relative flex h-full">
                 <Popover.Button
                   data-testid="nav-menu-button"
-                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none focus:ring-0 focus:border-none focus-visible:outline-none focus-visible:ring-0 text-sm uppercase tracking-wider font-mono text-black underline-offset-4 hover:underline"
+                  className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none focus:ring-0 focus:border-none focus-visible:outline-none focus-visible:ring-0 text-sm tracking-wider font-mono text-black underline-offset-4 hover:underline"
                 >
-                  MENU
+                  Menu
                 </Popover.Button>
               </div>
 
