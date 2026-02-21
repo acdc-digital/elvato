@@ -38,18 +38,48 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
   const { countryCode } = useParams()
   const currentPath = usePathname().split(`/${countryCode}`)[1]
 
-  const options = useMemo(() => {
-    return regions
-      ?.map((r) => {
-        return r.countries?.map((c) => ({
-          country: c.iso_2,
-          region: r.id,
-          label: c.display_name,
-        }))
-      })
-      .flat()
-      .sort((a, b) => (a?.label ?? "").localeCompare(b?.label ?? ""))
-  }, [regions])
+  // Find which region the current country belongs to
+  const currentRegion = useMemo(() => {
+    if (!countryCode || !regions) return null
+    return regions.find((r) =>
+      r.countries?.some((c) => c.iso_2 === countryCode)
+    )
+  }, [regions, countryCode])
+
+  // Build options grouped: current region first, then others with separators
+  const { options, separatorIndices } = useMemo(() => {
+    const toOption = (r: HttpTypes.StoreRegion) =>
+      (r.countries ?? []).map((c) => ({
+        country: c.iso_2,
+        region: r.id,
+        label: c.display_name,
+        regionName: r.name,
+      }))
+
+    const currentOpts = currentRegion
+      ? toOption(currentRegion).sort((a, b) =>
+          (a.label ?? "").localeCompare(b.label ?? "")
+        )
+      : []
+
+    const otherRegions = regions?.filter((r) => r.id !== currentRegion?.id) ?? []
+    const otherGroups = otherRegions.map((r) => ({
+      name: r.name,
+      options: toOption(r).sort((a, b) =>
+        (a.label ?? "").localeCompare(b.label ?? "")
+      ),
+    }))
+
+    const allOptions: typeof currentOpts = [...currentOpts]
+    const seps: { index: number; label: string }[] = []
+
+    for (const group of otherGroups) {
+      seps.push({ index: allOptions.length, label: group.name ?? "Other" })
+      allOptions.push(...group.options)
+    }
+
+    return { options: allOptions, separatorIndices: seps }
+  }, [regions, currentRegion])
 
   useEffect(() => {
     if (countryCode) {
@@ -123,23 +153,30 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
             static
           >
             {options?.map((o, index) => {
+              const separator = separatorIndices.find((s) => s.index === index)
               return (
-                <ListboxOption
-                  key={index}
-                  value={o}
-                  className="py-2 hover:bg-gray-100 px-3 cursor-pointer flex items-center gap-x-2 focus:outline-none"
-                >
-                  {/* @ts-ignore */}
-                  <ReactCountryFlag
-                    svg
-                    style={{
-                      width: "14px",
-                      height: "14px",
-                    }}
-                    countryCode={o?.country ?? ""}
-                  />
-                  {o?.label}
-                </ListboxOption>
+                <Fragment key={index}>
+                  {separator && (
+                    <div className="px-3 py-1.5 text-[10px] tracking-wider text-gray-400 border-t border-gray-200 bg-gray-50 select-none">
+                      {separator.label}
+                    </div>
+                  )}
+                  <ListboxOption
+                    value={o}
+                    className="py-2 hover:bg-gray-100 px-3 cursor-pointer flex items-center gap-x-2 focus:outline-none"
+                  >
+                    {/* @ts-ignore */}
+                    <ReactCountryFlag
+                      svg
+                      style={{
+                        width: "14px",
+                        height: "14px",
+                      }}
+                      countryCode={o?.country ?? ""}
+                    />
+                    {o?.label}
+                  </ListboxOption>
+                </Fragment>
               )
             })}
           </ListboxOptions>

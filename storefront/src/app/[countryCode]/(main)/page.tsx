@@ -6,6 +6,7 @@ import CtaBanner from "@modules/home/components/cta-banner"
 import SecondaryHero from "@modules/home/components/secondary-hero"
 import ProductGrid from "@modules/home/components/product-grid"
 import PhotoGrid from "@modules/home/components/photo-grid"
+import ShopByRoom from "@modules/home/components/shop-by-room"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
@@ -69,6 +70,9 @@ export default async function Home(props: {
       {/* TODO: PhotoGrid below hero */}
       {/* <PhotoGrid /> */}
       <CtaBanner />
+
+      {/* Shop by Room */}
+      <ShopByRoom />
 
       {/* Primary collection rails — highest ROI categories */}
       {topCollections.length > 0 && (

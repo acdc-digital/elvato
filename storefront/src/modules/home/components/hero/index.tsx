@@ -13,13 +13,25 @@ const Hero = () => {
           {/* Buttons */}
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
             <ButtonGroup className="flex-wrap">
-              {['pendants', 'chandeliers', 'ceiling', 'wall', 'desk & floor', 'controls', 'sale'].map((badge) => (
-                <Button 
-                  key={badge}
+              {[
+                { label: 'featured', href: '/collections/Featured' },
+                { label: 'chandeliers', href: '/collections/chandeliers' },
+                { label: 'pendants', href: '/collections/pendants' },
+                { label: 'ceiling', href: '/collections/ceiling' },
+                { label: 'wall', href: '/collections/wall' },
+                { label: 'desk & floor', href: '/collections/table-floor' },
+                { label: 'controls', href: '/collections/accessories' },
+                { label: 'sale', href: '/store' },
+              ].map((badge) => (
+                <Button
+                  key={badge.label}
                   variant="link"
-                  className={`font-mono uppercase tracking-wide ${badge === 'sale' ? 'text-red-600' : ''}`}
+                  asChild
+                  className={`font-mono uppercase tracking-wide ${badge.label === 'sale' ? 'text-red-600' : ''}`}
                 >
-                  {badge}
+                  <LocalizedClientLink href={badge.href}>
+                    {badge.label}
+                  </LocalizedClientLink>
                 </Button>
               ))}
             </ButtonGroup>
@@ -43,11 +55,26 @@ const Hero = () => {
               </LocalizedClientLink>
 
               <LocalizedClientLink
-                href="/store"
+                href="/design-services"
                 className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
               >
                 DESIGN SERVICES
               </LocalizedClientLink>
+            </div>
+
+            {/* Trust signals */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-6 text-xs font-mono text-gray-500">
+              <span className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                30-Day Guarantee
+              </span>
+              <span className="text-gray-300">|</span>
+              <span className="flex items-center gap-1.5">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                Free Shipping $1,500+
+              </span>
+              <span className="text-gray-300">|</span>
+              <span>820+ Curated Designs</span>
             </div>
           </div>
 

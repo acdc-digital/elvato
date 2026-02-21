@@ -85,14 +85,14 @@ const SecondaryHero = () => {
             
             <div className="flex flex-row gap-4 mt-8 lg:mt-10">
               <LocalizedClientLink
-                href="/store"
+                href="/design-services"
                 className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-black text-white text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-white hover:text-black"
               >
                 CONTACT OUR EXPERTS
               </LocalizedClientLink>
 
               <LocalizedClientLink
-                href="/store"
+                href="/design-services"
                 className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
               >
                 GET A QUOTE
