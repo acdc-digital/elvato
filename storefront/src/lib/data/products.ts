@@ -86,9 +86,18 @@ export const listProducts = async ({
 }
 
 /**
- * This will fetch 100 products to the Next.js cache and sort them based on the sortBy parameter.
- * It will then return the paginated products based on the page and limit parameters.
+ * Fetch products for the store listing page with sorting + pagination.
+ *
+ * - `created_at` uses Medusa's server-side sort & pagination (fast, cacheable).
+ * - `price_asc` / `price_desc` fetches all products with slim fields and
+ *   sorts client-side (Medusa doesn't support ordering by calculated_price).
+ *
+ * Images are excluded from the response because the storefront renders CDN
+ * thumbnails from ConvexFS instead.
  */
+const LISTING_FIELDS =
+  "*variants.calculated_price,+variants.inventory_quantity"
+
 export const listProductsWithSort = async ({
   page = 0,
   queryParams,
@@ -106,31 +115,44 @@ export const listProductsWithSort = async ({
 }> => {
   const limit = queryParams?.limit || 12
 
-  const {
-    response: { products, count },
-  } = await listProducts({
-    pageParam: 0,
+  // Price-based sorts require fetching all products for client-side sorting
+  if (sortBy === "price_asc" || sortBy === "price_desc") {
+    const {
+      response: { products, count },
+    } = await listProducts({
+      pageParam: 0,
+      queryParams: {
+        ...queryParams,
+        limit: 100,
+        fields: LISTING_FIELDS,
+      },
+      countryCode,
+    })
+
+    const sortedProducts = sortProducts(products, sortBy)
+    const pageParam = (page - 1) * limit
+    const nextPage = count > pageParam + limit ? pageParam + limit : null
+    const paginatedProducts = sortedProducts.slice(pageParam, pageParam + limit)
+
+    return {
+      response: {
+        products: paginatedProducts,
+        count,
+      },
+      nextPage,
+      queryParams,
+    }
+  }
+
+  // For created_at (default), use server-side sorting + pagination
+  return listProducts({
+    pageParam: page,
     queryParams: {
       ...queryParams,
-      limit: 100,
+      limit,
+      order: "-created_at",
+      fields: LISTING_FIELDS,
     },
     countryCode,
   })
-
-  const sortedProducts = sortProducts(products, sortBy)
-
-  const pageParam = (page - 1) * limit
-
-  const nextPage = count > pageParam + limit ? pageParam + limit : null
-
-  const paginatedProducts = sortedProducts.slice(pageParam, pageParam + limit)
-
-  return {
-    response: {
-      products: paginatedProducts,
-      count,
-    },
-    nextPage,
-    queryParams,
-  }
 }

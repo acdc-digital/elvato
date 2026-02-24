@@ -36,6 +36,15 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "elvatoStorage-CDN.b-cdn.net",
+      },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+        port: "3211",
+      },
+      {
+        protocol: "https",
         hostname: "medusa-public-images.s3.eu-west-1.amazonaws.com",
       },
       {

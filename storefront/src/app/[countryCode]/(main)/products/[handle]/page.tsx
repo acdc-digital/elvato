@@ -4,6 +4,7 @@ import { listProducts } from "@lib/data/products"
 import { getRegion, listRegions } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
 import { HttpTypes } from "@medusajs/types"
+import { withCdnImages } from "@lib/data/convex-images"
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
@@ -109,10 +110,12 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
-  const pricedProduct = await listProducts({
+  const rawProduct = await listProducts({
     countryCode: params.countryCode,
     queryParams: { handle: params.handle },
   }).then(({ response }) => response.products[0])
+
+  const pricedProduct = await withCdnImages(rawProduct)
 
   const images = getImagesForVariant(pricedProduct, selectedVariantId)
 

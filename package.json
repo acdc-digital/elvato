@@ -1,0 +1,27 @@
+{
+  "name": "elvato",
+  "version": "1.0.0",
+  "description": "![Elvato Storefront](./public/README-v2.svg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acdc-digital/elvato.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acdc-digital/elvato/issues"
+  },
+  "homepage": "https://github.com/acdc-digital/elvato#readme",
+  "dependencies": {
+    "convex": "^1.32.0",
+    "convex-fs": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0"
+  }
+}

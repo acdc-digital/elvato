@@ -1,4 +1,5 @@
 import { listProducts } from "@lib/data/products"
+import { prefetchThumbnails } from "@lib/data/convex-images"
 import { getRegion } from "@lib/data/regions"
 import { HttpTypes } from "@medusajs/types"
 import Product from "../product-preview"
@@ -45,6 +46,10 @@ export default async function RelatedProducts({
   if (!products.length) {
     return null
   }
+
+  // Batch-prefetch CDN thumbnails in one Convex query
+  const handles = products.map((p) => p.handle).filter(Boolean) as string[]
+  await prefetchThumbnails(handles)
 
   return (
     <div className="product-page-constraint">

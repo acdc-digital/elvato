@@ -1,4 +1,5 @@
 import { listProducts } from "@lib/data/products"
+import { prefetchThumbnails } from "@lib/data/convex-images"
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
 
@@ -39,6 +40,10 @@ export default async function ProductRail({
       </div>
     )
   }
+
+  // Batch-prefetch CDN thumbnails in one Convex query
+  const handles = pricedProducts.map((p) => p.handle).filter(Boolean) as string[]
+  await prefetchThumbnails(handles)
 
   return (
     <div className="px-8 small:px-12 pt-4 pb-6">

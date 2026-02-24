@@ -2,3 +2,5 @@
 
 # Legal documents
 .legal/
+
+.env.local

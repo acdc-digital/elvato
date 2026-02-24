@@ -1,4 +1,5 @@
 import { listProductsWithSort } from "@lib/data/products"
+import { prefetchThumbnails } from "@lib/data/convex-images"
 import { getRegion } from "@lib/data/regions"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
@@ -63,6 +64,10 @@ export default async function PaginatedProducts({
     sortBy,
     countryCode,
   })
+
+  // Batch-prefetch CDN thumbnails in one Convex query
+  const handles = products.map((p) => p.handle).filter(Boolean) as string[]
+  await prefetchThumbnails(handles)
 
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
 

@@ -1,0 +1,177 @@
+Authn & Authz
+ConvexFS relies on the same conventions as any other Convex project for authentication and authorization. This means it’s composable with whatever your app is already doing—including middleware patterns like customFunction from convex-helpers.
+
+Tip
+
+New to authentication in Convex? Check out the Convex authentication documentation for an overview of how identity and authorization work.
+
+Access control for the ConvexFS object
+When you call fs.stat(), fs.list(), fs.transact(), or any other ConvexFS method from your own queries, mutations, or actions, you’re in full control. Just perform your auth checks before calling the fs method—exactly like you would for any other Convex function.
+
+convex/files.ts
+import { query } from "./_generated/server";
+import { paginationOptsValidator } from "convex/server";
+import { v } from "convex/values";
+import { fs } from "./fs";
+
+export const listMyFiles = query({
+  args: {
+    prefix: v.optional(v.string()),
+    paginationOpts: paginationOptsValidator,
+  },
+  handler: async (ctx, args) => {
+    // Standard Convex auth check
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+
+    // Check any other access privileges specific to your app here
+    // e.g., verify user has permission to access this prefix
+
+    // Now call ConvexFS - user is authenticated
+    return await fs.list(ctx, {
+      prefix: args.prefix,
+      paginationOpts: args.paginationOpts,
+    });
+  },
+});
+
+This pattern works for all ConvexFS methods. For more sophisticated patterns like role-based access control or per-file permissions, add your logic before calling the fs method.
+
+Access control for the component’s HTTP routes
+In the App setup guide, you registered ConvexFS’s HTTP routes with placeholder auth callbacks:
+
+registerRoutes(http, components.fs, fs, {
+  pathPrefix: "/fs",
+  uploadAuth: async () => {
+    // TODO: Add real auth check
+    return true;
+  },
+  downloadAuth: async () => {
+    // TODO: Add real auth check
+    return true;
+  },
+});
+
+These callbacks are your gatekeepers for the upload and download endpoints. Let’s look at each one.
+
+Upload authentication
+The uploadAuth callback is called before any upload is accepted. This is critical to secure properly—returning true commits your app to accepting arbitrary content from anyone on the internet.
+
+Danger
+
+An open upload endpoint is a serious security risk. Malicious users could fill your storage with unwanted content, run up your bills, or upload problematic material that creates legal liability for you.
+
+At minimum, you should verify the user is authenticated:
+
+registerRoutes(http, components.fs, fs, {
+  pathPrefix: "/fs",
+  uploadAuth: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+    return identity !== null;
+  },
+  // ...
+});
+
+You can also implement more granular checks—for example, verifying the user has a specific role or checking rate limits.
+
+Download authentication
+The downloadAuth callback is called before redirecting to a signed download URL. The callback receives the context, the blobId being requested, and optionally the file path (if the client included it in the download URL).
+
+downloadAuth: async (ctx, blobId, path?, extraParams?) => {
+  // Return true to allow, false to deny
+};
+
+The extraParams argument contains any additional query parameters from the download URL request (see CDN parameters for details on passing custom parameters to the CDN).
+
+Whether you need download authentication depends on your use case:
+
+Public assets (marketing images, public documents): You may want to allow unauthenticated access. The simple return true is fine here.
+
+Private user content (personal files, confidential documents): You’ll want to verify the user has permission to access this specific file.
+
+Using the path parameter
+When you construct download URLs using buildDownloadUrl with the path parameter (recommended), the server passes that path to your downloadAuth callback. This makes authorization much simpler—you can check permissions directly on the path without needing a separate blobId-to-path lookup:
+
+registerRoutes(http, components.fs, fs, {
+  pathPrefix: "/fs",
+  // ...
+  downloadAuth: async (ctx, blobId, path, extraParams) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      return false;
+    }
+
+    // With path available, you can check permissions directly
+    if (path) {
+      // e.g., verify user owns this file path
+      return path.startsWith(`/users/${identity.subject}/`);
+    }
+
+    // Fallback for requests without path (legacy URLs)
+    return false;
+  },
+});
+
+Tip
+
+When a path is provided in the download URL, the server automatically validates that the file exists at that path and that its blobId matches the URL’s blobId—before calling your downloadAuth callback. This prevents users from crafting URLs with mismatched path/blobId combinations.
+
+Without path (blobId-only authorization)
+If you need to support download URLs without the path parameter, you’ll need to look up which file(s) reference the blobId and check permissions accordingly:
+
+registerRoutes(http, components.fs, fs, {
+  pathPrefix: "/fs",
+  // ...
+  downloadAuth: async (ctx, blobId, path, extraParams) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      return false;
+    }
+
+    // If path is available, use it directly
+    if (path) {
+      return path.startsWith(`/users/${identity.subject}/`);
+    }
+
+    // Fallback: look up files by blobId
+    const canAccess = await ctx.runQuery(api.files.canUserAccessBlob, {
+      userId: identity.subject,
+      blobId,
+    });
+    return canAccess;
+  },
+});
+
+Signed CDN URL security considerations
+The download component endpoint (hosted on Convex) doesn’t serve file data directly. Instead, it returns a 302 redirect to a time-limited signed URL on the Bunny.net CDN. This has important security implications:
+
+Once a user has the signed URL, they can access the blob directly from the CDN—no further auth checks occur. The URL remains valid until it expires, even if you revoke the user’s access in your app.
+
+This is a deliberate tradeoff. Serving files through Convex would be slower and more expensive than serving directly from a global CDN. But it means your downloadAuth callback is a gate, not a continuous guard.
+
+In practice, when a user’s access is revoked, your app’s queries and reactivity will stop providing them with the CDN URL. However, it’s technically possible for the user to have copied the URL or retained it in their browser cache. In that case, they can continue to access the asset directly from the CDN until the signed token expires—even if your app no longer displays it.
+
+Configuring URL expiration
+You can control how long signed URLs remain valid with the downloadUrlTtl option (in seconds) when creating your ConvexFS instance:
+
+const fs = new ConvexFS(components.fs, {
+  storage: {
+    /* ... */
+  },
+  downloadUrlTtl: 300, // URLs expire after 5 minutes (default: 3600 = 1 hour)
+});
+
+Shorter TTLs (e.g., 60–300 seconds):
+
+Reduce the window where a revoked user can still access content
+Better for highly sensitive content
+Users may need to re-request URLs more often for long viewing sessions
+Longer TTLs (e.g., 3600+ seconds):
+
+Better user experience for media playback and large downloads
+Fewer requests to your Convex backend
+Larger window where revoked access still works
+For most apps, the default of 1 hour is a reasonable balance. If you’re building something with strict access control requirements (e.g., paid content, confidential documents), consider shorter TTLs and accept the UX tradeoff.
+

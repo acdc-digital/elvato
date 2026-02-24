@@ -5,6 +5,7 @@ import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import PreviewPrice from "./price"
+import { getCdnThumbnail } from "@lib/data/convex-images"
 
 /**
  * Map common finish / colour names to hex values.
@@ -65,6 +66,12 @@ export default async function ProductPreview({
     product,
   })
 
+  // Resolve CDN thumbnail (falls back to original if not ingested)
+  const cdnThumb = product.handle
+    ? await getCdnThumbnail(product.handle)
+    : null
+  const thumbnail = cdnThumb ?? product.thumbnail ?? product.images?.[0]?.url ?? null
+
   // Extract finish / colour option for swatches
   const finishOption = product.options?.find(
     (o) => o.title?.toLowerCase() === "finish" || o.title?.toLowerCase() === "color" || o.title?.toLowerCase() === "colour"
@@ -95,9 +102,9 @@ export default async function ProductPreview({
             </p>
           </div>
           <div className="absolute inset-0">
-            {(product.thumbnail || product.images?.[0]?.url) ? (
+            {thumbnail ? (
               <Image
-                src={product.thumbnail || product.images![0].url}
+                src={thumbnail}
                 alt={product.title || 'Product'}
                 fill
                 className="object-cover object-center"
