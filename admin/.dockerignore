@@ -1,5 +1,7 @@
 node_modules
-.medusa
+.medusa/admin
+.medusa/client
+.medusa/types
 .cache
 dist
 .env

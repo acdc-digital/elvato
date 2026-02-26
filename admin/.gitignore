@@ -23,4 +23,6 @@ build
 !.yarn/sdks
 !.yarn/versions
 
-.medusa
+.medusa/admin
+.medusa/client
+.medusa/types
