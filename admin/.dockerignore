@@ -1,13 +1,3 @@
-node_modules
-.medusa/admin
-.medusa/client
-.medusa/types
-.cache
-dist
-.env
-.env.*
-*.dump
-*.sql
-.git
-.DS_Store
-integration-tests
+# Exclude everything except .medusa/server
+*
+!.medusa/server/
