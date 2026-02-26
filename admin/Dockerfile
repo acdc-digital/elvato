@@ -8,10 +8,10 @@ ENV npm_config_update_notifier=false \
 	npm_config_audit=false
 
 COPY package*.json ./
-RUN --mount=type=cache,id=admin-npm-cache,target=/root/.npm npm ci --no-audit --no-fund --loglevel=warn
+RUN npm ci --no-audit --no-fund --loglevel=warn
 
 COPY . ./
-RUN --mount=type=cache,id=admin-npm-cache,target=/root/.npm npm run build && cd .medusa/server && npm install --omit=dev --no-audit --no-fund --loglevel=warn
+RUN npm run build && cd .medusa/server && npm install --omit=dev --no-audit --no-fund --loglevel=warn
 
 WORKDIR /app/.medusa/server
 
