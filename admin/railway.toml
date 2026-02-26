@@ -1,0 +1,8 @@
+[build]
+buildCommand = "npm run build"
+
+[deploy]
+startCommand = "npx medusa start"
+healthcheckPath = "/health"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

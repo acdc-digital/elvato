@@ -1,0 +1,11 @@
+node_modules
+.medusa
+.cache
+dist
+.env
+.env.*
+*.dump
+*.sql
+.git
+.DS_Store
+integration-tests
