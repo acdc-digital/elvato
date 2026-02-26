@@ -2,13 +2,16 @@ FROM node:20-slim
 
 WORKDIR /app
 
-# Copy the pre-built server output only
-COPY .medusa/server ./
+COPY package*.json ./
+RUN npm ci
 
-# Install only production dependencies (skip vite, react, jest, etc.)
-RUN npm install --omit=dev
+COPY . ./
+RUN npm run build && cd .medusa/server && npm install --omit=dev
+
+WORKDIR /app/.medusa/server
+
+ENV NODE_ENV=production
 
 EXPOSE 9000
 
-# Run migrations then start
 CMD ["sh", "-c", "npx medusa db:migrate && npm run start"]

@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm-10_x"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["npm run build", "cd .medusa/server && npm install --omit=dev"]
+
+[start]
+cmd = "cd .medusa/server && npx medusa db:migrate && npm run start"
