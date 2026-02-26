@@ -1,12 +1,17 @@
+# syntax=docker/dockerfile:1.7
 FROM node:20-slim
 
 WORKDIR /app
 
+ENV npm_config_update_notifier=false \
+	npm_config_fund=false \
+	npm_config_audit=false
+
 COPY package*.json ./
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund --loglevel=warn
 
 COPY . ./
-RUN npm run build && cd .medusa/server && npm install --omit=dev
+RUN --mount=type=cache,target=/root/.npm npm run build && cd .medusa/server && npm install --omit=dev --no-audit --no-fund --loglevel=warn
 
 WORKDIR /app/.medusa/server
 
