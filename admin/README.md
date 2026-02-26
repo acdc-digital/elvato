@@ -60,3 +60,35 @@ Join our [Discord server](https://discord.com/invite/medusajs) to meet other com
 - [Twitter](https://twitter.com/medusajs)
 - [LinkedIn](https://www.linkedin.com/company/medusajs)
 - [Medusa Blog](https://medusajs.com/blog/)
+
+## Railway Deploy Runbook (Elvato)
+
+This repo deploys the Medusa backend + admin from this folder using Docker.
+
+### Build and Start Path
+
+- Dockerfile: `admin/Dockerfile`
+- Build flow: `npm ci` -> `npm run build` -> install runtime deps in `.medusa/server`
+- Start command in container: `npx medusa db:migrate && npm run start`
+
+### Railway Service Settings
+
+- Service must deploy the `admin` app (not `storefront`).
+- If using root-level config, keep `railway.json` in repo root.
+- Builder should use Dockerfile (avoid auto-detected Yarn/Nixpacks for this service).
+
+### Required Environment Variables
+
+- `DATABASE_URL`
+- `REDIS_URL`
+- `STORE_CORS`
+- `ADMIN_CORS`
+- `AUTH_CORS`
+- `JWT_SECRET`
+- `COOKIE_SECRET`
+
+### Verify After Deploy
+
+1. Open Railway deploy logs and confirm Dockerfile path is used.
+2. Confirm migration runs before server start.
+3. Visit `/app` base URL and `/app/health` endpoint.
