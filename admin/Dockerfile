@@ -8,7 +8,9 @@ RUN npm ci
 
 COPY . .
 
-RUN NODE_OPTIONS="--max-old-space-size=4096" npm run build
+ENV DISABLE_MEDUSA_ADMIN=true
+
+RUN npm run build
 
 EXPOSE 9000
 
