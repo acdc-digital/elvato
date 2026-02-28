@@ -1,13 +1,16 @@
-import { defineMiddlewares } from "@medusajs/framework/http"
-import type { NextFunction } from "express"
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import {
+  defineMiddlewares,
+  MedusaNextFunction,
+  MedusaRequest,
+  MedusaResponse,
+} from "@medusajs/framework/http"
 
 function redirectRootToAdmin(
   req: MedusaRequest,
   res: MedusaResponse,
-  next: NextFunction
+  next: MedusaNextFunction
 ) {
-  if (req.path === "/" || req.path === "") {
+  if (req.originalUrl === "/" || req.originalUrl === "") {
     return res.redirect(302, "/app")
   }
   next()
@@ -16,7 +19,7 @@ function redirectRootToAdmin(
 export default defineMiddlewares({
   routes: [
     {
-      matcher: "/",
+      matcher: /^\/.*/,
       middlewares: [redirectRootToAdmin],
     },
   ],
