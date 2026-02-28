@@ -15,6 +15,8 @@
 
 The Elvato storefront is a Next.js 15 application deployed to Vercel from the `storefront/` directory of the monorepo. It serves the customer-facing e-commerce experience, connecting to the Medusa backend API on Railway, Convex for CDN-optimized product images, and Stripe for payment processing.
 
+> Note: Admin domain routing (`admin.elvato.shop`) is handled by a separate Vercel project in `admin-frontdoor/`. See `.docs/railway-admin-backend.md` for that architecture.
+
 ### Architecture
 
 ```

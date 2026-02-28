@@ -2,7 +2,8 @@
 
 **Service:** `medusa-backend`  
 **URL:** `https://medusa-backend-production-d681.up.railway.app`  
-**Admin panel:** `https://medusa-backend-production-d681.up.railway.app/app`  
+**Admin panel (public):** `https://admin.elvato.shop/app`  
+**Admin panel (origin):** `https://medusa-backend-production-d681.up.railway.app/app`  
 **Health check:** `https://medusa-backend-production-d681.up.railway.app/health`  
 **Status:** ✅ Live  
 **Last verified:** February 2026
@@ -22,7 +23,8 @@ Medusa v2 builds and bundles the admin frontend as a static asset during `medusa
 
 | Layer | Service | Provider |
 |-------|---------|----------|
-| Backend + Admin | `medusa-backend` | Railway |
+| Backend + Admin origin | `medusa-backend` | Railway |
+| Admin domain front-door (`admin.elvato.shop`) | `admin-frontdoor` | Vercel |
 | PostgreSQL database | Neon pooled connection | Neon |
 | Redis cache, event bus, workflow engine | Upstash Redis | Upstash |
 | Storefront | Next.js | Vercel |
@@ -154,15 +156,29 @@ cmds = ["npm run build", "cd .medusa/server && npm install --omit=dev"]
 cmd = "cd .medusa/server && npx medusa db:migrate && npm run start"
 ```
 
-### `admin/src/api/route.ts`
+### `admin-frontdoor/vercel.json`
 
-A Medusa custom API route that redirects `GET /` to `/app`. Follows Medusa v2's file-based routing convention — the file path maps directly to the URL path.
+Defines the edge front-door behavior for the admin custom domain:
 
-```typescript
-import type { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+- Redirect only `/` to `/app`
+- Proxy all non-root paths to Railway origin
 
-export async function GET(req: MedusaRequest, res: MedusaResponse) {
-  res.redirect(302, "/app")
+```json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/app",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!$).*)",
+      "destination": "https://medusa-backend-production-d681.up.railway.app/$1"
+    }
+  ]
 }
 ```
 
@@ -233,13 +249,45 @@ The `predeploy` script in `admin/package.json` maps to `medusa db:migrate`.
 
 ---
 
+## Admin Custom Domain (`admin.elvato.shop`)
+
+The admin custom domain uses a **Vercel front-door** in front of Railway to provide a reliable root redirect while keeping Railway as the backend origin.
+
+### Why this is needed
+
+Medusa serves the Admin app at `/app` by default. Root path `/` is not guaranteed to be handled as a redirect in all deployment environments. The front-door ensures consistent behavior at the domain root.
+
+### Runtime flow
+
+```
+Browser -> https://admin.elvato.shop/
+         -> Vercel redirect: / -> /app
+         -> Vercel rewrite/proxy: /app* -> Railway origin
+         -> Medusa Admin UI
+```
+
+### DNS records (GoDaddy)
+
+| Type | Name | Value | TTL |
+|------|------|-------|-----|
+| A | `admin` | `76.76.21.21` | `1 Hour` |
+
+### Vercel requirements
+
+- Project: `admin-frontdoor`
+- Domain attached: `admin.elvato.shop`
+- Deployment Protection: production auth disabled (otherwise root may return `401`)
+
+---
+
 ## Live Endpoint Reference
 
 | Endpoint | Status | Notes |
 |----------|--------|-------|
 | `GET /health` | `200 OK` | Railway health check target |
 | `GET /app` | `200 OK` | Admin UI (React SPA) |
-| `GET /` | `302 → /app` | Root redirect via custom Medusa route |
+| `GET /` on `admin.elvato.shop` | `307 → /app` | Redirect handled by Vercel front-door |
+| `GET /` on Railway origin | `404` | Expected; no root handler on origin |
 | `GET /admin/*` | `401 Unauthorized` | Admin REST API — requires auth token |
 | `GET /store/*` | Varies | Store REST API — public or publishable key |
 
@@ -275,7 +323,12 @@ The `predeploy` script in `admin/package.json` maps to `medusa db:migrate`.
 ### `Cannot GET /`
 
 **Cause:** Normal Medusa behaviour — no route is defined for `/` by default.  
-**Status:** Addressed by `admin/src/api/route.ts` which adds a `302` redirect to `/app`. If this still appears after deploy, ensure the route file was included in the build.
+**Status:** Expected on Railway origin URL. Use `https://admin.elvato.shop/`, where Vercel front-door handles `/` -> `/app`.
+
+### `admin.elvato.shop` returns Railway 404 instead of redirect
+
+**Cause:** DNS still pointing to Railway host (`*.up.railway.app`) instead of Vercel front-door.  
+**Fix:** Ensure DNS record is `A admin -> 76.76.21.21` and domain is attached to Vercel `admin-frontdoor` project.
 
 ---
 
@@ -322,7 +375,8 @@ The Dockerfile pins Node 20 by digest for reproducibility. To update:
 | `admin/nixpacks.toml` | Nixpacks fallback if Dockerfile builder is disabled |
 | `admin/medusa-config.ts` | Medusa module configuration (DB, Redis, CORS) |
 | `admin/.env.template` | Local development environment variable template |
-| `admin/src/api/route.ts` | Root `/` → `/app` redirect |
+| `admin-frontdoor/vercel.json` | Root redirect and Railway proxy for `admin.elvato.shop` |
+| `admin-frontdoor/package.json` | Minimal deploy package for front-door project |
 | `railway.json` | Railway project-level build configuration |
 
 ## Reference Links
