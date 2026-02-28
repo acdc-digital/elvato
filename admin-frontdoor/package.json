@@ -1,0 +1,9 @@
+{
+  "name": "admin-frontdoor",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vercel edge front-door for Railway-hosted Medusa Admin",
+  "scripts": {
+    "deploy:prod": "vercel --prod"
+  }
+}
