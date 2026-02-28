@@ -17,7 +17,8 @@
     "controls": "images",
     "hero": "images",
     "overlays": "images",
-    "byRoom": "images"
+    "byRoom": "images",
+    "payment": "dist",
   },
   "chat.tools.terminal.autoApprove": {
     "npx medusa": true

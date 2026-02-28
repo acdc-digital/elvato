@@ -1,0 +1,36 @@
+Account Holders and Saved Payment Methods
+In this documentation, you'll learn about account holders, and how they're used to save payment methods in third-party payment providers.
+
+Note: Account holders are available starting from Medusa v2.5.0.
+What's an Account Holder?#
+An account holder represents a customer that can have saved payment methods in a third-party service. It's represented by the AccountHolder data model.
+
+It holds fields retrieved from the third-party provider, such as:
+
+external_id: The ID of the equivalent customer or account holder in the third-party provider.
+data: Data returned by the payment provider when the account holder is created.
+A payment provider that supports saving payment methods for customers would create the equivalent of an account holder in the third-party provider. Then, whenever a payment method is saved, it would be saved under the account holder in the third-party provider.
+
+Relation between Account Holder and Customer#
+The Medusa application creates a link between the Customer data model of the Customer Module and the AccountHolder data model of the Payment Module.
+
+This link indicates that a customer can have more than one account holder, each representing saved payment methods in different payment providers.
+
+Learn more about this link in the Link to Other Modules guide.
+
+Save Payment Methods#
+If a payment provider supports saving payment methods for a customer, they must implement the following methods:
+
+createAccountHolder: Creates an account holder in the payment provider. The Payment Module uses this method before creating the account holder in Medusa, and uses the returned data to set fields like external_id and data in the created AccountHolder record.
+deleteAccountHolder: Deletes an account holder in the payment provider. The Payment Module uses this method when an account holder is deleted in Medusa.
+savePaymentMethod: Saves a payment method for an account holder in the payment provider.
+listPaymentMethods: Lists saved payment methods in the third-party service for an account holder. This is useful when displaying the customer's saved payment methods in the storefront.
+Learn more about implementing these methods in the Create Payment Provider guide.
+
+Account Holder in Medusa Payment Flows#
+In the Medusa application, when a payment session is created for a registered customer, the Medusa application uses the Payment Module to create an account holder for the customer.
+
+Consequently, the Payment Module uses the payment provider to create an account holder in the third-party service, then creates the account holder in Medusa.
+
+This flow is only supported if the chosen payment provider has implemented the necessary save payment methods.
+

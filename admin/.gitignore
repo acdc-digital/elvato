@@ -26,3 +26,4 @@ build
 .medusa/admin
 .medusa/client
 .medusa/types
+.medusa/server

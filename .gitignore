@@ -3,4 +3,6 @@
 # Legal documents
 .legal/
 
+# General
 .env.local
+node_modules

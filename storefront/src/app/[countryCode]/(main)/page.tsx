@@ -9,6 +9,7 @@ import PhotoGrid from "@modules/home/components/photo-grid"
 import ShopByRoom from "@modules/home/components/shop-by-room"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
+import { HttpTypes } from "@medusajs/types"
 
 export const metadata: Metadata = {
   title: "Elvato | Contemporary Lighting for Your Next Project",
@@ -61,8 +62,8 @@ export default async function Home(props: {
     return null
   }
 
-  const topCollections = sortCollectionsByPriority(collections, HOMEPAGE_COLLECTIONS_TOP)
-  const bottomCollections = sortCollectionsByPriority(collections, HOMEPAGE_COLLECTIONS_BOTTOM)
+  const topCollections = sortCollectionsByPriority(collections, HOMEPAGE_COLLECTIONS_TOP) as HttpTypes.StoreCollection[]
+  const bottomCollections = sortCollectionsByPriority(collections, HOMEPAGE_COLLECTIONS_BOTTOM) as HttpTypes.StoreCollection[]
 
   return (
     <>

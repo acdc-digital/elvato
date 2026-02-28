@@ -1,0 +1,2159 @@
+Implement Express Checkout with Medusa
+In this guide, you'll learn how to create an express checkout storefront with Medusa.
+
+When you install a Medusa application, you get a fully-fledged commerce server and an admin dashboard to manage the commerce store's data. As for the storefront, you can either install the Next.js Starter Storefront, or create a custom storefront with your preferred tech stack, design, and features. Medusa's architecture is flexible and customizable, allowing you to build a storefront that fits your use case.
+
+An express checkout storefront is a streamlined shopping experience that focuses on reducing friction during the checkout process, allowing customers to quickly and easily buy products with minimal input. When you have an express checkout storefront, you share a link to purchase one of your products, either through social media, blog posts, or other promotional campaigns, and the customer can complete the purchase with minimal effort.
+
+Summary#
+In this guide, you'll learn how to:
+
+Install and set up Medusa.
+Create a custom express checkout storefront with Next.js.
+Express checkout storefront interface showing a single-page checkout flow with product selection
+
+You can follow this guide whether you're new to Medusa or an advanced Medusa developer.
+
+Example Repository
+Find the full code of the guide in this repository.
+Step 1: Install a Medusa Application#
+
+Prerequisites
+3
+Node.js v20+↗
+Git CLI tool↗
+PostgreSQL↗
+Start by installing the Medusa application on your machine with the following command:
+
+yarn
+pnpm
+npx
+yarn dlx create-medusa-app@latest
+You'll first be asked for the project's name. Then, when you're asked whether you want to install the Next.js Starter Storefront, choose N for no. You'll create a custom storefront instead.
+
+Afterwards, the installation process will start, which will install the Medusa application in a directory with your project's name. Once the installation finishes successfully, the Medusa Admin dashboard will open in your browser at http://localhost:9000/app with a form to create a new user. Enter the user's credential and submit the form.
+
+Afterwards, you can login with the new user and explore the dashboard.
+
+Ran to Errors? Check out the troubleshooting guides for help.
+Change CORS Configurations#
+The Medusa application enforces Cross Origin Resource Sharing (CORS) security, which means you can only access the Medusa API from configured origins.
+
+The Next.js development server will run on port 3000 by default, which isn't a configured origin in the Medusa application. To add it to configured origins, change the value of STORE_CORS and AUTH_CORS in the Medusa application's .env file to the following:
+
+.env
+STORE_CORS=http://localhost:3000
+AUTH_CORS=http://localhost:5173,http://localhost:9000,http://localhost:3000
+You can add other origins as well if necessary.
+
+Learn more about CORS configurations in this guide.
+
+Step 2: Install Next.js Project#
+You'll create the express checkout storefront using Next.js. So, to create a Next.js project, run the following command in a directory separate from the Medusa application:
+
+yarn
+pnpm
+npx
+yarn dlx create-next-app@latest express-checkout
+Answer the installation prompts by choosing the default values:
+
+Terminal
+Would you like to use TypeScript? Yes
+Would you like to use ESLint? Yes
+Would you like to use Tailwind CSS? Yes
+Would you like your code inside a `src/` directory? No
+Would you like to use App Router? (recommended) Yes
+Would you like to use Turbopack for `next dev`?  No
+Would you like to customize the import alias (`@/*` by default)? No
+After the installation finishes, your Next.js project is installed in an express-checkout directory.
+
+Step 3: Install Medusa Dependencies#
+Before you start implementing the express checkout flow, you'll install the dependencies necessary for your storefront development.
+
+Install Medusa UI#
+Medusa provides a UI Library that provides the primitives to build applications based on Medusa's design system. To install the UI library, run the following command in your Next.js project:
+
+yarn
+pnpm
+npm
+yarn add @medusajs/ui@latest @medusajs/ui-preset@latest @medusajs/icons@latest
+You install three packages:
+
+@medusajs/ui: The main UI library.
+@medusajs/ui-preset: The design and style presets for the UI library.
+@medusajs/icons: A package that has Medusa icons you can use in your application.
+Next, to use Medusa's design system in your storefront, change the content of tailwind.config.ts to the following:
+
+tailwind.config.ts
+import path from "path"
+import type { Config } from "tailwindcss"
+
+// get the path of the dependency "@medusajs/ui"
+const medusaUI = path.join(
+  path.dirname(require.resolve("@medusajs/ui")),
+  "**/*.{js,jsx,ts,tsx}"
+)
+
+export default {
+  presets: [require("@medusajs/ui-preset")],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}", 
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "@/providers/**/*.{js,ts,jsx,tsx}",
+    medusaUI,
+  ],
+  darkMode: "class",
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+} satisfies Config
+This adds Medusa's UI presets to Tailwind CSS's presets and includes the Medusa UI components in the Tailwind CSS content, ensuring that the styles of the UI components aren't removed by tree-shaking.
+
+Install Medusa JS SDK#
+To interact with the Medusa API in your storefront, you'll use the Medusa JS SDK. Install the SDK by running the following command in your Next.js project:
+
+yarn
+pnpm
+npm
+yarn add @medusajs/js-sdk@latest @medusajs/types@latest
+Aside from the SDK, you also install the @medusajs/types package, which provides TypeScript types useful for your development with the SDK.
+
+Next, to use the SDK, you'll export a configured instance and re-use it across your application. So, create the file lib/sdk.ts with the following content:
+
+Project directory structure showing the newly created 'lib' folder containing the 'sdk.ts' file, which exports a configured Medusa SDK instance for connecting to the backend API
+
+lib/sdk.ts
+import Medusa from "@medusajs/js-sdk"
+
+export let MEDUSA_BACKEND_URL = "http://localhost:9000"
+
+if (process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL) {
+  MEDUSA_BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL
+}
+
+export const sdk = new Medusa({
+  baseUrl: MEDUSA_BACKEND_URL,
+  debug: process.env.NODE_ENV === "development",
+  publishableKey: process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY,
+})
+This file exports a configured instance of the Medusa SDK that you can use to send requests to the Medusa application. To configure the SDK, you use the following environment variables:
+
+NEXT_PUBLIC_MEDUSA_BACKEND_URL: The URL of the Medusa application server. By default, it's set to http://localhost:9000.
+NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY: The publishable API key of the Medusa application. You can find this key in the Medusa Admin dashboard under Settings -> Publishable API Keys.
+Navigation path in Medusa Admin dashboard: Settings showing "Publishable API Key" option, with the publishable API key displayed and a copy button to retrieve the token for storefront configuration
+
+Step 4: Create React Context Providers#
+In your storefront, you'll need to access the following resources across components:
+
+The selected region. In Medusa, a region represents one or more countries you serve customers in. Each region can have different settings, such as currency codes, prices, payment providers, and more. You create regions in the Medusa Admin, and you can allow the customer to choose their region in the storefront.
+The customer's cart, which you'll use to add the product to purchase, set shipping and payment details, and create an order.
+To easily access and manage these resources, you'll wrap your storefront with two React context providers: RegionProvider and CartProvider. You'll implement these providers in this step.
+
+Create Region Provider#
+To create the region provider, create the file providers/region.tsx with the following content:
+
+Project directory tree showing the newly created 'providers' folder containing the 'region.tsx' file, which implements React context for managing regional settings and currency selection across the storefront
+
+providers/region.tsx
+"use client"
+
+import { 
+  createContext, 
+} from "react"
+import { HttpTypes } from "@medusajs/types"
+
+type RegionContextType = {
+  region?: HttpTypes.StoreRegion
+  regions: HttpTypes.StoreRegion[]
+  setRegion: React.Dispatch<
+    React.SetStateAction<HttpTypes.StoreRegion | undefined>
+  >
+}
+
+const RegionContext = createContext<RegionContextType | null>(null)
+
+// TODO add provider component
+So far, you've created RegionContextType which represents the data that the provider's children can access. It holds:
+
+region: The selected region.
+regions: A list of regions available in the Medusa application.
+setRegion: A function to set the selected region.
+Next, you'll create the provider component that wraps the storefront with the region context. Add the following content to the file:
+
+providers/region.tsx
+// other imports...
+import { 
+  // other imports...
+  useState,
+} from "react"
+
+// ...
+
+type RegionProviderProps = {
+  children: React.ReactNode
+}
+
+export const RegionProvider = (
+  { children }: RegionProviderProps
+) => {
+  const [regions, setRegions] = useState<
+    HttpTypes.StoreRegion[]
+  >([])
+  const [region, setRegion] = useState<
+    HttpTypes.StoreRegion
+  >()
+
+  // TODO fetch regions
+}
+You create a RegionProvider component that so far only defines two state variables:
+
+regions: A state variable that will hold the list of regions available in the Medusa application.
+region: A state variable that will hold the selected region.
+Next, add the following imports to the top of the file:
+
+providers/region.tsx
+import { 
+  // other imports...
+  useEffect,
+} from "react"
+import { sdk } from "@/lib/sdk"
+And replace the TODO in the RegionProvider component with the following content:
+
+providers/region.tsx
+useEffect(() => {
+  if (regions.length) {
+    return
+  }
+
+  sdk.store.region.list()
+    .then(({ regions }) => {
+      setRegions(regions)
+    })
+}, [])
+
+// TODO set the selected region
+When the component mounts, you fetch the regions from the Medusa application using the JS SDK. You then set the regions in the regions state variable.
+
+Next, replace the new TODO with the following content:
+
+providers/region.tsx
+useEffect(() => {
+  if (region) {
+    // set its ID in the local storage in
+    // case it changed
+    localStorage.setItem("region_id", region.id)
+    return
+  }
+
+  const regionId = localStorage.getItem("region_id")
+  if (!regionId) {
+    if (regions.length) {
+      setRegion(regions[0])
+    }
+  } else {
+    // retrieve selected region
+    sdk.store.region.retrieve(regionId)
+    .then(({ region: dataRegion }) => {
+      setRegion(dataRegion)
+    })
+  }
+}, [region, regions])
+
+// TODO return the provider
+You add another useEffect hook that sets the selected region when the component first mounts and whenever the region changes. If the region is set, you only set its value in the local storage.
+
+If the region isn't set in the state variable, you try to retrieve the previously selected value from the local storage. If it's not found, you set the first region in the regions list as the selected region. Otherwise, you retrieve the previously selected region from the Medusa application using the JS SDK.
+
+Finally, replace the last TODO with the following content:
+
+providers/region.tsx
+return (
+  <RegionContext.Provider value={{
+    region,
+    regions,
+    setRegion,
+  }}>
+    {children}
+  </RegionContext.Provider>
+)
+This returns the RegionContext.Provider component that will wraps the storefront with the region context, allowing its children to access the region data.
+
+To simplify the usage of the region context in child components, add to the file the following custom hook that returns the region context:
+
+providers/region.tsx
+// other imports...
+import { 
+  // other imports...
+  useContext, 
+} from "react"
+
+// ...
+
+export const useRegion = () => {
+  const context = useContext(RegionContext)
+
+  if (!context) {
+    throw new Error("useRegion must be used within a RegionProvider")
+  }
+
+  return context
+}
+You export a useRegion hook that returns the region context. You'll use this hook later in child components to access the region.
+
+Create Cart Provider#
+Next, you'll create the cart provider that allows you to access the customer's cart across components. Create the file providers/cart.tsx with the following content:
+
+Directory structure after creating cart provider file
+
+providers/cart.tsx
+"use client"
+
+import { 
+  createContext, 
+} from "react"
+import { HttpTypes } from "@medusajs/types"
+
+type CartContextType = {
+  cart?: HttpTypes.StoreCart
+  addToCart: (variantId: string, quantity: number) => Promise<
+    HttpTypes.StoreCart
+  >
+  updateCart: (data: {
+    updateData?: HttpTypes.StoreUpdateCart,
+    shippingMethodData?: HttpTypes.StoreAddCartShippingMethods
+  }) => Promise<HttpTypes.StoreCart | undefined>
+  refreshCart: () => Promise<HttpTypes.StoreCart | undefined>
+  updateItemQuantity: (itemId: string, quantity: number) => Promise<
+    HttpTypes.StoreCart
+  >
+  unsetCart: () => void
+}
+
+const CartContext = createContext<CartContextType | null>(null)
+
+// TODO add provider component
+You've created CartContextType that represents the data that the provider's children can access. It holds:
+
+cart: The customer's cart. This will be set when the customer adds the product variant to the cart, and unset when the cart is completed.
+addToCart: A function to add a product variant to the cart.
+updateCart: A function to update the cart with new details, including shipping details.
+refreshCart: A function to create a new cart and set it in the context.
+updateItemQuantity: A function to update the quantity of an item in the cart.
+unsetCart: A function to unset the cart from local storage and state variable.
+Next, you'll create the provider component that wraps the storefront with the cart context. Add the following content to the file:
+
+providers/cart.tsx
+// other imports...
+import { 
+  // other imports...
+  useState,
+} from "react"
+import { useRegion } from "./region"
+
+// ...
+
+type CartProviderProps = {
+  children: React.ReactNode
+}
+
+export const CartProvider = ({ children }: CartProviderProps) => {
+  const [cart, setCart] = useState<
+    HttpTypes.StoreCart
+  >()
+  const { region } = useRegion()
+
+  // TODO set cart
+}
+You create a CartProvider component that defines two state variables:
+
+cart state variable that will hold the customer's cart details.
+region holding the selected region retrieved from the region context.
+Next, you'll add the logic to set the customer's cart in the provider. Add the following imports to the top of the file:
+
+providers/cart.tsx
+import { 
+  // other imports...
+  useEffect, 
+} from "react"
+import { sdk } from "@/lib/sdk"
+And replace the TODO in the CartProvider component with the following content:
+
+providers/cart.tsx
+useEffect(() => {
+  if (!region) {
+    return
+  }
+  if (cart) {
+    localStorage.setItem("cart_id", cart.id)
+    return
+  }
+
+  const cartId = localStorage.getItem("cart_id")
+  if (!cartId) {
+    // create a cart
+    refreshCart()
+  } else {
+    // retrieve cart
+    sdk.store.cart.retrieve(cartId, {
+      fields: 
+        "+items.variant.*,+items.variant.options.*,+items.variant.options.option.*",
+    })
+    .then(({ cart: dataCart }) => {
+      setCart(dataCart)
+    })
+  }
+}, [cart, region])
+
+// TODO update cart when region changes
+You add a useEffect hook that runs when the component mounts and whenever the cart is changed. If the cart is already set, you only set its value in the local storage.
+
+If the cart isn't set, you either try to retrieve the cart set in local storage, or create a new cart.
+
+Next, you'll add the logic to update the cart when the region changes. Replace the TODO with the following:
+
+providers/cart.tsx
+useEffect(() => {
+  if (!cart || !region || cart.region_id === region.id) {
+    return
+  }
+
+  sdk.store.cart.update(cart.id, {
+    region_id: region.id,
+  })
+  .then(({ cart: dataCart }) => {
+    setCart(dataCart)
+  })
+}, [region])
+
+// TODO add functions
+This useEffect hook runs when the region changes. If the cart is set and the region of the cart doesn't match the selected region, you update the cart with the new selected region.
+
+You'll now implement the functions that are part of the context's value. Start by adding the refreshCart function in the place of the TODO:
+
+providers/cart.tsx
+const refreshCart = async () => {
+  if (!region) {
+    return
+  }
+
+  const { cart: dataCart } = await sdk.store.cart.create({
+    region_id: region.id,
+  })
+
+  localStorage.setItem("cart_id", dataCart.id)
+  setCart(dataCart)
+
+  return dataCart
+}
+
+// TODO add addToCart function
+In the refreshCart function, you create a new cart in the selected region using the JS SDK and set it in the context. You also set the cart ID in the local storage, and return the cart.
+
+Next, add the addToCart function in the place of the TODO:
+
+providers/cart.tsx
+const addToCart = async (variantId: string, quantity: number) => {
+  const newCart = await refreshCart()
+  if (!newCart) {
+    throw new Error("Could not create cart")
+  }
+  
+  const { cart: dataCart } = await sdk.store.cart.createLineItem(newCart.id, {
+    variant_id: variantId,
+    quantity,
+  })
+  setCart(dataCart)
+
+  return dataCart
+}
+
+// TODO add updateCart function
+In the addToCart function, you use the refreshCart function to create a new cart, then add a product variant to the cart with the specified quantity using the JS SDK. You set the updated cart in the context and return the cart.
+
+After that, replace the TODO with the updateCart function:
+
+providers/cart.tsx
+const updateCart = async ({
+  updateData,
+  shippingMethodData,
+}: {
+  updateData?: HttpTypes.StoreUpdateCart,
+  shippingMethodData?: HttpTypes.StoreAddCartShippingMethods
+}) => {
+  if (!updateData && !shippingMethodData) {
+    return cart
+  }
+  let returnedCart = cart
+  if (updateData) {
+    returnedCart = (await sdk.store.cart.update(cart!.id, updateData)).cart
+  }
+  
+  if (shippingMethodData) {
+    returnedCart = (await sdk.store.cart.addShippingMethod(cart!.id, shippingMethodData)).cart
+  }
+  
+  setCart(returnedCart)
+
+  return returnedCart
+}
+
+// TODO add updateItemQuantity function
+In the updateCart function, you update the cart's general details and set the cart's shipping method using the JS SDK. You then set the updated cart in the context and return the cart.
+
+Then, replace the TODO with the updateItemQuantity function:
+
+providers/cart.tsx
+const updateItemQuantity = async (itemId: string, quantity: number) => {
+  const { cart: dataCart } = await sdk.store.cart.updateLineItem(
+    cart!.id, 
+    itemId, 
+    {
+      quantity,
+    }
+  )
+  setCart(dataCart)
+
+  return dataCart
+}
+
+// TODO add unsetCart function
+In the updateItemQuantity function, you update the quantity of an item in the cart using the JS SDK and set the updated cart in the context.
+
+Lastly, replace the TODO with the unsetCart function:
+
+providers/cart.tsx
+const unsetCart = () => {
+  localStorage.removeItem("cart_id")
+  setCart(undefined)
+}
+
+// TODO return provider
+In the unsetCart function, you remove the cart ID from the local storage and unset the cart in the context.
+
+Finally, you'll return the provider component. Replace the last TODO with the following content:
+
+providers/cart.tsx
+return (
+  <CartContext.Provider value={{
+    cart,
+    addToCart,
+    updateCart,
+    refreshCart,
+    updateItemQuantity,
+    unsetCart,
+  }}>
+    {children}
+  </CartContext.Provider>
+)
+This returns the CartContext.Provider component that wraps the storefront with the cart context, allowing its children to access the cart data.
+
+To simplify the usage of the cart context in child components, add in the same file the following custom hook that returns the cart context:
+
+providers/cart.tsx
+// other imports...
+import { 
+  useContext, 
+} from "react"
+
+// ...
+
+export const useCart = () => {
+  const context = useContext(CartContext)
+
+  if (!context) {
+    throw new Error("useCart must be used within a CartProvider")
+  }
+
+  return context
+}
+You export a useCart hook that returns the cart context. You'll use this hook later in child components to access the cart.
+
+Step 5: Implement Storefront Layout#
+In this step, you'll implement the general layout of the storefront. The storefront will have a simple two-column layout, with one column showing the current page's content, and another showing the current region and allowing the customer to change it.
+
+Create Second Column#
+Before creating the layout, you'll create the second column that's consistent across pages.
+
+To create the component, create the file components/SecondCol/index.tsx with the following content:
+
+Directory structure after creating second column file
+
+components/SecondCol/index.tsx
+"use client"
+
+import { clx } from "@medusajs/ui"
+import { useRegion } from "@/providers/region"
+
+export const SecondCol = () => {
+  const { region, regions, setRegion } = useRegion()
+
+  return (
+    <div className={clx(
+      "flex flex-col justify-center items-center gap-6",
+      "lg:w-1/2 w-full"
+    )}>
+      <div className="flex flex-col justify-center gap-1">
+        <span className="text-xs text-ui-fg-subtle">
+          Powered by
+        </span>
+        <img 
+          src="https://res.cloudinary.com/dza7lstvk/image/upload/v1735642745/Medusa%20Resources/medusa-express-logo_gqu5qy.png" 
+          alt="Medusa" 
+          width={67}
+          height={16}
+        />
+      </div>
+      <div className="flex justify-center gap-1">
+        <span className="text-sm text-ui-fg-muted">
+          Region:
+        </span>
+        <select
+          value={region?.id}
+          onChange={(e) => {
+            const selectedRegion = regions.find(
+              (r) => r.id === e.target.value
+            )
+            setRegion(selectedRegion)
+          }}
+          className={clx(
+            "text-sm text-ui-fg-subtle",
+            "select"
+          )}
+        >
+          {regions.map((r) => (
+            <option key={r.id} value={r.id}>
+              {r.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  )
+}
+You create a SecondCol component that shows the Medusa logo and a dropdown to change the selected region. You use the useRegion hook to access the region context and manage region data.
+
+When the customer changes the selected region in the dropdown, the selected region is changed in the context, which also updates the customer cart's region.
+
+Add Select Styling#
+The SecondCol component uses custom styling for the select component using the .select class.
+
+To add that styling, replace the content of app/globals.css with the following content:
+
+app/globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.select {
+  @apply appearance-none border-none bg-no-repeat pr-4;
+  background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.6666 10L7.99994 13.3333L11.3333 10" stroke="%239CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.6666 5.99993L7.99994 2.6666L11.3333 5.99993" stroke="%239CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-size: 16px;
+  background-position: right top 50%;
+  background-color: transparent;
+}
+Create Layout Component#
+Next, you'll create the layout component that wraps the storefront pages with the general layout. Replace the content of the file components/Layout/index.tsx with the following content:
+
+components/Layout/index.tsx
+import { clx } from "@medusajs/ui"
+import { Inter, Roboto_Mono } from "next/font/google"
+import { RegionProvider } from "@/providers/region"
+import "./globals.css"
+import { SecondCol } from "../components/SecondCol"
+import { CartProvider } from "@/providers/cart"
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500"],
+})
+
+export const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
+})
+
+
+export default function Layout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html className={clx(inter.variable, robotoMono.variable)}>
+      <body className="bg-ui-bg-subtle w-full h-full">
+        <div className={clx(
+          "flex justify-center items-center min-h-screen w-full"
+        )}>
+          <RegionProvider>
+            <CartProvider>
+              <div className={clx(
+                "flex gap-2 lg:my-16 my-4",
+                "lg:w-[758px] lg:mx-auto w-full mx-4"
+              )}>
+                <div className="flex flex-col gap-2 lg:w-1/2 w-full">
+                  {children}
+                </div>
+                <SecondCol />
+              </div>
+            </CartProvider>
+          </RegionProvider>
+        </div>
+      </body>
+    </html>
+  )
+}
+You change the layout component to wrap the storefront's components with the RegionProvider and CartProvider components. You also add two-column styling, always showing the SecondCol component on the right side of the page.
+
+This layout will wrap all pages you create next.
+
+Step 6: Create Express Checkout Page#
+The express checkout flow will have four steps:
+
+Product variant selection: The customer will first open the page to view the product's details, choose its options, then add it to the cart.
+Address details: The customer will input their shipping address, which will also be used as a billing address.
+Shipping method selection: The customer will choose a shipping method used to deliver their order.
+Payment and cart completion: The customer will choose a payment provider to make the payment, then places the order.
+These steps will be available within a single page whose path is the product's handle (for example, sweatpants), but the routing between them will depend on the cart's current state and a step query parameter. In this section, you'll create this page and the router component used to set the current active step.
+
+Tip: Each product in Medusa has a handle property, which is a slug-like value that can be used on client applications to create friendly URLs.
+Create Router Component#
+To manage the routing between the express-checkout-flow steps, you'll create a Router component that will render the correct step based on the cart's state and the step query parameter. So, create the file components/Router/index.tsx with the following content:
+
+Directory structure after creating Router component file
+
+components/Router/index.tsx
+"use client"
+
+import { useRouter, useSearchParams } from "next/navigation"
+import { useCart } from "@/providers/cart"
+import { useEffect, useMemo } from "react"
+
+type ActiveTab = "product" | "address" | "shipping" | "payment"
+
+type RouterProps = {
+  handle: string
+}
+
+export const Router = ({
+  handle,
+}: RouterProps) => {
+  const { cart } = useCart()
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const currentStep = searchParams.get("step")
+
+  const isCartValid = useMemo(() => {
+    return cart?.items?.[0]?.product_handle === handle
+  }, [cart, handle])
+
+  const activeTab: ActiveTab = currentStep === "product" || currentStep === "address" || 
+    currentStep === "shipping" || currentStep === "payment" ? currentStep : "product"
+
+  useEffect(() => {
+    if (!cart) {
+      return
+    }
+    
+    if ((activeTab !== "product") && !isCartValid) {
+      return router.push(`/${handle}`)
+    }
+
+    if (activeTab === "shipping" && (!cart?.shipping_address || !cart?.billing_address)) {
+      return router.push(`/${handle}?step=address`)
+    }
+  
+    if (activeTab === "payment" && (
+      !cart?.shipping_address || !cart?.billing_address || !cart?.shipping_methods?.length
+    )) {
+      return router.push(`/${handle}?step=shipping`)
+    }
+  }, [isCartValid, activeTab])
+
+  return (
+    <>
+      {/* TODO render components */}
+    </>
+  )
+}
+You create a Router component that manages the routing between the product, address, shipping, and payment steps. The component uses the useCart hook to access the cart data, the useSearchParams hook to access the query parameters, and the useRouter hook to navigate between steps.
+
+The different steps will be shown in the page as tabs or cards. The active tab is set to one of the following values:
+
+product: The product selection step, which is the default step.
+address: The shipping address details step. This step is set as active if the step query parameter is set to address and the cart has the selected product. This step is also set as active if the step query parameter is set to shipping or payment and the cart doesn't have shipping and billing addresses set.
+shipping: The shipping method selection step. This step is set as active if the step query parameter is set to shipping and the cart has the selected product and the shipping and billing addresses set. This step is also set as active if the step query parameter is set to payment and the cart doesn't have a selected shipping method.
+payment: The payment and cart completion step. This step is set as active if the step query parameter is set to payment and all previous steps have been completed.
+You'll render the components for each step as you create them next.
+
+Create Express Checkout Page#
+To create the page that shows the express checkout page, create the file app/[handle]/page.tsx with the following content:
+
+Directory structure after creating express checkout page file
+
+app/[handle]/page.tsx
+import { Router } from "../../components/Router"
+
+type Params = {
+  params: Promise<{ handle: string }>
+}
+
+export default async function ExpressCheckoutPage({
+  params,
+}: Params) {
+  const handle = (await params).handle
+
+  return <Router handle={handle} />
+}
+This page will render the Router component, which will manage the routing between the product, address, shipping, and payment steps. You'll add the components for these steps next.
+
+Step 7: Create Product Selection Step#
+The first step in the express checkout flow is the product selection step. In this step, the customer will view the product's details, choose its options, then add it to the cart.
+
+Create Card Component#
+Before creating the component that displays the product selection step, you'll create a Card component that will wrap each step's components in the same styling.
+
+Create the file components/Card/index.tsx with the following content:
+
+Directory structure after creating Card component file
+
+components/Card/index.tsx
+"use client"
+
+import { CheckCircle } from "@medusajs/icons"
+import { clx, Heading } from "@medusajs/ui"
+import { useRouter } from "next/navigation"
+
+type CardProps = {
+  title: string
+  isActive: boolean
+  isDone: boolean
+  path: string
+  children: React.ReactNode
+}
+
+export const Card = ({
+  title,
+  isActive,
+  isDone,
+  path,
+  children,
+}: CardProps) => {
+  const router = useRouter()
+
+  return (
+    <div className={clx(
+      "bg-ui-bg-base rounded-lg py-4 px-6 w-full",
+      "flex gap-4 flex-col shadow-elevation-card-rest",
+      !isActive && "cursor-pointer"
+    )}
+    onClick={() => {
+      if (isActive) {
+        return
+      }
+      
+      router.push(path)
+    }}
+    >
+      <Heading level="h2" className="flex justify-between items-center">
+        <span>{title}</span>
+        {isDone && <CheckCircle className="text-ui-tag-green-icon" />}
+      </Heading>
+      {isActive && children}
+    </div>
+  )
+}
+You create a Card component that accepts the following props:
+
+title: The title of the card.
+isActive: A boolean indicating whether the card is active, which is enabled based on the current step of the express checkout flow.
+isDone: A boolean indicating whether the card is completed, which is enabled when the customer completes the step's requirements, such as select a shipping method.
+path: The step's path.
+children: The content of the card.
+The card shows the step's title and a check mark if it was completed. The card's content is only shown if the step is currently active.
+
+Also, when the step is completed, its card can be clicked to allow the customer to go back and make changes to their choices or input.
+
+You'll wrap each step component you'll create next with this Card component.
+
+Create Product Component#
+You'll now create the component that shows the product selection step.
+
+Create the file components/Product/index.tsx with the following content:
+
+Directory structure after creating Product component file
+
+components/Product/index.tsx
+"use client"
+
+import { 
+  useState,
+} from "react"
+import { HttpTypes } from "@medusajs/types"
+import { useRegion } from "@/providers/region"
+import { useCart } from "@/providers/cart"
+import { useRouter } from "next/navigation"
+
+type ProductProps = {
+  handle: string
+  isActive: boolean
+}
+
+export const Product = ({ handle, isActive }: ProductProps) => {
+  const [loading, setLoading] = useState(true)
+  const [product, setProduct] = useState<HttpTypes.StoreProduct>()
+  const [selectedOptions, setSelectedOptions] = useState<
+    Record<string, string>
+  >({})
+  const [quantity, setQuantity] = useState(1)
+  const { region } = useRegion()
+  const { cart, addToCart } = useCart()
+  const router = useRouter()
+
+  // TODO get product details
+}
+You create a Product component that receives as a prop the product's handle and whether the component is active.
+
+The component defines the following variables:
+
+loading: A boolean state variable indicating whether an operation is loading, such as the product's details.
+product: A state variable that holds the product's details, which you'll retrieve from the Medusa application.
+selectedOptions: A state variable that holds the product options that the customer has selected, such as color or size.
+quantity: A state variable that holds the product quantity to add to the cart.
+region: The selected region retrieved from the region context.
+cart and addToCart: The customer's cart and the function to add the selected product variant to the cart, retrieved from the cart context.
+router: The router instance to navigate between steps.
+Retrieve Product Details
+Next, you'll retrieve the product's details from the Medusa application. Start by adding the following imports to the top of the file:
+
+components/Product/index.tsx
+import { sdk } from "@/lib/sdk"
+import { 
+  // other imports...
+  useEffect,
+} from "react"
+Then, replace the TODO in the Product component with the following:
+
+components/Product/index.tsx
+useEffect(() => {
+  if (product || !region) {
+    return
+  }
+  
+  sdk.store.product.list({
+    handle,
+    region_id: region.id,
+    fields: `*variants.calculated_price,+variants.inventory_quantity`,
+  })
+  .then(({ products }) => {
+    if (products.length) {
+      setProduct(products[0])
+    }
+    setLoading(false)
+  })
+}, [product, region])
+
+// TODO set selected variant
+In the useEffect hook, you use the JS SDK to send a request to the List Products API route, passing the following query parameters:
+
+handle: Filter the list of products with the unique handler.
+region_id: Set the selected region, which is necessary to retrieve the correct pricing.
+fields: Specify comma-separated fields to retrieve along with the default fields. You pass *variants.calculated_price to retrieve the product variants' price for the current context, and +variants.inventory_quantity to retrieve the variants' inventory quantity.
+Tip: Most of Medusa's API routes accept the fields query parameter, allowing you to specify the fields you need to retrieve. Learn more about its usage in this documentation
+The API route returns a list of products, but since you passed the unique handle as a filter, the array will have only one item if the product exists. You set the retrieved product in the product state variable, and set loading to false.
+
+Set Selected Variant
+A product has variants for each of its option combinations (such as color and size). When a customer selects the values for each of the product's options, you'll find the associated variant to show its price and add it to the cart.
+
+To determine the selected variant, first, add the following import at the top of the file:
+
+components/Product/index.tsx
+import { 
+  // other imports...
+  useMemo,
+} from "react"
+Then, replace the TODO in Product component with the following:
+
+components/Product/index.tsx
+const selectedVariant = useMemo(() => {
+  if (
+    !product?.variants ||
+    !product.options || 
+    Object.keys(selectedOptions).length !== product.options?.length
+  ) {
+    return
+  }
+
+  return product.variants.find((variant) => variant.options?.every(
+    (optionValue) => optionValue.id === selectedOptions[optionValue.option_id!]
+  ))
+}, [selectedOptions, product])
+
+// TODO set variant to retrieve its price
+You create a selectedVariant memoized variable that holds the selected variant based on the selected options. You find the selected variant by filtering the product's variants to find the one that matches all the selected options.
+
+Set Price to Show
+Next, you'll set the price to show to the customer. The Medusa application returns the price as a number. To display it with currency, you'll create a utility that you'll re-use whenever you show a price.
+
+Create the file lib/price.ts with the following content:
+
+Directory structure after creating price utility file
+
+lib/price.ts
+export const formatPrice = (amount: number, currency?: string): string => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency || "usd",
+  })
+  .format(amount)
+}
+The formatPrice utility function uses the Intl.NumberFormat API to format a number with a currency code.
+
+Go back to components/Product/index.tsx and import the utility at the top of the file:
+
+components/Product/index.tsx
+import { formatPrice } from "../../lib/price"
+Then, replace the TODO in the Product component with the following:
+
+components/Product/index.tsx
+const price = useMemo(() => {
+    const selectedVariantPrice = selectedVariant || 
+      product?.variants?.sort((a: HttpTypes.StoreProductVariant, b: HttpTypes.StoreProductVariant) => {
+        if (!a.calculated_price?.calculated_amount && !b.calculated_price?.calculated_amount) {
+          return 0
+        }
+        if (!a.calculated_price?.calculated_amount) {
+          return 1
+        }
+        if (!b.calculated_price?.calculated_amount) {
+          return -1
+        }
+        return (
+          a.calculated_price?.calculated_amount -
+          b.calculated_price?.calculated_amount
+        )
+      })[0]
+
+    return formatPrice(
+      selectedVariantPrice?.calculated_price?.calculated_amount || 0,
+      region?.currency_code
+    )
+  }, [selectedVariant, product, region])
+
+// TODO determine whether the product is in stock
+In the price memoized variable, you first determine the variant to show its price:
+
+If a variant is selected, you show its price.
+Otherwise, you show the price of the variant having the lowest price.
+Then, you return the price formatted with the formatPrice utility function, passing the variant's price and the selected region's currency code as arguments.
+
+Determine Whether Selected Variant is in Stock
+In Medusa, each product variant has different inventory quantity. So, after the customer selects a variant, you'll check whether it's in stock before allowing them to add it to the cart.
+
+To determine whether the variant is in stock, replace the TODO in the Product component with the following:
+
+components/Product/index.tsx
+const isInStock = useMemo(() => {
+  if (!selectedVariant) {
+    return undefined
+  }
+
+  return selectedVariant.manage_inventory === false || 
+    (selectedVariant.inventory_quantity || 0) > 0
+}, [selectedVariant])
+
+// TODO implement add to cart logic
+You create an isInStock memoized variable that holds a boolean indicating whether the selected variant is in stock. A variant is considered in stock if:
+
+The variant's manage_inventory property is set to false, meaning Medusa doesn't manage the variant's inventory quantity, so, it's always considered in stock;
+Or the variant's inventory_quantity property is greater than 0.
+Implement Add to Cart Logic
+After the customer selects the variant and quantity, they can add it to the cart. To implement the logic of adding the product to the cart, replace the TODO in the Product component with the following:
+
+components/Product/index.tsx
+const handleAddToCart = () => {
+  if (!selectedVariant || !isInStock || !quantity) {
+    return
+  }
+  setLoading(true)
+
+  addToCart(selectedVariant.id!, quantity)
+  .then(() => {
+    router.push(`/${handle}?step=address`)
+  })
+}
+
+// TODO render product details
+You add a handleAddToCart function that first checks that a variant is selected, that it's in stock, and that the customer has set a quantity greater than 0.
+
+If the conditions are satisfied, you set loading to true, then call the addToCart function from the cart context, passing the selected variant's ID and the quantity as arguments.
+
+After the product is added to the cart, you navigate to the address step, which you'll create later.
+
+Render Product Details
+Finally, you'll add the return statement showing the product's details and allowing the customer to add the product to the cart.
+
+First, add the following imports at the top of the file:
+
+components/Product/index.tsx
+import { Card } from "../Card"
+import { Spinner } from "@medusajs/icons"
+import { Button, Input, Select } from "@medusajs/ui"
+Then, replace the last TODO in the Product component with the following:
+
+components/Product/index.tsx
+return (
+  <Card 
+    title="Product" 
+    isActive={isActive} 
+    isDone={cart?.items !== undefined && cart?.items?.length > 0}
+    path={`/${handle}`}
+  >
+    {loading && <Spinner />}
+    {!loading && !product && <div>Product not found</div>}
+    {!loading && product && (
+      <div className="flex gap-4 flex-col">
+        <div className="flex gap-4">
+          <img 
+            src={product.thumbnail || ""}
+            className="rounded"
+            width={160}
+            height={200}
+          />
+          <div className="flex flex-col gap-1">
+            {product.categories?.length && (
+              <span className="text-xs text-ui-fg-muted">
+                {product.categories[0].name}
+              </span>
+            )}
+            <span className="text-base text-ui-fg-base">
+              {product.title}
+            </span>
+            <span className="text-sm text-ui-fg-subtle">
+              {price}
+            </span>
+          </div>
+        </div>
+        <p className="text-sm text-ui-fg-subtle">
+          {product.description}
+        </p>
+        {product.options?.map((option) => (
+          <div className="flex flex-col gap-1" key={option.id}>
+            <span className="text-xs text-ui-fg-muted">
+              {option.title}
+            </span>
+            <Select 
+              onValueChange={(value) => {
+                setSelectedOptions((prev) => ({
+                  ...prev,
+                  [option.id!]: value,
+                }))
+              }}
+              value={selectedOptions[option.id!]}
+            >
+              <Select.Trigger>
+                <Select.Value placeholder={`Select ${option.title}`} />
+              </Select.Trigger>
+              <Select.Content>
+                {option.values?.map((value) => (
+                  <Select.Item
+                    key={value.id}
+                    value={value.id}
+                  >
+                    {value.value}
+                  </Select.Item>
+                ))}
+              </Select.Content>
+            </Select>
+          </div>
+        ))}
+        <div className="flex flex-col gap-1">
+          <span className="text-xs text-ui-fg-muted">
+            Quantity
+          </span>
+          <Input
+            name="quantity"
+            placeholder="Quantity"
+            type="number"
+            min="1"
+              max={selectedVariant?.inventory_quantity || undefined}
+            value={quantity}
+            onChange={(e) => setQuantity(parseInt(e.target.value))}
+          />
+        </div>
+        <hr className="bg-ui-bg-subtle" />
+        <Button
+          disabled={!selectedVariant || !isInStock || loading}
+          onClick={handleAddToCart}
+          className="w-full"
+        >
+          {!selectedVariant && "Select Options"}
+          {selectedVariant && !isInStock && "Out of Stock"}
+          {selectedVariant && isInStock && "Add to Cart"}
+        </Button>
+      </div>
+    )}
+  </Card>
+)
+You wrap the product step with the Card component you created earlier. In the card:
+
+If loading is enabled, you show a spinner icon imported from @medusajs/icons.
+If loading is disabled and the product isn't found, you show a not found message.
+If loading is disabled and the product is found, you show the product's details, including the product's image, title, price, and description.
+You also loop over the product's options and show a select input, imported from @medusajs/ui, to allow the customer to select the value of each option.
+
+Once the customer has selected a variant that's in stock, they can click the button to add the product to the cart, which will execute the handleAddToCart function you created earlier.
+
+Add to Router Component#
+Finally, you'll add the Product component to the Router component to show the product selection step.
+
+First, import the Product component at the top of the components/Router/index.tsx file:
+
+components/Router/index.tsx
+import { Product } from "../Product"
+Then, change the return statement of the Router component to the following
+
+components/Router/index.tsx
+return (
+  <>
+    <Product handle={handle} isActive={activeTab === "product"} />
+  </>
+)
+This will show the product step and expand its details if activeTab is product.
+
+Test it Out#
+To test out what you've implemented so far, first, start the Medusa application by running the following command in the Medusa project's directory:
+
+yarn
+pnpm
+npm
+yarn dev
+This will run the Medusa application at http://localhost:9000.
+
+Then, while the Medusa application is running, run the following command in the Next.js project to start the development server:
+
+yarn
+pnpm
+npm
+yarn dev
+This will run the storefront at http://localhost:3000. To open the express checkout page, go to http://localhost:3000/sweatpants, assuming you have a product with the handle sweatpants.
+
+Tip: When you first created the Medusa application, four products, including the sweatpants product, were created by default. You can view and add products to your application by going to the Medusa Admin dashboard at http://localhost:9000/app.
+Product step showing the product's details and add to cart button
+
+You should see the product's details, including the image, title, price, description, and options. You can select the options and quantity, then click the "Add to Cart" button to add the product to the cart.
+
+Once you add the product to the cart, the Product card will collapse, and the next step should be shown. You'll add it next.
+
+Step 8: Create Address Step#
+The second step in the express checkout flow is the address details step. In this step, the customer will input their shipping address.
+
+To create the component of this step, create the file components/Address/index.tsx with the following content:
+
+Directory structure after creating Address component file
+
+components/Address/index.tsx
+"use client"
+
+import { 
+  useState,
+} from "react"
+import { useCart } from "@/providers/cart"
+import { useRegion } from "@/providers/region"
+import { useRouter } from "next/navigation"
+
+type AddressProps = {
+  handle: string
+  isActive: boolean
+}
+
+export const Address = ({
+  handle,
+  isActive,
+}: AddressProps) => {
+  const { cart, updateCart } = useCart()
+  const { region } = useRegion()
+  const [loading, setLoading] = useState(false)
+  const [firstName, setFirstName] = useState(
+    cart?.shipping_address?.first_name || ""
+  )
+  const [lastName, setLastName] = useState(
+    cart?.shipping_address?.last_name || ""
+  )
+  const [email, setEmail] = useState(cart?.email || "")
+  const [phone, setPhone] = useState(cart?.shipping_address?.phone || "")
+  const [address, setAddress] = useState(
+    cart?.shipping_address?.address_1 || ""
+  )
+  const [postalCode, setPostalCode] = useState(
+    cart?.shipping_address?.postal_code || ""
+  )
+  const [city, setCity] = useState(cart?.shipping_address?.city || "")
+  const [country, setCountry] = useState(
+    cart?.shipping_address?.country_code || region?.countries?.[0]?.iso_2 || ""
+  )
+  const router = useRouter()
+
+  // TODO set whether button is disabled
+}
+You create an Address component that receives the product's handle and whether the component is active as props. The component defines the following variables:
+
+cart and updateCart: The customer's cart and the function to update the cart, retrieved from the cart context.
+region: The selected region retrieved from the region context.
+loading: A boolean state variable indicating whether an operation is loading.
+firstName, lastName, email, phone, address, postalCode, city, and country: State variables that hold the customer's shipping and billing address details.
+router: The router instance to navigate between steps.
+Next, you'll define a variable that determines whether the customer can save the address and go to the next step. First, add the following import at the top of the file:
+
+components/Address/index.tsx
+import { 
+  // other imports...
+  useMemo,
+} from "react"
+Then, replace the TODO in the Address component with the following:
+
+components/Address/index.tsx
+const isButtonDisabled = useMemo(() => {
+  return loading || !firstName || !lastName || !email || 
+    !phone || !address || !postalCode || !city || !country
+}, [
+  firstName, lastName, email, phone, address, 
+  postalCode, city, country, loading,
+])
+
+// TODO implement submit action logic
+You create an isButtonDisabled memoized variable whose value is a boolean indicating whether the button to go to the next step is disabled.
+
+Implement Submit Action Function#
+Next, you'll implement the function that will be called when the customer submits their address details.
+
+Replace the TODO in the Address component with the following:
+
+components/Address/index.tsx
+const handleSubmit = () => {
+  if (isButtonDisabled) {
+    return
+  }
+
+  setLoading(true)
+
+  updateCart({
+    updateData: {
+      shipping_address: {
+        first_name: firstName,
+        last_name: lastName,
+        phone,
+        address_1: address,
+        postal_code: postalCode,
+        city,
+        country_code: country,
+      },
+      billing_address: {
+        first_name: firstName,
+        last_name: lastName,
+        phone,
+        address_1: address,
+        postal_code: postalCode,
+        city,
+        country_code: country,
+      },
+      email,
+    },
+  })
+  .then(() => {
+    setLoading(false)
+    router.push(`/${handle}?step=shipping`)
+  })
+}
+
+// TODO render address form
+In the handleSubmit function, if the button isn't disabled, you set loading to true, then use the updateCart function from the cart context to update the cart with the customer's shipping and billing addresses and email.
+
+Note: You can have different forms for billing and shipping addresses.
+Once the address is saved, you redirect the customer to the next step in the flow, which is the shipping step.
+
+Render Address Form#
+Lastly, you'll add the return statement that shows the address form.
+
+First, add the following imports at the top of the file:
+
+components/Address/index.tsx
+import { Card } from "../Card"
+import { Button, Input, Select } from "@medusajs/ui"
+Then, replace the last TODO in the Address component with the following:
+
+components/Address/index.tsx
+return (
+  <Card 
+    title="Delivery Address" 
+    isActive={isActive} 
+    isDone={!!cart?.shipping_address}
+    path={`/${handle}?step=address`}
+  >
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        <span className="text-xs">Contact</span>
+        <div className="flex gap-2">
+          <Input
+            name="first_name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="First name"
+          />
+          <Input
+            name="last_name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Last name"
+          />
+        </div>
+        <Input
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+        />
+        <Input
+          name="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Phone"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <span className="text-xs">Delivery</span>
+        <Input
+          name="address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          placeholder="Address"
+        />
+        <div className="flex gap-2">
+          <Input
+            name="postal_code"
+            value={postalCode}
+            onChange={(e) => setPostalCode(e.target.value)}
+            placeholder="Postal code"
+          />
+          <Input
+            name="city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            placeholder="City"
+          />
+        </div>
+        <Select
+          value={country}
+          onValueChange={(value) => setCountry(value)}
+        >
+          <Select.Trigger>
+            <Select.Value placeholder="Country" />
+          </Select.Trigger>
+          <Select.Content>
+            {region?.countries?.map((country) => (
+              <Select.Item
+                key={country.iso_2}
+                value={country.iso_2 || ""}
+              >
+                {country.display_name}
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select>
+      </div>
+      <hr className="bg-ui-bg-subtle" />
+      <Button
+        disabled={isButtonDisabled}
+        onClick={handleSubmit}
+        className="w-full"
+      >
+        Continue
+      </Button>
+    </div>
+  </Card>
+)
+You wrap the address form with the Card component you created earlier. In the card, you show inputs for the address details and a button that, when clicked, executes the handleSubmit function you created earlier.
+
+Add to Router Component#
+Finally, you'll add the Address component to the Router component to show the address details step.
+
+First, import the Address component at the top of the components/Router/index.tsx file:
+
+components/Router/index.tsx
+import { Address } from "../Address"
+Then, change the return statement of the Router component to the following
+
+components/Router/index.tsx
+return (
+  <>
+    <Product handle={handle} isActive={activeTab === "product"} />
+    <Address handle={handle} isActive={activeTab === "address"} />
+  </>
+)
+This will show the address details step and expand its details if activeTab is address.
+
+Test it Out#
+While both the Medusa application and the Next.js Starter Storefront are running, if you refresh the page you had opened or go to http://localhost:3000/sweatpants?step=address, you should see the address form where you can input your address details.
+
+Address step showing the address form and a continue button
+
+You can input your address details then click on the "Continue" button. The address will be saved in the cart and the Address card will collapse. The third step's details should be shown, which you'll add next.
+
+Step 9: Create Shipping Step#
+The third step in the express checkout flow is the shipping method selection step. In this step, the customer will choose a shipping method to deliver their order.
+
+To create the component of this step, create the file components/Shipping/index.tsx with the following content:
+
+Directory structure after creating Shipping component file
+
+components/Shipping/index.tsx
+"use client"
+
+import { 
+  useState,
+} from "react"
+import { useCart } from "@/providers/cart"
+import { HttpTypes } from "@medusajs/types"
+import { useRouter } from "next/navigation"
+
+type ShippingProps = {
+  handle: string
+  isActive: boolean
+}
+
+export const Shipping = ({
+  handle,
+  isActive,
+}: ShippingProps) => {
+  const { cart, updateCart } = useCart()
+  const [loading, setLoading] = useState(true)
+  const [shippingMethod, setShippingMethod] = useState(
+    cart?.shipping_methods?.[0]?.shipping_option_id || ""
+  )
+  const [shippingOptions, setShippingOptions] = useState<
+    HttpTypes.StoreCartShippingOption[]
+  >([])
+  const [calculatedPrices, setCalculatedPrices] = useState<
+    Record<string, number>
+  >({})
+  const router = useRouter()
+
+  // TODO retrieve shipping options
+}
+You create a Shipping component that receives the product's handle and whether the component is active as props. The component defines the following variables:
+
+cart and updateCart: The customer's cart and the function to update the cart, retrieved from the cart context.
+loading: A boolean state variable indicating whether an operation is loading.
+shippingMethod: A state variable that holds the selected shipping method.
+shippingOptions: A state variable that holds the available shipping options.
+calculatedPrices: A state variable that holds the calculated prices for each shipping option that doesn't have a flat rate price.
+router: The router instance to navigate between steps.
+Retrieve Shipping Options#
+In the Medusa application, you can define shipping options for each stock location, sales channel, or other conditions. So, during checkout, you retrieve the shipping options specific to a cart's context and allow the customer to choose from them.
+
+To do that, first, add the following imports at the top of the file:
+
+components/Shipping/index.tsx
+import { 
+  // other imports...
+  useEffect,
+} from "react"
+import { sdk } from "@/lib/sdk"
+Then, replace the TODO in the Shipping component with the following:
+
+components/Shipping/index.tsx
+useEffect(() => {
+  if (shippingOptions.length || !cart) {
+    return
+  }
+
+  sdk.store.fulfillment.listCartOptions({
+    cart_id: cart.id || "",
+  })
+  .then(({ shipping_options }) => {
+    setShippingOptions(shipping_options)
+    setLoading(false)
+  })
+}, [shippingOptions, cart])
+
+// TODO set calculated prices
+In the useEffect hook, you use the JS SDK to send a request to the List Shipping Options of a Cart API route, passing the cart's ID as a query parameter. The API route returns a list of shipping options, which you set in the shippingOptions state variable.
+
+Retrieve Calculated Prices#
+Shipping options have a price_type property whose value is either:
+
+flat_rate: This value means the shipping option has a fixed price.
+calculated: This value means the shipping option's price is calculated based on the cart's context, such as the shipping address or items in the carts. This is useful when the fulfillment provider that's associated with a shipping option calculates the price based on these conditions.
+So, to retrieve the prices of calculated shipping options, you use Medusa's Calculate Shipping Option Price API route.
+
+Replace the TODO in the Shipping component with the following:
+
+components/Shipping/index.tsx
+useEffect(() => {
+  if (!cart || !shippingOptions.length) {
+    return
+  }
+
+  const promises = shippingOptions
+      .filter((shippingOption) => shippingOption.price_type === "calculated")
+      .map((shippingOption) => 
+        sdk.client.fetch(
+          `/store/shipping-options/${shippingOption.id}/calculate`, 
+          {
+            method: "POST",
+            body: {
+              cart_id: cart.id,
+              data: {
+                // pass any custom data useful for price calculation
+              },
+            },
+          }
+        ) as Promise<{ shipping_option: HttpTypes.StoreCartShippingOption }>
+      )
+
+  if (promises.length) {
+    Promise.allSettled(promises).then((res) => {
+      const pricesMap: Record<string, number> = {}
+      res
+        .filter((r) => r.status === "fulfilled")
+        .forEach((p) => (
+          pricesMap[p.value?.shipping_option.id || ""] = 
+            p.value?.shipping_option.amount
+        ))
+
+      setCalculatedPrices(pricesMap)
+    })
+  }
+}, [shippingOptions, cart])
+
+// TODO add function to format price
+In the useEffect hook, you filter the shippingOptions to get only the calculated shipping options. Then, you loop over these options to retrieve their calculated price from the Medusa application. You pass to the Calculate Shipping Option API route the cart's ID and any custom data that the fulfillment provider might need to calculate the price.
+
+Once all shipping option prices are calculated, you set them in the calculatedPrices state variable, where the key is the shipping option's ID and the value is the calculated price.
+
+Format Prices Function#
+When you display the shipping options and their prices, you want to format the prices with the currency code. You'll use the formatPrice utility function you created earlier.
+
+First, add the following imports at the top of the file:
+
+components/Shipping/index.tsx
+import { 
+  // other imports...
+  useCallback,
+} from "react"
+import { formatPrice } from "../../lib/price"
+Then, replace the TODO in the Shipping component with the following:
+
+components/Shipping/index.tsx
+const getShippingOptionPrice = useCallback(
+  (shippingOption: HttpTypes.StoreCartShippingOption) => {
+    const price = shippingOption.price_type === "flat" ? 
+      shippingOption.amount : calculatedPrices[shippingOption.id]
+
+    return formatPrice(price || 0, cart?.currency_code)
+  }, [calculatedPrices]
+)
+
+// TODO add submit logic
+You create a getShippingOptionPrice function that receives a shipping option to get its formatted price. You use the formatPrice utility function, passing it either the shipping option's flat or calculated price, based on its type. You return the formatted price.
+
+Implement Submit Function#
+Next, you'll implement the function that will be called when the customer submits their shipping method selection.
+
+Replace the TODO in the Shipping component with the following:
+
+components/Shipping/index.tsx
+const isButtonDisabled = useMemo(() => {
+  return loading || !shippingMethod
+}, [shippingMethod, loading])
+
+const handleSubmit = () => {
+  if (isButtonDisabled) {
+    return
+  }
+
+  setLoading(true)
+
+  updateCart({
+    shippingMethodData: {
+      option_id: shippingMethod,
+      data: {
+        // TODO add any data necessary for
+        // fulfillment provider
+      },
+    },
+  })
+  .then(() => {
+    setLoading(false)
+    router.push(`/${handle}?step=payment`)
+  })
+}
+
+// TODO render shipping step
+You define an isButtonDisabled memoized variable that indicates whether the customer can submit their selection. You also define a handleSubmit function that uses the updateCart function from the cart context to update the cart with the selected shipping method.
+
+Once the shipping method is saved, you redirect the customer to the next step in the flow, which is the payment step.
+
+Render Shipping Step#
+Finally, you'll add the return statement showing the shipping method selection form that allows the customer to choose a shipping method.
+
+First, add the following imports at the top of the file:
+
+components/Shipping/index.tsx
+import { Card } from "../Card"
+import { Button, RadioGroup } from "@medusajs/ui"
+Then, replace the last TODO in the Shipping component with the following:
+
+components/Shipping/index.tsx
+return (
+  <Card 
+    title="Shipping" 
+    isActive={isActive} 
+    isDone={!!cart?.shipping_methods?.length}
+    path={`/${handle}?step=shipping`}
+  >
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        <RadioGroup
+          value={shippingMethod}
+          onValueChange={(value) => setShippingMethod(value)}
+        >
+          {shippingOptions.map((shippingOption) => (
+            <div className="flex gap-1" key={shippingOption.id}>
+              <RadioGroup.Item value={shippingOption.id} />
+              <div className="flex justify-between w-full gap-2">
+                <span className="text-sm">{shippingOption.name}</span>
+                <span className="text-xs text-ui-fg-muted">{
+                  getShippingOptionPrice(shippingOption)
+                }</span>
+              </div>
+            </div>
+          ))}
+        </RadioGroup>
+      </div>
+      <hr className="bg-ui-bg-subtle" />
+      <Button
+        disabled={isButtonDisabled}
+        onClick={handleSubmit}
+        className="w-full"
+      >
+        Go to payment
+      </Button>
+    </div>
+  </Card>
+)
+You wrap the shipping method selection form with the Card component you created earlier. In the card, you show a radio group with the available shipping options and their prices.
+
+The customer can select a shipping option and click the "Go to payment" button to go to the next step.
+
+Add to Router Component#
+Finally, you'll add the Shipping component to the Router component.
+
+First, import the Shipping component at the top of the components/Router/index.tsx file:
+
+components/Router/index.tsx
+import { Shipping } from "../Shipping"
+Then, change the return statement of the Router component to the following
+
+components/Router/index.tsx
+return (
+  <>
+    <Product handle={handle} isActive={activeTab === "product"} />
+    <Address handle={handle} isActive={activeTab === "address"} />
+    <Shipping handle={handle} isActive={activeTab === "shipping"} />
+  </>
+)
+This will show the shipping method selection step and expand its details if activeTab is shipping.
+
+Test it Out#
+While both the Medusa application and the Next.js Starter Storefront are running, if you refresh the page you had opened or go to http://localhost:3000/sweatpants?step=shipping, you should see the Shipping step where you can choose a shipping method.
+
+Shipping step showing the shipping options and a go to payment button
+
+You can select a shipping option then click on the "Go to payment" button. The shipping method will be saved in the cart and the Shipping card will collapse to show the fourth step's details, which you'll add next.
+
+Step 10: Create Payment Step#
+The fourth and last step in the express checkout flow is the payment method selection step. In this step, the customer will choose a payment method and complete their cart, placing an order.
+
+To create the component of this step, create the file components/Payment/index.tsx with the following content:
+
+Directory structure after creating Payment component file
+
+components/Payment/index.tsx
+"use client"
+
+import { 
+  useState,
+} from "react"
+import { useCart } from "@/providers/cart"
+import { HttpTypes } from "@medusajs/types"
+import { useRouter } from "next/navigation"
+
+type PaymentProps = {
+  handle: string
+  isActive: boolean
+}
+
+export const Payment = ({
+  handle,
+  isActive,
+}: PaymentProps) => {
+  const { cart, updateItemQuantity, unsetCart } = useCart()
+  const [loading, setLoading] = useState(true)
+  const [paymentProviders, setPaymentProviders] = useState<
+    HttpTypes.StorePaymentProvider[]
+  >([])
+  const [selectedPaymentProvider, setSelectedPaymentProvider] = useState("")
+  const router = useRouter()
+
+  // TODO retrieve payment providers
+}
+You create a Payment component that receives the product's handle and whether the component is active as props. The component defines the following variables:
+
+cart, unsetCart, and updateItemQuantity: The customer's cart, the function to unset the cart, and the function to update the quantity of an item in the cart, retrieved from the cart context.
+loading: A boolean state variable indicating whether an operation is loading.
+paymentProviders: A state variable that holds the available payment providers in the Medusa application.
+selectedPaymentProvider: A state variable that holds the ID of the selected payment provider.
+router: The router instance to navigate between steps.
+Retrieve Payment Providers#
+In Medusa, each region has a set of enabled payment providers. So, during checkout, you retrieve the payment providers specific to a cart's region and allow the customer to choose from them.
+
+To do that, first, add the following imports at the top of the file:
+
+components/Payment/index.tsx
+import { 
+  // other imports...
+  useEffect,
+} from "react"
+import { sdk } from "@/lib/sdk"
+Then, replace the TODO in the Payment component with the following:
+
+components/Payment/index.tsx
+useEffect(() => {
+  if (!loading || !cart) {
+    return
+  }
+
+  sdk.store.payment.listPaymentProviders({
+    region_id: cart.region_id || "",
+  })
+    .then(({ payment_providers }) => {
+      setPaymentProviders(payment_providers)
+      setLoading(false)
+    })
+}, [loading, cart])
+
+// TODO handle provider selection
+In the useEffect hook, you use the JS SDK to send a request to the List Payment Providers API route, passing the cart's region ID as a query parameter.
+
+The API route returns a list of payment providers, which you set in the paymentProviders state variable. These are the payment providers you'll allow the customer to select from.
+
+Handle Payment Provider Selection#
+After the customer selects the payment provider, you want to save that selection in the cart, but you also may need to show UI for additional actions. For example, if the customer chooses the Stripe payment provider, you want to show them a credit-card form to input their details.
+
+So, you'll implement the logic to first save the payment provider selection in the Medusa application, then optionally show additional UI based on the chosen provider.
+
+First, add the following imports at the top of the file:
+
+components/Payment/index.tsx
+import { 
+  // other imports...
+  useMemo,
+} from "react"
+Then, replace the TODO in the Payment component with the following:
+
+components/Payment/index.tsx
+const handleSelectProvider = async () => {
+  if (!selectedPaymentProvider || !cart) {
+    return
+  }
+
+  setLoading(true)
+
+  sdk.store.payment.initiatePaymentSession(cart, {
+    provider_id: selectedPaymentProvider,
+  })
+    .then(() => {
+      setLoading(false)
+    })
+}
+
+useEffect(() => {
+  if (!selectedPaymentProvider || !cart) {
+    return
+  }
+
+  handleSelectProvider()
+}, [selectedPaymentProvider])
+
+const paymentUi = useMemo(() => {
+  if (!selectedPaymentProvider) {
+    return
+  }
+
+  switch (selectedPaymentProvider) {
+    // TODO handle other providers
+    default:
+      return <></>
+  }
+}, [selectedPaymentProvider])
+
+const canPlaceOrder = useMemo(() => {
+  switch (selectedPaymentProvider) {
+    case "":
+      return false
+    // TODO handle other providers
+    default:
+      return true
+  }
+}, [selectedPaymentProvider])
+
+// TODO handle place order
+You define a handleSelectProvider function that uses the JS SDK to set the selected payment provider in the cart. You call this function whenever the selectedPaymentProvider changes.
+
+Then, you define two memoized variables:
+
+paymentUi: This variable holds additional UI to show based on the selected payment provider. This guide doesn't cover any specific providers, so you're free to implement this based on the payment providers you support. By default, it returns an empty node.
+canPlaceOrder: This variable holds a boolean indicating whether the customer can place an order. You can define the logic based on the payment providers you support. By default, it returns true.
+Tip: Learn how to implement payment in your storefront with Stripe in this guide.
+Handle Place Order Function#
+After the customer chooses a payment provider and completes any additional steps, they can complete their cart and place their order.
+
+Replace the TODO in the Payment component with the following:
+
+components/Payment/index.tsx
+const placeOrder = () => {
+  if (!cart || !canPlaceOrder) {
+    return
+  }
+  setLoading(true)
+
+  sdk.store.cart.complete(cart.id)
+    .then((data) => {
+      if (data.type === "cart") {
+        alert(data.error.message)
+        setLoading(false)
+      } else {
+        unsetCart()
+        // redirect to confirmation page
+        router.push(`/confirmation/${data.order.id}`)
+      }
+    })
+}
+
+// TODO render payment step
+You define a placeOrder function that uses the JS SDK to complete the cart by sending a request to the Complete Cart API route. If the cart is successfully completed, you unset the cart and redirect the customer to the confirmation page, which you'll implement later.
+
+Render Payment Step#
+Finally, you'll add the return statement showing the Payment step that allows the customer to choose a payment method.
+
+First, add the following imports at the top of the file:
+
+components/Payment/index.tsx
+import { Card } from "../Card"
+import { Button, Input, RadioGroup } from "@medusajs/ui"
+Then, replace the last TODO in the Payment component with the following:
+
+components/Payment/index.tsx
+const getProviderTitle = (providerId: string) => {
+  switch(true) {
+    case providerId.startsWith("pp_system_default"):
+      return "Cash on Delivery"
+    default:
+      return providerId
+  }
+}
+
+return (
+  <Card 
+    title="Payment" 
+    isActive={isActive} 
+    isDone={false}
+    path={`/${handle}?step=payment`}
+  >
+    <span className="text-sm">Your order</span>
+    {cart?.items?.map((item) => (
+      <div className="flex gap-2" key={item.id}>
+        <img src={item.thumbnail} alt={item.title} className="w-24 h-24 rounded" />
+        <div className="flex flex-col gap-3">
+          <span className="text-base">{item.product_title}</span>
+          {item.variant?.options?.map((option) => (
+            <span className="flex gap-1 text-sm" key={option.id}>
+              <span className="text-ui-fg-muted">{option.option?.title}</span>
+              <span className="text-ui-fg-base">{option.value}</span>
+            </span>
+          ))}
+          <span className="flex gap-1 text-sm items-center">
+            <span className="text-ui-fg-muted">Quantity</span>
+            <Input
+              type="number"
+              value={item.quantity}
+              onChange={(e) => {
+                if (!e.target.value) {
+                  return
+                }
+                updateItemQuantity(item.id, parseInt(e.target.value))
+              }}
+            />
+          </span>
+        </div>
+      </div>
+    ))}
+    <hr className="bg-ui-bg-subtle" />
+    <div className="flex justify-between">
+      <span className="text-sm text-ui-fg-muted">Subtotal:</span>
+      <span className="text-sm text-ui-fg-base">{formatPrice(
+        cart?.item_subtotal || 0,
+        cart?.currency_code
+      )}</span>
+    </div>
+    <div className="flex justify-between">
+      <span className="text-sm text-ui-fg-muted">Shipping & handling:</span>
+      <span className="text-sm text-ui-fg-base">{formatPrice(
+        cart?.shipping_total || 0,
+        cart?.currency_code
+      )}</span>
+    </div>
+    <div className="flex justify-between">
+      <span className="text-sm text-ui-fg-muted">Total:</span>
+      <span className="text-sm text-ui-fg-base">{formatPrice(
+        cart?.total || 0,
+        cart?.currency_code
+      )}</span>
+    </div>
+    <hr className="bg-ui-bg-subtle" />
+    <span className="text-sm">Delivery address</span>
+    <p className="text-xs text-ui-fg-muted">
+      {cart?.shipping_address?.first_name} {cart?.shipping_address?.last_name}<br />
+      {cart?.shipping_address?.address_1}<br />
+      {cart?.shipping_address?.city}, {cart?.shipping_address?.postal_code}, {cart?.shipping_address?.country_code}<br />
+    </p>
+    <hr className="bg-ui-bg-subtle" />
+    <span className="text-sm">Payment method</span>
+    <div className="flex flex-col gap-2">
+      <RadioGroup
+        value={selectedPaymentProvider}
+        onValueChange={(value) => setSelectedPaymentProvider(value)}
+      >
+        {paymentProviders.map((paymentProvider) => (
+          <div className="flex gap-1" key={paymentProvider.id}>
+            <RadioGroup.Item value={paymentProvider.id} />
+            <div className="flex justify-between w-full gap-2">
+              <span className="text-sm">{getProviderTitle(paymentProvider.id)}</span>
+            </div>
+          </div>
+        ))}
+      </RadioGroup>
+    </div>
+    {paymentUi}
+    <hr className="bg-ui-bg-subtle" />
+    <Button
+      className="w-full"
+      disabled={!canPlaceOrder || loading}
+      onClick={placeOrder}
+    >Pay {formatPrice(
+      cart?.total || 0,
+      cart?.currency_code
+    )}</Button>
+  </Card>
+)
+You first define a getProviderTitle function that receives a payment provider ID and returns a title based on the provider. You'll use this function to show a human-readable title for each payment provider.
+
+Then, in the return statement, you wrap the payment method selection form with the Card component you created earlier. In the card, you show the cart's details, including the items, totals, and delivery address.
+
+You also show the list of payment providers, allowing the customer to select one. Once the customer chooses one, you show any additional UI to complete their payment.
+
+After the customer selects an option and clicks the "Pay" button, the placeOrder function is called to complete the cart and place the order.
+
+Add to Router Component#
+Finally, you'll add the Payment component to the Router component to show the payment method selection step.
+
+First, import the Payment component at the top of the components/Router/index.tsx file:
+
+components/Router/index.tsx
+import { Payment } from "../Payment"
+Then, change the return statement of the Router component to the following
+
+components/Router/index.tsx
+return (
+  <>
+    <Product handle={handle} isActive={activeTab === "product"} />
+    <Address handle={handle} isActive={activeTab === "address"} />
+    <Shipping handle={handle} isActive={activeTab === "shipping"} />
+    <Payment handle={handle} isActive={activeTab === "payment"} />
+  </>
+)
+This will show the payment method selection step and expand its details if activeTab is payment.
+
+Test it Out#
+While both the Medusa application and the Next.js Starter Storefront are running, if you refresh the page you had opened or go to http://localhost:3000/sweatpants?step=payment, you should see the Payment step where you can choose a payment method.
+
+Payment step showing the payment providers and a pay button
+
+Select a payment provider then click on the "Pay" button. The payment method will be saved in the cart and you'll be redirected to the confirmation page, which currently doesn't exist. You'll add this page next.
+
+Step 11: Create Confirmation Page#
+After the customer places an order, you redirect them to a confirmation page that shows them their general order details. In this step, you'll create this confirmation page.
+
+The confirmation page will receive the order's ID as a path parameter. Then, it'll retrieve the order's details from the Medusa application and shows those details to the customer.
+
+To create the confirmation page, create the file app/confirmation/[id]/page.tsx with the following content:
+
+Directory structure after creating confirmation page file
+
+app/confirmation/[id]/page.tsx
+import { clx, Heading } from "@medusajs/ui"
+import { sdk } from "@/lib/sdk"
+
+type Params = {
+  params: Promise<{ id: string }>
+}
+
+export default async function ConfirmationPage({
+  params,
+}: Params) {
+  const orderId = (await params).id
+
+  const { order } = await sdk.store.order.retrieve(orderId)
+
+  return (
+    <div className={clx(
+      "bg-ui-bg-base rounded-lg py-4 px-6 w-full",
+      "flex gap-4 flex-col shadow-elevation-card-rest"
+    )}>
+      <Heading level="h2">Thank you, {order.shipping_address?.first_name}!</Heading>
+      <p className="text-ui-fg-subtle">Your order has been placed. We are working to get it settled.</p>
+      <hr className="bg-ui-bg-subtle" />
+      <div className="flex gap-2 flex-col">
+        <span className="flex gap-1">
+          <span className="text-sm text-ui-fg-muted">Order number:</span>
+          <span className="text-sm text-ui-fg-base">{order.display_id}</span>
+        </span>
+        <span className="flex gap-1">
+          <span className="text-sm text-ui-fg-muted">Order date:</span>
+          <span className="text-sm text-ui-fg-base">{
+            order.created_at.toString()
+          }</span>
+        </span>
+      </div>
+    </div>
+  )
+}
+The ConfirmationPage component receives the order ID as a path parameter. In the component, you retrieve the order's details from the Medusa application using the JS SDK.
+
+Then, you show the order's details, including the order number, order date, and a thank you message.
+
+Test it Out#
+While both the Medusa application and the Next.js Starter Storefront are running, either refresh the page you had open from the previous step, or restart the express checkout flow to place an order. You'll see the confirmation page showing the order's details.
+
+Confirmation page showing the order's ID and date
+
+Next Steps#
+By following this guide, you now have an express checkout storefront built with Next.js that connects to a Medusa commerce application.
+
+You can add more features to your storefront or commerce application. For example, you can integrate a Notification Module Provider to send the customer a confirmation email when they place their order.
+
+If you're new to Medusa, check out the main documentation, where you'll get a more in-depth learning of all the concepts you've used in this guide and more.
+
+To learn more about the commerce features that Medusa provides, check out Medusa's Commerce Modules.
