@@ -9,7 +9,7 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!$).*)",
       "destination": "https://medusa-backend-production-d681.up.railway.app/$1"
     }
   ]
