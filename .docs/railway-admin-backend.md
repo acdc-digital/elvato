@@ -93,7 +93,7 @@ Key decisions:
 | Node image pinned by digest | Reproducible builds — prevents silent base image changes |
 | `npm_config_audit/fund/update_notifier=false` | Suppresses noisy network checks during install |
 | `--no-audit --no-fund --loglevel=warn` | Reduces build output noise; prevents false-positive audit failures |
-| No BuildKit cache mounts | Railway's builder requires the format `--mount=type=cache,id=<cache-id>` with a specific prefix — removed to avoid parse errors |
+| No BuildKit cache mounts | Railway's builder requires `--mount=type=cache,id=<cache-id>` with a specific prefix — removed to avoid parse errors |
 | Migrations **not** run at startup | Running `medusa db:migrate` at boot caused Railway timeout failures; run manually as a one-off command |
 | `WORKDIR` switched to `.medusa/server` | `npm run start` must execute inside the build output directory |
 
@@ -120,7 +120,7 @@ pnpm-debug.log*
 
 ### `railway.json` (repo root)
 
-Pins the Railway builder to Dockerfile and prevents auto-detection of other builders (e.g., the Yarn/Nixpacks build that was being triggered by the `storefront/yarn.lock`).
+Pins the Railway builder to Dockerfile and prevents auto-detection of other builders (e.g., the Yarn/Nixpacks build that was being triggered by `storefront/yarn.lock`).
 
 ```json
 {
@@ -203,15 +203,11 @@ See `admin/.env.template` for a development-ready reference. Copy to `admin/.env
 
 ## Running Database Migrations
 
-Migrations are **not run automatically at container startup** (removed to prevent Railway boot timeouts). Run them manually using a Railway one-off command or the CLI:
+Migrations are **not run automatically at container startup** (removed to prevent Railway boot timeouts). Run them manually using the Railway CLI:
 
-**Via Railway CLI:**
 ```bash
 railway run --service medusa-backend npm run predeploy
 ```
-
-**Via Railway UI:**
-In the service dashboard → **Deploy** → **New Deploy** menu → run `npm run predeploy` as a one-off command before the next full deploy.
 
 The `predeploy` script in `admin/package.json` maps to `medusa db:migrate`.
 
@@ -259,11 +255,16 @@ The `predeploy` script in `admin/package.json` maps to `medusa db:migrate`.
 ### `Cache mounts MUST be in the format --mount=type=cache,id=<cache-id>`
 
 **Cause:** Railway's BuildKit parser requires explicit `id=` suffix on cache mounts; mounts without `id=` or with non-prefixed IDs are rejected.  
-**Fix:** Remove all `--mount=type=cache` flags from Dockerfile `RUN` commands. Standard `npm ci` without mounts is fully supported and sufficient.
+**Fix:** Remove all `--mount=type=cache` flags from Dockerfile `RUN` commands. Standard `npm ci` without mounts is fully supported.
+
+### `Cache mount ID is not prefixed with cache key`
+
+**Cause:** Even with `id=` present, Railway validates that the cache ID matches a specific prefix format.  
+**Fix:** Remove cache mounts entirely — they are an optimisation only and their absence does not affect correctness.
 
 ### `Application failed to respond` — 502 on all routes
 
-**Cause:** Container crashed or timed out during startup, often because `npm run db:migrate` at boot took too long before Railway's health check deadline.  
+**Cause:** Container crashed or timed out during startup, often because `medusa db:migrate` at boot took too long before Railway's health check deadline.  
 **Fix:** Remove `npx medusa db:migrate &&` from the `CMD`. Run migrations as a separate one-off command. Current `CMD` is `npm run start` only.
 
 ### `/app` returns 404 after deploy
@@ -274,16 +275,16 @@ The `predeploy` script in `admin/package.json` maps to `medusa db:migrate`.
 ### `Cannot GET /`
 
 **Cause:** Normal Medusa behaviour — no route is defined for `/` by default.  
-**Status:** Addressed by `admin/src/api/route.ts` which adds a `302` redirect to `/app`. If this still appears, ensure the route file was included in the deployed build.
+**Status:** Addressed by `admin/src/api/route.ts` which adds a `302` redirect to `/app`. If this still appears after deploy, ensure the route file was included in the build.
 
 ---
 
 ## Deployment Workflow
 
-### Standard Deploy (committed change)
+### Standard Deploy
 
 ```bash
-# Make your changes in admin/
+# Make changes inside admin/
 git add .
 git commit -m "Your change description"
 git push origin main
@@ -293,8 +294,12 @@ git push origin main
 ### Verify After Deploy
 
 1. Check Railway **Deploy logs** — confirm Dockerfile path is used (not Nixpacks/Yarn).
-2. Confirm the build log shows `medusa build` completing both backend and frontend.
-3. Hit the health endpoint: `curl https://medusa-backend-production-d681.up.railway.app/health`
+2. Confirm the build log shows `medusa build` completing both backend and frontend steps.
+3. Hit the health endpoint:
+   ```bash
+   curl https://medusa-backend-production-d681.up.railway.app/health
+   # Expected: 200 OK
+   ```
 4. Open the admin panel: `https://medusa-backend-production-d681.up.railway.app/app`
 
 ### Updating the Base Image
@@ -320,7 +325,7 @@ The Dockerfile pins Node 20 by digest for reproducibility. To update:
 | `admin/src/api/route.ts` | Root `/` → `/app` redirect |
 | `railway.json` | Railway project-level build configuration |
 
-## Related Documentation
+## Reference Links
 
 - [Medusa Build & Deploy docs](https://docs.medusajs.com/learn/deployment)
 - [Medusa API Routes](https://docs.medusajs.com/learn/fundamentals/api-routes)
