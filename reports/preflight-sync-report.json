@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-02-28T15:46:29.910Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaBackendUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "hasPublishableKey": false,
+    "hasAdminApiKey": false,
+    "filters": {
+      "readyOnly": true,
+      "includeSynced": false,
+      "includeFailed": true,
+      "sampleSize": 10
+    }
+  },
+  "convex": {
+    "exclusions": [],
+    "filters": {
+      "includeFailed": true,
+      "includeSynced": false,
+      "readyOnly": true
+    },
+    "generatedAt": 1772293587314,
+    "scope": {
+      "excludedProducts": 0,
+      "scopedProducts": 1,
+      "totalProductsInDb": 826,
+      "validProducts": 1
+    },
+    "scopedStatusBreakdown": {
+      "failed": 1,
+      "pending": 0,
+      "synced": 0,
+      "syncing": 0
+    },
+    "validChildTotals": {
+      "images": 8,
+      "options": 0,
+      "prices": 1,
+      "variants": 1
+    },
+    "warnings": [
+      {
+        "count": 1,
+        "reason": "missing_product_options",
+        "sample": [
+          {
+            "externalId": "1473828238575931392",
+            "productId": "k57a1j4tfcw5r8f7kn3arx5qnn7z5a71",
+            "syncStatus": "failed",
+            "title": "Modern Gold Wall Sconce - Luxury Minimalist Design"
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "reason": "missing_category_link",
+        "sample": [
+          {
+            "externalId": "1473828238575931392",
+            "productId": "k57a1j4tfcw5r8f7kn3arx5qnn7z5a71",
+            "syncStatus": "failed",
+            "title": "Modern Gold Wall Sconce - Luxury Minimalist Design"
+          }
+        ]
+      }
+    ]
+  },
+  "medusa": {
+    "store": null,
+    "admin": null
+  },
+  "parity": {
+    "targetConvexProducts": 1,
+    "medusaPublishedProducts": null,
+    "medusaAllProducts": null
+  }
+}

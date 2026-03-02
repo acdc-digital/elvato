@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "convex:deploy": "npx convex deploy",
-    "convex:dev": "npx convex dev"
+    "convex:dev": "npx convex dev",
+    "collections:map": "node admin/scripts/map-products-to-collections.cjs",
+    "collections:map:dry": "DRY_RUN=1 node admin/scripts/map-products-to-collections.cjs"
   },
   "repository": {
     "type": "git",

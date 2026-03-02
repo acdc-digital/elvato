@@ -1,0 +1,419 @@
+{
+  "timestamp": "2026-02-28T21:45:36.490Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 50,
+    "offset": 0,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 50,
+    "created": 50,
+    "updated": 0,
+    "failed": 0,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "convexId": "k57ce3msgxs4p7tx6dvnah6hmn7z43v5",
+      "externalId": "1470636048701853696",
+      "title": "Modern Colored Glass Bar Chandelier - Restaurant Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJK35230P2T8GFQVBYZFF1TV",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k5791zjvvscbgv3nmgcrvegnbx7z4p1f",
+      "externalId": "1574619366455521280",
+      "title": "Modern Glass Bar Chandelier - Minimalist Restaurant Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJK35714N5F7208JT0ANCAHW",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57bttwg47s3gp17zyscrt25kh7z4w1z",
+      "externalId": "1521017713295110144",
+      "title": "Nordic Minimalist Creative Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK35BSM15PWGWF41QMBAA6E",
+      "variantsMapped": 20
+    },
+    {
+      "convexId": "k570g6vtvzacag6kfxvj54s95d7z4kzf",
+      "externalId": "1575486769519407104",
+      "title": "Nordic Modern Restaurant Chandelier - Creative Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK35HZ3QBM96QNNRFYMQXV1",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k575689q85dv1z4726jzyhq4217z54bw",
+      "externalId": "1572478025869045760",
+      "title": "Nordic Porcelain Pendant Light - Translucent Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK35PSN03FWW5FT4065W5TQ",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k5727g7ab7kz291k06veceqs7x7z536c",
+      "externalId": "1524617655465029632",
+      "title": "Luxury Rattan Chandelier - Artistic Statement Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJK35VV061NPSX24HZZT4QFJ",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57ce5znexqhy2kynvjjbgpg3d7z5v81",
+      "externalId": "1576872159618805760",
+      "title": "Modern Copper Circle Pendant Light - Luxury Living Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJK360GTJ30NYHTJ0G3EJW69",
+      "variantsMapped": 16
+    },
+    {
+      "convexId": "k572ej0f2dmkqhqrw651t1qtxd7z53gx",
+      "externalId": "1426811969037537280",
+      "title": "Modern Gold Mini Chandelier - Geometric Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK366945D7GSRCATFC4FMR2",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57c26mr72kmg6cm2ashyhf1rx7z4g5s",
+      "externalId": "1561542949371129856",
+      "title": "Modern Glass Bar Chandelier - Minimalist Dining Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJK36BMQ3GE8K7F34CKDGNH5",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57db3ep0xtc8av9abgnethpsh7z4abc",
+      "externalId": "1577240608123662336",
+      "title": "Modern Copper Chandelier - Restaurant & Bar Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJK36GP8M4PGYHQS5DTCCGVF",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k5724ncjfmp63zsq5j8wha3e6d7z4fxg",
+      "externalId": "1531866808691732480",
+      "title": "Modern Minimalist Multi-Room Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK36NRN4FV9EFSZRESC1CAC",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k57ajcjxr5ybzfz2jd3n16ywy57z53r1",
+      "externalId": "1416994234296307712",
+      "title": "Nordic Ring Chandelier Modern Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK36VBHV6GM3HQYBRR7QG7T",
+      "variantsMapped": 18
+    },
+    {
+      "convexId": "k57e1zbm9rn50e782ezpvrwff97z536s",
+      "externalId": "1521068884542107648",
+      "title": "Golden Copper Linear Dining Room Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3711EAJ3YSDNHA8MDJK8Z",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57ctaatwxm89c1yq74q3e31bd7z580j",
+      "externalId": "1511910428048371712",
+      "title": "Nordic 3-Light Linear Dining Chandelier - Modern Minimalist",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3763521YB18E4037V464V",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k578wjt3a4xnbvkrzhvb27w4997z56t4",
+      "externalId": "1469856006992433152",
+      "title": "Nordic Cone Pendant Light - Macaron Colors",
+      "status": "created",
+      "medusaProductId": "prod_01KJK37BBFCHN9VV4V3W0JCRR1",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k570z8h9q601hnw5eh1kvwnavd7z46m2",
+      "externalId": "1521020590944169984",
+      "title": "Modern Glass Single Drop Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK37HHCEBPGJ8ZC4J1ZB2VF",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57bq7hqmn9bvf0v5m3kwa1zm97z5fpe",
+      "externalId": "1576515145260609536",
+      "title": "Bamboo Lotus Petal Chandelier - Natural Woven Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK37PGMA6VESK3QFPQMTAWF",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k57fa1afzvfed9kmd7xx6x507h7z5n5w",
+      "externalId": "1508700081715949568",
+      "title": "Nordic Modern Linear Wall Sconce - Art Luxury Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK37VENVR3A7RDD9TAPXTN5",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k572gv355ewz4pk6rbnkbsrjg17z44hv",
+      "externalId": "1377536478002941952",
+      "title": "Nordic Brass Pendant Light Modern LED Living Room Fixture",
+      "status": "created",
+      "medusaProductId": "prod_01KJK38086S2MQVAQJ9331PWKB",
+      "variantsMapped": 40
+    },
+    {
+      "convexId": "k57cwp9neqggpzb25pvqy5cb9h7z44x3",
+      "externalId": "8DF2B0C0-785D-4E91-A362-7914F09E8448",
+      "title": "Japanese Bamboo Woven Pendant Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK38ARTN0FZYBDM6H0RYPHR",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k5719et8aygwgdtq4j5kx34zed7z462v",
+      "externalId": "1574977440689172480",
+      "title": "Nordic Minimalist Dining Room Chandelier Set",
+      "status": "created",
+      "medusaProductId": "prod_01KJK38FDYCVXV20692SZ24582",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k5777k5r6qet72bkze8kjmp5g97z4bm0",
+      "externalId": "1521429633743466496",
+      "title": "Modern Artistic Branch Chandelier for Living Spaces",
+      "status": "created",
+      "medusaProductId": "prod_01KJK38M4Y3ZZR2XJM9KKSK35T",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57aq8tbpj8bf6hdjwsh8s0wz57z5pgn",
+      "externalId": "1567406179599527936",
+      "title": "Modern LED Artistic Chandelier for Dining & Living Rooms",
+      "status": "created",
+      "medusaProductId": "prod_01KJK38SE3WZQ3ZSAN2GYW8G4X",
+      "variantsMapped": 30
+    },
+    {
+      "convexId": "k578tmnh5ak2wzsadbnn5vhebn7z4zsy",
+      "externalId": "1574311835938074624",
+      "title": "Modern Streamer Chandelier - Creative Wave Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK38ZCWB4H2BDFZYHNPCWM6",
+      "variantsMapped": 12
+    },
+    {
+      "convexId": "k57bzaz3m61nz6pmkzb3trc5y17z5vp6",
+      "externalId": "1576872231781806080",
+      "title": "Copper Crystal Chandelier - Modern Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK394MYEAVA1SBSA8M31YMN",
+      "variantsMapped": 24
+    },
+    {
+      "convexId": "k573cxcj3ykwddmhazwvdpnkj57z4q31",
+      "externalId": "1577945251271159808",
+      "title": "Modern Cage Chandelier - Industrial Geometric Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK39BBCX42WXFDCAQFH980M",
+      "variantsMapped": 12
+    },
+    {
+      "convexId": "k5717y7rkxhsf30xtvnrqzhj4n7z43g5",
+      "externalId": "1496009960641925120",
+      "title": "Postmodern Metal Chandelier for Villa & Hotel Spaces",
+      "status": "created",
+      "medusaProductId": "prod_01KJK39GRJ28KSQ3JVT25ZWZKT",
+      "variantsMapped": 5
+    },
+    {
+      "convexId": "k574k1a1hmbmdv6qyqwmcn0se17z5xf2",
+      "externalId": "1398517459883003904",
+      "title": "Nordic Children's Room Chandelier - Modern Horizontal Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK39NQ06BKWDN7B1272S3CM",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k57f3733kss6tk88yqvg36a89s7z41qb",
+      "externalId": "1391726088207601664",
+      "title": "3W LED Recessed Downlight - Modern Ceiling Spotlight",
+      "status": "created",
+      "medusaProductId": "prod_01KJK39TMJRQAVK88YMYTN1TRQ",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57dqme4zhp8bspyys1q7967sh7z4b3f",
+      "externalId": "B75BB7C0-9BBA-4D24-B1A0-F0F0DBE7B66F",
+      "title": "Whimsical Squirrel Resin Chandelier for Kids Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJK39ZEDJ6DRX6E19MXCSYGA",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57ewgcetavhs7y31dtcq8e5x97z51nk",
+      "externalId": "1548479645870469120",
+      "title": "Nordic Retro Minimalist Dining Room Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3A4BPP7591TQ2BHT24D6C",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k571rg10nh974krn8wyg2v3czd7z5m5k",
+      "externalId": "1538157749949968384",
+      "title": "Stained Glass Art Deco Chandelier - Modern Dining Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3A9376Y1EW7TMKTB4GGSV",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k5771w6c6x8qk0ed0w7wbed1w57z5ee4",
+      "externalId": "1465130944523538432",
+      "title": "Artistic Geometric Chandelier for Dining & Study Rooms",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3AE0HCGR27HBNP3JJHCQY",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57b36p4161pqsfnw51cm6mqy17z55jf",
+      "externalId": "1577220287672889344",
+      "title": "Modern Copper Linear Bar Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3AJQGVQ8CZV0TZPKKJSC2",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k577h3gnnw2q518sg3b0fyqe3n7z4tc5",
+      "externalId": "1421782627899281408",
+      "title": "Minimalist Small Chandelier for Dining Room & Bedroom",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3AQQTQFETB8NE9V7K34F2",
+      "variantsMapped": 5
+    },
+    {
+      "convexId": "k5721wjbyg1xkes11kjfcb6bkd7z5aak",
+      "externalId": "1566370054952988672",
+      "title": "Crystal Glass Round Pendant Light - Luxury Modern Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3AWPTYGJX9A4NN5CWFS1T",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57c59p2f1x7p1grcw1s9ghrss7z58zw",
+      "externalId": "1535149616231100416",
+      "title": "Nordic Stained Glass Dining Room Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3B1SYGA6NT49CT1EKRP1F",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k5761x281swdvh18tk3reexdcx7z517c",
+      "externalId": "1491695535382466560",
+      "title": "Nordic Crystal Chandelier - Luxury Modern Bedroom Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3B6NP469JGM2WMJ64P7YM",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k572hqf180xv5xw3a58694vbvs7z55k1",
+      "externalId": "1375368144901771264",
+      "title": "Rustic Hemp Rope Chandelier for Study & Staircase",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3BBA5KEJZ1TEG060Y5XSV",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k579c5z5ks4j689jsaxrw40c2d7z4p9r",
+      "externalId": "1393120351109648384",
+      "title": "Modern Colored Glass Chandelier for Living Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3BGCD20Q217MBDXHN4S6K",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k5723k6kwz4kw4k42623dckavn7z441r",
+      "externalId": "1447788304379547648",
+      "title": "Art Glass Single Head Chandelier with LED Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3BNG9YGFCQZX2H213WZ2K",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57fq7myk2jp1jgn2qtc6j23pd7z5sdy",
+      "externalId": "6D7B30E3-1D7A-4DD0-B953-A5D13605C5F0",
+      "title": "Modern Glass Luxury Chandelier - Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3BT334EJMAJ52D5GX558Z",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57b67xc4v0yddyw40egnqm9fh7z4c4w",
+      "externalId": "1554381047809454080",
+      "title": "Japanese Style Solid Wood Dining Room Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3BYV211CJ5SMXRB0PVQ7C",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k578ne552ssd4mrbatfdvnzqzd7z4r9v",
+      "externalId": "1554345259621167104",
+      "title": "Small Crystal Chandelier for Dining & Bedroom Spaces",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3C3X8AHVTWSJZTFM0J91D",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k578djxv26256gpbmf89r86h057z4anb",
+      "externalId": "1566771222191550464",
+      "title": "Stained Glass Garden Chandelier - American Style Dining Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3C94C74WPB5TE1V29JY2E",
+      "variantsMapped": 40
+    },
+    {
+      "convexId": "k579d9jfcverracgzcrzvjapgd7z41gf",
+      "externalId": "1568830918943584256",
+      "title": "Retro Copper Glass Chandelier - Dining Room Statement",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3CXDG11Q6J3Z1ZSWSXGHD",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57bse8arn0ahwzgjhtpprbpkh7z47ng",
+      "externalId": "1568570731397656576",
+      "title": "Japanese Ceramic Pendant Light - Retro Dining Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3D2FRN46VK2EMN9FSYCY2",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57d2sztz1mv6rmgw2rzkxb0657z4w77",
+      "externalId": "1577249256719790080",
+      "title": "All Copper American Style Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3D7RJM2CPVFTZNDHF2QWH",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57fa4wcpaec58n2kxvb5fzstx7z4spd",
+      "externalId": "1580793056947875840",
+      "title": "Modern LED Living Room Lamp - Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3DCFQF6SWEEF4M28RFNES",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57ef9gzb4hprhkznqased432d7z4s3a",
+      "externalId": "7E2F9110-F76E-4AAB-99ED-344A4E73C7EB",
+      "title": "Modern Ice Block Crystal Wall Sconce Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJK3DH2VB0428B7XM8DX4N4E",
+      "variantsMapped": 1
+    }
+  ]
+}

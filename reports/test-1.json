@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-02-28T22:24:16.524Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 1,
+    "offset": 0,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 1,
+    "created": 0,
+    "updated": 0,
+    "failed": 1,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "convexId": "k574skbxt4q9rhwmebwm9ec2457z4fwb",
+      "externalId": "A10C1C81-5CA3-43C8-8B30-6C9040526F45",
+      "title": "Natural Wood Grain Table Lamp - Unique Organic Design",
+      "status": "failed",
+      "error": "Medusa API 400: Product with handle: natural-wood-grain-table-lamp-unique-organic-design-40526f45, already exists."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "timestamp": "2026-03-01T00:12:35.027Z",
+  "draftIds": 270,
+  "published": 251,
+  "failed": 19,
+  "totalProducts": 803,
+  "draftAfter": 0,
+  "publishedAfter": 803,
+  "failures": [
+    {
+      "id": "prod_01KJJKG08H3SRVXMS52211ZP1K",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKG535E7JEWRA6CPASCDPJ",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKGC94HF6133S32JWA77VW",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKGGVBNYPD2JN1PGPKDR6F",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKGNNX32Q24BVFP8HJSNMV",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKGTAJYT7Y2WS9FJXGT2GC",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKH1D1PTRAPVCRX8N9NZZC",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKH62EWTEZW505WFHT975D",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKHAB1J19J6QWCWZACWPWY",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKHF4229CEXRWEK67794ZF",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKHKFKF4159YCHQ86Z6997",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKHSEDJAW5M024EJ2ZT6ZF",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKHYA3SKV43GD3WXZX3C8J",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKJ4W9XNH4J0F9JS737A14",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKJ9BNGHFZM8PFVK195EBY",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKJERFQ0TX5YMF2RQ0D6Y4",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJKJK40FSSKJM79BJD8TVBN",
+      "ok": false,
+      "error": "HTTP 500: An unknown error occurred."
+    },
+    {
+      "id": "prod_01KJJN86EF8897VWYWZJM341XD",
+      "ok": false,
+      "error": "HTTP 502: Application failed to respond"
+    },
+    {
+      "id": "prod_01KJK3XND1BVYSRCHSQNX8KGPP",
+      "ok": false,
+      "error": "HTTP 502: Application failed to respond"
+    }
+  ]
+}

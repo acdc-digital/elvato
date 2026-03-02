@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-02-28T22:33:18.535Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 4,
+    "offset": 0,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 4,
+    "created": 3,
+    "updated": 0,
+    "duplicates": 0,
+    "exhausted": 0,
+    "failed": 1,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "convexId": "k573gwgwgkv37f2e6z9p4dr8v17z4a1x",
+      "externalId": "1439779548668497920",
+      "title": "Modern Minimalist Bedside Table Lamp",
+      "status": "reconciled",
+      "medusaProductId": "prod_01KJK5EXHH0PWJJECHT8QPGPYH",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k577cjztt8zhf61wqsh85tpfs97z413e",
+      "externalId": "1576076925259493376",
+      "title": "European Style Dining Table Pendant Light",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred.",
+      "syncAttempts": 1
+    },
+    {
+      "convexId": "k571pty3k0v8a1devbq33f21sd7z4e7f",
+      "externalId": "D6AEC0AA-C4AF-4EC4-A483-4E84EEBAE0C1",
+      "title": "Industrial Retro Wrought Iron Flute Wall Sconce",
+      "status": "reconciled",
+      "medusaProductId": "prod_01KJK5F0C57345TCSENHHWDCSQ",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57ethfs1smtsy09b6qbazrssx7z56gm",
+      "externalId": "1355421233478504448",
+      "title": "Vintage Wall Sconce for Hallways & TV Accent Lighting",
+      "status": "reconciled",
+      "medusaProductId": "prod_01KJK5F1Z67H8MM59B7FCYGJS0",
+      "error": "Medusa API 500: An unknown error occurred."
+    }
+  ]
+}

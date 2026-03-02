@@ -248,8 +248,11 @@ export default defineSchema({
       v.literal("pending"),              // Not yet synced
       v.literal("syncing"),              // Currently syncing
       v.literal("synced"),               // Successfully synced
-      v.literal("failed")                // Sync failed
+      v.literal("failed"),               // Sync failed
+      v.literal("duplicate"),            // Exists in Medusa but not reconciled
+      v.literal("exhausted")             // Failed max retry attempts
     ),
+    syncAttempts: v.optional(v.number()),    // Number of sync attempts made
     medusaProductId: v.optional(v.string()), // Medusa's product ID after sync
     lastSyncedAt: v.optional(v.number()),    // Unix timestamp of last sync
     syncError: v.optional(v.string()),       // Error message if sync failed

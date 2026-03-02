@@ -16,6 +16,8 @@
     "predeploy": "medusa db:migrate",
     "build": "medusa build",
     "seed": "medusa exec ./src/scripts/seed.ts",
+    "collections:map": "node ./scripts/map-products-to-collections.cjs",
+    "collections:map:dry": "DRY_RUN=1 node ./scripts/map-products-to-collections.cjs",
     "start": "medusa start",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",

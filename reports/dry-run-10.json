@@ -1,0 +1,129 @@
+{
+  "timestamp": "2026-02-28T16:58:31.133Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 10,
+    "offset": 0,
+    "dryRun": true
+  },
+  "summary": {
+    "total": 10,
+    "created": 0,
+    "updated": 0,
+    "failed": 0,
+    "skipped": 10
+  },
+  "results": [
+    {
+      "convexId": "k575vq4hnsksbnyztydnghc3cs7z4jgc",
+      "externalId": "1603628540921131008",
+      "title": "Modern Marble Bedroom Chandelier - Minimalist Design",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 1,
+      "variantCount": 1,
+      "imageCount": 8,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k5705a2kmefty626m7bw0zt55x7z57sd",
+      "externalId": "1603632438725586944",
+      "title": "Glass Tassel Chandelier - Modern Elegant Statement Light",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 1,
+      "variantCount": 1,
+      "imageCount": 8,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k57cendvzx8373ms6s44ypqd1s7z5jgr",
+      "externalId": "1603632009765728256",
+      "title": "Stained Glass Bedside Chandelier - Artistic Bedroom Lighting",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 1,
+      "variantCount": 2,
+      "imageCount": 6,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k577hwv7rmd3pg3yc1pygrzmgn7z4rt8",
+      "externalId": "1604682252007518208",
+      "title": "Colorful Glass Globe Chandelier - Macaron Collection",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 1,
+      "variantCount": 1,
+      "imageCount": 7,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k574d3av8kb08qdvjk6zf6vcjx7z50kv",
+      "externalId": "1604675899302096896",
+      "title": "Donut Ring LED Wall Light - Modern Circle Sconce",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 2,
+      "variantCount": 40,
+      "imageCount": 6,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k5734nk9xyex45dsrdpj4bc6w97z4b5y",
+      "externalId": "1604678389913366528",
+      "title": "Industrial Plant Chandelier - Living Garden Light Fixture",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 2,
+      "variantCount": 30,
+      "imageCount": 6,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k570gx2h8sm4c0dfrhfr6kmrh57z5bh7",
+      "externalId": "1604452734466535424",
+      "title": "Kids Dining Room Chandelier - Modern Minimalist Design",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 2,
+      "variantCount": 50,
+      "imageCount": 11,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k57aw69byv59b63zzq5ppzgcvs7z489c",
+      "externalId": "1605744988103651328",
+      "title": "Japanese Style Retro Bamboo Chandelier",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 3,
+      "variantCount": 52,
+      "imageCount": 8,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k5721e5s0chqdj8k8y9fjbktdx7z46qf",
+      "externalId": "1604681294330474496",
+      "title": "Japanese Style Fabric Hanging Lantern",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 3,
+      "variantCount": 32,
+      "imageCount": 8,
+      "hasCategory": true
+    },
+    {
+      "convexId": "k5756a0fpa4ph75w3jtqm61kf97z5fex",
+      "externalId": "1D32DF0E-5B55-44EF-AAAB-0A4E45915549",
+      "title": "Modern LED Wall Strip Light - Soft Ambient Lighting",
+      "status": "dry_run_ok",
+      "validationErrors": [],
+      "optionCount": 1,
+      "variantCount": 1,
+      "imageCount": 6,
+      "hasCategory": true
+    }
+  ]
+}

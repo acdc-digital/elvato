@@ -1,0 +1,86 @@
+{
+  "generatedAt": "2026-02-28T16:15:22.639Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaBackendUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "hasPublishableKey": true,
+    "hasAdminCredentials": true,
+    "filters": {
+      "readyOnly": false,
+      "includeSynced": true,
+      "includeFailed": true,
+      "sampleSize": 1
+    }
+  },
+  "convex": {
+    "exclusions": [],
+    "filters": {
+      "includeFailed": true,
+      "includeSynced": true,
+      "readyOnly": false
+    },
+    "generatedAt": 1772295319020,
+    "scope": {
+      "excludedProducts": 0,
+      "scopedProducts": 826,
+      "totalProductsInDb": 826,
+      "validProducts": 826
+    },
+    "scopedStatusBreakdown": {
+      "failed": 24,
+      "pending": 744,
+      "synced": 58,
+      "syncing": 0
+    },
+    "validChildTotals": {
+      "images": 6937,
+      "options": 972,
+      "prices": 11492,
+      "variants": 11492
+    },
+    "warnings": [
+      {
+        "count": 826,
+        "reason": "missing_category_link",
+        "sample": [
+          {
+            "externalId": "1584802443689472000",
+            "productId": "k57477rtbr0e84avyq25cq8c317z2r9c",
+            "syncStatus": "synced",
+            "title": "Nordic Modern Wall Sconce - Luxury Living Room Light"
+          }
+        ]
+      },
+      {
+        "count": 231,
+        "reason": "missing_product_options",
+        "sample": [
+          {
+            "externalId": "1603628540921131008",
+            "productId": "k575vq4hnsksbnyztydnghc3cs7z4jgc",
+            "syncStatus": "pending",
+            "title": "Modern Marble Bedroom Chandelier - Minimalist Design"
+          }
+        ]
+      }
+    ]
+  },
+  "medusa": {
+    "store": {
+      "total": 39,
+      "retrieved": 1
+    },
+    "admin": {
+      "all": 39,
+      "draft": 0,
+      "proposed": 0,
+      "published": 39,
+      "rejected": 0
+    }
+  },
+  "parity": {
+    "targetConvexProducts": 826,
+    "medusaPublishedProducts": 39,
+    "medusaAllProducts": 39
+  }
+}

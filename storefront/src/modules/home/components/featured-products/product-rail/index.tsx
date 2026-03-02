@@ -31,8 +31,8 @@ export default async function ProductRail({
     return (
       <div className="px-8 small:px-12 pt-4 pb-6">
         <div className="flex justify-between mb-6">
-          <LocalizedClientLink href={`/collections/${collection.handle}`} className="txt-xlarge hover:underline">{collection.title}</LocalizedClientLink>
-          <InteractiveLink href={`/collections/${collection.handle}`}>
+          <LocalizedClientLink href="/store" className="txt-xlarge hover:underline">{collection.title}</LocalizedClientLink>
+          <InteractiveLink href="/store">
             View all
           </InteractiveLink>
         </div>
@@ -48,8 +48,8 @@ export default async function ProductRail({
   return (
     <div className="px-8 small:px-12 pt-4 pb-6">
       <div className="flex justify-between mb-6">
-        <LocalizedClientLink href={`/collections/${collection.handle}`} className="txt-xlarge hover:underline">{collection.title}</LocalizedClientLink>
-        <InteractiveLink href={`/collections/${collection.handle}`}>
+        <LocalizedClientLink href="/store" className="txt-xlarge hover:underline">{collection.title}</LocalizedClientLink>
+        <InteractiveLink href="/store">
           View all
         </InteractiveLink>
       </div>

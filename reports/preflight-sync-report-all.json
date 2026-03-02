@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2026-02-28T15:54:25.726Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaBackendUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "hasPublishableKey": true,
+    "hasAdminApiKey": true,
+    "filters": {
+      "readyOnly": false,
+      "includeSynced": true,
+      "includeFailed": true,
+      "sampleSize": 3
+    }
+  },
+  "convex": {
+    "exclusions": [],
+    "filters": {
+      "includeFailed": true,
+      "includeSynced": true,
+      "readyOnly": false
+    },
+    "generatedAt": 1772294062755,
+    "scope": {
+      "excludedProducts": 0,
+      "scopedProducts": 826,
+      "totalProductsInDb": 826,
+      "validProducts": 826
+    },
+    "scopedStatusBreakdown": {
+      "failed": 24,
+      "pending": 744,
+      "synced": 58,
+      "syncing": 0
+    },
+    "validChildTotals": {
+      "images": 6937,
+      "options": 972,
+      "prices": 11492,
+      "variants": 11492
+    },
+    "warnings": [
+      {
+        "count": 826,
+        "reason": "missing_category_link",
+        "sample": [
+          {
+            "externalId": "1584802443689472000",
+            "productId": "k57477rtbr0e84avyq25cq8c317z2r9c",
+            "syncStatus": "synced",
+            "title": "Nordic Modern Wall Sconce - Luxury Living Room Light"
+          },
+          {
+            "externalId": "1603628540921131008",
+            "productId": "k575vq4hnsksbnyztydnghc3cs7z4jgc",
+            "syncStatus": "pending",
+            "title": "Modern Marble Bedroom Chandelier - Minimalist Design"
+          },
+          {
+            "externalId": "1603632438725586944",
+            "productId": "k5705a2kmefty626m7bw0zt55x7z57sd",
+            "syncStatus": "pending",
+            "title": "Glass Tassel Chandelier - Modern Elegant Statement Light"
+          }
+        ]
+      },
+      {
+        "count": 231,
+        "reason": "missing_product_options",
+        "sample": [
+          {
+            "externalId": "1603628540921131008",
+            "productId": "k575vq4hnsksbnyztydnghc3cs7z4jgc",
+            "syncStatus": "pending",
+            "title": "Modern Marble Bedroom Chandelier - Minimalist Design"
+          },
+          {
+            "externalId": "1603632438725586944",
+            "productId": "k5705a2kmefty626m7bw0zt55x7z57sd",
+            "syncStatus": "pending",
+            "title": "Glass Tassel Chandelier - Modern Elegant Statement Light"
+          },
+          {
+            "externalId": "1604682252007518208",
+            "productId": "k577hwv7rmd3pg3yc1pygrzmgn7z4rt8",
+            "syncStatus": "pending",
+            "title": "Colorful Glass Globe Chandelier - Macaron Collection"
+          }
+        ]
+      }
+    ]
+  },
+  "medusa": {
+    "store": {
+      "total": 39,
+      "retrieved": 1
+    },
+    "admin": {
+      "error": "Admin API auth failed (401) for status=published. Check MEDUSA_ADMIN_API_KEY permissions/value."
+    }
+  },
+  "parity": {
+    "targetConvexProducts": 826,
+    "medusaPublishedProducts": 39,
+    "medusaAllProducts": null
+  }
+}

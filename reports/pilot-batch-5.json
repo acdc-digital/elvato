@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-02-28T16:59:13.041Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 5,
+    "offset": 0,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 5,
+    "created": 0,
+    "updated": 0,
+    "failed": 5,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "convexId": "k575vq4hnsksbnyztydnghc3cs7z4jgc",
+      "externalId": "1603628540921131008",
+      "title": "Modern Marble Bedroom Chandelier - Minimalist Design",
+      "status": "failed",
+      "error": "Medusa API 400: Invalid request: Unrecognized fields: 'category_ids'"
+    },
+    {
+      "convexId": "k5705a2kmefty626m7bw0zt55x7z57sd",
+      "externalId": "1603632438725586944",
+      "title": "Glass Tassel Chandelier - Modern Elegant Statement Light",
+      "status": "failed",
+      "error": "Medusa API 400: Invalid request: Unrecognized fields: 'category_ids'"
+    },
+    {
+      "convexId": "k57cendvzx8373ms6s44ypqd1s7z5jgr",
+      "externalId": "1603632009765728256",
+      "title": "Stained Glass Bedside Chandelier - Artistic Bedroom Lighting",
+      "status": "failed",
+      "error": "Medusa API 400: Invalid request: Unrecognized fields: 'category_ids'"
+    },
+    {
+      "convexId": "k577hwv7rmd3pg3yc1pygrzmgn7z4rt8",
+      "externalId": "1604682252007518208",
+      "title": "Colorful Glass Globe Chandelier - Macaron Collection",
+      "status": "failed",
+      "error": "Medusa API 400: Invalid request: Unrecognized fields: 'category_ids'"
+    },
+    {
+      "convexId": "k574d3av8kb08qdvjk6zf6vcjx7z50kv",
+      "externalId": "1604675899302096896",
+      "title": "Donut Ring LED Wall Light - Modern Circle Sconce",
+      "status": "failed",
+      "error": "Medusa API 400: Invalid request: Unrecognized fields: 'category_ids'"
+    }
+  ]
+}

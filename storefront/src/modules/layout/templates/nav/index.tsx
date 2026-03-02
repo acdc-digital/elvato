@@ -38,7 +38,7 @@ export default async function Nav() {
                 href="/store"
                 data-testid="nav-browse-link"
               >
-                Collections
+                Lighting
               </LocalizedClientLink>
             </Button>
             <Button variant="link" asChild className="font-mono tracking-wider text-black">

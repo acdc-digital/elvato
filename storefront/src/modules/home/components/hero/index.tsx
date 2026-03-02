@@ -12,13 +12,13 @@ const Hero = () => {
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
             <div className="flex flex-wrap gap-1">
               {[
-                { label: 'Featured', href: '/collections/Featured' },
-                { label: 'Chandeliers', href: '/collections/chandeliers' },
-                { label: 'Pendants', href: '/collections/pendants' },
-                { label: 'Ceiling', href: '/collections/ceiling' },
-                { label: 'Wall', href: '/collections/wall' },
-                { label: 'Desk & Floor', href: '/collections/table-floor' },
-                { label: 'Controls', href: '/collections/accessories' },
+                { label: 'Featured', href: '/store' },
+                { label: 'Chandeliers', href: '/store' },
+                { label: 'Pendants', href: '/store' },
+                { label: 'Ceiling', href: '/store' },
+                { label: 'Wall', href: '/store' },
+                { label: 'Desk & Floor', href: '/store' },
+                { label: 'Controls', href: '/store' },
                 { label: 'Sale', href: '/store' },
               ].map((badge) => (
                 <LocalizedClientLink
@@ -37,7 +37,7 @@ const Hero = () => {
               Contemporary lighting for your next project.
             </h1>
             <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
-              Elvato lighting is a curated collection of +820 affordable – handpicked lighting designs
+              Elvato lighting is a curated collection of 803 published, affordable handpicked lighting designs
               sourced from top manufacturers around the world.
             </p>
             
@@ -67,7 +67,7 @@ const Hero = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 <span>Free Shipping $1,500+</span>
               </div>
-              <span>820+ Curated Designs</span>
+              <span>803 Published Designs</span>
             </div>
           </div>
 

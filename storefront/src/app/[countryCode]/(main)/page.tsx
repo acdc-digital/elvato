@@ -14,7 +14,7 @@ import { HttpTypes } from "@medusajs/types"
 export const metadata: Metadata = {
   title: "Elvato | Contemporary Lighting for Your Next Project",
   description:
-    "Shop 820+ curated, affordable lighting designs — pendants, chandeliers, ceiling, wall, floor & table lamps, outdoor lighting, and smart controls.",
+    "Shop 803 published, affordable lighting designs — pendants, chandeliers, ceiling, wall, floor & table lamps, outdoor lighting, and smart controls.",
 }
 
 /**

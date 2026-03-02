@@ -4,27 +4,27 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 const rooms = [
   {
     label: "Bedroom",
-    href: "/collections/bedroom",
+    href: "/store",
     image: "/byRoom/storefront-bedroom 1.png",
   },
   {
     label: "Bathroom",
-    href: "/collections/bathroom",
+    href: "/store",
     image: "/byRoom/storefront-bathroom 1.png",
   },
   {
     label: "Dining",
-    href: "/collections/dining",
+    href: "/store",
     image: "/byRoom/storefront-dining 1.png",
   },
   {
     label: "Kitchen",
-    href: "/collections/kitchen",
+    href: "/store",
     image: "/byRoom/storefront-kitchen 1.png",
   },
   {
     label: "Office",
-    href: "/collections/office",
+    href: "/store",
     image: "/byRoom/storefront-office 1.png",
   },
 ]

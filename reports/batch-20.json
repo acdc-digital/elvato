@@ -1,0 +1,179 @@
+{
+  "timestamp": "2026-02-28T17:02:49.139Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 20,
+    "offset": 0,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 20,
+    "created": 20,
+    "updated": 0,
+    "failed": 0,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "convexId": "k5734nk9xyex45dsrdpj4bc6w97z4b5y",
+      "externalId": "1604678389913366528",
+      "title": "Industrial Plant Chandelier - Living Garden Light Fixture",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK4DG29V5D95NJ84FRPR0F",
+      "variantsMapped": 30
+    },
+    {
+      "convexId": "k570gx2h8sm4c0dfrhfr6kmrh57z5bh7",
+      "externalId": "1604452734466535424",
+      "title": "Kids Dining Room Chandelier - Modern Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK4K5EQHRKAVBYBTJSD9C3",
+      "variantsMapped": 50
+    },
+    {
+      "convexId": "k57aw69byv59b63zzq5ppzgcvs7z489c",
+      "externalId": "1605744988103651328",
+      "title": "Japanese Style Retro Bamboo Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK4TSKAPJ5QXD8687JZ4AR",
+      "variantsMapped": 52
+    },
+    {
+      "convexId": "k5721e5s0chqdj8k8y9fjbktdx7z46qf",
+      "externalId": "1604681294330474496",
+      "title": "Japanese Style Fabric Hanging Lantern",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK53H2HP85P2P70FYNHTSC",
+      "variantsMapped": 32
+    },
+    {
+      "convexId": "k5756a0fpa4ph75w3jtqm61kf97z5fex",
+      "externalId": "1D32DF0E-5B55-44EF-AAAB-0A4E45915549",
+      "title": "Modern LED Wall Strip Light - Soft Ambient Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK59MGWEPMFXQ820A9ASHD",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57edfvc1r0nyy10mttnccq0tn7z5ny0",
+      "externalId": "1518410823834808320",
+      "title": "Modern Glass Globe Pendant Light - Single Drop Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK5DRYMBPPD3EZNQW5M84A",
+      "variantsMapped": 5
+    },
+    {
+      "convexId": "k57agctv6kgmgsfs7xjtyq0hgh7z4qb3",
+      "externalId": "1584892992224243712",
+      "title": "Nordic Minimalist Resin Art Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK5JD5GW8NB31MM5QDM23Y",
+      "variantsMapped": 36
+    },
+    {
+      "convexId": "k57e01b5bbbw0qcacd39ev3jn97z44h1",
+      "externalId": "1590281651572191232",
+      "title": "Nordic Minimalist Vertical Table Lamp - Light Luxury Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK5T7QW8DS4A5A7R671DVP",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k579jk9705gxnbebz267xz7wfs7z4rbf",
+      "externalId": "1593781906347405312",
+      "title": "Nordic Tassel Pendant Light Modern Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK5ZHBQDRFVKF55WA29SK0",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k577bcyq871mjhvxjggecxmw8n7z4a9z",
+      "externalId": "1600739038456197120",
+      "title": "Modern Bamboo Woven Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK643PGQJ2BT96YEWMJ01S",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k5766d7nbp6tf1jpdhtb04kmfn7z5d1k",
+      "externalId": "1520693612168884224",
+      "title": "Nordic Linear Bar Table Lamp - Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK68FV5TFFVJCC093K2FWP",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57506cyet94hdzf81rbxckb997z5ymy",
+      "externalId": "1521050698446811136",
+      "title": "Nordic Flower Pendant Light - Modern Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK6CZYNVGBSV9GQWXMFMHG",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k576zadj8mmnq16rvxp3jt9jsn7z40x7",
+      "externalId": "1470564267777462272",
+      "title": "Industrial Vintage Table Lamp with Metal Shade",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK6HF7BKWK4H0K02M9FXGY",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k57087jf312gtdzc17nwa045jx7z5yvn",
+      "externalId": "1548483217567789056",
+      "title": "Nordic Retro Pendant Light Collection",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK6P28F882FSN3CNK0NH0N",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k57dvh9np05eq0tk6xb5db9fzh7z4dbj",
+      "externalId": "1529753204613984256",
+      "title": "Lotus Leaf Designer Wall Light - Modern Minimalist Decor",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK6THG0VJJQY6M5C2BHDAA",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57aed9zh538psp5bbje5tc2g97z5n8f",
+      "externalId": "1535586270343344128",
+      "title": "Modern Minimalist LED Ceiling Light - Creative Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK6YVKRFW1P2D0Q0X0F7EF",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k5708sfspws46gpvnnzgpn1kss7z4qrh",
+      "externalId": "1426492233091256320",
+      "title": "Industrial Wrought Iron Single Head Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK738Y4EXJWMFSJQ2XRJEQ",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57b5z1234yxqqpm4sakwvq23h7z4073",
+      "externalId": "1447073458415603712",
+      "title": "Modern Outdoor Wall Light - Waterproof Villa Sconce",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK77VPMRZXYRWB6WXGY93P",
+      "variantsMapped": 24
+    },
+    {
+      "convexId": "k57fs77n6gh1tp2qqaaraha4817z4x7e",
+      "externalId": "1453534591053860864",
+      "title": "Stained Glass Wall Sconce - Corridor & Hallway Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK7DBHVQ26JWA2C9RR19VY",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k570zvzh95nc5ws2ytcvpv14v57z4n6a",
+      "externalId": "1492346499546353664",
+      "title": "Industrial Iron Wall Sconce - Modern Corridor Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJJK7HTQ37E270D4SDZEEF8S",
+      "variantsMapped": 48
+    }
+  ]
+}

@@ -1,0 +1,819 @@
+{
+  "timestamp": "2026-02-28T17:34:09.230Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 100,
+    "offset": 0,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 100,
+    "created": 100,
+    "updated": 0,
+    "failed": 0,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "convexId": "k57f4nkdssb6jcw1wfz02rdf0h7z4575",
+      "externalId": "1533378260955049984",
+      "title": "Modern Luxury Glass Bubble Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMJ159GCR66XCY0WRQQFC7",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k579jcxa1atnv29ty2xh95gx917z4dr9",
+      "externalId": "1459764669932769280",
+      "title": "Crystal Single Light Mini Chandelier for Hallways",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMJ61RJ18C83JWHHBT2ZST",
+      "variantsMapped": 40
+    },
+    {
+      "convexId": "k575fez06gbaqxp4wk6ndxt25h7z4de8",
+      "externalId": "1557715874759585792",
+      "title": "Nordic Modern Chandelier - Creative Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMJFS54V2E35Y16ZWW6S47",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57cxv4z518y3d87jzmqcam9m17z5r37",
+      "externalId": "3CD61807-9AB6-4DF2-8513-D5D721EA1420",
+      "title": "Modern Square LED Wall Sconce",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMJMR7CQ1GZ5ED83Q2QD5V",
+      "variantsMapped": 40
+    },
+    {
+      "convexId": "k575302ag12qj54n7sna9d7bps7z5jrg",
+      "externalId": "1435129210938200064",
+      "title": "Irregular Lava Table Lamp with Modern Art Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMJTK4D71RH3J170QND0TH",
+      "variantsMapped": 21
+    },
+    {
+      "convexId": "k572aekpkctz6fmz7af57pb6v57z5r7d",
+      "externalId": "1427891818279866368",
+      "title": "Nordic Three-Head Dining Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMJZWEJC682M9557RPZFS4",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k576560z0qb1a6rywc81pmtgj97z5ba5",
+      "externalId": "1449338156670390272",
+      "title": "Smart Eye Care LED Desk Lamp with Touch Controls",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMK4M7QWFGH6X5SZRDSS65",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k578frk9mn11hwddc15zafxktd7z5z1q",
+      "externalId": "1522393658815950848",
+      "title": "Moon Shadow Crescent Pendant Light - Bedroom Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMK94KWXMJ6KMBW99483Q8",
+      "variantsMapped": 14
+    },
+    {
+      "convexId": "k57cyqxafrn9qjb1wexvmgyred7z4msg",
+      "externalId": "A8E0555F-C42B-46F2-91B3-9DDEAAA7C83A",
+      "title": "Rustic Log Art Wall Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMKE6R0V2SK9C44PDV532G",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k571q5qa5a0ek7p3pnfpms9jj17z4q10",
+      "externalId": "1573852251049963520",
+      "title": "French Bistro Chandelier for Dining Room & Bar",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMKJM8RPHKNGK9ZDTAT1FK",
+      "variantsMapped": 16
+    },
+    {
+      "convexId": "k5741c3fhqgp68y8kzpqwg8jtn7z4xdh",
+      "externalId": "1581166157153972224",
+      "title": "Romantic Bedroom Table Lamp - Warm Ambient Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMKR08FKVS4T12W4AFFG0H",
+      "variantsMapped": 18
+    },
+    {
+      "convexId": "k571ehk8gajzdnzcvvh8yfxamd7z5a4r",
+      "externalId": "1582329293781348352",
+      "title": "Japanese Wood Bird Chandelier with LED Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMKXE0FPCSE4B7KPFVH7Z7",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57dr4tj3hcat8a61k2efb4vp57z584n",
+      "externalId": "1580508360863133696",
+      "title": "Classic Bedside Wall Sconce Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMM23GKZMH9QJSA7GAVSCY",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k57d5qx24kbe85sqrksjyjdp6d7z5fy7",
+      "externalId": "1408594894716538880",
+      "title": "Retro Wood Wire Cage Table Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMM6Y31CGYTGPMFMYF5HSQ",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k570s0bkqbyeakb857y380c5897z568z",
+      "externalId": "1580846834363412480",
+      "title": "Minimalist Creative Bedroom Table Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMMB4VACCK35ZDP8F444FE",
+      "variantsMapped": 36
+    },
+    {
+      "convexId": "k579krrs0n2g9s43916c3yxrdd7z5se9",
+      "externalId": "1589935678450839552",
+      "title": "Modern Touch Control Bedside Table Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMMHKQYNDP4MFB7CYNMXCK",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k575qgf68tgn08gf7d8kn7bqg97z5vjp",
+      "externalId": "1436193757476294656",
+      "title": "Retractable Umbrella Chandelier with Designer Elements",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMMP60HMB2ZC1VYPPDVQKN",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57303gr538emmf9xz63tpzcw97z5eva",
+      "externalId": "1443387634708779008",
+      "title": "Mediterranean Coastal Bedside Table Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMMTB9CKH4GRF6V9ECPMB3",
+      "variantsMapped": 18
+    },
+    {
+      "convexId": "k5718cz3hnt895ebwe10n34em17z4r0q",
+      "externalId": "D2AFAECF-4AEF-486B-B8A1-741B3FD03772",
+      "title": "LED Desk Lamp with Eye Protection Technology",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMMZFYWR03JCHNZ99JAXYX",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57b9j3nj3z7wnbgvzp3j700nn7z5drq",
+      "externalId": "A412C737-ED68-46E8-BE34-63ECF0937783",
+      "title": "Modern Metal LED Ceiling Light - Sleek Contemporary Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMN3XK27W1RBV14GVZEHQD",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57efzdm69j9fb3tmseycwg5y97z4scq",
+      "externalId": "1591747342234038272",
+      "title": "Modern Canteen Pendant Light - Luxury Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMN8A7XBZ8MEDMT8PFD7JQ",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57dejrdjfznw8z2j2k8k8g2x17z55zt",
+      "externalId": "1534541141620830208",
+      "title": "Nordic Creative Dining Table Pendant Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMNCFPTHRZDADWN57C3DXN",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k57784cr8ghn2247wb9ccvdb157z49rb",
+      "externalId": "6B2FEC59-8462-40C0-9B5E-637AC7B8A13E",
+      "title": "Vintage Multi-Color Glass Bubble Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMNH0TGRVYA1V9HTN4NJX6",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k570y4qj6azf7anbs03p9t93g57z4cx9",
+      "externalId": "1580862664706895872",
+      "title": "Modern Linear Hallway Light Fixture - Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMNN580Y5FE2SYKZ90S3C0",
+      "variantsMapped": 54
+    },
+    {
+      "convexId": "k57fwx9yxm1f8j10pm77h2z4157z5nv8",
+      "externalId": "1574709820953997312",
+      "title": "Italian Modern Pendant Light for Dining Table",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMNX6NXTVD6HBRF9NM7S8Y",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57arnpd47xav9bhnr7tpmqyzx7z5319",
+      "externalId": "1418862205490827264",
+      "title": "Industrial Wood & Iron Cone Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMP1KSNG73WMJTEWG1TR5T",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k572fev54an54bbpbs9tt2gqfn7z4b6k",
+      "externalId": "B172784A-CE10-494C-86DE-B76814A3669F",
+      "title": "Rustic Twine Photo Display Pendant Light with Clips",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMP5WE8V359BN0MVSNXQGD",
+      "variantsMapped": 5
+    },
+    {
+      "convexId": "k578v7zmfq78c5pss8f8q9ssg57z5q27",
+      "externalId": "1576886822012203008",
+      "title": "Japanese Rattan Straw Hat Chandelier - Vintage Woven Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMPACF2988BNQ8T0X4YG2V",
+      "variantsMapped": 32
+    },
+    {
+      "convexId": "k57agt5ncnke01se45zr5e3skx7z5fth",
+      "externalId": "1557965519804968960",
+      "title": "Planet Sphere Designer Chandelier - Modern Creative Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMPG6SE736DHCSBJ4DNBCT",
+      "variantsMapped": 16
+    },
+    {
+      "convexId": "k576mbbkx0nq5j40yrcewpve5x7z5wr7",
+      "externalId": "1402147816754778112",
+      "title": "Boho Woven Table Lamp - Natural Rattan Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMPNHSJY6G4F8ZTN90X3VQ",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k575hqr5vqxv8h86b78yee1j617z5sjh",
+      "externalId": "F507FB5A-DA0E-4411-9E70-220852C16266",
+      "title": "Industrial Concrete Wood Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMPSN04GT2EVDRWWTRN2DZ",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57dddy3qhbmfp5784xejek0a57z5878",
+      "externalId": "4238D125-40A2-4258-8628-455863B2E6FA",
+      "title": "Smart LED Table Lamp with Bluetooth Speaker",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMPY09X892S8PQQW8GCY5Z",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k5775d4m0v17e633zdy45r46qn7z4y59",
+      "externalId": "1582325627997401088",
+      "title": "Modern Wood Circle Pendant Light - Minimalist Dining Fixture",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMQ2KHFEC08X9598YTP0MD",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k57aj10qachgkazqptwp2fr6wx7z429p",
+      "externalId": "1538801441966665728",
+      "title": "Minimalist Glass Bedside Wall Sconce - Modern Bedroom Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMQ7BJ59AYF186TYD87RR4",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k575sd8ehww9mcz18hsjqddsx17z5x3k",
+      "externalId": "1577239266751688704",
+      "title": "Rustic Iron Chandelier - Antique Farmhouse Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMQBT7C33FBVYHJQF5NRY1",
+      "variantsMapped": 24
+    },
+    {
+      "convexId": "k57603v8ctqxs134j61kp4jftx7z4qsd",
+      "externalId": "1580800630132846592",
+      "title": "Modern LED Ceiling Light - Minimalist Atmospheric Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMQHV9S90TAFFGF4Z0EH99",
+      "variantsMapped": 28
+    },
+    {
+      "convexId": "k57cq249apfgf1kv3e6ww2sn457z5nsw",
+      "externalId": "1566424288004157440",
+      "title": "Industrial Black Chandelier for Commercial Spaces",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMQQVBNGY2T06KHSTH9GN9",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k57eg5t0h7gn4t9bh40y8epshs7z5hjm",
+      "externalId": "1589942326166827008",
+      "title": "Modern Nordic Bedside Table Lamp with Creative Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMQW544KGDB4F5DGDMFFWM",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k573g0y2kt04xjzwg9xma6ke897z4s7y",
+      "externalId": "1577983468309590016",
+      "title": "Smart Modern Pendant Light with Intelligent Controls",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMR0H9DDY73Y2QSMHM5XB6",
+      "variantsMapped": 16
+    },
+    {
+      "convexId": "k579wj26ejxwmpp8yqa32757r97z5vjp",
+      "externalId": "4EF172AA-E944-426B-A181-5A4EB6BF5963",
+      "title": "Modern Minimalist Table Lamp - Model 12",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMR5T0S9E3JKWWZDNT3T4B",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k575b435r633vn2c4k6zd8mctn7z4066",
+      "externalId": "1450047840226250752",
+      "title": "Nordic Three-Head Bar Pendant Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMRA6AYN9BQAT3MV54F6QG",
+      "variantsMapped": 16
+    },
+    {
+      "convexId": "k57fesjfxcg6fwvw6vv5fd2zes7z5ge8",
+      "externalId": "1582610610557300736",
+      "title": "Modern Minimalist Bedside Lamp - Simple Contemporary Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMRFGJV162QHGBVY5E0KWM",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57f3bq24hkeecwwcbx4efajv57z5x5n",
+      "externalId": "1580853667970953216",
+      "title": "Modern Super Bright Living Room Floor Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMRKT4XCTB2PF3ATNW3735",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k5733w7hydxhpbhcr93yscr6cd7z4bnk",
+      "externalId": "1400411171378565120",
+      "title": "Bamboo Wicker Pendant Light - Retro Asian Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMRR8YZZVDJQXVJC0PTF1M",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k576vdq847x6rj2z1m98trwe7s7z4f7f",
+      "externalId": "58C082FA-F25F-43F4-81D4-4C82D37E2D62",
+      "title": "Industrial Glass Chandelier with Metal Framework",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMRWM6MXQM20CJQGDYFRG9",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k570hjfkjn2pd0tcyhhchw9te17z5d7n",
+      "externalId": "1557998230485610496",
+      "title": "Vintage Industrial Restaurant Chandelier with Character",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMS11NADE3Y2JJG6RX5WQS",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k571010kr01d6gyw6cfvr7ashx7z45m4",
+      "externalId": "1369493821573959680",
+      "title": "Modern Three-Light Art Chandelier for Dining & Bar",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMS5FRD2Y8RQVJND88Y8J2",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k577hcj0cqp20nsjc0shdv8cgx7z5dfp",
+      "externalId": "1404607507590156288",
+      "title": "Modern Glass Globe Bedside Pendant Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMS9XNASRTJX5DXXKM6FPT",
+      "variantsMapped": 40
+    },
+    {
+      "convexId": "k570mj7r2bdft53gbpt2pjsnsh7z4ss6",
+      "externalId": "1531898688677883904",
+      "title": "Nordic Minimalist Wall Sconce for Bedroom & Living Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMSG87CKHWKDDEHTQY5NM8",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k574r6f3r8g8w0dkbeycgs1v297z495c",
+      "externalId": "1587066301955190784",
+      "title": "Modern Minimalist LED Pendant Light for Home Decor",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMSMEYYPN2AZW7RPBXQB8F",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k579exmjn3cdhrdyz8qm3q5ew57z54w4",
+      "externalId": "1384763977384464384",
+      "title": "Butterfly Chandelier - Artistic Indoor Statement Piece",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMSSCHT9E4S25YCJ829GPP",
+      "variantsMapped": 36
+    },
+    {
+      "convexId": "k576zx1t3r79ccxjanyf4v1mk17z4ssm",
+      "externalId": "1372063202879344640",
+      "title": "Modern Spiral LED Touch Control Desk Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMSZCDZ8DG56J89530BF2P",
+      "variantsMapped": 24
+    },
+    {
+      "convexId": "k57ay3nhfea7ckx6r7gcj8wn1d7z4f8z",
+      "externalId": "1381523416766615552",
+      "title": "Modern Surface Mount Ceiling Light for Multi-Room Use",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMT4MGY3C0XHY4TD2K8QQJ",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k571y8b60z0j0sgtfe293jk5yx7z5v75",
+      "externalId": "1420292675701182464",
+      "title": "Modern UFO Glass Pendant Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMT8XHPPSFZG4A0N587N8C",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k57d7b23y3gpjeaega6xhp148s7z5n1t",
+      "externalId": "595DC48E-7CDA-4A3C-A108-589A3C0CB5A4",
+      "title": "Small Wrought Iron Chandelier - Classic Elegance",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMTDJMP2VEXTQ6DK6PQ3SC",
+      "variantsMapped": 5
+    },
+    {
+      "convexId": "k575ddjqke8gcc8deyn9shajrs7z558h",
+      "externalId": "F36E6579-947B-44C9-8E92-5DFBF5C6F468",
+      "title": "Markaron Small Crystal Chandelier - Modern Elegance",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMTJ16EAT8AEBXH82F9RH8",
+      "variantsMapped": 12
+    },
+    {
+      "convexId": "k57563382aesq36zkmh1y1zyzs7z51fq",
+      "externalId": "1582327824650874880",
+      "title": "Round Wood LED Ceiling Light - Modern Nordic Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMTPRW0PJKQWACVKSAJHEP",
+      "variantsMapped": 3
+    },
+    {
+      "convexId": "k574tyd2frmvn0zp5vwd04cv697z4fp6",
+      "externalId": "1415947530193211392",
+      "title": "Modern Flush Mount Ceiling Light for Living Spaces",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMTTY6Z2T3J9601VRFRMQC",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k573vhdxk1e8fzaen91xcwxfgd7z45ak",
+      "externalId": "1404707802714345472",
+      "title": "Modern Creative Ceiling Light for Balcony & Entryway",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMTZ022TGMNMHJSFBZRSFX",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k578jdzngq3amtkjr9vy1dtgqh7z52p4",
+      "externalId": "1463321396095619072",
+      "title": "Modern LED Ceiling Light - Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMV3QFHVPHQEFARP3TEJT3",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k576a7apt8t271apkr0wcccgvn7z41vh",
+      "externalId": "1521035249092931584",
+      "title": "Art Deco Statement Light - Modern Luxury Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMV8GQBM54MWEWAJQCBSKW",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k577bt76dwqmenka5mmzhwfvvh7z49m2",
+      "externalId": "1815E63A-8939-4A3E-987D-5ECC55BC8221",
+      "title": "Modern Origami Pendant Light - Black & White Geometric",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMVCYNRW9240BSG2BFGYQF",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k571z4h4qawfwzr1027mvgbgjs7z547f",
+      "externalId": "1537024168703832064",
+      "title": "Nordic Half-Round Wooden Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMVH8S88K50XQCX7250VRE",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57059a37qhz9z43edwq9pmbfh7z5sh2",
+      "externalId": "1582612607087947776",
+      "title": "Nordic Five Star Ceiling Light - Modern Geometric Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMVP4XNHXEEPZRFQ0Q6HWN",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k577pf87x141y5mtft9kynpfn97z419z",
+      "externalId": "1585921663248642048",
+      "title": "Modern Adjustable Piano Desk Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMVTPACPDPAK3Y6SQX16ZG",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k57edhn30pygsgq811gzm0mdyd7z5n4v",
+      "externalId": "1364047183925612544",
+      "title": "Creative Glass Table Lamp with Natural Lighting Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMVZCPSR6F1JSYBBH7XTPY",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k57942rp41avb21qtatt1zgmd17z4sew",
+      "externalId": "82273B58-9515-4E45-B847-97C93A53F2CC",
+      "title": "Vintage Industrial Hanging Ceiling Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMW3KTYT4XNW22HYECETC6",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k570abwty8fxk0t3y12b1w0ddn7z5x1e",
+      "externalId": "1414485845599195136",
+      "title": "Luxury Crystal Wall Sconce - Modern Bedroom Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMW7TNSSNTYNA49BFE55X5",
+      "variantsMapped": 7
+    },
+    {
+      "convexId": "k572fq05xwsz13aq40gnsggd5s7z5g0s",
+      "externalId": "1416980686237208576",
+      "title": "Nordic Three-Light Mini Chandelier for Dining & Bar",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMWCMGWCXGEDX67Q786S44",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k577p0qepw52gj2vh1ttxy8dj57z4r8v",
+      "externalId": "1406419885910790144",
+      "title": "Moroccan Stained Glass Chandelier - Wrought Iron Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMWH3AX5BP0A1AZ1PW45GJ",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k576zmqhja7pkx56g7tzt2sgr97z5vph",
+      "externalId": "1370311996469284864",
+      "title": "Nordic Retro Minimalist Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMWNH1ERT8S4GGJAW7P49V",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k572r54xbt55bpqjg33d7ztbks7z43ta",
+      "externalId": "1473143698568122368",
+      "title": "Stepless Dimming LED Ceiling Light for Living Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMWSVG8149MKJV0T50EXMP",
+      "variantsMapped": 9
+    },
+    {
+      "convexId": "k577m3mb6hwws286ae93g8t1hx7z4mvp",
+      "externalId": "1514796862929383424",
+      "title": "Modern Minimalist Ceiling Light - Artistic Bedroom Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMWYMR2GVZ8CVJWPMP76NE",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k5782p4dam8kdmr5dj3p9rqcy97z46d1",
+      "externalId": "8F2B528D-181A-49CB-8514-EDE80D2CDFA3",
+      "title": "Modern LED Acrylic Chandelier with Fishing Line Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMX3DT7CE6ZN5GF0JN7054",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k578fxhrxzb62nxs08x8q820gs7z4g21",
+      "externalId": "1494868910401523712",
+      "title": "Industrial Water Pipe Wall Sconce - Steampunk Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMX80DC8PCYJWFG4YJ7X79",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k578jya3n5axm0w2671yg8rnfh7z4phm",
+      "externalId": "1370616751775158272",
+      "title": "European Angel Wall Sconce - Vintage Creative Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMXCMX7PNK2CFT15J5Y0VG",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k570hdyg9ggw41xrqzcdsd1ny17z5we5",
+      "externalId": "1576478812869767168",
+      "title": "Modern LED Bedroom Ceiling Light - Luxury Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMXGYR6WCPHM1JBX7Q8JRP",
+      "variantsMapped": 60
+    },
+    {
+      "convexId": "k576h8d2q4kzj2g1ywavqw8cch7z5qv2",
+      "externalId": "1473162522604474368",
+      "title": "Modern LED Wall Sconce for Bedrooms & Hallways",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMXSYSEY4WH05X6J4B06XX",
+      "variantsMapped": 8
+    },
+    {
+      "convexId": "k57583k6hw22v3qcjdt2jqxwt57z4hjr",
+      "externalId": "1384035217328705536",
+      "title": "Enchanting Deer Night Light Creative Table Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMXYP7EV9BRC697REDNQD1",
+      "variantsMapped": 6
+    },
+    {
+      "convexId": "k57ekfmr4kpzpv66c0bj0vnaz17z4k40",
+      "externalId": "1406425339546177536",
+      "title": "Nordic Industrial Mud Ceramic Pendant Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMY3BS42PCP4YPHD8XH3PG",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k5718bmyjc8c07cfyp092v61997z5522",
+      "externalId": "1521008678307115008",
+      "title": "Nordic Minimalist Wall Sconce - Modern Creative Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMY7J34KZ82YAWS6THXSTP",
+      "variantsMapped": 5
+    },
+    {
+      "convexId": "k572snsydpm609yjd9w54bz8fs7z581q",
+      "externalId": "1572437288200712192",
+      "title": "Cafe Brass Glass Chandelier - Vintage Industrial Style",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMYC7HWVXND3N0XJ1YJ8NB",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57dxpke2bze8z4a5jbm81v2h97z4gpw",
+      "externalId": "1382246200127918080",
+      "title": "Tree of Life Colorful Glass Ball Pendant Light",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMYGV2D2KNR3P74B1J5CJH",
+      "variantsMapped": 7
+    },
+    {
+      "convexId": "k571sm4zedgsganrga5rdyeygd7z5vg8",
+      "externalId": "1405376598865219584",
+      "title": "Retro Creative Dining Room Chandelier - Personalized Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMYNKRXGEABW4BGT7CVXPD",
+      "variantsMapped": 30
+    },
+    {
+      "convexId": "k573e394vmfr1y42xwby7jvfgs7z4bya",
+      "externalId": "1518570768786010112",
+      "title": "Waterproof Outdoor Wall Light - Modern Exterior Lighting",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMYV46W97KM2A24KR2CRB0",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k5739zk6waexc6wfd3eb8bvpw97z4fhr",
+      "externalId": "1592764631494438912",
+      "title": "Crystal Modern Table Lamp for Bedroom & Living Room",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMYZFVXNDG4YE4EC6RGPCR",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k5794gwb6k9y4ek6np23yr4fvd7z4jva",
+      "externalId": "1C01D7EB-9638-4A3C-93CB-C912AE53385C",
+      "title": "Modern Crystal Corridor Lamp - Minimalist Wall Sconce",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMZ3Y9AFZEJ6R3MSC948DX",
+      "variantsMapped": 7
+    },
+    {
+      "convexId": "k57db5ye00v6cvgr5dyjc0d1tx7z5jxg",
+      "externalId": "6AC44803-E8A3-456D-B355-882BDB1EC2A2",
+      "title": "Nordic Minimalist Glass Dining Room Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMZ8T58M26S7YYD6WZM7W6",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k572d9gx9ws1fzjg2xzv985ndh7z40q5",
+      "externalId": "1583743813905035264",
+      "title": "Modern Glass Globe Chandelier for Living Room & Bedroom",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMZD0QH37AF51GKG5TMC6S",
+      "variantsMapped": 10
+    },
+    {
+      "convexId": "k57e5rxn2wshf8yjppjxj9be3n7z4ps8",
+      "externalId": "1511938502257291264",
+      "title": "Motion Sensor LED Wall Sconce for Bedrooms",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMZHQ5A0KXXPY4WQN7FSRD",
+      "variantsMapped": 9
+    },
+    {
+      "convexId": "k57e461y3eyhz803ffwwrvwhmd7z5q8y",
+      "externalId": "1448094042935136256",
+      "title": "Nordic Oval Halo Chandelier - Modern Minimalist Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMZP9WXKHBVK15SVBXQ5ZC",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k573m1mdszqpbdssx85gbvg1557z46j5",
+      "externalId": "1586985625348222976",
+      "title": "Rustic Bowl Ceiling Chandelier in Beige & White Glass",
+      "status": "created",
+      "medusaProductId": "prod_01KJJMZTCAFN4MWBKTXAKYDRKA",
+      "variantsMapped": 35
+    },
+    {
+      "convexId": "k57ezxmwysgmwfja61m0nz4cd97z4tnt",
+      "externalId": "1590614844443734016",
+      "title": "Minimalist Touch Wall Sconce for Corridors & Stairs",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN000S0ZH06V7ZH5ZAMFRP",
+      "variantsMapped": 30
+    },
+    {
+      "convexId": "k5777s1aknehbzg198azh55aan7z58e7",
+      "externalId": "1590246182964703232",
+      "title": "Modern Glass Ceiling Light - Minimalist Small Fixture",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN07R84CZK96XZ3GRVA2NV",
+      "variantsMapped": 2
+    },
+    {
+      "convexId": "k574mkpya91kaxsgb1dx204sb57z51ak",
+      "externalId": "1563451919459430400",
+      "title": "Modern Glass Wall Sconce - Minimalist Living Room Lamp",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN0C54DXX1JH1PRC8MA8GJ",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k576ktdv0zwec7tg0528az1pkh7z58fe",
+      "externalId": "1562406329711603712",
+      "title": "Nordic Minimalist Bedside Pendant Light with LED",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN0GQC10TJ927EZJT8BRYJ",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k578qtvf9g0jhz2v09j1stz56s7z4rfk",
+      "externalId": "1409466282411167744",
+      "title": "Modern Cylindrical Chandelier - Creative Design Statement",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN0N2TWPES8TQFBYSN4Q3G",
+      "variantsMapped": 4
+    },
+    {
+      "convexId": "k57b3whj0pmjp15re2wj8ry79n7z4nks",
+      "externalId": "1583407103585300480",
+      "title": "Industrial Studio Chandelier for Restaurants & Bars",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN0SNAH9XZT2Z079DSDZ7Y",
+      "variantsMapped": 1
+    },
+    {
+      "convexId": "k571c23v8yts1ht0mest56z73s7z5v15",
+      "externalId": "1532227804442669056",
+      "title": "Retro Designer Lotus Leaf Chandelier",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN0XSP4930TCX8WV5M47VS",
+      "variantsMapped": 24
+    },
+    {
+      "convexId": "k57fekpwcgzm2sdxk3dpca5f0n7z4158",
+      "externalId": "1574709659381018624",
+      "title": "Stained Glass Chandelier - Creative Restaurant Design",
+      "status": "created",
+      "medusaProductId": "prod_01KJJN13E5BDDKNXZ401N0QNBD",
+      "variantsMapped": 1
+    }
+  ]
+}

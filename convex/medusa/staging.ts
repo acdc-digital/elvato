@@ -14,7 +14,9 @@ export const getAllProducts = query({
       v.literal("pending"),
       v.literal("syncing"),
       v.literal("synced"),
-      v.literal("failed")
+      v.literal("failed"),
+      v.literal("duplicate"),
+      v.literal("exhausted")
     )),
   },
   handler: async (ctx, args) => {
@@ -84,7 +86,7 @@ export const getSyncStats = query({
     const prices = await ctx.db.query("medusaPrices").collect();
     const categories = await ctx.db.query("medusaCategories").collect();
     
-    const statusCounts = { pending: 0, syncing: 0, synced: 0, failed: 0 };
+    const statusCounts = { pending: 0, syncing: 0, synced: 0, failed: 0, duplicate: 0, exhausted: 0 };
     products.forEach(p => { statusCounts[p.syncStatus]++; });
     
     return {
@@ -93,6 +95,223 @@ export const getSyncStats = query({
       images: images.length,
       prices: prices.length,
       categories: categories.length,
+    };
+  },
+});
+
+// Preflight scope report for Convex -> Medusa import planning.
+// This identifies importable records, hard exclusions, and non-blocking warnings.
+
+// Lightweight query returning all product external IDs for parity matching.
+export const getAllExternalIds = query({
+  handler: async (ctx) => {
+    const products = await ctx.db.query("medusaProducts").collect();
+    return products
+      .map((p) => p.externalId)
+      .filter((id): id is string => typeof id === "string" && id.length > 0);
+  },
+});
+
+export const getImportScopeReport = query({
+  args: {
+    readyOnly: v.optional(v.boolean()),
+    includeSynced: v.optional(v.boolean()),
+    includeFailed: v.optional(v.boolean()),
+    sampleSize: v.optional(v.number()),
+  },
+  handler: async (ctx, args) => {
+    const readyOnly = args.readyOnly ?? true;
+    const includeSynced = args.includeSynced ?? false;
+    const includeFailed = args.includeFailed ?? true;
+    const sampleSize = Math.max(1, args.sampleSize ?? 5);
+
+    const [
+      allProducts,
+      allVariants,
+      allPrices,
+      allImages,
+      allOptions,
+      allCategories,
+    ] = await Promise.all([
+      ctx.db.query("medusaProducts").collect(),
+      ctx.db.query("medusaProductVariants").collect(),
+      ctx.db.query("medusaPrices").collect(),
+      ctx.db.query("medusaImages").collect(),
+      ctx.db.query("medusaProductOptions").collect(),
+      ctx.db.query("medusaCategories").collect(),
+    ]);
+
+    const categoryIds = new Set(allCategories.map((c) => c._id));
+
+    const scopedProducts = allProducts.filter((product) => {
+      if (readyOnly && !product.isReadyToSync) {
+        return false;
+      }
+      if (!includeSynced && product.syncStatus === "synced") {
+        return false;
+      }
+      if (!includeFailed && (product.syncStatus === "failed" || product.syncStatus === "duplicate" || product.syncStatus === "exhausted")) {
+        return false;
+      }
+      return true;
+    });
+
+    const variantsByProduct = new Map<Id<"medusaProducts">, DataModel["medusaProductVariants"]["document"][]>();
+    const imagesByProduct = new Map<Id<"medusaProducts">, DataModel["medusaImages"]["document"][]>();
+    const optionsByProduct = new Map<Id<"medusaProducts">, DataModel["medusaProductOptions"]["document"][]>();
+    const pricesByVariant = new Map<Id<"medusaProductVariants">, DataModel["medusaPrices"]["document"][]>();
+
+    for (const variant of allVariants) {
+      const list = variantsByProduct.get(variant.medusaProductId) ?? [];
+      list.push(variant);
+      variantsByProduct.set(variant.medusaProductId, list);
+    }
+
+    for (const image of allImages) {
+      const list = imagesByProduct.get(image.medusaProductId) ?? [];
+      list.push(image);
+      imagesByProduct.set(image.medusaProductId, list);
+    }
+
+    for (const option of allOptions) {
+      const list = optionsByProduct.get(option.medusaProductId) ?? [];
+      list.push(option);
+      optionsByProduct.set(option.medusaProductId, list);
+    }
+
+    for (const price of allPrices) {
+      const list = pricesByVariant.get(price.medusaVariantId) ?? [];
+      list.push(price);
+      pricesByVariant.set(price.medusaVariantId, list);
+    }
+
+    const exclusionBuckets = new Map<string, DataModel["medusaProducts"]["document"][]>();
+    const warningBuckets = new Map<string, DataModel["medusaProducts"]["document"][]>();
+    const statusBreakdown: Record<string, number> = {
+      pending: 0,
+      syncing: 0,
+      synced: 0,
+      failed: 0,
+    };
+
+    const validProductIds = new Set<Id<"medusaProducts">>();
+
+    const pushToBucket = (
+      bucket: Map<string, DataModel["medusaProducts"]["document"][]>,
+      key: string,
+      product: DataModel["medusaProducts"]["document"]
+    ) => {
+      const list = bucket.get(key) ?? [];
+      list.push(product);
+      bucket.set(key, list);
+    };
+
+    for (const product of scopedProducts) {
+      statusBreakdown[product.syncStatus] = (statusBreakdown[product.syncStatus] ?? 0) + 1;
+
+      const productVariants = variantsByProduct.get(product._id) ?? [];
+      const productImages = imagesByProduct.get(product._id) ?? [];
+      const productOptions = optionsByProduct.get(product._id) ?? [];
+
+      let excluded = false;
+
+      if (!product.title?.trim()) {
+        pushToBucket(exclusionBuckets, "missing_title", product);
+        excluded = true;
+      }
+
+      if (!product.handle?.trim()) {
+        pushToBucket(exclusionBuckets, "missing_handle", product);
+        excluded = true;
+      }
+
+      if (!product.externalId?.trim()) {
+        pushToBucket(exclusionBuckets, "missing_external_id", product);
+        excluded = true;
+      }
+
+      if (productVariants.length === 0) {
+        pushToBucket(exclusionBuckets, "missing_variants", product);
+        excluded = true;
+      }
+
+      const variantsWithoutPrices = productVariants.filter(
+        (variant) => (pricesByVariant.get(variant._id) ?? []).length === 0
+      );
+
+      if (variantsWithoutPrices.length > 0) {
+        pushToBucket(exclusionBuckets, "variant_missing_prices", product);
+        excluded = true;
+      }
+
+      if (!excluded) {
+        validProductIds.add(product._id);
+      }
+
+      if (productImages.length === 0) {
+        pushToBucket(warningBuckets, "missing_images", product);
+      }
+
+      if (productOptions.length === 0) {
+        pushToBucket(warningBuckets, "missing_product_options", product);
+      }
+
+      if (!product.medusaCategoryId) {
+        pushToBucket(warningBuckets, "missing_category_link", product);
+      } else if (!categoryIds.has(product.medusaCategoryId)) {
+        pushToBucket(warningBuckets, "invalid_category_link", product);
+      }
+    }
+
+    const validVariants = allVariants.filter((variant) =>
+      validProductIds.has(variant.medusaProductId)
+    );
+    const validVariantIds = new Set(validVariants.map((variant) => variant._id));
+
+    const validPrices = allPrices.filter((price) => validVariantIds.has(price.medusaVariantId));
+    const validImages = allImages.filter((image) => validProductIds.has(image.medusaProductId));
+    const validOptions = allOptions.filter((option) => validProductIds.has(option.medusaProductId));
+
+    const formatBucket = (bucket: Map<string, DataModel["medusaProducts"]["document"][]>) => {
+      return Array.from(bucket.entries())
+        .sort((a, b) => b[1].length - a[1].length)
+        .map(([reason, products]) => ({
+          reason,
+          count: products.length,
+          sample: products.slice(0, sampleSize).map((product) => ({
+            productId: product._id,
+            title: product.title,
+            externalId: product.externalId,
+            syncStatus: product.syncStatus,
+          })),
+        }));
+    };
+
+    const exclusionReport = formatBucket(exclusionBuckets);
+    const warningReport = formatBucket(warningBuckets);
+
+    return {
+      filters: {
+        readyOnly,
+        includeSynced,
+        includeFailed,
+      },
+      scope: {
+        totalProductsInDb: allProducts.length,
+        scopedProducts: scopedProducts.length,
+        validProducts: validProductIds.size,
+        excludedProducts: scopedProducts.length - validProductIds.size,
+      },
+      scopedStatusBreakdown: statusBreakdown,
+      validChildTotals: {
+        variants: validVariants.length,
+        prices: validPrices.length,
+        images: validImages.length,
+        options: validOptions.length,
+      },
+      exclusions: exclusionReport,
+      warnings: warningReport,
+      generatedAt: Date.now(),
     };
   },
 });
@@ -604,6 +823,45 @@ export const markReadyToSync = mutation({
   },
 });
 
+// Bulk mark pending products as ready to sync
+export const bulkMarkReadyToSync = mutation({
+  args: {
+    limit: v.optional(v.number()),
+    statusFilter: v.optional(v.union(
+      v.literal("pending"),
+      v.literal("failed"),
+    )),
+  },
+  handler: async (ctx, args) => {
+    const limit = args.limit ?? 200;
+    const statusFilter = args.statusFilter ?? "pending";
+    const now = Date.now();
+    
+    const products = await ctx.db
+      .query("medusaProducts")
+      .withIndex("by_syncStatus", (q) => q.eq("syncStatus", statusFilter))
+      .collect();
+    
+    const toMark = products
+      .filter((p) => !p.isReadyToSync || statusFilter === "failed")
+      .slice(0, limit);
+    
+    for (const product of toMark) {
+      const patch: Record<string, unknown> = {
+        isReadyToSync: true,
+        updatedAt: now,
+      };
+      if (statusFilter === "failed") {
+        patch.syncStatus = "pending";
+        patch.syncError = undefined;
+      }
+      await ctx.db.patch(product._id, patch);
+    }
+    
+    return { marked: toMark.length, total: products.length };
+  },
+});
+
 // Update sync status after pushing to Medusa
 export const updateSyncStatus = mutation({
   args: {
@@ -612,10 +870,13 @@ export const updateSyncStatus = mutation({
       v.literal("pending"),
       v.literal("syncing"),
       v.literal("synced"),
-      v.literal("failed")
+      v.literal("failed"),
+      v.literal("duplicate"),
+      v.literal("exhausted")
     ),
     medusaId: v.optional(v.string()), // The actual Medusa product ID
     error: v.optional(v.string()),
+    syncAttempts: v.optional(v.number()),
     variantMappings: v.optional(v.array(v.object({
       convexVariantId: v.id("medusaProductVariants"),
       medusaVariantId: v.string(),
@@ -628,6 +889,7 @@ export const updateSyncStatus = mutation({
       syncStatus: args.status,
       medusaProductId: args.medusaId,
       syncError: args.error,
+      syncAttempts: args.syncAttempts,
       lastSyncedAt: args.status === "synced" ? now : undefined,
       updatedAt: now,
     });
@@ -891,11 +1153,32 @@ export const getProductsReadyToSync = query({
           })
         );
         
-        return { ...product, variants: variantsWithPrices, images };
+        const options = await ctx.db
+          .query("medusaProductOptions")
+          .withIndex("by_medusaProductId", (q) => q.eq("medusaProductId", product._id))
+          .collect();
+
+        return { ...product, variants: variantsWithPrices, images, options };
       })
     );
     
     return result;
+  },
+});
+
+// Get all category mappings (cjCategoryId → medusaCategoryId) for sync
+export const getCategoryMappings = query({
+  handler: async (ctx) => {
+    const categories = await ctx.db.query("medusaCategories").collect();
+    return categories.map((c) => ({
+      _id: c._id,
+      name: c.name,
+      handle: c.handle,
+      cjCategoryId: c.cjCategoryId,
+      medusaCategoryId: c.medusaCategoryId,
+      parentCategoryId: c.parentCategoryId,
+      syncStatus: c.syncStatus,
+    }));
   },
 });
 

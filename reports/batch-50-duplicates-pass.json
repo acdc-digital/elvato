@@ -1,0 +1,314 @@
+{
+  "timestamp": "2026-02-28T22:28:41.415Z",
+  "config": {
+    "convexUrl": "https://superb-dotterel-37.convex.cloud",
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "batchSize": 50,
+    "offset": 0,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 42,
+    "created": 0,
+    "updated": 0,
+    "duplicates": 0,
+    "failed": 42,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "convexId": "k57cwpb88tc1dfhk4scvh7jbzh7z5e23",
+      "externalId": "1410515357181022208",
+      "title": "Nordic Wood Round Pendant Light - Black Finish",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k577498yss1zatxxscm39mzeqh7z5brp",
+      "externalId": "1498176888416374784",
+      "title": "Dimmable Glass Bedside Table Lamp - Portable Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57d99j2sayz61fn01rwa7ygah7z5m80",
+      "externalId": "1409713615946256384",
+      "title": "Rustic Wood & Glass Table Lamp",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57451k3b536hney4bcvg4cmsx7z4d5a",
+      "externalId": "1520688822621843456",
+      "title": "Modern Geometric Long Arm Table Lamp",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k578wwtqng746pbns971wbqcbx7z5ymm",
+      "externalId": "1419624191971430400",
+      "title": "Lighthouse Touch Desk Lamp with Night Light Feature",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k578yv4eex3j51hq0n2y05tbk97z4x20",
+      "externalId": "1460172609529450496",
+      "title": "Nordic Solid Wood Table Lamp with Artistic Base",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k570ps7ggpm1xhsbkk8mjgbrzx7z4cpf",
+      "externalId": "1473828546928578560",
+      "title": "Modern Spherical Table Lamp with Artistic Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k572zd3ybrbbtcd2prm1db97197z4qyg",
+      "externalId": "1418853788940374016",
+      "title": "Smoky Glass Bar Chandelier with Electroplated Finish",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k570m0ppjqs1gp3djwvk24skxx7z58kz",
+      "externalId": "1495749578841001984",
+      "title": "Modern Chinese Bamboo Woven Wall Sconce",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k5799hrcq2m2eqyf0t824wrs8s7z5kjm",
+      "externalId": "1386582322689740800",
+      "title": "Bronze Metal Wall Sconce with Glass Shade",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k572pwm5cqrknfb4zb8g5qw3yx7z48em",
+      "externalId": "1501887649752297472",
+      "title": "Nordic Cement Terrazzo Mini Chandelier",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57dy0ewhzw9tjx7mnwn1zwb8s7z4e26",
+      "externalId": "1410516049559949312",
+      "title": "Nordic Solid Wood Cloth Shade Chandelier",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k5700vv2qpdhajqqn2zh844n4s7z5vdv",
+      "externalId": "45957D71-42C4-45DD-831B-CD7C0779DA82",
+      "title": "Minimalist Hollow Frame Table Lamp - Modern Accent Light",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57dh91gt1bmqn3ha3300w46gn7z470v",
+      "externalId": "A5FBA80B-D091-4391-9C1D-634F3E96E5D2",
+      "title": "Nordic Japanese Bedside Table Lamp - Minimalist Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57539f5q844sppafzrqwr2c8n7z556q",
+      "externalId": "1384691084180983808",
+      "title": "Modern Cube Glass Chandelier - Artistic Statement Light",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57504d55cd3mgwfqzh0t5ercn7z4zvv",
+      "externalId": "65315781-26F1-458F-B6A8-62BB3CC9D693",
+      "title": "Glass Bottle Chandelier - Vintage Industrial Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k573b6c226rxe08qfap4q6kr997z5xh8",
+      "externalId": "D5B80C0B-7AE0-4002-886C-C3E9699AA399",
+      "title": "Modern LED Art Chandelier - Creative Suspension Light",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k571hft4dsxjkk8s5m4bdyd6gd7z4j6b",
+      "externalId": "64BA5CEF-9708-4838-9C9B-9AE8B17D1F78",
+      "title": "Vintage Wrought Iron Chandelier - Industrial Retro Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k578fnwfhhvkd54989ccq53qrn7z581z",
+      "externalId": "77F2DDF1-1B6F-4A5C-B9F2-B9C1D71A88CF",
+      "title": "Modern Iron Tube Chandelier - Minimalist Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57bpsf2jhwg277pjqhmpnzjzd7z4mbv",
+      "externalId": "1417316152442490880",
+      "title": "Dinosaur Touch Control LED Night Light for Kids",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k5776aq1nhhdksa3t8c329x4a17z5tr9",
+      "externalId": "1361551743573430272",
+      "title": "Modern USB Rechargeable LED Night Light",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57afcvk8znhqr7npajbhyhvhx7z5tdk",
+      "externalId": "1444192916770787328",
+      "title": "Nordic Corridor Wall Light - Modern Entrance Hall Fixture",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k5752j6va3g2st7jpwzg1dh4f97z4765",
+      "externalId": "3A1681C4-F970-4062-90C4-574ECE204878",
+      "title": "Modern Creative Solid Wood Table Lamp",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k576avtczg66kv8wan3690ysb17z4xbv",
+      "externalId": "64DD4DA0-F182-4E17-A520-05B64B2E3951",
+      "title": "Industrial Wrought Iron Long Arm Wall Sconce",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57dyqj4c3f7tzz7etchy5dgn17z4s90",
+      "externalId": "1393829328554430464",
+      "title": "Nordic Wood LED Desk Lamp with Fabric Shade",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57dp5hhyjd3q0v8xvd9hhnt697z4435",
+      "externalId": "1577241594519105536",
+      "title": "Industrial Vintage Chandelier - Simple Modern Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57dndz510hs1g2sv5gtz5xmc57z41xb",
+      "externalId": "1411557051674529792",
+      "title": "Modern Wrought Iron Glass Wall Sconce",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k571njbn9hkrmgza0h9s5cnhzd7z4ce3",
+      "externalId": "1416967146361196544",
+      "title": "Nordic Minimalist Wall Sconce - Designer LED Lamp",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k571wfknqyz4n26gnvt5hrqy2x7z42d4",
+      "externalId": "1572A813-B547-404F-A5F5-4D4F414B8403",
+      "title": "Retro Ceramic Night Light with Warm Ambient Glow",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57bvpvfap156my51fexsmt9ss7z47wm",
+      "externalId": "1426350406723833856",
+      "title": "Industrial Barn Metal Pendant Light for Kitchen Island",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57as3qpr0tpew2vbzxvtfwghx7z5x5d",
+      "externalId": "5DC163C1-E601-4E89-A4D7-17E574E670A9",
+      "title": "Nicolai Nordic Inspired Pendant Light - Multi-Color",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k5753rhyera796byw0frkx3xed7z46n4",
+      "externalId": "1577962892803190784",
+      "title": "Nordic Iron LED Chandelier - Modern Dining Room Pendant",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57ewrarkvqr4p1t1tg9jxxk1d7z5v6f",
+      "externalId": "1388674557333868544",
+      "title": "Snail Rattan Pendant Light - Southeast Asian Art Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57748mg0z2vj3g5179tw8kc2n7z44bv",
+      "externalId": "C12CFB89-E828-449B-AB50-41803088FA33",
+      "title": "Wooden Pendant Light for Kitchen Island & Bar Counter",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k576t565yyxp1tz5wwy5zyncqd7z4cy5",
+      "externalId": "1372390487398420480",
+      "title": "Glass Wood Grain Single Head Pendant Light",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k570fp0e0612c0dg3yynmpxwgh7z4g6z",
+      "externalId": "1578656316447535104",
+      "title": "Modern Geometric Grid Pendant Light with Shadow Patterns",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k5730zfvcx3ya5ywvn1gvpvww17z5ekq",
+      "externalId": "1421042879211638784",
+      "title": "Dandelion Crystal Chandelier - Modern Statement Lighting",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57fpc16yay0n6tq3sxdg5akq97z5dfj",
+      "externalId": "1573598105763852288",
+      "title": "Nordic Minimalist Chandelier Modern Living Room Light",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k572r2ckdasapz5n3mp2jaqsas7z5mz3",
+      "externalId": "A6D95582-646D-4116-9A2C-F1153AF9101E",
+      "title": "Modern Macaron Aluminum Pendant Light Collection",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57byx64dwm8022g3t46xdyzj57z5j8n",
+      "externalId": "1436308809294417920",
+      "title": "Wrought Iron LED Pendant Light - Industrial Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57e8h3vpvj2159n2kae9jdqy17z52yg",
+      "externalId": "1419866296941678592",
+      "title": "Modern Flush Mount Ceiling Light for Hallways & Bedrooms",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    },
+    {
+      "convexId": "k57a1j4tfcw5r8f7kn3arx5qnn7z5a71",
+      "externalId": "1473828238575931392",
+      "title": "Modern Gold Wall Sconce - Luxury Minimalist Design",
+      "status": "failed",
+      "error": "Medusa API 500: An unknown error occurred."
+    }
+  ]
+}
