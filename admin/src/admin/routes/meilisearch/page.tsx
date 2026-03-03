@@ -2,7 +2,6 @@ import { defineRouteConfig } from "@medusajs/admin-sdk"
 import { MagnifyingGlass } from "@medusajs/icons"
 import { Container, Heading, Button, Text } from "@medusajs/ui"
 import { useState } from "react"
-import { sdk } from "../../lib/sdk"
 
 const MeilisearchPage = () => {
   const [syncing, setSyncing] = useState(false)
@@ -18,11 +17,19 @@ const MeilisearchPage = () => {
     setError(null)
 
     try {
-      const response = await sdk.client.fetch<{
-        success: boolean
-        productsProcessed: number
-      }>("/admin/meilisearch/sync", { method: "POST" })
-      setResult(response)
+      const response = await fetch("/admin/meilisearch/sync", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      })
+      if (!response.ok) {
+        throw new Error(`Sync failed with status ${response.status}`)
+      }
+      const data = await response.json()
+      setResult({
+        success: true,
+        productsProcessed: data?.productsProcessed ?? 0,
+      })
     } catch (err: any) {
       setError(err?.message || "Sync failed")
     } finally {
