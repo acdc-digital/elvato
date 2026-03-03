@@ -48,7 +48,7 @@ export default class MeilisearchModuleService {
     return client.index(this.productIndexName)
   }
 
-  async indexData(documents: ProductDocument[]) {
+  async indexData(documents: Record<string, any>[]) {
     if (!documents.length) return
     const index = await this.getProductIndex()
     return index.addDocuments(documents, { primaryKey: "id" })
