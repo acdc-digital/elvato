@@ -10,6 +10,7 @@ type StoreTemplateProps = {
   page?: string
   countryCode: string
   categoryId?: string
+  query?: string
 }
 
 const StoreTemplate = async ({
@@ -17,6 +18,7 @@ const StoreTemplate = async ({
   page,
   countryCode,
   categoryId,
+  query,
 }: StoreTemplateProps) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
@@ -52,9 +54,8 @@ const StoreTemplate = async ({
             sortBy={sort}
             page={pageNumber}
             countryCode={countryCode}
-            categoryId={
-              selectedCategoryIds.length > 0 ? selectedCategoryIds[0] : undefined
-            }
+            categoryIds={selectedCategoryIds}
+            query={query}
           />
         </Suspense>
       </div>
