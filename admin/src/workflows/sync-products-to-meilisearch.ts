@@ -28,7 +28,7 @@ export const syncProductsToMeilisearchWorkflow = createWorkflow(
         "categories.name",
         "tags.value",
         "options.values.value",
-        "variants.calculated_price",
+        "variants.prices.amount",
         "variants.id",
       ],
       filters: input.product_ids
@@ -60,7 +60,7 @@ export const syncProductsToMeilisearchWorkflow = createWorkflow(
           }
 
           const prices = (product.variants || [])
-            .map((v: any) => v.calculated_price?.calculated_amount)
+            .flatMap((v: any) => (v.prices || []).map((p: any) => p.amount))
             .filter((p: any) => typeof p === "number")
           const priceCents = prices.length > 0 ? Math.min(...prices) : 0
 
@@ -75,7 +75,7 @@ export const syncProductsToMeilisearchWorkflow = createWorkflow(
             category_names: categoryNames,
             tags,
             option_values: optionValues,
-            price_cents: Math.round(priceCents * 100),
+            price_cents: priceCents,
             created_at: Math.floor(
               new Date(product.created_at).getTime() / 1000
             ),

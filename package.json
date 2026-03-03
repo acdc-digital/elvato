@@ -23,7 +23,8 @@
   "homepage": "https://github.com/acdc-digital/elvato#readme",
   "dependencies": {
     "convex": "^1.32.0",
-    "convex-fs": "^0.2.1"
+    "convex-fs": "^0.2.1",
+    "meilisearch": "^0.55.0"
   },
   "devDependencies": {
     "@types/node": "^25.3.0"

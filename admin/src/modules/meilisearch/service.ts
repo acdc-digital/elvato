@@ -50,8 +50,12 @@ export default class MeilisearchModuleService {
 
   async indexData(documents: Record<string, any>[]) {
     if (!documents.length) return
+    const client = await this.getClient()
     const index = await this.getProductIndex()
-    return index.addDocuments(documents, { primaryKey: "id" })
+    const task = await index.addDocuments(documents, { primaryKey: "id" })
+    // Wait for indexing to complete before returning
+    await client.waitForTask(task.taskUid, { timeOutMs: 30000 })
+    return task
   }
 
   async deleteFromIndex(ids: string[]) {
