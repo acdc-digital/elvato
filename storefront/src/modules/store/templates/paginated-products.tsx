@@ -57,13 +57,20 @@ export default async function PaginatedProducts({
     sortBy === "price_desc"
 
   if (useMeiliSearch) {
-    const searchResult = await searchProducts({
-      query: query || "",
-      categoryIds: resolvedCategoryIds,
-      sortBy,
-      page,
-      limit: PRODUCT_LIMIT,
-    })
+    let searchResult: Awaited<ReturnType<typeof searchProducts>> = null
+
+    try {
+      searchResult = await searchProducts({
+        query: query || "",
+        categoryIds: resolvedCategoryIds,
+        sortBy,
+        page,
+        limit: PRODUCT_LIMIT,
+      })
+    } catch (e) {
+      // MeiliSearch unavailable — fall through to Medusa API
+      searchResult = null
+    }
 
     if (searchResult && searchResult.hits.length > 0) {
       // Fetch full product data from Medusa for the search hits

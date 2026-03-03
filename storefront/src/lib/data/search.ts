@@ -6,8 +6,8 @@ import { SortOptions } from "@modules/store/components/refinement-list"
 let client: MeiliSearch | null = null
 
 function getClient(): MeiliSearch | null {
-  const host = process.env.NEXT_PUBLIC_MEILISEARCH_HOST
-  const apiKey = process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
+  const host = process.env.NEXT_PUBLIC_MEILISEARCH_HOST || process.env.MEILISEARCH_HOST
+  const apiKey = process.env.MEILISEARCH_API_KEY || process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
 
   if (!host || !apiKey) return null
 
