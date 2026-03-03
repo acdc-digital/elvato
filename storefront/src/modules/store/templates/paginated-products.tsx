@@ -73,7 +73,7 @@ export default async function PaginatedProducts({
         response: { products },
       } = await listProductsWithSort({
         page: 1,
-        queryParams: { limit: hitIds.length, id: hitIds },
+        queryParams: { limit: hitIds.length, id: hitIds } as any,
         sortBy: "created_at",
         countryCode,
       })
