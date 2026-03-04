@@ -445,3 +445,195 @@ export const getAllProductIds = internalQuery({
     return products.map((p) => ({ id: p._id, handle: p.handle }));
   },
 });
+
+// ---------------------------------------------------------------------------
+// MEDUSA-DIRECT CDN INGESTION
+// Fetches image URLs directly from Medusa Store API — no Convex staging tables.
+// ---------------------------------------------------------------------------
+
+/** Internal query: check which handles already have CDN thumbnails. */
+export const checkBatchCdnStatus = internalQuery({
+  args: { handles: v.array(v.string()) },
+  handler: async (ctx, args) => {
+    const ingested: string[] = [];
+    for (const handle of args.handles) {
+      const prefix = `/products/${handle}/thumbnail.`;
+      const result = await fs.list(ctx, {
+        prefix,
+        paginationOpts: { numItems: 1, cursor: null },
+      });
+      if (result.page.length > 0) {
+        ingested.push(handle);
+      }
+    }
+    return ingested;
+  },
+});
+
+/** Internal action: same as ingestProductImages but callable by scheduler. */
+export const _ingestProductImagesDirect = internalAction({
+  args: {
+    productHandle: v.string(),
+    thumbnail: v.optional(v.string()),
+    images: v.array(
+      v.object({
+        url: v.string(),
+        rank: v.number(),
+      })
+    ),
+  },
+  handler: async (ctx, args) => {
+    const extFromType = (ct: string) => {
+      if (ct.includes("png")) return "png";
+      if (ct.includes("webp")) return "webp";
+      if (ct.includes("gif")) return "gif";
+      return "jpg";
+    };
+
+    let ingested = 0;
+    let errors = 0;
+
+    if (args.thumbnail) {
+      try {
+        const res = await fetch(args.thumbnail);
+        if (res.ok) {
+          const ct = res.headers.get("content-type") || "image/jpeg";
+          const data = await res.arrayBuffer();
+          const ext = extFromType(ct);
+          await fs.writeFile(ctx, `/products/${args.productHandle}/thumbnail.${ext}`, data, ct);
+          ingested++;
+        }
+      } catch { errors++; }
+    }
+
+    for (const img of args.images) {
+      try {
+        const res = await fetch(img.url);
+        if (!res.ok) { errors++; continue; }
+        const ct = res.headers.get("content-type") || "image/jpeg";
+        const data = await res.arrayBuffer();
+        const ext = extFromType(ct);
+        await fs.writeFile(ctx, `/products/${args.productHandle}/images/${img.rank}.${ext}`, data, ct);
+        ingested++;
+      } catch { errors++; }
+    }
+
+    return { handle: args.productHandle, ingested, errors };
+  },
+});
+
+/**
+ * Fetch ALL published product images directly from Medusa Store API
+ * and ingest into Bunny CDN. Skips products already in CDN.
+ * Staggers scheduling: 10 products every 5 seconds.
+ */
+export const ingestFromMedusaApi = action({
+  args: {},
+  handler: async (ctx): Promise<{
+    total: number;
+    alreadyIngested: number;
+    scheduled: number;
+    noImages: number;
+  }> => {
+    const medusaUrl = process.env.MEDUSA_BACKEND_URL ?? "http://localhost:9000";
+    const publishableKey = process.env.MEDUSA_PUBLISHABLE_KEY;
+
+    // 1. Paginate through ALL published products with image data
+    const allProducts: Array<{
+      handle: string;
+      thumbnail: string | null;
+      images: Array<{ url: string; rank: number }>;
+    }> = [];
+
+    let offset = 0;
+    const pageSize = 100;
+
+    while (true) {
+      const res = await fetch(
+        `${medusaUrl}/store/products?limit=${pageSize}&offset=${offset}&fields=handle,thumbnail,*images`,
+        {
+          headers: publishableKey
+            ? { "x-publishable-api-key": publishableKey }
+            : {},
+        }
+      );
+      if (!res.ok) {
+        throw new Error(`Medusa API error: ${res.status} ${res.statusText}`);
+      }
+      const data: {
+        products: Array<{
+          handle: string;
+          thumbnail: string | null;
+          images?: Array<{ url: string; rank?: number }>;
+        }>;
+        count: number;
+      } = await res.json();
+
+      for (const p of data.products) {
+        allProducts.push({
+          handle: p.handle,
+          thumbnail: p.thumbnail,
+          images: (p.images ?? []).map((img, i) => ({
+            url: img.url,
+            rank: img.rank ?? i,
+          })),
+        });
+      }
+
+      if (allProducts.length >= data.count || data.products.length < pageSize) {
+        break;
+      }
+      offset += pageSize;
+    }
+
+    // 2. Check which handles already have CDN coverage (batch in chunks of 50)
+    const ingestedSet = new Set<string>();
+    for (let i = 0; i < allProducts.length; i += 50) {
+      const chunk = allProducts.slice(i, i + 50).map((p) => p.handle);
+      const ingested = await ctx.runQuery(
+        internal.files.checkBatchCdnStatus,
+        { handles: chunk }
+      );
+      for (const h of ingested) ingestedSet.add(h);
+    }
+
+    // 3. Schedule ingestion for products not yet in CDN, staggered
+    const BATCH_SIZE = 10;
+    const BATCH_DELAY_MS = 5000; // 5 seconds between batches
+    let scheduled = 0;
+    let noImages = 0;
+    let batchIndex = 0;
+
+    const toIngest = allProducts.filter((p) => !ingestedSet.has(p.handle));
+
+    for (let i = 0; i < toIngest.length; i += BATCH_SIZE) {
+      const batch = toIngest.slice(i, i + BATCH_SIZE);
+      const delay = batchIndex * BATCH_DELAY_MS;
+
+      for (const product of batch) {
+        if (!product.thumbnail && product.images.length === 0) {
+          noImages++;
+          continue;
+        }
+        await ctx.scheduler.runAfter(
+          delay,
+          internal.files._ingestProductImagesDirect,
+          {
+            productHandle: product.handle,
+            thumbnail: product.thumbnail ?? undefined,
+            images: product.images,
+          }
+        );
+        scheduled++;
+      }
+      batchIndex++;
+    }
+
+    return {
+      total: allProducts.length,
+      alreadyIngested: ingestedSet.size,
+      scheduled,
+      noImages,
+    };
+  },
+});
