@@ -35,7 +35,7 @@ export const getCacheTag = async (tag: string): Promise<string> => {
 
 export const getCacheOptions = async (
   tag: string
-): Promise<{ tags: string[] } | {}> => {
+): Promise<{ tags: string[] } | { next: { revalidate: number } } | {}> => {
   if (typeof window !== "undefined") {
     return {}
   }
@@ -43,7 +43,9 @@ export const getCacheOptions = async (
   const cacheTag = await getCacheTag(tag)
 
   if (!cacheTag) {
-    return {}
+    // No cache ID cookie (first visit, bots, crawlers) — fall back to
+    // time-based revalidation so data doesn't go stale indefinitely.
+    return { next: { revalidate: 300 } }
   }
 
   return { tags: [`${cacheTag}`] }
