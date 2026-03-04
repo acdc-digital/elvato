@@ -25,7 +25,7 @@ export const listCategories = async (query?: Record<string, any>) => {
       {
         query: {
           fields:
-            "*category_children, *products, *parent_category, *parent_category.parent_category",
+            "*category_children, *parent_category, *parent_category.parent_category",
           limit,
           ...query,
         },
@@ -59,7 +59,11 @@ export const getCategoryTree = async (): Promise<CategoryNode[]> => {
       cache: "force-cache",
     })
 
-    return buildCategoryTree(response.product_categories || [])
+    const categories = response.product_categories || []
+    const allIds = collectCategoryIds(categories)
+    const counts = await getCategoryCounts(allIds)
+
+    return buildCategoryTree(categories, counts)
   } catch (error) {
     console.error("Failed to fetch category tree:", error)
     return []
@@ -67,10 +71,57 @@ export const getCategoryTree = async (): Promise<CategoryNode[]> => {
 }
 
 /**
+ * Fetch product counts for a list of category IDs via lightweight Medusa queries.
+ * Uses limit=0 so no product data is returned — only the count.
+ */
+async function getCategoryCounts(
+  categoryIds: string[]
+): Promise<Record<string, number>> {
+  const counts: Record<string, number> = {}
+
+  await Promise.all(
+    categoryIds.map(async (id) => {
+      try {
+        const res = await sdk.client.fetch<{ count: number }>(
+          "/store/products",
+          {
+            query: { category_id: id, limit: 0, fields: "id" },
+            cache: "force-cache",
+          }
+        )
+        counts[id] = res.count
+      } catch {
+        counts[id] = 0
+      }
+    })
+  )
+
+  return counts
+}
+
+/**
+ * Collect all category IDs from a tree (root + children)
+ */
+function collectCategoryIds(
+  categories: HttpTypes.StoreProductCategory[]
+): string[] {
+  const ids: string[] = []
+  const walk = (cats: HttpTypes.StoreProductCategory[]) => {
+    for (const cat of cats) {
+      ids.push(cat.id)
+      if (cat.category_children) walk(cat.category_children)
+    }
+  }
+  walk(categories)
+  return ids
+}
+
+/**
  * Recursively builds a CategoryNode tree from Medusa categories
  */
 function buildCategoryTree(
-  categories: HttpTypes.StoreProductCategory[]
+  categories: HttpTypes.StoreProductCategory[],
+  counts?: Record<string, number>
 ): CategoryNode[] {
   return categories.map((cat) => ({
     id: cat.id,
@@ -78,9 +129,9 @@ function buildCategoryTree(
     handle: cat.handle || "",
     parentId: cat.parent_category_id || null,
     children: cat.category_children
-      ? buildCategoryTree(cat.category_children)
+      ? buildCategoryTree(cat.category_children, counts)
       : [],
-    productCount: cat.products?.length,
+    productCount: counts?.[cat.id],
   }))
 }
 
@@ -96,7 +147,7 @@ export const getCategoryByHandle = async (categoryHandle: string[]) => {
       `/store/product-categories`,
       {
         query: {
-          fields: "*category_children, *products",
+          fields: "*category_children",
           handle,
         },
         next,
