@@ -97,6 +97,14 @@ export async function prefetchThumbnails(
         thumbCache.set(handle, url)
         results[handle] = url
       }
+      // Mark uncached handles that weren't in the batch response as null
+      // so getCdnThumbnail won't re-query them individually (N+1 fix)
+      for (const h of uncached) {
+        if (!thumbCache.has(h)) {
+          thumbCache.set(h, null)
+          results[h] = null
+        }
+      }
     }
   } catch {
     // Fall through — uncached handles will be null
@@ -107,13 +115,17 @@ export async function prefetchThumbnails(
 
 /**
  * Get the CDN thumbnail URL for a product, or null if not ingested.
+ * If prefetchThumbnails() already resolved this handle (even to null),
+ * trust the cached result and skip the per-product query.
  */
 export async function getCdnThumbnail(
   handle: string
 ): Promise<string | null> {
   // Check thumb cache first (populated by prefetchThumbnails)
+  // This covers both CDN hits (url string) and confirmed misses (null)
   if (thumbCache.has(handle)) return thumbCache.get(handle)!
 
+  // Only query individually if this handle was never batch-checked
   const images = await fetchProductImages(handle)
   const thumb = images.find((i) => i.path.includes("/thumbnail."))
   const url = thumb?.url ?? null

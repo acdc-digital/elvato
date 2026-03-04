@@ -376,23 +376,35 @@ export const ingestPublishedProductImages = action({
     const medusaUrl = process.env.MEDUSA_BACKEND_URL ?? "http://localhost:9000";
     const publishableKey = process.env.MEDUSA_PUBLISHABLE_KEY;
 
-    // Fetch published products from Medusa Store API
-    const res = await fetch(
-      `${medusaUrl}/store/products?limit=100&fields=handle,thumbnail`,
-      {
-        headers: publishableKey
-          ? { "x-publishable-api-key": publishableKey }
-          : {},
-      }
-    );
-    if (!res.ok) {
-      throw new Error(`Medusa API error: ${res.status} ${res.statusText}`);
-    }
-    const data: {
-      products: Array<{ handle: string; thumbnail: string | null }>;
-    } = await res.json();
+    // Fetch ALL published products from Medusa Store API (paginated)
+    const publishedHandles: Array<{ handle: string; thumbnail: string | null }> = [];
+    let offset = 0;
+    const pageSize = 100;
 
-    const publishedHandles = data.products;
+    while (true) {
+      const res = await fetch(
+        `${medusaUrl}/store/products?limit=${pageSize}&offset=${offset}&fields=handle,thumbnail`,
+        {
+          headers: publishableKey
+            ? { "x-publishable-api-key": publishableKey }
+            : {},
+        }
+      );
+      if (!res.ok) {
+        throw new Error(`Medusa API error: ${res.status} ${res.statusText}`);
+      }
+      const data: {
+        products: Array<{ handle: string; thumbnail: string | null }>;
+        count: number;
+      } = await res.json();
+
+      publishedHandles.push(...data.products);
+
+      if (publishedHandles.length >= data.count || data.products.length < pageSize) {
+        break;
+      }
+      offset += pageSize;
+    }
 
     // Match each published handle to its Convex record
     const allConvex: Array<{ id: string; handle: string }> =

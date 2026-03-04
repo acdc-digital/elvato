@@ -107,6 +107,7 @@ export default async function ProductPreview({
                 src={thumbnail}
                 alt={product.title || 'Product'}
                 fill
+                loading="lazy"
                 className="object-cover object-center"
                 sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
               />

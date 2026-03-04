@@ -123,7 +123,7 @@ export const listProductsWithSort = async ({
       pageParam: 0,
       queryParams: {
         ...queryParams,
-        limit: 100,
+        limit: 1000,
         fields: LISTING_FIELDS,
       },
       countryCode,
