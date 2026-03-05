@@ -35,6 +35,11 @@ const DEFAULTS = {
   BATCH_SIZE: 10,
 };
 
+// Inventory defaults — every synced variant must have an inventory_level linked
+// to this location, otherwise Medusa treats it as "out of stock".
+const STOCK_LOCATION_ID = "sloc_01KDPCX8QBWT3SV1STQYB0PNKB"; // European Warehouse
+const DEFAULT_STOCK_QUANTITY = 1_000_000; // dropshipping: effectively unlimited
+
 // Category handle → Medusa category ID mapping (top-level)
 const TOP_LEVEL_CATEGORIES = {
   chandeliers: "pcat_01KF736S869NMN0XA35AA07XPM",
@@ -191,6 +196,50 @@ async function updateMedusaProduct(medusaUrl, jwtToken, productId, payload) {
     method: "POST",
     body: JSON.stringify(payload),
   });
+}
+
+/**
+ * After creating a product, create inventory_level records for all variants
+ * so they are immediately purchasable instead of showing "out of stock".
+ *
+ * Medusa auto-creates inventory_items for variants with manage_inventory:true
+ * but does NOT create the inventory_levels that link items to stock locations.
+ */
+async function ensureInventoryLevels(medusaUrl, jwtToken, productId) {
+  const product = await medusaAdminFetch(
+    medusaUrl, jwtToken,
+    `/admin/products/${productId}?fields=*variants,*variants.inventory_items,+variants.inventory_items.inventory.*`
+  );
+
+  const variants = product.product?.variants || [];
+  let levelsCreated = 0;
+
+  for (const variant of variants) {
+    const invItems = variant.inventory_items || [];
+    for (const link of invItems) {
+      const itemId = link.inventory_item_id || link.inventory?.id;
+      if (!itemId) continue;
+
+      // Skip if a level already exists for our stock location
+      const levels = link.inventory?.location_levels || [];
+      if (levels.some((l) => l.location_id === STOCK_LOCATION_ID)) continue;
+
+      try {
+        await medusaAdminFetch(medusaUrl, jwtToken, `/admin/inventory-items/${itemId}/location-levels`, {
+          method: "POST",
+          body: JSON.stringify({
+            location_id: STOCK_LOCATION_ID,
+            stocked_quantity: DEFAULT_STOCK_QUANTITY,
+          }),
+        });
+        levelsCreated++;
+      } catch (err) {
+        console.warn(`   ⚠ Inventory level failed for ${itemId}: ${err.message?.slice(0, 100)}`);
+      }
+    }
+  }
+
+  return levelsCreated;
 }
 
 // =============================================================================
@@ -568,6 +617,18 @@ async function runSync(args) {
       }
       
       const medusaProductId = medusaResult.product?.id;
+      
+      // Create inventory levels so new products are immediately purchasable
+      if (action === "created" && medusaProductId) {
+        try {
+          const invLevels = await ensureInventoryLevels(medusaUrl, jwtToken, medusaProductId);
+          if (invLevels > 0) {
+            console.log(`  ${progress}   📦 Created ${invLevels} inventory level(s)`);
+          }
+        } catch (invErr) {
+          console.warn(`  ${progress}   ⚠ Inventory setup failed: ${invErr.message?.slice(0, 100)}`);
+        }
+      }
       
       // Build variant mappings
       const variantMappings = [];

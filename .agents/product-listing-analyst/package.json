@@ -1,0 +1,24 @@
+{
+  "name": "@elvato/product-listing-analyst",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI agent for auditing and fixing product listings in Neon PostgreSQL — inventory levels, CJ stock sync, listing completeness",
+  "scripts": {
+    "analyze": "npx tsx src/agent.ts",
+    "fix-inventory": "npx tsx src/agent.ts --mode inventory-fix",
+    "audit": "npx tsx src/agent.ts --mode audit",
+    "full": "npx tsx src/agent.ts --mode full"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^17.3.1",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

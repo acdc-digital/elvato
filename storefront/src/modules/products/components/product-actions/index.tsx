@@ -182,6 +182,43 @@ export default function ProductActions({
             ? "Out of stock"
             : "Add to cart"}
         </Button>
+
+        {/* Shipping & Returns */}
+        <div className="pt-6 mt-4 border-t border-ui-border-base">
+          <h3 className="text-xs font-medium uppercase tracking-wider text-ui-fg-muted mb-4">
+            Shipping &amp; Returns
+          </h3>
+          <div className="flex flex-col gap-y-4">
+            <div className="flex items-start gap-x-3">
+              <svg className="w-5 h-5 text-ui-fg-muted flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-8.688 2.014 2.014 0 0 0-1.527-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+              </svg>
+              <div>
+                <span className="text-sm font-medium text-ui-fg-base">Fast delivery</span>
+                <p className="text-xs text-ui-fg-muted">3-5 business days</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-x-3">
+              <svg className="w-5 h-5 text-ui-fg-muted flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+              </svg>
+              <div>
+                <span className="text-sm font-medium text-ui-fg-base">Simple exchanges</span>
+                <p className="text-xs text-ui-fg-muted">Hassle-free swaps</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-x-3">
+              <svg className="w-5 h-5 text-ui-fg-muted flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+              </svg>
+              <div>
+                <span className="text-sm font-medium text-ui-fg-base">Easy returns</span>
+                <p className="text-xs text-ui-fg-muted">No questions asked</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <MobileActions
           product={product}
           variant={selectedVariant}

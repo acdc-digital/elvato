@@ -1,0 +1,21 @@
+{
+  "name": "@elvato/storefront-analyst",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI agent for analyzing e-commerce storefronts with web browsing, screenshots, and Brave Search",
+  "scripts": {
+    "analyze": "npx tsx src/agent.ts",
+    "review": "npx tsx src/agent.ts --url https://www.elvato.shop/"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^17.3.1",
+    "playwright": "^1.49.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
