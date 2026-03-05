@@ -27,6 +27,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           <Image
             src={selectedImage.url}
             priority
+            unoptimized
             className="absolute inset-0 rounded-rounded transition-opacity duration-200"
             alt={`Product image ${selectedIndex + 1}`}
             fill
@@ -54,6 +55,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                   src={image.url}
                   alt={`Thumbnail ${index + 1}`}
                   fill
+                  unoptimized
                   sizes="80px"
                   className="rounded-md"
                   style={{ objectFit: "cover" }}
