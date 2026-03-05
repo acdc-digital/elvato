@@ -4,6 +4,7 @@ import { Suspense } from "react"
 import InteractiveLink from "@modules/common/components/interactive-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList, { SortOptions } from "@modules/store/components/refinement-list"
+import { type PerPageOption, DEFAULT_PER_PAGE } from "@modules/store/components/refinement-list"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
@@ -13,14 +14,17 @@ export default function CategoryTemplate({
   sortBy,
   page,
   countryCode,
+  limit,
 }: {
   category: HttpTypes.StoreProductCategory
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  limit?: string
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
+  const perPage = (limit ? parseInt(limit) : DEFAULT_PER_PAGE) as PerPageOption
 
   if (!category || !countryCode) notFound()
 
@@ -40,7 +44,7 @@ export default function CategoryTemplate({
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
-      <RefinementList sortBy={sort} showCategoryFilter={false} data-testid="sort-by-container" />
+      <RefinementList sortBy={sort} perPage={perPage} showCategoryFilter={false} data-testid="sort-by-container" />
       <div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents &&
@@ -88,6 +92,7 @@ export default function CategoryTemplate({
             page={pageNumber}
             categoryId={category.id}
             countryCode={countryCode}
+            limit={perPage}
           />
         </Suspense>
       </div>

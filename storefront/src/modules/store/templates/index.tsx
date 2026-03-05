@@ -2,6 +2,7 @@ import { Suspense } from "react"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList, { SortOptions } from "@modules/store/components/refinement-list"
+import { type PerPageOption, DEFAULT_PER_PAGE } from "@modules/store/components/refinement-list"
 
 import PaginatedProducts from "./paginated-products"
 
@@ -11,6 +12,7 @@ type StoreTemplateProps = {
   countryCode: string
   categoryId?: string
   query?: string
+  limit?: string
 }
 
 const StoreTemplate = async ({
@@ -19,9 +21,11 @@ const StoreTemplate = async ({
   countryCode,
   categoryId,
   query,
+  limit,
 }: StoreTemplateProps) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
+  const perPage = (limit ? parseInt(limit) : DEFAULT_PER_PAGE) as PerPageOption
 
   // Parse category IDs from URL (comma-separated)
   const selectedCategoryIds = categoryId
@@ -36,6 +40,7 @@ const StoreTemplate = async ({
       {/* Sidebar - Filters */}
       <RefinementList
         sortBy={sort}
+        perPage={perPage}
         selectedCategoryIds={selectedCategoryIds}
         showCategoryFilter={true}
         data-testid="refinement-list"
@@ -56,6 +61,7 @@ const StoreTemplate = async ({
             countryCode={countryCode}
             categoryIds={selectedCategoryIds}
             query={query}
+            limit={perPage}
           />
         </Suspense>
       </div>

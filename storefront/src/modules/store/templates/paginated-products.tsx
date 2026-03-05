@@ -6,7 +6,7 @@ import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list"
 
-const PRODUCT_LIMIT = 12
+const DEFAULT_PRODUCT_LIMIT = 12
 
 type PaginatedProductsParams = {
   limit: number
@@ -25,6 +25,7 @@ export default async function PaginatedProducts({
   productsIds,
   countryCode,
   query,
+  limit: limitProp,
 }: {
   sortBy?: SortOptions
   page: number
@@ -34,7 +35,9 @@ export default async function PaginatedProducts({
   productsIds?: string[]
   countryCode: string
   query?: string
+  limit?: number
 }) {
+  const PRODUCT_LIMIT = limitProp || DEFAULT_PRODUCT_LIMIT
   const region = await getRegion(countryCode)
 
   if (!region) {

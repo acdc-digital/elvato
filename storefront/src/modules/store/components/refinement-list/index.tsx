@@ -1,15 +1,18 @@
 import { getCategoryTree, CategoryNode } from "@lib/data/categories"
 import CategoryFilter from "./category-filter"
 import SortDropdown from "./sort-dropdown"
+import PerPageDropdown, { PerPageOption, DEFAULT_PER_PAGE } from "./per-page-dropdown"
 import MobileFilters from "./mobile-filters"
 import ActiveFilters from "./active-filters"
 
 // Re-export types for backwards compatibility
 export { type SortOptions } from "./sort-dropdown"
+export { type PerPageOption, DEFAULT_PER_PAGE } from "./per-page-dropdown"
 export type { CategoryNode }
 
 type RefinementListProps = {
   sortBy: "price_asc" | "price_desc" | "created_at"
+  perPage?: PerPageOption
   selectedCategoryIds?: string[]
   showCategoryFilter?: boolean
   "data-testid"?: string
@@ -21,6 +24,7 @@ type RefinementListProps = {
  */
 const RefinementList = async ({
   sortBy,
+  perPage = DEFAULT_PER_PAGE,
   selectedCategoryIds = [],
   showCategoryFilter = true,
   "data-testid": dataTestId,
@@ -41,7 +45,10 @@ const RefinementList = async ({
               categories={categories}
               selectedCategoryIds={selectedCategoryIds}
             />
-            <SortDropdown sortBy={sortBy} data-testid="mobile-sort" />
+            <div className="flex items-center gap-2">
+              <PerPageDropdown perPage={perPage} data-testid="mobile-per-page" />
+              <SortDropdown sortBy={sortBy} data-testid="mobile-sort" />
+            </div>
           </div>
 
           {/* Mobile: Active filters */}
@@ -62,6 +69,14 @@ const RefinementList = async ({
               <SortDropdown sortBy={sortBy} data-testid="desktop-sort" />
             </div>
 
+            {/* Per Page Section */}
+            <div className="mb-6 pb-6 border-b border-ui-border-base">
+              <h3 className="txt-compact-small-plus text-ui-fg-muted mb-4">
+                Products per page
+              </h3>
+              <PerPageDropdown perPage={perPage} data-testid="desktop-per-page" />
+            </div>
+
             {/* Category Filter Section */}
             <CategoryFilter
               categories={categories}
@@ -71,7 +86,10 @@ const RefinementList = async ({
         </>
       ) : (
         // Simple sort-only view for category pages
-        <SortDropdown sortBy={sortBy} data-testid={dataTestId} />
+        <div className="flex flex-col gap-4">
+          <SortDropdown sortBy={sortBy} data-testid={dataTestId} />
+          <PerPageDropdown perPage={perPage} data-testid="per-page" />
+        </div>
       )}
     </div>
   )
