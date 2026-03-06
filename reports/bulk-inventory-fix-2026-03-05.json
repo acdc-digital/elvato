@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-03-05T03:14:13.341Z",
+  "config": {
+    "medusaUrl": "https://medusa-backend-production-d681.up.railway.app",
+    "stockLocationId": "sloc_01KDPCX8QBWT3SV1STQYB0PNKB",
+    "quantity": 1000000,
+    "dryRun": false
+  },
+  "summary": {
+    "total": 7704,
+    "created": 7662,
+    "skipped": 42,
+    "failed": 0
+  }
+}

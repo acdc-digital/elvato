@@ -224,15 +224,13 @@ async function queryProducts(input: {
       p.title,
       p.handle,
       p.status,
-      p.thumbnail,
-      p.metadata,
       pc.title as collection_name,
       COUNT(DISTINCT pv.id) as variant_count
     FROM product p
     LEFT JOIN product_collection pc ON pc.id = p.collection_id
     LEFT JOIN product_variant pv ON pv.product_id = p.id AND pv.deleted_at IS NULL
     WHERE ${whereClause}
-    GROUP BY p.id, p.title, p.handle, p.status, p.thumbnail, p.metadata, pc.title
+    GROUP BY p.id, p.title, p.handle, p.status, pc.title
     ORDER BY p.created_at DESC
     LIMIT $${paramIdx++} OFFSET $${paramIdx++}
     `,
@@ -299,7 +297,7 @@ async function getProductDetail(productId: string): Promise<string> {
   // Variant prices
   const prices = await db.query(
     `
-    SELECT pvp.variant_id, pvp.amount, pvp.currency_code
+    SELECT pvps.variant_id, pvp.amount, pvp.currency_code
     FROM product_variant_price_set pvps
     JOIN price_set ps ON ps.id = pvps.price_set_id
     JOIN price pvp ON pvp.price_set_id = ps.id
@@ -407,6 +405,10 @@ async function checkInventoryLevels(productId: string): Promise<string> {
     [productId]
   );
 
+  const needsFix = result.rows.filter(
+    (r: { stock_status: string }) => r.stock_status.startsWith("OUT_OF_STOCK") || r.stock_status.includes("no inventory_item")
+  );
+
   const summary = {
     product_id: productId,
     total_variants: result.rows.length,
@@ -422,7 +424,8 @@ async function checkInventoryLevels(productId: string): Promise<string> {
     missing_inventory_level: result.rows.filter(
       (r: { stock_status: string }) => r.stock_status.includes("missing inventory_level")
     ).length,
-    variants: result.rows,
+    // Only include variants that need fixing to keep context small
+    variants_needing_fix: needsFix,
   };
 
   return JSON.stringify(summary, null, 2);
@@ -504,7 +507,7 @@ async function auditListing(productId: string): Promise<string> {
 
   // Get price count
   const prices = await db.query(
-    `SELECT COUNT(DISTINCT pvp.variant_id) as variants_with_prices
+    `SELECT COUNT(DISTINCT pvps.variant_id) as variants_with_prices
      FROM product_variant_price_set pvps
      JOIN price_set ps ON ps.id = pvps.price_set_id
      JOIN price pvp ON pvp.price_set_id = ps.id

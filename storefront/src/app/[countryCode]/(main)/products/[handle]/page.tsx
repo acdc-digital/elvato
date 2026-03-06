@@ -5,6 +5,7 @@ import { getRegion, listRegions } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
 import { HttpTypes } from "@medusajs/types"
 import { withCdnImages } from "@lib/data/convex-images"
+import { getBaseURL } from "@lib/util/env"
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
@@ -88,13 +89,21 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
+  const description =
+    product.description?.slice(0, 155) || `Shop ${product.title} at Elvato.`
+
   return {
-    title: `${product.title} | Medusa Store`,
-    description: `${product.title}`,
+    title: product.title,
+    description,
     openGraph: {
-      title: `${product.title} | Medusa Store`,
-      description: `${product.title}`,
-      images: product.thumbnail ? [product.thumbnail] : [],
+      title: `${product.title} | Elvato`,
+      description,
+      images: product.thumbnail
+        ? [{ url: product.thumbnail, width: 1200, height: 630, alt: product.title }]
+        : [],
+    },
+    alternates: {
+      canonical: `${getBaseURL()}/${params.countryCode}/products/${handle}`,
     },
   }
 }

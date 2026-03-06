@@ -67,23 +67,32 @@ async function getMedusaJwt() {
   return token;
 }
 
-async function medusaFetch(jwt, endpoint, options = {}) {
-  const res = await fetch(new URL(endpoint, MEDUSA_URL), {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
-      ...options.headers,
-    },
-  });
-  const body = await res.text();
-  let json;
-  try { json = JSON.parse(body); } catch { json = null; }
-  if (!res.ok) {
-    const msg = json?.message || json?.error || body.slice(0, 300);
-    throw new Error(`Medusa ${res.status}: ${msg}`);
+async function medusaFetch(jwt, endpoint, options = {}, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const res = await fetch(new URL(endpoint, MEDUSA_URL), {
+      ...options,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwt}`,
+        ...options.headers,
+      },
+    });
+    const body = await res.text();
+    let json;
+    try { json = JSON.parse(body); } catch { json = null; }
+    if (!res.ok) {
+      const msg = json?.message || json?.error || body.slice(0, 300);
+      // Retry on transient server errors
+      if ([502, 503, 504].includes(res.status) && attempt < retries) {
+        const wait = attempt * 2000;
+        console.log(`      ⏳ ${res.status} on ${endpoint.slice(0, 60)}... retry ${attempt}/${retries} in ${wait/1000}s`);
+        await sleep(wait);
+        continue;
+      }
+      throw new Error(`Medusa ${res.status}: ${msg}`);
+    }
+    return json;
   }
-  return json;
 }
 
 // ─── Main ─────────────────────────────────────────────────────────

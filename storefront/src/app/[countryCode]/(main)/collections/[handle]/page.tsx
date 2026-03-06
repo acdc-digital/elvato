@@ -6,6 +6,7 @@ import { listRegions } from "@lib/data/regions"
 import { StoreCollection, StoreRegion } from "@medusajs/types"
 import CollectionTemplate from "@modules/collections/templates"
 import { SortOptions } from "@modules/store/components/refinement-list"
+import { getBaseURL } from "@lib/util/env"
 
 type Props = {
   params: Promise<{ handle: string; countryCode: string }>
@@ -68,12 +69,19 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
-  const metadata = {
-    title: `${collection.title} | Medusa Store`,
-    description: `${collection.title} collection`,
-  } as Metadata
+  const description = `Shop the ${collection.title} collection at Elvato — contemporary lighting designs.`
 
-  return metadata
+  return {
+    title: collection.title,
+    description,
+    openGraph: {
+      title: `${collection.title} | Elvato`,
+      description,
+    },
+    alternates: {
+      canonical: `${getBaseURL()}/${params.countryCode}/collections/${params.handle}`,
+    },
+  }
 }
 
 export default async function CollectionPage(props: Props) {

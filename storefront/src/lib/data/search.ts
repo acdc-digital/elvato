@@ -6,7 +6,10 @@ import { SortOptions } from "@modules/store/components/refinement-list"
 let client: MeiliSearch | null = null
 
 function getClient(): MeiliSearch | null {
-  const host = process.env.NEXT_PUBLIC_MEILISEARCH_HOST || process.env.MEILISEARCH_HOST
+  // Prefer server-only env vars — the master key is stable across Meilisearch
+  // restarts (derived search keys regenerate and go stale).
+  // This file is "use server" so non-NEXT_PUBLIC_ vars are never exposed to the client.
+  const host = process.env.MEILISEARCH_HOST || process.env.NEXT_PUBLIC_MEILISEARCH_HOST
   const apiKey = process.env.MEILISEARCH_API_KEY || process.env.NEXT_PUBLIC_MEILISEARCH_API_KEY
 
   if (!host || !apiKey) return null

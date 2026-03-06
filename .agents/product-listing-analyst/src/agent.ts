@@ -253,10 +253,19 @@ async function runAgent() {
           );
         }
 
+        // Truncate large results to prevent context overflow
+        const MAX_RESULT_LEN = 4000;
+        const truncatedResults = results.map((r) => {
+          if (r.text.length > MAX_RESULT_LEN) {
+            return { ...r, text: r.text.slice(0, MAX_RESULT_LEN) + "\n... [truncated]" };
+          }
+          return r;
+        });
+
         toolResults.push({
           type: "tool_result",
           tool_use_id: block.id,
-          content: results,
+          content: truncatedResults,
         });
       }
 
