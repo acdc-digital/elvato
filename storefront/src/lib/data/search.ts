@@ -68,9 +68,13 @@ export async function searchProducts(
     query = "",
     categoryIds = [],
     sortBy,
-    page = 1,
-    limit = 12,
+    page: rawPage,
+    limit: rawLimit,
   } = options
+
+  const page = Number(rawPage) > 0 ? Number(rawPage) : 1
+  const limit = Number(rawLimit) > 0 ? Number(rawLimit) : 12
+  const offset = (page - 1) * limit
 
   const filter: string[] = ['status = "published"']
 
@@ -87,7 +91,7 @@ export async function searchProducts(
     filter,
     sort,
     limit,
-    offset: (page - 1) * limit,
+    offset,
   })
 
   return {

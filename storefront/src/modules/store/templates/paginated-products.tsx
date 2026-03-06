@@ -52,84 +52,76 @@ export default async function PaginatedProducts({
         ? [categoryId]
         : []
 
-  // Use MeiliSearch when there's a search query, category filters, or price sort
-  const useMeiliSearch =
-    query ||
-    resolvedCategoryIds.length > 0 ||
-    sortBy === "price_asc" ||
-    sortBy === "price_desc"
+  // Always try MeiliSearch first — it handles search, filtering, sorting, and pagination
+  let searchResult: Awaited<ReturnType<typeof searchProducts>> = null
 
-  if (useMeiliSearch) {
-    let searchResult: Awaited<ReturnType<typeof searchProducts>> = null
+  try {
+    searchResult = await searchProducts({
+      query: query || "",
+      categoryIds: resolvedCategoryIds,
+      sortBy,
+      page: Math.max(page, 1),
+      limit: PRODUCT_LIMIT,
+    })
+  } catch (e) {
+    // MeiliSearch unavailable — fall through to Medusa API
+    searchResult = null
+  }
 
-    try {
-      searchResult = await searchProducts({
-        query: query || "",
-        categoryIds: resolvedCategoryIds,
-        sortBy,
-        page,
-        limit: PRODUCT_LIMIT,
-      })
-    } catch (e) {
-      // MeiliSearch unavailable — fall through to Medusa API
-      searchResult = null
-    }
+  if (searchResult && searchResult.hits.length > 0) {
+    // Fetch full product data from Medusa for the search hits
+    const hitIds = searchResult.hits.map((h) => h.id)
 
-    if (searchResult && searchResult.hits.length > 0) {
-      // Fetch full product data from Medusa for the search hits
-      const hitIds = searchResult.hits.map((h) => h.id)
+    const {
+      response: { products },
+    } = await listProductsWithSort({
+      page: 1,
+      queryParams: { limit: hitIds.length, id: hitIds } as any,
+      sortBy: "created_at",
+      countryCode,
+    })
 
-      const {
-        response: { products },
-      } = await listProductsWithSort({
-        page: 1,
-        queryParams: { limit: hitIds.length, id: hitIds } as any,
-        sortBy: "created_at",
-        countryCode,
-      })
+    // Maintain MeiliSearch sort order
+    const productMap = new Map(products.map((p) => [p.id, p]))
+    const orderedProducts = hitIds
+      .map((id) => productMap.get(id))
+      .filter(Boolean) as typeof products
 
-      // Maintain MeiliSearch sort order
-      const productMap = new Map(products.map((p) => [p.id, p]))
-      const orderedProducts = hitIds
-        .map((id) => productMap.get(id))
-        .filter(Boolean) as typeof products
+    const handles = orderedProducts
+      .map((p) => p.handle)
+      .filter(Boolean) as string[]
+    await prefetchThumbnails(handles)
 
-      const handles = orderedProducts
-        .map((p) => p.handle)
-        .filter(Boolean) as string[]
-      await prefetchThumbnails(handles)
+    return (
+      <>
+        <ul
+          className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8"
+          data-testid="products-list"
+        >
+          {orderedProducts.map((p) => (
+            <li key={p.id}>
+              <ProductPreview product={p} region={region} />
+            </li>
+          ))}
+        </ul>
+        {searchResult.totalPages > 1 && (
+          <Pagination
+            data-testid="product-pagination"
+            page={page}
+            totalPages={searchResult.totalPages}
+          />
+        )}
+      </>
+    )
+  }
 
-      return (
-        <>
-          <ul
-            className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8"
-            data-testid="products-list"
-          >
-            {orderedProducts.map((p) => (
-              <li key={p.id}>
-                <ProductPreview product={p} region={region} />
-              </li>
-            ))}
-          </ul>
-          {searchResult.totalPages > 1 && (
-            <Pagination
-              data-testid="product-pagination"
-              page={page}
-              totalPages={searchResult.totalPages}
-            />
-          )}
-        </>
-      )
-    }
-
-    // If MeiliSearch returned no results for a search query, show empty state
-    if (query) {
-      return (
-        <p className="text-ui-fg-subtle py-10 text-center">
-          No products found for &ldquo;{query}&rdquo;
-        </p>
-      )
-    }
+  // If MeiliSearch returned no results for a search query, show empty state
+  if (searchResult && query) {
+    return (
+      <p className="text-ui-fg-subtle py-10 text-center">
+        No products found for &ldquo;{query}&rdquo;
+      </p>
+    )
   }
 
   // Fallback: use Medusa API directly
