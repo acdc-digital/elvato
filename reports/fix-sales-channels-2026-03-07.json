@@ -1,0 +1,614 @@
+{
+  "timestamp": "2026-03-07T03:25:35.467Z",
+  "dryRun": false,
+  "summary": {
+    "total": 803,
+    "published": 803,
+    "missingChannel": 120,
+    "draftsMissingChannel": 0,
+    "fixed": 120,
+    "failed": 0
+  },
+  "fixedProducts": [
+    {
+      "id": "prod_01KF76ARFB4YX52H6PJ9TWWWQV",
+      "title": "Crystal Glass LED Pendant Light - Post-Modern Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76ARTQQHYVGFW00MPSJAMW",
+      "title": "Villa Duplex Large Crystal Chandelier for Living Room",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76AWCX76RKY4ZR8XJCPZAM",
+      "title": "Nordic Minimalist LED Wall Sconce Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76E30VMYWMR8DWXYDEB7N6",
+      "title": "Smart Modern Chandelier for Living & Dining Rooms",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76E3MJJG3Q90SQXTSNE7K9",
+      "title": "Modern LED Balcony Ceiling Chandelier",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76E3QDW0VXTXKZB1SHS29B",
+      "title": "Modern Artistic Study Chandelier for Creative Spaces",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EAP6YH7Z3NM6TJB1HEJX",
+      "title": "Industrial Wrought Iron Pendant Light for Restaurant Bar",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EAR5B21GBG9N8CYGBT9M",
+      "title": "Industrial Wire Mesh Pendant Light - Vintage Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EBG0PMKHHZAQX06PDYVA",
+      "title": "Rustic Wood Glass Pendant Light - Modern Industrial Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EBHPEY5GXEYVY7H1RZJ8",
+      "title": "Nordic LED Restaurant Pendant Light - Creative Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EBMA5N35435G0PQK8WJR",
+      "title": "Vintage Copper Pendant Light - Modern Industrial Style",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EH0ZKAW4DN331V58SFNH",
+      "title": "Nordic Modern Wall Sconce for Hallways & Porches",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EHAYGN5TE4NJMTCN78J6",
+      "title": "Modern Wooden LED Wall Sconce with Adjustable Light Bar",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EYPNPZS396SN4A1NVJDB",
+      "title": "Modern Minimalist Single-Head Ceiling Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EZBH3QJQ5HGT3KD9NSW5",
+      "title": "Industrial Spider Ceiling Light - Vintage Wrought Iron Fixture",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76EZEH0DBE6M3R0GE6S5D4",
+      "title": "Modern Corridor Ceiling Light for Hallways & Balconies",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76F4WM62KKRTAZEV3A71Y4",
+      "title": "Modern Adjustable Bedside Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76F52QYXT9W82Q1Z1KRCEA",
+      "title": "Industrial Water Pipe Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76F56F9D2JD3V53R6FMS2B",
+      "title": "Nordic Style Minimalist Floor Lamp for Living Room",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76FAXSE32YBZF9ZS7EHVHM",
+      "title": "Rattan Ball String Lights - Outdoor LED Tree Lanterns",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76FBXDENVVHPTZWNEGGNP3",
+      "title": "Solar LED Garden Wall Light - Up Down Dual Beam Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76FC0PTJSY0S3SNMMFX2CN",
+      "title": "Solar LED Stair Light - Anti-Theft Waterproof Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76FHPV36VP5EQZST9NCX3P",
+      "title": "LED Star String Lights - Full Sky Decorative Display",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76FHS657DCHHEM6ADVBNCM",
+      "title": "Smart Motion Sensor Night Light - Rechargeable LED Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76FHX9EPY2XBFBMCJCP3HD",
+      "title": "Linear LED Light Bar - Modern Minimalist Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76FJ0TYMYKC0Q7XPWHYVZ9",
+      "title": "Modern Round Bathroom Mirror with Sleek Frame",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76G96M9S3T28H3QDGT11KM",
+      "title": "Luxury Crystal Chandelier for Dining Room & Bedroom",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76G9AZG89KD63ASBKB0DPP",
+      "title": "Nordic Minimalist Small Chandelier for Bedroom & Study",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76G9X19H3AD4Q0E0PPFBRR",
+      "title": "Modern Minimalist Ceiling Light - Sleek Flush Mount",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GBD3ZZXHTPKMSQ4TW4EA",
+      "title": "Recessed LED Rectangular Spotlight for Modern Living",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GCH5T5TM71Z2Q01SSPMQ",
+      "title": "Modern Creative Bedside Table Lamp for Living Room",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GJ578B2K3D4WT3KTJ07S",
+      "title": "Solar LED Outdoor Wall Light for Courtyards & Stairs",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GJ86GTH5PH41WVDQFDS6",
+      "title": "Modern Waterproof LED Exterior Wall Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GJEZM9J6FZ62WQMA5G7J",
+      "title": "Solar Step Light for Outdoor Stairs & Walkways",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GK26VC0W6NR74TTHMANS",
+      "title": "Vintage Industrial Wall Sconce Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GP66F4C7QYK2ZVYMR7H2",
+      "title": "Industrial Retro Wall Sconce - Staircase Accent Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GP7W39K9DS3Y52A847WD",
+      "title": "Nordic Glass Wall Sconce Designer Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76GPXKNPYZ5ZEPZA7V5NYB",
+      "title": "Rainbow Projection Night Light - Ambient Room Lighting",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KF76H7JYYPD2ZRANW18V53FW",
+      "title": "LED Tulip Flower Table Lamp - Artificial Potted Plant",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4T0Q7B1GVFBHGGSYPECA6",
+      "title": "Minimalist Straw Hat Chandelier - Natural Woven Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4T295Y2MTJNQHS0407EAN",
+      "title": "Nordic Rattan Chandelier - Pastoral Style Statement Piece",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4T3T6C604KNY0HNA5WEVG",
+      "title": "Natural Wood Grain Table Lamp - Unique Organic Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4T5BZ2SBMP10MWBNGVKV5",
+      "title": "Nordic Wood Round Pendant Light - Black Finish",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4T6ZB3CXJYX0VF4VY8DRV",
+      "title": "Dimmable Glass Bedside Table Lamp - Portable Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4T8G8957JMD09AADJNCRT",
+      "title": "Rustic Wood & Glass Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TA5R890JQY0K3KGBGPPB",
+      "title": "Modern Geometric Long Arm Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TBTNCFWN6MXN2GPN6E0C",
+      "title": "Lighthouse Touch Desk Lamp with Night Light Feature",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TDBV8N5ZH1XCR28Q5CYZ",
+      "title": "Nordic Solid Wood Table Lamp with Artistic Base",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TF0X35X7FG8QG92NKGXZ",
+      "title": "Modern Spherical Table Lamp with Artistic Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TGHEV8RBS52AK3EX4ACF",
+      "title": "Smoky Glass Bar Chandelier with Electroplated Finish",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TJ25PZ8WZJ4HVXXTNA7E",
+      "title": "Modern Chinese Bamboo Woven Wall Sconce",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TKQPNNJNDJP7E3SAYD2Z",
+      "title": "Bronze Metal Wall Sconce with Glass Shade",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TNC9EJ6VX0J0NW6B3MMF",
+      "title": "Nordic Cement Terrazzo Mini Chandelier",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TPZCQ8CAWWEG7F0W2B8Y",
+      "title": "Nordic Solid Wood Cloth Shade Chandelier",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TRGGDD7WX22TZV2QM3MT",
+      "title": "Minimalist Hollow Frame Table Lamp - Modern Accent Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TT3KZ8S5K59GZC80N35H",
+      "title": "Nordic Japanese Bedside Table Lamp - Minimalist Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TVNHVQ45KE9G0GDTW58D",
+      "title": "Modern Cube Glass Chandelier - Artistic Statement Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TXFHEJ930JP3VHQ1FPH2",
+      "title": "Glass Bottle Chandelier - Vintage Industrial Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4TZ3VEYZ9VG4EQS88FEAC",
+      "title": "Modern LED Art Chandelier - Creative Suspension Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4V0RFCZ668VEXYRMX8AST",
+      "title": "Vintage Wrought Iron Chandelier - Industrial Retro Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4V2C13EGHTADY3BVG027C",
+      "title": "Modern Iron Tube Chandelier - Minimalist Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4V3WRANEMMXTZXB3CZWY1",
+      "title": "Dinosaur Touch Control LED Night Light for Kids",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4V5HEMMG497ZCDQGKK7P8",
+      "title": "Modern USB Rechargeable LED Night Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4V783MM1GXN35X2WSFFXN",
+      "title": "Nordic Corridor Wall Light - Modern Entrance Hall Fixture",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4V8TYPV1BGER3F2TNCV8S",
+      "title": "Modern Creative Solid Wood Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VABWRMBN38D3PZQ7KKSX",
+      "title": "Industrial Wrought Iron Long Arm Wall Sconce",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VC258AT092RCXWQ9VX7E",
+      "title": "Nordic Wood LED Desk Lamp with Fabric Shade",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VDK6E4F3D9DQ8MD9B96V",
+      "title": "Industrial Vintage Chandelier - Simple Modern Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VF6302VNJSW8HMYAQXDX",
+      "title": "Modern Wrought Iron Glass Wall Sconce",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VGQJFR74P5D2HD0F9BH3",
+      "title": "Nordic Minimalist Wall Sconce - Designer LED Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VJC884CSN10VX8ZHMKDZ",
+      "title": "Retro Ceramic Night Light with Warm Ambient Glow",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VKZ7GVJX17C5VC3EZT3G",
+      "title": "Industrial Barn Metal Pendant Light for Kitchen Island",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VNJRVG2N1PR1G1RPC31T",
+      "title": "Nicolai Nordic Inspired Pendant Light - Multi-Color",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VQ75CT5NW74KYDQD5WK7",
+      "title": "Nordic Iron LED Chandelier - Modern Dining Room Pendant",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VRT18MJK4Z7JVPK20QN0",
+      "title": "Snail Rattan Pendant Light - Southeast Asian Art Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VTNWF2WQSRAYDPWYC2XG",
+      "title": "Wooden Pendant Light for Kitchen Island & Bar Counter",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VWB93P062SF4HV09QYFD",
+      "title": "Glass Wood Grain Single Head Pendant Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VXWG40PNVMBJREH5WZY1",
+      "title": "Modern Geometric Grid Pendant Light with Shadow Patterns",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4VZM8A8A3HC9Z2ZFRHKKV",
+      "title": "Dandelion Crystal Chandelier - Modern Statement Lighting",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4W15K7NSMFSQDMA7GS50B",
+      "title": "Nordic Minimalist Chandelier Modern Living Room Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4W2QBBXDEC2PC7B3D0SEZ",
+      "title": "Modern Macaron Aluminum Pendant Light Collection",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4W4CXKBC2EECFPTFCFKNK",
+      "title": "Wrought Iron LED Pendant Light - Industrial Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK4W5ZN1V83YN54Z1DKQW3P",
+      "title": "Modern Flush Mount Ceiling Light for Hallways & Bedrooms",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5EVXHDMBY8TWNN6F6M809",
+      "title": "Solar LED Garden Light with Motion Sensor",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5EXHH0PWJJECHT8QPGPYH",
+      "title": "Modern Minimalist Bedside Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5F0C57345TCSENHHWDCSQ",
+      "title": "Industrial Retro Wrought Iron Flute Wall Sconce",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5F1Z67H8MM59B7FCYGJS0",
+      "title": "Vintage Wall Sconce for Hallways & TV Accent Lighting",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5F4J89PX5F2YR6YJ7Z341",
+      "title": "Mini LED Floor Lamp with Floral Shade - Cordless Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5F62VSQGXD5M0EBQ40EED",
+      "title": "Industrial Outdoor Cafe Bar String Lights",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5F7PNMKBF0HPTQRXAAKET",
+      "title": "Vintage Wrought Iron Wall Sconce - Industrial Retro Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5F98R6HXSBN08GG5JR68K",
+      "title": "European Baroque Crystal Chandelier - Vintage Elegance",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FAWP380JDE31PBJT7EM2",
+      "title": "Butterfly Flower Creative Mini Chandelier",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FCK9W41PJXFSSSWTSNH0",
+      "title": "Nordic Blue Glass Art Chandelier - Creative Modern Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FFGH5SWAY0CR4P345WSY",
+      "title": "Modern Crystal Staircase Chandelier for Duplex Homes",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FH2H2WX1XN0Z1RGK9E8X",
+      "title": "Vintage Cross-Shaped Antique Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FJJXFH50Y3CW44D0HWDW",
+      "title": "Modern Wireless Wall Sconce with Free Wiring Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FM60D1VWCAW7Y3WQ01T9",
+      "title": "LED Grid Panel Light for Auto Detailing Workshop",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FNV2C5MFTXGE7VC7VTS2",
+      "title": "Teardrop Floral Chandelier - Modern Bedroom Lighting",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FQHJEESABE1HBPXNAJ8E",
+      "title": "Bronze Mirror Bedroom Table Chandelier",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FS5BCN613AN0DTB7NZ5A",
+      "title": "Nordic Japanese Brass Dining Room Chandelier",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FTNGYD2QKG7MNJZZWRQG",
+      "title": "Seagull LED Chandelier - Modern Minimalist Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FW99W7JF61KAQADDMTC6",
+      "title": "Modern Ice Cube Glass Chandelier - Minimalist Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5FZ7RDGBYXHT39FN84VKN",
+      "title": "Industrial LOFT Wall Sconce for Hallways & Staircases",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5G0X6FHV64TM30RJVNZKZ",
+      "title": "Nordic All-Aluminum Ceiling Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5G2EJPD22CRMZKZ7S9W6D",
+      "title": "Modern Flush Mount Ceiling Light for Hallways",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5G41XRXQGJWH9Z0W9ECXY",
+      "title": "Nordic Flying Saucer Chandelier - Postmodern Art Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5G67HXN29XG7P9SNP00RR",
+      "title": "Modern Creative Bedside Table Lamp for Living Room",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5G7XFPQXPTH1J7RYYBCPA",
+      "title": "Vintage Solar Wall Lamp - Waterproof Garden Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5G9H50G3DG34XSSTR4A0T",
+      "title": "Creative Minimalist Planet Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GB23YX2C985TWN5225R6",
+      "title": "Industrial Wrought Iron Wall Sconce with Pipe Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GE3T1SYZW4VS9HXN0NXH",
+      "title": "Woven Zen Chandelier - Natural Rattan Style",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GFSGFY7VB8ZE45PE4V9W",
+      "title": "Industrial Bar Retro Chandelier with Vintage Edison Bulbs",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GH9Y8E9TWGNTCZCJ75DE",
+      "title": "Nordic Modern Chandelier for Restaurant Dining",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GJYJHPD5K3Q3JDK2MQ75",
+      "title": "Creative Art Sculptural Chandelier",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GNTESMN0AAX77R8008V7",
+      "title": "Solid Wood Eye Protection Desk Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GQCGRCKZA1EHA9E9S45A",
+      "title": "Modern Creative Bedside Table Lamp",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GS2VE06X6X1G734ZBKG4",
+      "title": "Nordic Style Minimalist Floor Lamp for Living Room",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GTQDSH0SKVXD15V32BDP",
+      "title": "Modern Crystal Wall Sconce - Minimalist Living Room Light",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GWHMPVXE06NVD8XFP551",
+      "title": "Modern Bedroom Pendant Light with Geometric Design",
+      "status": "published"
+    },
+    {
+      "id": "prod_01KJK5GY684DMQSXZWGKMV111N",
+      "title": "Motion Sensor LED Night Light",
+      "status": "published"
+    }
+  ]
+}

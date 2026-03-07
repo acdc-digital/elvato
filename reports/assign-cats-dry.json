@@ -1,0 +1,333 @@
+{
+  "timestamp": "2026-03-07T02:48:52.041Z",
+  "mode": "dry-run",
+  "totalProducts": 803,
+  "assigned": 39,
+  "errors": 0,
+  "skippedNoType": 764,
+  "skippedUnknownType": 0,
+  "alreadyAssigned": 0,
+  "byType": {
+    "Pendants": 6,
+    "Chandeliers": 6,
+    "Wall": 6,
+    "Ceiling": 5,
+    "Table & Floor": 5,
+    "Outdoor": 6,
+    "Accessories": 5
+  },
+  "results": [
+    {
+      "productId": "prod_01KF76ARFB4YX52H6PJ9TWWWQV",
+      "title": "Crystal Glass LED Pendant Light - Post-Modern Design",
+      "type": "Pendants",
+      "categoryAssigned": "Pendants",
+      "categoryId": "pcat_01KF73711R8NF7FV7BKB96PWA6",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76ARTQQHYVGFW00MPSJAMW",
+      "title": "Villa Duplex Large Crystal Chandelier for Living Room",
+      "type": "Chandeliers",
+      "categoryAssigned": "Chandeliers",
+      "categoryId": "pcat_01KF736S869NMN0XA35AA07XPM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76AWCX76RKY4ZR8XJCPZAM",
+      "title": "Nordic Minimalist LED Wall Sconce Light",
+      "type": "Wall",
+      "categoryAssigned": "Wall",
+      "categoryId": "pcat_01KF7375B8QDW6HP07AHYCKZQ8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76E30VMYWMR8DWXYDEB7N6",
+      "title": "Smart Modern Chandelier for Living & Dining Rooms",
+      "type": "Chandeliers",
+      "categoryAssigned": "Chandeliers",
+      "categoryId": "pcat_01KF736S869NMN0XA35AA07XPM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76E3MJJG3Q90SQXTSNE7K9",
+      "title": "Modern LED Balcony Ceiling Chandelier",
+      "type": "Chandeliers",
+      "categoryAssigned": "Chandeliers",
+      "categoryId": "pcat_01KF736S869NMN0XA35AA07XPM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76E3QDW0VXTXKZB1SHS29B",
+      "title": "Modern Artistic Study Chandelier for Creative Spaces",
+      "type": "Chandeliers",
+      "categoryAssigned": "Chandeliers",
+      "categoryId": "pcat_01KF736S869NMN0XA35AA07XPM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EAP6YH7Z3NM6TJB1HEJX",
+      "title": "Industrial Wrought Iron Pendant Light for Restaurant Bar",
+      "type": "Pendants",
+      "categoryAssigned": "Pendants",
+      "categoryId": "pcat_01KF73711R8NF7FV7BKB96PWA6",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EAR5B21GBG9N8CYGBT9M",
+      "title": "Industrial Wire Mesh Pendant Light - Vintage Design",
+      "type": "Pendants",
+      "categoryAssigned": "Pendants",
+      "categoryId": "pcat_01KF73711R8NF7FV7BKB96PWA6",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EBG0PMKHHZAQX06PDYVA",
+      "title": "Rustic Wood Glass Pendant Light - Modern Industrial Design",
+      "type": "Pendants",
+      "categoryAssigned": "Pendants",
+      "categoryId": "pcat_01KF73711R8NF7FV7BKB96PWA6",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EBHPEY5GXEYVY7H1RZJ8",
+      "title": "Nordic LED Restaurant Pendant Light - Creative Design",
+      "type": "Pendants",
+      "categoryAssigned": "Pendants",
+      "categoryId": "pcat_01KF73711R8NF7FV7BKB96PWA6",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EBMA5N35435G0PQK8WJR",
+      "title": "Vintage Copper Pendant Light - Modern Industrial Style",
+      "type": "Pendants",
+      "categoryAssigned": "Pendants",
+      "categoryId": "pcat_01KF73711R8NF7FV7BKB96PWA6",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EH0ZKAW4DN331V58SFNH",
+      "title": "Nordic Modern Wall Sconce for Hallways & Porches",
+      "type": "Wall",
+      "categoryAssigned": "Wall",
+      "categoryId": "pcat_01KF7375B8QDW6HP07AHYCKZQ8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EHAYGN5TE4NJMTCN78J6",
+      "title": "Modern Wooden LED Wall Sconce with Adjustable Light Bar",
+      "type": "Wall",
+      "categoryAssigned": "Wall",
+      "categoryId": "pcat_01KF7375B8QDW6HP07AHYCKZQ8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EYPNPZS396SN4A1NVJDB",
+      "title": "Modern Minimalist Single-Head Ceiling Light",
+      "type": "Ceiling",
+      "categoryAssigned": "Ceiling",
+      "categoryId": "pcat_01KF737B8B0SPRD4DV9W2RGTM8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EZBH3QJQ5HGT3KD9NSW5",
+      "title": "Industrial Spider Ceiling Light - Vintage Wrought Iron Fixture",
+      "type": "Ceiling",
+      "categoryAssigned": "Ceiling",
+      "categoryId": "pcat_01KF737B8B0SPRD4DV9W2RGTM8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76EZEH0DBE6M3R0GE6S5D4",
+      "title": "Modern Corridor Ceiling Light for Hallways & Balconies",
+      "type": "Ceiling",
+      "categoryAssigned": "Ceiling",
+      "categoryId": "pcat_01KF737B8B0SPRD4DV9W2RGTM8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76F4WM62KKRTAZEV3A71Y4",
+      "title": "Modern Adjustable Bedside Table Lamp",
+      "type": "Table & Floor",
+      "categoryAssigned": "Table & Floor",
+      "categoryId": "pcat_01KF737DY59JFQDPA35FTCZ7HM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76F52QYXT9W82Q1Z1KRCEA",
+      "title": "Industrial Water Pipe Table Lamp",
+      "type": "Table & Floor",
+      "categoryAssigned": "Table & Floor",
+      "categoryId": "pcat_01KF737DY59JFQDPA35FTCZ7HM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76F56F9D2JD3V53R6FMS2B",
+      "title": "Nordic Style Minimalist Floor Lamp for Living Room",
+      "type": "Table & Floor",
+      "categoryAssigned": "Table & Floor",
+      "categoryId": "pcat_01KF737DY59JFQDPA35FTCZ7HM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76FAXSE32YBZF9ZS7EHVHM",
+      "title": "Rattan Ball String Lights - Outdoor LED Tree Lanterns",
+      "type": "Outdoor",
+      "categoryAssigned": "Outdoor",
+      "categoryId": "pcat_01KF737MPK7JZFATG1DBV0RBC8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76FBXDENVVHPTZWNEGGNP3",
+      "title": "Solar LED Garden Wall Light - Up Down Dual Beam Design",
+      "type": "Outdoor",
+      "categoryAssigned": "Outdoor",
+      "categoryId": "pcat_01KF737MPK7JZFATG1DBV0RBC8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76FC0PTJSY0S3SNMMFX2CN",
+      "title": "Solar LED Stair Light - Anti-Theft Waterproof Design",
+      "type": "Outdoor",
+      "categoryAssigned": "Outdoor",
+      "categoryId": "pcat_01KF737MPK7JZFATG1DBV0RBC8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76FHPV36VP5EQZST9NCX3P",
+      "title": "LED Star String Lights - Full Sky Decorative Display",
+      "type": "Accessories",
+      "categoryAssigned": "Accessories",
+      "categoryId": "pcat_01KF737PCZPCQ39EMRNTJHQT9B",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76FHS657DCHHEM6ADVBNCM",
+      "title": "Smart Motion Sensor Night Light - Rechargeable LED Lamp",
+      "type": "Accessories",
+      "categoryAssigned": "Accessories",
+      "categoryId": "pcat_01KF737PCZPCQ39EMRNTJHQT9B",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76FHX9EPY2XBFBMCJCP3HD",
+      "title": "Linear LED Light Bar - Modern Minimalist Design",
+      "type": "Accessories",
+      "categoryAssigned": "Accessories",
+      "categoryId": "pcat_01KF737PCZPCQ39EMRNTJHQT9B",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76FJ0TYMYKC0Q7XPWHYVZ9",
+      "title": "Modern Round Bathroom Mirror with Sleek Frame",
+      "type": "Accessories",
+      "categoryAssigned": "Accessories",
+      "categoryId": "pcat_01KF737PCZPCQ39EMRNTJHQT9B",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76G96M9S3T28H3QDGT11KM",
+      "title": "Luxury Crystal Chandelier for Dining Room & Bedroom",
+      "type": "Chandeliers",
+      "categoryAssigned": "Chandeliers",
+      "categoryId": "pcat_01KF736S869NMN0XA35AA07XPM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76G9AZG89KD63ASBKB0DPP",
+      "title": "Nordic Minimalist Small Chandelier for Bedroom & Study",
+      "type": "Chandeliers",
+      "categoryAssigned": "Chandeliers",
+      "categoryId": "pcat_01KF736S869NMN0XA35AA07XPM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76G9X19H3AD4Q0E0PPFBRR",
+      "title": "Modern Minimalist Ceiling Light - Sleek Flush Mount",
+      "type": "Ceiling",
+      "categoryAssigned": "Ceiling",
+      "categoryId": "pcat_01KF737B8B0SPRD4DV9W2RGTM8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GBD3ZZXHTPKMSQ4TW4EA",
+      "title": "Recessed LED Rectangular Spotlight for Modern Living",
+      "type": "Ceiling",
+      "categoryAssigned": "Ceiling",
+      "categoryId": "pcat_01KF737B8B0SPRD4DV9W2RGTM8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GCH5T5TM71Z2Q01SSPMQ",
+      "title": "Modern Creative Bedside Table Lamp for Living Room",
+      "type": "Table & Floor",
+      "categoryAssigned": "Table & Floor",
+      "categoryId": "pcat_01KF737DY59JFQDPA35FTCZ7HM",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GJ578B2K3D4WT3KTJ07S",
+      "title": "Solar LED Outdoor Wall Light for Courtyards & Stairs",
+      "type": "Outdoor",
+      "categoryAssigned": "Outdoor",
+      "categoryId": "pcat_01KF737MPK7JZFATG1DBV0RBC8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GJ86GTH5PH41WVDQFDS6",
+      "title": "Modern Waterproof LED Exterior Wall Light",
+      "type": "Outdoor",
+      "categoryAssigned": "Outdoor",
+      "categoryId": "pcat_01KF737MPK7JZFATG1DBV0RBC8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GJEZM9J6FZ62WQMA5G7J",
+      "title": "Solar Step Light for Outdoor Stairs & Walkways",
+      "type": "Outdoor",
+      "categoryAssigned": "Outdoor",
+      "categoryId": "pcat_01KF737MPK7JZFATG1DBV0RBC8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GK26VC0W6NR74TTHMANS",
+      "title": "Vintage Industrial Wall Sconce Light",
+      "type": "Wall",
+      "categoryAssigned": "Wall",
+      "categoryId": "pcat_01KF7375B8QDW6HP07AHYCKZQ8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GP66F4C7QYK2ZVYMR7H2",
+      "title": "Industrial Retro Wall Sconce - Staircase Accent Light",
+      "type": "Wall",
+      "categoryAssigned": "Wall",
+      "categoryId": "pcat_01KF7375B8QDW6HP07AHYCKZQ8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GP7W39K9DS3Y52A847WD",
+      "title": "Nordic Glass Wall Sconce Designer Lamp",
+      "type": "Wall",
+      "categoryAssigned": "Wall",
+      "categoryId": "pcat_01KF7375B8QDW6HP07AHYCKZQ8",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76GPXKNPYZ5ZEPZA7V5NYB",
+      "title": "Rainbow Projection Night Light - Ambient Room Lighting",
+      "type": "Accessories",
+      "categoryAssigned": "Accessories",
+      "categoryId": "pcat_01KF737PCZPCQ39EMRNTJHQT9B",
+      "status": "dry-run"
+    },
+    {
+      "productId": "prod_01KF76H7JYYPD2ZRANW18V53FW",
+      "title": "LED Tulip Flower Table Lamp - Artificial Potted Plant",
+      "type": "Table & Floor",
+      "categoryAssigned": "Table & Floor",
+      "categoryId": "pcat_01KF737DY59JFQDPA35FTCZ7HM",
+      "status": "dry-run"
+    }
+  ]
+}

@@ -1,0 +1,1360 @@
+{
+  "mode": "LIVE",
+  "markup": 100,
+  "pricingStrategy": "min",
+  "results": [
+    {
+      "medusaProductId": "prod_01KF76ARTQQHYVGFW00MPSJAMW",
+      "title": "Villa Duplex Large Crystal Chandelier for Living Room",
+      "cjSku": "CJSN1587842",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 64,
+      "cjVariantCount": 16,
+      "storefrontOptionNames": [
+        "Finish",
+        "Number of Lights",
+        "Size",
+        "Voltage"
+      ],
+      "sharedDimensions": [
+        "heads",
+        "finish"
+      ],
+      "cjOnlyDimensions": [
+        "lightType"
+      ],
+      "matched": 64,
+      "unmatched": 0,
+      "toUpdate": 48,
+      "unchanged": 16,
+      "changes": [
+        {
+          "variantId": "variant_01KF76ARV5C2MTJWW5R65EDNQ3",
+          "variantTitle": "50cm / Black / 111V / 7 Lights",
+          "sku": "ELV582155",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 7,
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXDP4VVFS8G3VRX2DRQ",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6MKDANT7Q5KSWHWTJ",
+          "variantTitle": "50cm / Black / 111V / 11 Lights",
+          "sku": "ELV486017",
+          "sfOptions": {
+            "finish": "black",
+            "sizeCm": 50,
+            "voltage": 111,
+            "heads": 11
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXE9PV6WTFRN8594YW1",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV621PXXYYBZBTT9VPA",
+          "variantTitle": "50cm / Black / 111V / 17 Lights",
+          "sku": "ELV333723",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXEJ8C16SCS792GBRH8",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV6E0V3JE72CN21PM5D",
+          "variantTitle": "50cm / Black / 111V / 23 Lights",
+          "sku": "ELV440908",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXEM9KXRRW1GGAPGFB3",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV627C3GX155P7YWP82",
+          "variantTitle": "50cm / Black / 240V / 7 Lights",
+          "sku": "ELV382695",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 7,
+            "sizeCm": 50
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXE71A7YMNQ8FW49J96",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV677DGP5PW8DX48BT7",
+          "variantTitle": "50cm / Black / 240V / 11 Lights",
+          "sku": "ELV475073",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 50,
+            "heads": 11
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXE6BVGN2C8T77TZAHV",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV63VSZZ9G02FFMAE86",
+          "variantTitle": "50cm / Black / 240V / 17 Lights",
+          "sku": "ELV812670",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 50
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXEWA08K2YCMQP04F5X",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV6QZAFT0MW3XNGQPSE",
+          "variantTitle": "50cm / Black / 240V / 23 Lights",
+          "sku": "ELV989573",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 50
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXE6X5PV01FG6A0Q4BM",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV6AR1FBEN9PA53EYJN",
+          "variantTitle": "50cm / Gold / 111V / 7 Lights",
+          "sku": "ELV437069",
+          "sfOptions": {
+            "finish": "gold",
+            "heads": 7,
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXEWVPAFHJEASFSEAF9",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6QQBF14NP62C45TEQ",
+          "variantTitle": "50cm / Gold / 111V / 11 Lights",
+          "sku": "ELV861815",
+          "sfOptions": {
+            "finish": "gold",
+            "sizeCm": 50,
+            "voltage": 111,
+            "heads": 11
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXE1N793R6SY8GWS2GV",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV65PQJAR7GNX1NE7W7",
+          "variantTitle": "50cm / Gold / 111V / 17 Lights",
+          "sku": "ELV890944",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXE1S64N4HGPYCP6JV7",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV62GHJ4BSYWEKWP3X3",
+          "variantTitle": "50cm / Gold / 111V / 23 Lights",
+          "sku": "ELV184972",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXEA94QJN8SDXE3992Y",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV65T6K5XBQ855R85J0",
+          "variantTitle": "50cm / Gold / 240V / 7 Lights",
+          "sku": "ELV422156",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 7,
+            "sizeCm": 50
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXE5XCG904CEMFXCV26",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV64V2QEG7JA7CF9QRX",
+          "variantTitle": "50cm / Gold / 240V / 11 Lights",
+          "sku": "ELV741452",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 50,
+            "heads": 11
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXEE095N41QQ9XGFBED",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV6GC10WBAN0Z6T1YSP",
+          "variantTitle": "50cm / Gold / 240V / 17 Lights",
+          "sku": "ELV293138",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 50
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXE91YVGD6YDZGRD7WJ",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV6N3BCZW1F1BYV8A80",
+          "variantTitle": "50cm / Gold / 240V / 23 Lights",
+          "sku": "ELV952997",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 50
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXE43HN8FMCZ6VAMN5A",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV6EDYG5C6QFW3RW7QB",
+          "variantTitle": "70cm / Black / 111V / 7 Lights",
+          "sku": "ELV988056",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 7,
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXEAQCPGZECMG36JNWK",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6S9QBRMZ8DTPCNGXQ",
+          "variantTitle": "70cm / Black / 111V / 11 Lights",
+          "sku": "ELV579318",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXESCB02K9NGK4A8TSF",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV6MTTCGWB1S1GV4AAK",
+          "variantTitle": "70cm / Black / 111V / 17 Lights",
+          "sku": "ELV371452",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXE3725A81A1X5Q8YNM",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV6KWQ7ZC4QKF03DBM6",
+          "variantTitle": "70cm / Black / 111V / 23 Lights",
+          "sku": "ELV721126",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXE2VNBN0XGDFXQ2HG1",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV610YGM8QZ45AR7YZR",
+          "variantTitle": "70cm / Black / 240V / 7 Lights",
+          "sku": "ELV641057",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 7,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXEQ34Y1W52CA6F1AND",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6NZYRHJJCGCJGW0B0",
+          "variantTitle": "70cm / Black / 240V / 11 Lights",
+          "sku": "ELV213497",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXEJDR6PZ48PX9YQXQY",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV69VSMW5TF1DQ6JSXS",
+          "variantTitle": "70cm / Black / 240V / 17 Lights",
+          "sku": "ELV742830",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXE0XDQW668TEFHWNMZ",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV7Z8T0B3CW5WF4JHBC",
+          "variantTitle": "70cm / Black / 240V / 23 Lights",
+          "sku": "ELV598444",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXE3JD53BPME41J1KND",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV71YTA3ZTKR6BNF9BK",
+          "variantTitle": "70cm / Gold / 111V / 7 Lights",
+          "sku": "ELV990079",
+          "sfOptions": {
+            "finish": "gold",
+            "heads": 7,
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXEZHNN0F37H4MMJR4F",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7THHPQJ30PMNAZ600",
+          "variantTitle": "70cm / Gold / 111V / 11 Lights",
+          "sku": "ELV275051",
+          "sfOptions": {
+            "finish": "gold",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXF9P81V74B1BKRQ30X",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV7KZV4F7DVG7ACHQ1R",
+          "variantTitle": "70cm / Gold / 111V / 17 Lights",
+          "sku": "ELV477267",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXFEVJNQD8QENRWSMZD",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV77EDGKVEX2QWZ7S8K",
+          "variantTitle": "70cm / Gold / 111V / 23 Lights",
+          "sku": "ELV302675",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXFQNMRRQBZVZ783BNV",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV7TK6DVT454RYQF2TB",
+          "variantTitle": "70cm / Gold / 240V / 7 Lights",
+          "sku": "ELV637135",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 7,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXF91QB85E6EBSY45CZ",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV71RCJV1ZH4A11MH38",
+          "variantTitle": "70cm / Gold / 240V / 11 Lights",
+          "sku": "ELV814182",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXFKRY7XMDP90BY390H",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV78DH3TC65Z29MM0EH",
+          "variantTitle": "70cm / Gold / 240V / 17 Lights",
+          "sku": "ELV177520",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXFVD53SY1C2AR8Y450",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV79M3XQE6W6R8E0WJZ",
+          "variantTitle": "70cm / Gold / 240V / 23 Lights",
+          "sku": "ELV654747",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 70
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXFFMPYPTB5T9RD0V2H",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV7Y1VRECKT8GX11T3W",
+          "variantTitle": "90cm / Black / 111V / 7 Lights",
+          "sku": "ELV113849",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 7,
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXF4W4KF4JJTS883VZX",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7V6J9PND9B92ZA7EE",
+          "variantTitle": "90cm / Black / 111V / 11 Lights",
+          "sku": "ELV912153",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXFBHP2MZVD6SZJM4B3",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV7AZ8MMRKNQMJYZCJ6",
+          "variantTitle": "90cm / Black / 111V / 17 Lights",
+          "sku": "ELV600146",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXF8RCA2644ZT53JV5V",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV7W9B5VWEWCHQSG7PJ",
+          "variantTitle": "90cm / Black / 111V / 23 Lights",
+          "sku": "ELV821867",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXF9QW7N9HVAPCCP77A",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV7H8F7WKRSX0YWSYYM",
+          "variantTitle": "90cm / Black / 240V / 7 Lights",
+          "sku": "ELV353092",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 7,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXFY2QFKQYCZ676PZ1P",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7Z4AZ8F5YBMFNZF3T",
+          "variantTitle": "90cm / Black / 240V / 11 Lights",
+          "sku": "ELV344839",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXFATAV19SHPXXTTC51",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV7EHMA3YYPVBP3HCH1",
+          "variantTitle": "90cm / Black / 240V / 17 Lights",
+          "sku": "ELV946111",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXFJVR0MJ935K1MDG5P",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV7HNAB2V2JWY2PF2QE",
+          "variantTitle": "90cm / Black / 240V / 23 Lights",
+          "sku": "ELV372923",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXFWA0FZE1K6829GVX6",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV7G47HYZT8Y1FT51GA",
+          "variantTitle": "90cm / Gold / 111V / 7 Lights",
+          "sku": "ELV553229",
+          "sfOptions": {
+            "finish": "gold",
+            "heads": 7,
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXFNC9QJAQ90BQ26CBR",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7M0N7JH7PGF4TA4HA",
+          "variantTitle": "90cm / Gold / 111V / 11 Lights",
+          "sku": "ELV622214",
+          "sfOptions": {
+            "finish": "gold",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXFZMVZXEBQ1P9X99Q3",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV79WT9TZNJMQVY517Y",
+          "variantTitle": "90cm / Gold / 111V / 17 Lights",
+          "sku": "ELV618699",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXFVM0WKDXJH81GV63Y",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV7THTXMES2HJ98MH7M",
+          "variantTitle": "90cm / Gold / 111V / 23 Lights",
+          "sku": "ELV775641",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXFK2T012R9K2P4XZEP",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV81K3WTDBQ8J1DGKTM",
+          "variantTitle": "90cm / Gold / 240V / 7 Lights",
+          "sku": "ELV495337",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 7,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXFHSV61E47W6ADJRJN",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV86DYYVT42SA0265SV",
+          "variantTitle": "90cm / Gold / 240V / 11 Lights",
+          "sku": "ELV128589",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXFY3BA5NVV4HV83SGX",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV8KN74ECWWTCKPHGPG",
+          "variantTitle": "90cm / Gold / 240V / 17 Lights",
+          "sku": "ELV963760",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXFAJRRW8Q2RNA8M6AS",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV8A9574RP5TT4F7G7B",
+          "variantTitle": "90cm / Gold / 240V / 23 Lights",
+          "sku": "ELV262147",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 90
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXFEAK9ENDRV5S7K639",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV82FE6WDQP07NN5RVM",
+          "variantTitle": "120cm / Black / 111V / 7 Lights",
+          "sku": "ELV140860",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 7,
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXF8P4WJ9WDTP0P8Q9A",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8VF57BK6WBP5JS1D1",
+          "variantTitle": "120cm / Black / 111V / 11 Lights",
+          "sku": "ELV862677",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXGZWZM5CCH3W0ESJ1W",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV8E3K9QN5VSAYD4E1V",
+          "variantTitle": "120cm / Black / 111V / 17 Lights",
+          "sku": "ELV490337",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXGRWF48Y2QEY672NNM",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV84PX47J4MPAAX4NC6",
+          "variantTitle": "120cm / Black / 111V / 23 Lights",
+          "sku": "ELV696166",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXG39P62J9D1YXXAQCN",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV8ZNY42SNE68Y8A3GE",
+          "variantTitle": "120cm / Black / 240V / 7 Lights",
+          "sku": "ELV919203",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 7,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXGJ6WG61ZPAYD9QCDN",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8E32MTTP4SM96H1GA",
+          "variantTitle": "120cm / Black / 240V / 11 Lights",
+          "sku": "ELV950223",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXG9QBC10Q3QCYZ3R9B",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV8ZSXGXPHCVE6BTN13",
+          "variantTitle": "120cm / Black / 240V / 17 Lights",
+          "sku": "ELV813539",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXG4SGJM1EHR7RSY6FD",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV8CFWXJP1AP2CHNEZZ",
+          "variantTitle": "120cm / Black / 240V / 23 Lights",
+          "sku": "ELV794902",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXGZGRS1BSK8AQ8GA0A",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV8EBC646WZXD7P89GS",
+          "variantTitle": "120cm / Gold / 111V / 7 Lights",
+          "sku": "ELV188345",
+          "sfOptions": {
+            "finish": "gold",
+            "heads": 7,
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXGZ1SYQCV9KHGCN11P",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8KS4YK0AN06Q8PM2D",
+          "variantTitle": "120cm / Gold / 111V / 11 Lights",
+          "sku": "ELV992250",
+          "sfOptions": {
+            "finish": "gold",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXGWNWJH75HRXJ5448Y",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV85HXGDAE3ZYJCY1KE",
+          "variantTitle": "120cm / Gold / 111V / 17 Lights",
+          "sku": "ELV187336",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXG3VBDNWJRNTXP3SXZ",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV8ENGR7RM84VHDZ2SP",
+          "variantTitle": "120cm / Gold / 111V / 23 Lights",
+          "sku": "ELV110001",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXG8202JBZM77JY5C11",
+          "status": "update",
+          "delta": 44404
+        },
+        {
+          "variantId": "variant_01KF76ARV8TS3A0WH5HP7KSTCH",
+          "variantTitle": "120cm / Gold / 240V / 7 Lights",
+          "sku": "ELV240630",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 7,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 86.81,
+          "cjCostCents": 8681,
+          "newPriceCents": 17362,
+          "priceId": "price_01KF76ARXGRK83YR5QNMD6BDY9",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV80MF8AC1HPJXBJS41",
+          "variantTitle": "120cm / Gold / 240V / 11 Lights",
+          "sku": "ELV566860",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KF76ARXG2H478D141052S9R3",
+          "status": "update",
+          "delta": 11518
+        },
+        {
+          "variantId": "variant_01KF76ARV8CZXCYCQM172JD8SV",
+          "variantTitle": "120cm / Gold / 240V / 17 Lights",
+          "sku": "ELV392060",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KF76ARXGRN3RZ226JPAJZ5H9",
+          "status": "update",
+          "delta": 28046
+        },
+        {
+          "variantId": "variant_01KF76ARV8PV5453KYBPX8Q7FY",
+          "variantTitle": "120cm / Gold / 240V / 23 Lights",
+          "sku": "ELV938703",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 120
+          },
+          "currentPriceCents": 17362,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KF76ARXG1PBN69PDH9QPSTFQ",
+          "status": "update",
+          "delta": 44404
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads gold Warm light",
+          "sku": "CJSN158784201AZ",
+          "price": 86.81,
+          "parsed": {
+            "heads": 7,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads gold Stepless dimming",
+          "sku": "CJSN158784202BY",
+          "price": 108.51,
+          "parsed": {
+            "heads": 7,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads gold Warm light",
+          "sku": "CJSN158784203CX",
+          "price": 144.4,
+          "parsed": {
+            "heads": 11,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads gold Stepless dimming",
+          "sku": "CJSN158784204DW",
+          "price": 159.43,
+          "parsed": {
+            "heads": 11,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads gold Warm light",
+          "sku": "CJSN158784205EV",
+          "price": 227.04,
+          "parsed": {
+            "heads": 17,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads gold Stepless dimming",
+          "sku": "CJSN158784206FU",
+          "price": 242.06,
+          "parsed": {
+            "heads": 17,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads gold Warm light",
+          "sku": "CJSN158784207GT",
+          "price": 308.83,
+          "parsed": {
+            "heads": 23,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads gold Stepless dimming",
+          "sku": "CJSN158784208HS",
+          "price": 325.53,
+          "parsed": {
+            "heads": 23,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads black Warm light",
+          "sku": "CJSN158784209IR",
+          "price": 86.81,
+          "parsed": {
+            "heads": 7,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads black Stepless dimming",
+          "sku": "CJSN158784210JQ",
+          "price": 108.51,
+          "parsed": {
+            "heads": 7,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads black Warm light",
+          "sku": "CJSN158784211KP",
+          "price": 144.4,
+          "parsed": {
+            "heads": 11,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads black Stepless dimming",
+          "sku": "CJSN158784212LO",
+          "price": 159.43,
+          "parsed": {
+            "heads": 11,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads black Warm light",
+          "sku": "CJSN158784213MN",
+          "price": 227.04,
+          "parsed": {
+            "heads": 17,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads black Stepless dimming",
+          "sku": "CJSN158784214NM",
+          "price": 242.06,
+          "parsed": {
+            "heads": 17,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads black Warm light",
+          "sku": "CJSN158784215OL",
+          "price": 308.83,
+          "parsed": {
+            "heads": 23,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads black Stepless dimming",
+          "sku": "CJSN158784216PK",
+          "price": 325.53,
+          "parsed": {
+            "heads": 23,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        }
+      ],
+      "applied": {
+        "updated": 48,
+        "errors": []
+      }
+    }
+  ],
+  "summary": {
+    "products": 1,
+    "totalVariants": 64,
+    "updates": 48,
+    "unchanged": 16,
+    "unmatched": 0
+  }
+}

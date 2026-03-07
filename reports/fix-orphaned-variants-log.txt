@@ -1,0 +1,43 @@
+Mode: LIVE
+Products to fix: 45
+
+⏭️ "Nordic Wood Round Pendant Light - Black Finish" — 0/4 variants updated
+⏭️ "Dimmable Glass Bedside Table Lamp - Portable Design" — 0/2 variants updated
+⏭️ "Rustic Wood & Glass Table Lamp" — 0/14 variants updated
+⏭️ "Modern Geometric Long Arm Table Lamp" — 0/2 variants updated
+⏭️ "Lighthouse Touch Desk Lamp with Night Light Feature" — 0/4 variants updated
+⏭️ "Nordic Solid Wood Table Lamp with Artistic Base" — 0/4 variants updated
+⏭️ "Modern Spherical Table Lamp with Artistic Design" — 0/1 variants updated
+⏭️ "Smoky Glass Bar Chandelier with Electroplated Finish" — 0/2 variants updated
+⏭️ "Modern Chinese Bamboo Woven Wall Sconce" — 0/10 variants updated
+⏭️ "Bronze Metal Wall Sconce with Glass Shade" — 0/6 variants updated
+⏭️ "Nordic Cement Terrazzo Mini Chandelier" — 0/7 variants updated
+⏭️ "Nordic Solid Wood Cloth Shade Chandelier" — 0/10 variants updated
+⏭️ "Minimalist Hollow Frame Table Lamp - Modern Accent Light" — 0/12 variants updated
+⏭️ "Nordic Japanese Bedside Table Lamp - Minimalist Design" — 0/2 variants updated
+⏭️ "Modern Cube Glass Chandelier - Artistic Statement Light" — 0/1 variants updated
+⏭️ "Glass Bottle Chandelier - Vintage Industrial Design" — 0/1 variants updated
+⏭️ "Modern LED Art Chandelier - Creative Suspension Light" — 0/60 variants updated
+⏭️ "Vintage Wrought Iron Chandelier - Industrial Retro Design" — 0/1 variants updated
+⏭️ "Modern Iron Tube Chandelier - Minimalist Design" — 0/2 variants updated
+⏭️ "Dinosaur Touch Control LED Night Light for Kids" — 0/20 variants updated
+⏭️ "Modern USB Rechargeable LED Night Light" — 0/3 variants updated
+⏭️ "Nordic Corridor Wall Light - Modern Entrance Hall Fixture" — 0/3 variants updated
+⏭️ "Modern Creative Solid Wood Table Lamp" — 0/1 variants updated
+⏭️ "Industrial Wrought Iron Long Arm Wall Sconce" — 0/1 variants updated
+⏭️ "Nordic Wood LED Desk Lamp with Fabric Shade" — 0/1 variants updated
+⏭️ "Industrial Vintage Chandelier - Simple Modern Desig✅ "Modern Wrought Iron Gla⏭️ "Modern Wrought Iron Glass Wall Scon✅ "Nordic Minimalist Wall Sc✅ "Nordic Minimalist Wall Sconce - Designer LED Lam✅ "Retro Ceramic Night Light with Warm Ambient Glow" — 2/2 variants updated
+✅ "Industrial Barn Metal Pendant Light for Kitchen Island" — 16/16 variants updated
+✅ "Nicolai Nordic Inspired Pendant Light - Multi-Color" — 3/3 variants updated
+✅ "Nordic Iron LED Chandelier - Modern Dining Room Pendant" — 1/1 variants updated
+✅ "Snail Rattan Pendant Ligh✅ "Snail Rattan Pendant Light - Southeast Asian Art Desi✅ "Wooden Pendant Light for K✅ "Wooden Pendant Light for Kitchen Island & Bar Cou✅ "Glass Wood Grain Single Head Pendant Light" — 3/3 variants updated
+✅ "Modern Geometric Grid Pendant Light with Shadow Patterns" — 12/12 variants updated
+✅ "Dandelion Crystal Chandeli✅ "Dandelion Crystal Chandelier - Modern Statement Ligh✅ "Nordic Minimalist Chandeli✅ "Nordic Minimalist Chandelier Modern Living Room L✅ "Modern Macaron Aluminum Pe✅ "Modern Macaron Aluminum Pendant Light Collec✅ "Wrought Iron LED Pendant L✅ "Wrought Iron LED Pendant Light - Industrial De✅ "Modern Flush Mount Ceiling✅ "Modern Flush Mount Ceiling Light for Hallways & Bedr✅ "Solar LED Garden Light wit✅ "Solar LED Garden Light with Motion Se✅ "Modern Minimalist Bedside ✅ "Modern Minimalist Bedside Table ✅ "Industrial Retro Wrought I✅ "Industrial Retro Wrought Iron Flute Wall Sc✅ "Vintage Wall Sconce for Ha✅ "Vintage Wall Sconce for Hallways & TV Accent Lighting" — 1/1 variants updated
+
+════════════════════════════════════
+Fixed: 93 variants
+Skipped (already manage_inventory=false): 186
+Failed: 0
+════════════════════════════════════
+
+Report saved to reports/fix-orphaned-variants-live.json

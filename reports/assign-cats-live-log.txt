@@ -1,0 +1,874 @@
+
+╔══════════════════════════════════════════════════════════╗
+║      ASSIGN PRODUCTS TO CATEGORIES          ║
+╚══════════════════════════════════════════════════════════╝
+
+1. Authenticating...
+   ✓ Authenticated
+
+2. Fetching all products and categories...
+   ✓ 803 products, 371 categories fetched
+
+3. Analysis:
+   Products needing assignment:   803
+   Already have categories:       0
+   Unresolvable (no type/class):  0
+
+   Breakdown by type:
+     Chandeliers     (301 products)
+     Table & Floor   (163 products)
+     Wall            (132 products)
+     Pendants        (116 products)
+     Ceiling         (59 products)
+     Outdoor         (23 products)
+     Accessories     (9 products)
+
+   Total subcategory assignments:  1669
+
+4. Assigning categories...
+
+   [1/803] ✓ Crystal Glass LED Pendant Light - Post-M  → Pendants + Contemporary
+   [2/803] ✓ Villa Duplex Large Crystal Chandelier fo  → Chandeliers + Crystal + Large
+   [3/803] ✓ Nordic Minimalist LED Wall Sconce Light  → Wall + Indoor + Modern
+   [4/803] ✓ Smart Modern Chandelier for Living & Din  → Chandeliers + Modern
+   [5/803] ✓ Modern LED Balcony Ceiling Chandelier  → Chandeliers + LED + Modern
+   [6/803] ✓ Modern Artistic Study Chandelier for Cre  → Chandeliers + Artistic + Modern
+   [7/803] ✓ Industrial Wrought Iron Penda   [301/803] ✓ Motion Sensor LED Wall Sconce for Bedroo  → Wall + Smart Lights
+   [351/803] ✓ Nordic Single Head Pendant Light for Din  → Pendants
+   ⟳ 502 — retry 1/3 in 2000ms
+   ⟳ 502 — retry 2/3 in 4000ms
+   [352/803] ✗ Art Deco Window Panel Chandelier - Retro Amer: Medusa API 502: Application failed to respond
+   ⟳ 502 — retry 1/3 in 2000ms
+   [401/803] ✓ Macaron Pendant Light - Colorful Bedside  → Pendants + Decorative
+   ⟳ 502 — retry 1/3 in 2000ms
+   [451/803] ✓ Industrial Hemp Rope Chandelier with Vin  → Chandeliers + Industrial + Lighting + Natural Materials + Rustic
+   [501/803] ✓ Japanese Ceramic Pendant Light - Retro D  → Pendants + Ceramic + Traditional
+   [551/803] ✓ Modern Minimalist Chinese Wall Sconce  → Wall + Asian Inspired + Modern
+   ⟳ 502 — retry 1/3 in 2000ms
+   ⟳ 502 — retry 2/3 in 4000ms
+   [600/803] ✗ Round Feather Chandelier - Bohemian Statement: Medusa API 502: Application failed to respond
+   ⟳ 502 — retry 1/3 in 2000ms
+   [601/803] ✓ Large Industrial Cage Chandelier  → Chandeliers + Industrial + Large
+   ⟳ 502 — retry 1/3 in 2000ms
+   ⟳ 502 — retry 1/3 in 2000ms
+   ⟳ 502 — retry 2/3 in 4000ms
+   [640/803] ✗ Industrial Wire Cage Pendant Light - Vintage : Medusa API 502: Application failed to respond
+   ⟳ 502 — retry 1/3 in 2000ms
+   [651/803] ✓ Rustic Rattan Ball Pendant Light for Res  → Pendants + Rustic
+   [701/803] ✓ Retro Single Head Mini Chandelier - Crea  → Chandeliers + Small + Vintage
+   [751/803] ✓ Modern Wrought Iron Glass Wall Sconce  → Wall + Modern
+   [801/803] ✓ Modern Bedroom Pendant Light with Geomet  → Pendants + Modern
+   [803/803] ✓ Modern Gold Wall Sconce - Luxury Minimal  → Wall + Gold Finish + Modern
+
+═══════════════════════════════════════════════════════════
+  SUMMARY
+═══════════════════════════════════════════════════════════
+  Products processed:     803
+  Successfully assigned:  800
+  Errors:                 3
+═══════════════════════════════════════════════════════════
+
+Report written to: /Users/matthewsimon/Projects/elvato/reports/assign-cats-live.json
+
+   [33/803] ✓ Modern Waterproof LED Exterior Wall Ligh  → Outdoor + Lighting + Wall Lights
+   [34/803] ✓ Solar Step Light for Outdoor Stairs & Wa  → Outdoor + Pathway Lights + Step Lights
+   [35/803] ✓ Vintage Industrial Wall Sconce Light  → Wall + Vintage
+   [36/803] ✓ Industrial Retro Wall Sconce - Staircase  → Wall + Industrial + Retro
+   [37/803] ✓ Nordic Glass Wall Sconce Designer Lamp  → Wall + Modern + Nordic
+   [38/803] ✓ Rainbow Projection Night Light - Ambient  → Accessories + LED + Projection + Rainbow
+   [39/803] ✓ LED Tulip Flower Table Lamp - Artificial  → Table & Floor + Decorative + Floral + LED
+   [40/803] ✓ Modern Marble Bedroom Chandelier - Minim  → Chandeliers + Marble + Modern
+   [41/803] ✓ Glass Tassel Chandelier - Modern Elegant  → Chandeliers + Glass + Modern
+   [42/803] ✓ Stained Glass Bedside Chandelier - Artis  → Chandeliers + Artistic
+   [43/803] ✓ Colorful Glass Globe Chandelier - Macaro  → Chandeliers + Contemporary + Glass
+   [44/803] ✓ Donut Ring LED Wall Light - Modern Circl  → Wall + Bedroom + Decorative + Modern
+   [45/803] ✓ Industrial Plant Chandelier - Living Gar  → Chandeliers + Garden Lights + Hanging Planters + Industrial
+   [46/803] ✓ Kids Dining Room Chandelier - Modern Min  → Chandeliers + Contemporary + Lighting + Modern
+   [47/803] ✓ Japanese Style Retro Bamboo Chandelier  → Chandeliers + Lighting
+   [48/803] ✓ Japanese Style Fabric Hanging Lantern  → Pendants
+   [49/803] ✓ Modern LED Wall Strip Light - Soft Ambie  → Wall + LED Strips + Modern
+   [50/803] ✓ Modern Glass Globe Pendant Light - Singl  → Pendants + Glass + Modern
+   [51/803] ✓ Nordic Minimalist Resin Art Chandelier  → Chandeliers + Modern
+   [52/803] ✓ Nordic Minimalist Vertical Table Lamp -   → Table & Floor + Modern
+   [53/803] ✓ Nordic Tassel Pendant Light Modern Minim  → Pendants + Modern
+   [54/803] ✓ Modern Bamboo Woven Chandelier  → Chandeliers + Natural Materials
+   [55/803] ✓ Nordic Linear Bar Table Lamp - Minimalis  → Table & Floor + Lighting + Modern + Nordic
+   [56/803] ✓ Nordic Flower Pendant Light - Modern Min  → Pendants + Modern
+   [57/803] ✓ Industrial Vintage Table Lamp with Metal  → Table & Floor + Industrial + Vintage
+   [58/803] ✓ Nordic Retro Pendant Light Collection  → Pendants + Nordic + Retro
+   [59/803] ✓ Lotus Leaf Designer Wall Light - Modern   → Wall + Bedroom + Botanical + Modern + Sculptural
+   [60/803] ✓ Modern Minimalist LED Ceiling Light - Cr  → Ceiling + Contemporary + Modern
+   [61/803] ✓ Industrial Wrought Iron Single Head Chan  → Chandeliers + Industrial + Metal
+   [62/803] ✓ Modern Outdoor Wall Light - Waterproof V  → Outdoor + Modern + Wall Sconces
+   [63/803] ✓ Stained Glass Wall Sconce - Corridor & H  → Wall + Traditional
+   [64/803] ✓ Industrial Iron Wall Sconce - Modern Cor  → Wall + Black Metal + Covered Areas + Industrial + Restaurant
+   [65/803] ✓ Nordic Solid Wood Wall Sconce - Minimali  → Wall + Hallway + Lighting + Modern + Wood
+   [66/803] ✓ Solar Torch Light - Waterproof LED Garde  → Outdoor + Garden Lights + Torch Lights
+   [67/803] ✓ Spherical Moon Globe Chandelier for Dini  → Chandeliers + Modern + Spherical
+   [68/803] ✓ Eagle Statement Chandelier - Bold Wildli  → Chandeliers + Wildlife Theme
+   [69/803] ✓ Geometric Glass Candle Pendant Ornament  → Pendants + Decorative
+   [70/803] ✓ Modern Up Down Wall Sconce Light Fixture  → Wall + Modern + Up Down Lights + Wall Mounted
+   [71/803] ✓ LED Bathroom Mirror Wall Light - Modern   → Wall + Lighting Fixtures + Modern + Wall Mounted
+   [72/803] ✓ Solar LED Starburst Light - Decorative F  → Outdoor + LED + Solar
+   ⟳ 502 — retry 1/3 in 3000ms
+   ⟳ 502 — retry 2/3 in 6000ms
+   [73/803] ✓ Solar LED Chandelier with Remote Control  → Chandeliers + Solar Lights + Solar Powered + Wireless
+   [74/803] ✓ Modern LED Desk Lamp with Night Light Fu  → Table & Floor + Modern
+   [75/803] ✓ Modern Round Wall Sconce Light for Livin  → Wall + Accent Lights + Lighting + Modern
+   [76/803] ✓ Modern Minimalist Single Drop Chandelier  → Chandeliers + Modern + Single Drop
+   [77/803] ✓ Retro Industrial Wire Cage Pendant Light  → Pendants + Industrial + Vintage
+   [78/803] ✓ Solar LED Stair Lights - Waterproof Outd  → Outdoor + Pathway Lights
+   [79/803] ✓ Solar LED Wall Light with Shadow Pattern  → Outdoor
+   [80/803] ✓ Luxury Copper Crystal Bedside Chandelier  → Chandeliers + Luxury
+   [81/803] ✓ Waterproof LED Step Light for Outdoor Pa  → Outdoor + Pathway Lights + Step Lights
+   [82/803] ✓ Recessed LED Step Light - Waterproof Out  → Outdoor + Step Lights
+   [83/803] ✓ 16-Inch LED Recessed Downlight - Modern   → Ceiling + Downlights + Recessed Lights
+   [84/803] ✓ Solar LED Stair Light for Garden & Court  → Outdoor + Motion Lights + Pathway Lights
+   [85/803] ✓ Nordic Creative Wall Light for Living Ro  → Wall + Lighting + Modern + Wall Mounted
+   [86/803] ✓ Industrial Iron Cage Chandelier - Vintag  → Chandeliers + Industrial
+   [87/803] ✓ Nordic Minimalist LED Table Lamp for Bed  → Table & Floor + Bedside + Lighting + Modern + Nordic
+   [88/803] ✓ Modern Wrought Iron Bedside Wall Sconce  → Wall + Industrial
+   [89/803] ✓ Bamboo Woven Chandelier - Chinese Pastor  → Chandeliers + Natural Materials
+   [90/803] ✓ Modern Designer Bedside Table Lamp  → Table & Floor + Bedside + Lighting + Modern
+   [91/803] ✓ Nordic Single Head Mini Chandelier for M  → Chandeliers
+   [92/803] ✓ Modern Minimalist Bedside Table Lamp  → Table & Floor + Lighting + Modern
+   [93/803] ✓ Creative Designer Table Lamp - Modern Pe  → Table & Floor + Designer + Modern
+   [94/803] ✓ Postmodern Designer Bedroom Table Lamp  → Table & Floor + Contemporary
+   [95/803] ✓ Creative Designer Table Lamp for Living   → Table & Floor + Designer + Modern + Task Lighting
+   [96/803] ✓ Nordic Designer Bedroom Wall Light - Lux  → Wall + Modern
+   [97/803] ✓ Italian Crystal Ceiling Lamp - Luxury Mo  → Ceiling + Ceiling Fixtures + Crystal + Italian Design
+   [98/803] ✓ Modern Minimalist Bedside Table Lamp for  → Table & Floor + Contemporary + Lighting + Modern
+   [99/803] ✓ Modern Round Chandelier - Ultra-Thin 3-L  → Chandeliers + Modern
+   [100/803] ✓ Modern Cement Glass Table Lamp - Industr  → Table & Floor + Modern
+   [101/803] ✓ Modern Minimalist Duplex Living Room Cha  → Chandeliers + Living Room + Modern
+   [102/803] ✓ Nordic Round Glass Pendant Light  → Pendants + Glass + Nordic
+   [103/803] ✓ Modern Minimalist Ceiling Light - Living  → Ceiling + Lighting + Minimalist + Modern
+   [104/803] ✓ Modern Minimalist Table Lamp for Bedroom  → Table & Floor + Lighting + Modern + Table Lamps
+   [105/803] ✓ Modern LED Ring Chandelier - Minimalist   → Chandeliers + Modern
+   [106/803] ✓ Modern Minimalist Creative Table Lamp  → Table & Floor + Modern
+   [107/803] ✓ Modern LED Acrylic Chandelier with Iron   → Chandeliers + Modern
+   [108/803] ✓ Modern Minimalist Bar Pendant Light  → Pendants + Contemporary + Industrial + Modern
+   [109/803] ✓ Nordic Disc LED Ceiling Light - Modern F  → Ceiling + Flush Mount + Lighting + Modern
+   [110/803] ✓ Modern Minimalist Creative Wall Sconce L  → Wall + Modern
+   [111/803] ✓ Modern Minimalist Bar Chandelier - Creat  → Chandeliers + Contemporary + Minimalist + Modern + Restaurant
+   [112/803] ✓ Modern Minimalist Chandelier for Dining   → Chandeliers + Modern
+   [113/803] ✓ Modern American Style Bedside Table Lamp  → Table & Floor + American Style + Bedside + Lighting + Modern
+   [114/803] ✓ Modern Single Head Bar Pendant Light  → Pendants + Industrial + Modern
+   [115/803] ✓ Vintage Glass Globe Pendant Light - Amer  → Pendants + Glass + Pendant Lights + Vintage
+   [116/803] ✓ Modern Glass Living Room Chandelier - Mi  → Chandeliers + Contemporary + Modern
+   [117/803] ✓ Rotatable Modern Minimalist Dining Room   → Chandeliers + Modern
+   [118/803] ✓ Portable Camping Light with Humidifier F  → Outdoor + Lighting + Portable
+   [119/803] ✓ Nordic Geometric Table Lamp - Modern Min  → Table & Floor + Geometric + Lighting + Modern
+   [120/803] ✓ Nordic Wood Ring Pendant Light - Macaron  → Pendants + Modern
+   [121/803] ✓ Handwoven Bamboo Chandelier - Natural Bo  → Chandeliers + Bamboo + Lighting + Natural Materials
+   [122/803] ✓ Modern Minimalist Hallway Wall Sconce  → Wall + Hallway + Modern
+   [123/803] ✓ Modern Bar Chandelier - Minimalist Resta  → Chandeliers + Linear + Modern
+   [124/803] ✓ Nordic Minimalist Linear Wall Sconce Set  → Wall + Modern + Nordic
+   [125/803] ✓ Ceramic Figure Table Lamp with Sculptura  → Table & Floor + Artistic + Ceramic + Decorative
+   [126/803] ✓ French Brass Flower Bud Chandelier in Cr  → Chandeliers + Brass + Lighting + Traditional
+   [127/803] ✓ Modern Solid Wood Single Pendant Light  → Pendants + Contemporary + Modern + Wood
+   [128/803] ✓ Industrial Wall Sconce Dual Light Wrough  → Wall + Industrial
+   [129/803] ✓ Nordic Ring Wall Sconce - Modern Minimal  → Wall + Lighting + Modern + Sconces + Wall Mounted
+   [130/803] ✓ Nordic Industrial Moon Lamp Chandelier  → Chandeliers + Industrial + Nordic + Scandinavian
+   [131/803] ✓ Modern Bathroom Vanity Mirror Light Wall  → Wall + Bathroom + Lighting + Modern + Wall Mounted
+   [132/803] ✓ Minimalist Creative Bedside Chandelier  → Chandeliers + Modern
+   [133/803] ✓ Modern LED Wall Sconce for Bedrooms  → Wall + Modern
+   [134/803] ✓ Modern Touch Control Bedside Table Lamp  → Table & Floor + Lighting + Modern
+   [135/803] ✓ Modern Globe Table Lamp - Minimalist Bed  → Table & Floor + Bedside + Lighting + Modern
+   [136/803] ✓ Luxury Marble Base Table Lamp - Postmode  → Table & Floor + Contemporary + Luxury
+   [137/803] ✓ Modern Brass Glass Globe Pendant Light -  → Pendants + Modern
+   [138/803] ✓ Nordic Minimalist Luxury Bedside Table L  → Table & Floor + Bedside + Lighting + Luxury + Nordic
+   [139/803] ✓ Modern Double Horn Wall Sconce - Adjusta  → Wall + Contemporary + Modern + Reading Lights
+   [140/803] ✓ Nordic Minimalist Table Lamp - Modern Be  → Table & Floor + Scandinavian
+   [141/803] ✓ Modern Square Pendant Light - Minimalist  → Pendants + Contemporary + Modern
+   [142/803] ✓ Modern LED Chandelier for Living Room -   → Chandeliers + Contemporary + Minimalist + Modern
+   [143/803] ✓ Pink Princess Table Lamp for Kids Bedroo  → Table & Floor + Kids + Lighting + Pink
+   [144/803] ✓ Waterproof LED Outdoor Wall Light - Supe  → Outdoor + Wall Mounted + Wall Sconces
+   [145/803] ✓ Modern Minimalist Table Lamp - Contempor  → Table & Floor + Modern
+   [146/803] ✓ Luxury Copper Table Lamp - Elegant Bedsi  → Table & Floor + Copper + Lighting + Luxury
+   [147/803] ✓ Art Glass Pendant Light - Single Head Ha  → Pendants + Art Glass + Bar Lighting + Single Head
+   [148/803] ✓ Modern American Metal Desk Lamp with Adj  → Table & Floor + Desk Lamps + Lighting + Modern
+   [149/803] ✓ Modern Solar Wall Light - Waterproof Out  → Outdoor + Wall Sconces
+   [150/803] ✓ Luxury Crystal Wall Sconce - Modern Art   → Wall + Modern
+   [151/803] ✓ Nordic Minimalist Table Lamp - Modern Li  → Table & Floor + Modern
+   [152/803] ✓ Japanese Zen Rattan Chandelier - Woven B  → Chandeliers + Bohemian + Lighting + Rattan
+   ⟳ timeout — retry 1/3 in 3000ms
+   ⟳ timeout — retry 2/3 in 6000ms
+   [153/803] ✗ Modern Linear Pendant Light with Adjustable H: Fetch failed after 3 attempts: This operation was aborted
+   [154/803] ✓ American Classic Ceramic Table Lamp  → Table & Floor + Ceramic + Classic + Lighting
+   [155/803] ✓ Rechargeable Wireless Wall Sconce - Mode  → Wall + Modern
+   [156/803] ✓ Nordic Fabric Table Lamp - Minimalist Li  → Table & Floor + Fabric Shade + Lighting + Modern + Table Lamps
+   [157/803] ✓ Whimsical Giraffe Table Lamp for Kids Be  → Table & Floor + Kids + Lighting
+   [158/803] ✓ Luxury Copper Walnut Bar Pendant Light  → Pendants + Modern + Pendant Lights
+   [159/803] ✓ Scandinavian Modern Bedroom Table Lamp -  → Table & Floor + Lighting + Modern + Scandinavian + Table Lamps
+   [160/803] ✓ Chinese Style Luxury Bedside Table Lamp  → Table & Floor + Lighting + Table Lamps + Traditional
+   [161/803] ✓ Modern Minimalist Ceiling Chandelier  → Chandeliers + Contemporary + Modern
+   [162/803] ✓ Nordic Minimalist Branch Chandelier - De  → Chandeliers + Ceiling Lights + Modern
+   [163/803] ✓ Modern Glass Table Lamp - Creative Minim  → Table & Floor + Modern
+   [164/803] ✓ Industrial Bar Table Pendant Light for D  → Pendants + Industrial
+   [165/803] ✓ Nordic Glass Ball Marble Table Lamp  → Table & Floor + Lighting + Marble + Modern
+   [166/803] ✓ Nordic Ceramic Table Lamp with Soft Ligh  → Table & Floor + Lighting
+   [167/803] ✓ Modern Minimalist Floor Lamp for Bedroom  → Table & Floor + Lighting + Modern
+   [168/803] ✓ Round Glass Wall Sconce - Modern Bedside  → Wall + Modern
+   [169/803] ✓ Minimalist Vertical Table Lamp for Moder  → Table & Floor + Lighting + Modern
+   [170/803] ✓ Modern LED Chandelier for Dining Room &   → Chandeliers + Ceiling Lights + Lighting + Modern
+   [171/803] ✓ Modern Tripod Desk Lamp - Minimalist Des  → Table & Floor + Desk Lamps + Lighting + Modern
+   [172/803] ✓ Modern Chinese Inspired Designer Table L  → Table & Floor + Contemporary + Designer + Modern + Table Lamps
+   [173/803] ✓ Nordic Minimalist Bedside Table Lamp  → Table & Floor + Modern + Nordic
+   [174/803] ✓ Chinese Ceramic Art Table Lamp with Arti  → Table & Floor + Ceramic + Decorative + Lighting
+   [175/803] ✓ Nordic Minimalist Bedside Table Lamp  → Table & Floor
+   [176/803] ✓ Nordic Glass Globe Pendant Light - Macar  → Pendants + Modern
+   [177/803] ✓ Classical Bedside Table Lamp - Elegant S  → Table & Floor + Traditional
+   [178/803] ✓ UFO Wood Grain Table Lamp with Mushroom   → Table & Floor + Modern
+   [179/803] ✓ Modern Minimalist Solid Wood Table Lamp  → Table & Floor + Lighting + Modern + Wood
+   [180/803] ✓ Modern Minimalist Table Lamp for Living   → Table & Floor + Lighting + Minimalist + Modern
+   [181/803] ✓ Modern Tripod Table Lamp with Wooden Leg  → Table & Floor + Modern + Scandinavian
+   [182/803] ✓ Minimalist Bedroom Bedside Table Lamp  → Table & Floor + Bedside + Lighting + Modern
+   [183/803] ✓ Art Glass Linear Copper Chandelier for D  → Chandeliers + Copper + Linear + Modern
+   [184/803] ✓ Nordic Arc Floor Lamp with Adjustable Re  → Table & Floor + Modern + Reading Lamps
+   [185/803] ✓ Zen Rattan Woven Chandelier Light  → Chandeliers + Bohemian + Natural Materials
+   [186/803] ✓ Modern Glass Table Lamp for Bedroom & Li  → Table & Floor + Glass + Lighting + Modern
+   [187/803] ✓ Modern Aluminum Chain Tassel Wall Sconce  → Wall + Contemporary + Modern
+   [188/803] ✓ Nordic Minimalist Chandelier - Multi-Roo  → Chandeliers + Contemporary + Lighting + Modern
+   [189/803] ✓ Solar Waterproof Lawn Light - Modern Out  → Outdoor + Pathway Lights + Solar
+   [190/803] ✓ Handmade Bamboo Table Lamp - Natural Pas  → Table & Floor + Handcrafted + Natural Materials + Pastoral
+   [191/803] ✓ Modern Crystal Table Lamp with Elegant B  → Table & Floor + Crystal + Modern
+   [192/803] ✓ Luxury Glass Pendant Light with Dimmer C  → Pendants + Glass + Modern
+   [193/803] ✓ Japanese Rattan Floor Lamp - Woven Art D  → Table & Floor + Japanese Style + Lighting + Natural Materials + Rattan
+   [194/803] ✓ Luxury Copper Chandelier - Modern Living  → Chandeliers + Copper + Modern
+   [195/803] ✓ French Luxury Crystal Table Lamp  → Table & Floor + Crystal + Luxury
+   [196/803] ✓ Modern LED Bedside Table Lamp with Touch  → Table & Floor + Modern
+   [197/803] ✓ Modern LED Outdoor Wall Light - Rainproo  → Wall + Modern + Outdoor + Wall Mounted
+   [198/803] ✓ Nordic Style Wall Sconce - Minimalist De  → Wall
+   [199/803] ✓ Industrial Hemp Rope Pendant Light - Vin  → Pendants + Industrial + Restaurant + Rustic
+   [200/803] ✓ Modern Designer Wall Light - Minimalist   → Wall + Contemporary + Designer + Modern
+   [201/803] ✓ Industrial Loft Wind Chandelier  → Chandeliers + Industrial + Modern
+   [202/803] ✓ Terrazzo Resin Mini Chandelier - Modern   → Chandeliers + Modern
+   [203/803] ✓ Warm LED Room Lamp - Romantic Ambient Li  → Table & Floor + LED + Modern + Warm Light
+   [204/803] ✓ Modern Corner Atmosphere Lamp - Ambient   → Table & Floor + Atmosphere Lamps + Corner Lamps + Lighting Accents + Modern
+   [205/803] ✓ Nordic Glass Pendant Light - Single Head  → Pendants + Lighting + Modern + Single Head
+   [206/803] ✓ Artistic Twig Branch Floor Lamp  → Table & Floor + Artistic + Contemporary
+   [207/803] ✓ Japanese Silk Chandelier - Modern Asian   → Chandeliers + Silk
+   [208/803] ✓ Eclipse Marble LED Wall Sconce - Modern   → Wall + Modern
+   [209/803] ✓ Vintage Brass Glass Chandelier  → Chandeliers + Brass + Vintage
+   [210/803] ✓ Nordic Minimalist Chandelier Modern Rest  → Chandeliers + Modern
+   [211/803] ✓ Industrial Bar Chandelier - Commercial G  → Chandeliers + Industrial
+   [212/803] ✓ Modern Luxury Glass Bubble Chandelier  → Chandeliers + Glass + Modern
+   [213/803] ✓ Crystal Single Light Mini Chandelier for  → Chandeliers + Traditional
+   [214/803] ✓ Nordic Modern Chandelier - Creative Mini  → Chandeliers + Modern
+   [215/803] ✓ Modern Square LED Wall Sconce  → Wall + Modern + Wall Mounted
+   [216/803] ✓ Irregular Lava Table Lamp with Modern Ar  → Table & Floor + Modern
+   [217/803] ✓ Nordic Three-Head Dining Chandelier  → Chandeliers + Lighting + Modern
+   [218/803] ✓ Smart Eye Care LED Desk Lamp with Touch   → Table & Floor + Desk Lamps + Lighting + Task Lighting
+   [219/803] ✓ Moon Shadow Crescent Pendant Light - Bed  → Pendants + Modern
+   [220/803] ✓ Rustic Log Art Wall Lamp  → Wall + Rustic + Wood
+   [221/803] ✓ French Bistro Chandelier for Dining Room  → Chandeliers + Traditional
+   ⟳ 502 — retry 1/3 in 3000ms
+   [222/803] ✓ Romantic Bedroom Table Lamp - Warm Ambie  → Table & Floor + Bedroom + Lighting + Modern
+   [223/803] ✓ Japanese Wood Bird Chandelier with LED L  → Pendants + Asian Inspired + Natural Materials + Wood
+   [224/803] ✓ Classic Bedside Wall Sconce Light  → Wall + Classic + Restaurant
+   [225/803] ✓ Retro Wood Wire Cage Table Lamp  → Table & Floor + Industrial + Lighting + Vintage
+   [226/803] ✓ Minimalist Creative Bedroom Table Lamp  → Table & Floor + Lighting + Minimalist + Modern
+   [227/803] ✓ Modern Touch Control Bedside Table Lamp  → Table & Floor + Modern
+   [228/803] ✓ Retractable Umbrella Chandelier with Des  → Chandeliers + Designer + Modern
+   [229/803] ✓ Mediterranean Coastal Bedside Table Lamp  → Table & Floor + Mediterranean + Table Lamps
+   [230/803] ✓ LED Desk Lamp with Eye Protection Techno  → Table & Floor + Desk Lamps + Lighting + Lighting Solutions
+   [231/803] ✓ Modern Metal LED Ceiling Light - Sleek C  → Ceiling + Flush Mount + Modern
+   [232/803] ✓ Modern Canteen Pendant Light - Luxury Mi  → Pendants + Luxury + Modern
+   [233/803] ✓ Nordic Creative Dining Table Pendant Lig  → Pendants + Modern
+   [234/803] ✓ Vintage Multi-Color Glass Bubble Chandel  → Chandeliers + Colored Glass + Vintage
+   [235/803] ✓ Modern Linear Hallway Light Fixture - Mi  → Pendants + Modern
+   [236/803] ✓ Italian Modern Pendant Light for Dining   → Pendants + Modern
+   [237/803] ✓ Industrial Wood & Iron Cone Chandelier  → Chandeliers + Farmhouse + Industrial
+   [238/803] ✓ Rustic Twine Photo Display Pendant Light  → Pendants + Creative + Rustic + Themed
+   [239/803] ✓ Japanese Rattan Straw Hat Chandelier - V  → Chandeliers + Asian Inspired + Natural Materials + Rattan
+   [240/803] ✓ Planet Sphere Designer Chandelier - Mode  → Chandeliers + Designer + Modern
+   [241/803] ✓ Boho Woven Table Lamp - Natural Rattan D  → Table & Floor + Bohemian + Lighting + Natural Materials + Woven
+   [242/803] ✓ Industrial Concrete Wood Chandelier  → Chandeliers + Industrial + Modern
+   [243/803] ✓ Smart LED Table Lamp with Bluetooth Spea  → Table & Floor + Bluetooth Speakers + Connected Lighting + Smart Lamps
+   [244/803] ✓ Modern Wood Circle Pendant Light - Minim  → Pendants + Modern + Wood
+   [245/803] ✓ Minimalist Glass Bedside Wall Sconce - M  → Wall + Bedroom + Lighting + Modern
+   [246/803] ✓ Rustic Iron Chandelier - Antique Farmhou  → Chandeliers + Farmhouse + Lighting + Rustic
+   [247/803] ✓ Modern LED Ceiling Light - Minimalist At  → Ceiling + Contemporary + Modern
+   [248/803] ✓ Industrial Black Chandelier for Commerci  → Chandeliers + Ceiling Fixtures + Industrial + Modern
+   [249/803] ✓ Modern Nordic Bedside Table Lamp with Cr  → Table & Floor + Bedside + Contemporary + Modern
+   [250/803] ✓ Smart Modern Pendant Light with Intellig  → Pendants + Modern + Smart
+   [251/803] ✓ Modern Minimalist Table Lamp - Model 12  → Table & Floor + Contemporary + Lighting + Modern + Table Lamps
+   [252/803] ✓ Nordic Three-Head Bar Pendant Chandelier  → Chandeliers + Modern
+   [253/803] ✓ Modern Minimalist Bedside Lamp - Simple   → Table & Floor + Modern
+   [254/803] ✓ Modern Super Bright Living Room Floor La  → Table & Floor + Floor Lamps + Modern
+   [255/803] ✓ Bamboo Wicker Pendant Light - Retro Asia  → Pendants + Asian Inspired + Boho + Natural Materials
+   [256/803] ✓ Industrial Glass Chandelier with Metal F  → Chandeliers + Glass + Industrial + Lighting
+   [257/803] ✓ Vintage Industrial Restaurant Chandelier  → Chandeliers + Industrial + Vintage
+   [258/803] ✓ Modern Three-Light Art Chandelier for Di  → Chandeliers + Contemporary + Modern
+   [259/803] ✓ Modern Glass Globe Bedside Pendant Light  → Pendants + Modern
+   [260/803] ✓ Nordic Minimalist Wall Sconce for Bedroo  → Wall + Modern
+   [261/803] ✓ Modern Minimalist LED Pendant Light for   → Pendants + Modern
+   [262/803] ✓ Butterfly Chandelier - Artistic Indoor S  → Chandeliers + Ceiling Fixtures + Decorative + Nature Inspired
+   [263/803] ✓ Modern Spiral LED Touch Control Desk Lam  → Table & Floor + LED + Modern
+   [264/803] ✓ Modern Surface Mount Ceiling Light for M  → Ceiling + Ceiling Fixtures + Flush Mount + Modern + Multi-Room
+   [265/803] ✓ Modern UFO Glass Pendant Chandelier  → Chandeliers + Contemporary + Modern
+   [266/803] ✓ Small Wrought Iron Chandelier - Classic   → Chandeliers + Small + Traditional
+   [267/803] ✓ Markaron Small Crystal Chandelier - Mode  → Chandeliers + Decorative + Small
+   [268/803] ✓ Round Wood LED Ceiling Light - Modern No  → Ceiling + Lighting + Modern + Wood
+   [269/803] ✓ Modern Flush Mount Ceiling Light for Liv  → Ceiling + Ceiling Fixtures + Contemporary + Flush Mount + Modern
+   [270/803] ✓ Modern Creative Ceiling Light for Balcon  → Ceiling + Balcony + Modern
+   [271/803] ✓ Modern LED Ceiling Light - Minimalist De  → Ceiling + Lighting + Modern
+   [272/803] ✓ Art Deco Statement Light - Modern Luxury  → Pendants + Art Deco
+   [273/803] ✓ Modern Origami Pendant Light - Black & W  → Pendants + Artistic + Geometric + Lighting + Modern
+   [274/803] ✓ Nordic Half-Round Wooden Chandelier  → Chandeliers + Modern + Wood
+   [275/803] ✓ Nordic Five Star Ceiling Light - Modern   → Ceiling + Geometric + Lighting + Modern
+   [276/803] ✓ Modern Adjustable Piano Desk Lamp  → Table & Floor + Adjustable Lamps + Modern + Task Lighting
+   [277/803] ✓ Creative Glass Table Lamp with Natural L  → Table & Floor + Glass + Modern
+   ⟳ 502 — retry 1/3 in 3000ms
+   [278/803] ✓ Vintage Industrial Hanging Ceiling Lamp  → Pendants + Industrial + Retro + Vintage
+   [279/803] ✓ Luxury Crystal Wall Sconce - Modern Bedr  → Wall + Crystal + Wall Mounted
+   [280/803] ✓ Nordic Three-Light Mini Chandelier for D  → Chandeliers + Lighting
+   [281/803] ✓ Moroccan Stained Glass Chandelier - Wrou  → Chandeliers + Bohemian + Traditional
+   [282/803] ✓ Nordic Retro Minimalist Chandelier  → Chandeliers + Lighting + Minimalist
+   [283/803] ✓ Stepless Dimming LED Ceiling Light for L  → Ceiling + Dimmable + LED
+   [284/803] ✓ Modern Minimalist Ceiling Light - Artist  → Ceiling + Modern
+   [285/803] ✓ Modern LED Acrylic Chandelier with Fishi  → Chandeliers + Modern
+   [286/803] ✓ Industrial Water Pipe Wall Sconce - Stea  → Wall + Industrial + Steampunk
+   [287/803] ✓ European Angel Wall Sconce - Vintage Cre  → Wall + Decorative + Vintage
+   [288/803] ✓ Modern LED Bedroom Ceiling Light - Luxur  → Ceiling + LED + Modern
+   [289/803] ✓ Modern LED Wall Sconce for Bedrooms & Ha  → Wall + Lighting + Modern + Wall Mounted
+   [290/803] ✓ Enchanting Deer Night Light Creative Tab  → Table & Floor + Animal Themed + Decorative
+   [291/803] ✓ Nordic Industrial Mud Ceramic Pendant Li  → Pendants + Industrial + Modern + Nordic
+   [292/803] ✓ Nordic Minimalist Wall Sconce - Modern C  → Wall + Modern
+   [293/803] ✓ Cafe Brass Glass Chandelier - Vintage In  → Chandeliers + Brass + Lighting + Vintage
+   [294/803] ✓ Tree of Life Colorful Glass Ball Pendant  → Pendants + Decorative + Glass
+   [295/803] ✓ Retro Creative Dining Room Chandelier -   → Chandeliers + Retro
+   [296/803] ✓ Waterproof Outdoor Wall Light - Modern E  → Outdoor + Lighting + Wall Lights + Wall Sconces
+   [297/803] ✓ Crystal Modern Table Lamp for Bedroom &   → Table & Floor + Crystal + Lighting + Modern
+   [298/803] ✓ Modern Crystal Corridor Lamp - Minimalis  → Wall + Contemporary + Modern
+   [299/803] ✓ Nordic Minimalist Glass Dining Room Chan  → Chandeliers + Modern
+   [300/803] ✓ Modern Glass Globe Chandelier for Living  → Chandeliers + Glass + Globe Lights + Living Room + Modern
+   [301/803] ✓ Motion Sensor LED Wall Sconce for Bedroo  → Wall + Smart Lights
+   [302/803] ✓ Nordic Oval Halo Chandelier - Modern Min  → Chandeliers + Modern
+   [303/803] ✓ Rustic Bowl Ceiling Chandelier in Beige   → Chandeliers + Bowl Style + Rustic
+   [304/803] ✓ Minimalist Touch Wall Sconce for Corrido  → Wall + Modern
+   [305/803] ✓ Modern Glass Ceiling Light - Minimalist   → Ceiling + Modern
+   [306/803] ✓ Modern Glass Wall Sconce - Minimalist Li  → Wall + Glass + Modern
+   [307/803] ✓ Nordic Minimalist Bedside Pendant Light   → Pendants + Modern
+   [308/803] ✓ Modern Cylindrical Chandelier - Creative  → Chandeliers + Modern
+   [309/803] ✓ Industrial Studio Chandelier for Restaur  → Chandeliers + Industrial + Modern
+   [310/803] ✓ Retro Designer Lotus Leaf Chandelier  → Chandeliers + Retro
+   [311/803] ✓ Stained Glass Chandelier - Creative Rest  → Chandeliers + Stained Glass
+   [312/803] ✓ Ambient Night Light Bedside Chandelier  → Table & Floor + Ambient + Bedside + Decorative + Miniature
+   [313/803] ✓ Nordic Glass Globe Chandelier for Cafes   → Chandeliers + Modern
+   [314/803] ✓ Brass Marble Round Pendant Light - Moder  → Pendants + Brass + Marble + Modern + Pendant Lights
+   [315/803] ✓ Modern Multi-Arm Adjustable LED Pendant   → Pendants + Modern
+   [316/803] ✓ Nordic Wood Grain Ceiling Light - Round   → Ceiling + Lighting + Modern
+   [317/803] ✓ Vintage Brass Chandelier - Retro Nostalg  → Chandeliers + Brass + Vintage
+   [318/803] ✓ Minimalist Retro Bar Chandelier - Indust  → Chandeliers + Industrial + Lighting + Pendant Chandeliers
+   [319/803] ✓ American Colonial Glass Chandelier for B  → Chandeliers + Colonial Style + Dining Room + Traditional
+   [320/803] ✓ Postmodern Copper Crystal Chandelier  → Chandeliers + Modern
+   [321/803] ✓ Modern Concrete Pendant Chandelier - Ind  → Chandeliers + Concrete + Industrial + Modern
+   [322/803] ✓ Modern Glass Drop Chandelier - Minimalis  → Chandeliers + Modern
+   [323/803] ✓ Modern Restaurant Chandelier - Creative   → Chandeliers + Modern
+   [324/803] ✓ Japanese Glass Orb Chandelier - Minimali  → Chandeliers + Glass + Modern
+   [325/803] ✓ Modern UFO Chandelier - Minimalist Round  → Chandeliers + Contemporary + Lighting + Modern
+   [326/803] ✓ Modern Crystal Bar Chandelier - Minimali  → Chandeliers + Crystal + Modern
+   [327/803] ✓ Hand-Braided Bohemian Rope Chandelier  → Chandeliers + Bohemian + Lighting
+   [328/803] ✓ Nordic Custom Linear Chandelier - Extend  → Chandeliers + Lighting + Linear + Modern
+   [329/803] ✓ Copper Crystal Bedside Chandelier  → Chandeliers + Crystal
+   [330/803] ✓ Industrial Concrete Chandelier with Expo  → Chandeliers + Industrial + Modern
+   [331/803] ✓ Nordic Aluminum Bar Chandelier - Single   → Chandeliers + Modern
+   [332/803] ✓ Macaron Multi-Color Restaurant Chandelie  → Chandeliers + Contemporary + Lighting + Multi-Light
+   [333/803] ✓ Nordic Modern Minimalist Restaurant Chan  → Chandeliers + Contemporary + Modern + Restaurant
+   [334/803] ✓ Modern Wrought Iron Chandelier - Minimal  → Chandeliers + Industrial + Modern
+   ⟳ 502 — retry 1/3 in 3000ms
+   ⟳ 502 — retry 2/3 in 6000ms
+   [335/803] ✓ Modern Duplex Villa Floor Chandelier  → Chandeliers + Modern
+   [336/803] ✓ Nordic Post-Modern Dining Room Chandelie  → Chandeliers + Modern
+   [337/803] ✓ Nordic Linear Bar Chandelier - Modern St  → Chandeliers + Island Lights + Modern + Restaurant
+   [338/803] ✓ Modern Japanese Minimalist Bedside Chand  → Chandeliers + Modern
+   [339/803] ✓ Mediterranean Stained Glass Chandelier -  → Chandeliers + Stained Glass + Vintage
+   [340/803] ✓ Modern Cylindrical Tube Chandelier with   → Chandeliers + Contemporary + Linear + Modern
+   [341/803] ✓ Japanese Ceramic Linear Chandelier - Min  → Chandeliers + Linear + Modern
+   [342/803] ✓ Creative Single Head Chandelier for Dini  → Chandeliers + Modern + Small
+   [343/803] ✓ Nordic Modern Minimalist Restaurant Chan  → Chandeliers + Contemporary + Modern
+   [344/803] ✓ Woven Iron Multi-Light Chandelier - Indu  → Chandeliers + Industrial + Metal
+   [345/803] ✓ Nordic Crystal Chandelier - Postmodern B  → Chandeliers + Crystal + Nordic
+   [346/803] ✓ Astronaut Wall Sconce Kids Room Night Li  → Wall + Decorative + Kids + Lighting + Space
+   [347/803] ✓ Astronaut Kids Chandelier - Space Theme   → Chandeliers + Kids & Nursery
+   [348/803] ✓ Whimsical Kids Bedside Table Lamp - Crea  → Table & Floor + Kids + Lighting
+   [349/803] ✓ Nordic Concrete Chandelier Industrial Mo  → Chandeliers + Industrial + Modern
+   [350/803] ✓ Zen Retro Chandelier for Tea Tables & Ca  → Chandeliers + Retro
+   [351/803] ✓ Nordic Single Head Pendant Light for Din  → Pendants
+   ⟳ timeout — retry 1/3 in 3000ms
+   ⟳ 502 — retry 2/3 in 6000ms
+   [352/803] ✗ Art Deco Window Panel Chandelier - Retro Amer: Medusa API 502: Application failed to respond
+   ⟳ 502 — retry 1/3 in 3000ms
+   [353/803] ✓ Cloud Mesh Iron Chandelier - Woven Star   → Chandeliers + Industrial + Modern
+   [354/803] ✓ Nordic Glass Pendant Chandelier for Livi  → Chandeliers + Glass + Lighting
+   [355/803] ✓ Nordic Minimalist Bedside Pendant Light  → Pendants
+   [356/803] ✓ Modern LED Linear Dining Chandelier  → Chandeliers + Modern
+   [357/803] ✓ Industrial Edison Bulb Chandelier  → Chandeliers + Industrial
+   [358/803] ✓ Modern Minimalist Wall Sconce for Hallwa  → Wall + Lighting + Modern
+   [359/803] ✓ Modern Revolving Duplex Chandelier for L  → Chandeliers + Lighting + Modern
+   [360/803] ✓ Nordic Feather Table Lamp with Warm LED   → Table & Floor
+   [361/803] ✓ Nordic Retro Glass Chandelier for Dining  → Chandeliers + Glass
+   [362/803] ✓ Luxury Crystal Bedside Chandelier Table   → Table & Floor + Crystal + Lighting + Luxury + Mini
+   [363/803] ✓ Nordic Minimalist Chandelier - Modern Ho  → Chandeliers + Modern
+   [364/803] ✓ Japanese Pleated Paper Chandelier - Mode  → Chandeliers + Asian Inspired + Modern
+   [365/803] ✓ Modern LED Living Room Light - Minimalis  → Ceiling + Contemporary + Lighting + Modern
+   [366/803] ✓ Nordic Minimalist Wrought Iron Chandelie  → Chandeliers + Iron + Lighting + Modern
+   [367/803] ✓ Retro Wrought Iron Pendant Light - Indus  → Pendants + Industrial + Retro
+   [368/803] ✓ Modern Creative Wall Sconce - Minimalist  → Wall + Contemporary + Modern
+   [369/803] ✓ Modern Solid Wood Ceiling Light - Square  → Ceiling + Ceiling Fixtures + Modern + Wood
+   [370/803] ✓ Nordic Glass Pendant Chandelier Single D  → Pendants + Glass
+   [371/803] ✓ Modern Nordic Irregular Bedside Pendant   → Pendants + Modern
+   [372/803] ✓ Copper Crystal Chandelier Bedside Table   → Table & Floor + Lighting + Luxury + Mini
+   [373/803] ✓ Modern Nordic Pendant Light for Living R  → Pendants + Modern + Nordic
+   [374/803] ✓ Nordic Minimalist Dining Room Chandelier  → Chandeliers + Modern
+   [375/803] ✓ Smart Ceiling Fan Light with Variable Sp  → Ceiling + Ceiling Fans + LED Fan Lights + Smart Fans
+   [376/803] ✓ Japanese Vintage Brass Glass Chandelier  → Chandeliers + Brass + Vintage
+   [377/803] ✓ Modern Minimalist Creative Bedroom Table  → Table & Floor + Lighting + Minimalist + Modern
+   [378/803] ✓ Modern Nordic Bubble Glass Chandelier  → Chandeliers + Modern
+   [379/803] ✓ Japanese Style Small Chandelier  → Chandeliers + Ambient Lighting + Lighting
+   [380/803] ✓ Vintage Brass Glass Chandelier - Japanes  → Chandeliers + Brass + Japanese + Lighting + Vintage
+   [381/803] ✓ Modern Minimalist Dining Room Chandelier  → Chandeliers + Dining Room + Minimalist + Modern
+   [382/803] ✓ Crystal Glass Art Pendant Light for Rest  → Pendants + Artistic + Crystal + Lighting + Pendant Lights
+   [383/803] ✓ Vintage Brass Art Chandelier - Southeast  → Chandeliers + Brass + Vintage
+   [384/803] ✓ Rustic Industrial Vintage Chandelier  → Chandeliers + Industrial + Rustic
+   [385/803] ✓ Nordic Geometric Star Ceiling Light - Mo  → Ceiling + Ceiling Fixtures + Geometric + Lighting + Modern
+   [386/803] ✓ Creative Cloud Chandelier for Kids Room   → Chandeliers + Lighting + Modern
+   [387/803] ✓ Nordic Minimalist Hall Pendant Light  → Pendants + Nordic
+   [388/803] ✓ Nordic Minimalist Corridor Ceiling Light  → Ceiling + Modern
+   [389/803] ✓ Nordic Glass Wall Sconce - Postmodern De  → Wall + Modern + Nordic
+   [390/803] ✓ Nordic Wall Sconce - Modern Minimalist B  → Wall + Minimalist + Modern
+   ⟳ timeout — retry 1/3 in 3000ms
+   ⟳ timeout — retry 2/3 in 6000ms
+   [391/803] ✗ Modern LED Bathroom Mirror Light with Eye Pro: Fetch failed after 3 attempts: This operation was aborted
+   [392/803] ✓ LED Step Light Recessed Wall Fixture  → Wall + Modern + Recessed + Stair Lighting + Step Lights
+   [393/803] ✓ Nordic Glass Globe Pendant Light - Moder  → Pendants + Modern
+   [394/803] ✓ Modern Wall-Mounted Bedside Lamp with Sw  → Wall + Bedside
+   [395/803] ✓ Nordic Minimalist Linear Bar Chandelier  → Chandeliers + Island Lights + Lighting + Linear + Modern
+   [396/803] ✓ Modern Bay Window Reading Lamp for Bedsi  → Table & Floor + Reading Lamps + Study Lamps
+   [397/803] ✓ Modern Minimalist Bedside Wall Sconce  → Wall + Contemporary + Modern
+   [398/803] ✓ Modern Round Globe Pendant Light - Singl  → Pendants + Contemporary + Globe Lights + Modern
+   [399/803] ✓ Modern Double Head Wall Sconce - Adjusta  → Wall + Adjustable + Contemporary + Modern + Wall Mounted
+   [400/803] ✓ Postmodern Creative Wall Sconce for Livi  → Wall + Contemporary + Postmodern
+   [401/803] ✓ Macaron Pendant Light - Colorful Bedside  → Pendants + Decorative
+   [402/803] ✓ Scandinavian Modern Wall Sconce - Luxury  → Wall + Modern
+   [403/803] ✓ Adjustable Mirror Wall Sconce - Bedside   → Wall + Adjustable
+   [404/803] ✓ Colorful Pot Cover Chandelier with Moder  → Chandeliers + Colorful + Lighting + Modern
+   [405/803] ✓ Crystal Diamond Table Lamp - Romantic Ba  → Table & Floor + Crystal + Lighting + Modern
+   [406/803] ✓ Solid Wood LED Wall Sconce for Bedroom  → Wall + Modern
+   [407/803] ✓ Modern Minimalist Wall Lamp Sconce  → Wall + Minimalist + Modern
+   [408/803] ✓ Scandinavian Glass Table Lamp - Modern M  → Table & Floor + Lighting + Modern + Scandinavian
+   [409/803] ✓ Modern Designer Wall Sconce Bedside Lamp  → Wall + Modern
+   [410/803] ✓ Retro Minimalist Aisle Wall Sconce  → Wall + Minimalist + Retro
+   [411/803] ✓ Nordic Brass Bedside Wall Sconce - Retro  → Wall + Brass + Modern
+   [412/803] ✓ Modern Bedside Table Lamp for Living Roo  → Table & Floor + Bedside + Contemporary + Lighting + Modern
+   [413/803] ✓ Modern LED Reading Wall Light with Adjus  → Wall + Reading Lights + Wall Mounted
+   [414/803] ✓ Modern Crystal Table Lamp for Living Roo  → Table & Floor + Contemporary + Crystal + Lighting + Modern
+   [415/803] ✓ Modern Bedside Wall Sconce Light  → Wall + Modern
+   [416/803] ✓ Modern Shell Wall Sconce - Minimalist De  → Wall + Coastal + Modern
+   [417/803] ✓ Nordic LED Wall Sconce - Minimalist Beds  → Wall + Lighting + Modern
+   [418/803] ✓ Modern Linear Wall Sconce for Staircase   → Wall + Modern
+   [419/803] ✓ Colorful Round Macaron Eclipse Wall Scon  → Wall + Colorful + Modern
+   [420/803] ✓ Nordic Gold Linear Wall Sconce - Minimal  → Wall + Modern
+   [421/803] ✓ Scandinavian Modern Desk Lamp - Minimali  → Table & Floor + Modern
+   [422/803] ✓ Custom Glass Ceiling Light - Personalize  → Ceiling + Custom
+   [423/803] ✓ Golden Stainless Steel Bedroom Light Fix  → Ceiling + Luxury + Modern
+   [424/803] ✓ Creative Atmosphere LED Ceiling Light -   → Ceiling + Modern
+   [425/803] ✓ Modern LED Recessed Spotlight Ceiling Li  → Ceiling + Minimalist + Recessed + Spotlights
+   [426/803] ✓ Modern Minimalist Ceiling Light Fixture  → Ceiling + Minimalist + Modern
+   [427/803] ✓ Ultra-Thin LED Ceiling Light - Modern Mi  → Ceiling + Flush Mount + Minimalist + Modern
+   [428/803] ✓ Moon Phase LED Ceiling Light with Color   → Ceiling + Color Changing + LED + Modern + Space Theme
+   [429/803] ✓ Crystal Flush Mount Ceiling Light for En  → Ceiling + Flush Mount + Hallway + Modern
+   [430/803] ✓ Modern Ring LED Ceiling Light - Minimali  → Ceiling + Flush Mount + Modern
+   ⟳ timeout — retry 1/3 in 3000ms
+   ⟳ timeout — retry 2/3 in 6000ms
+   [431/803] ✗ Modern Rectangular LED Ceiling Light for Dini: Fetch failed after 3 attempts: This operation was aborted
+   [432/803] ✓ Nordic Fireworks LED Ceiling Light - Mod  → Ceiling + Contemporary + Lighting + Modern + Statement Pieces
+   [433/803] ✓ Modern Geometric Ceiling Light for Hallw  → Ceiling + Modern
+   [434/803] ✓ Nordic Round LED Ceiling Light - Modern   → Ceiling + LED + Lighting + Modern
+   [435/803] ✓ Nordic LED Ceiling Light - Minimalist De  → Ceiling + Flush Mount + Lighting + Modern
+   [436/803] ✓ Copper Glass Pendant Light - Luxury Sing  → Pendants + Artisan + Copper + Luxury
+   [437/803] ✓ Industrial Wrought Iron Ceiling Light -   → Ceiling + Industrial + Vintage
+   [438/803] ✓ Japanese Minimalist Ceiling Light for Be  → Ceiling + Minimalist + Modern
+   [439/803] ✓ Nordic Minimalist Corridor Ceiling Light  → Ceiling + Ceiling Fixtures + Flush Mount
+   [440/803] ✓ LED Crystal Tube Ceiling Spotlight for L  → Ceiling + Contemporary + Crystal + Modern + Spotlights
+   [441/803] ✓ Nordic Creative LED Ceiling Light for Be  → Ceiling + Ceiling Fixtures + Lighting + Modern
+   [442/803] ✓ Retro Space Age Modern Table Lamp  → Table & Floor + Lighting + Modern + Retro
+   [443/803] ✓ Modern Crystal Table Lamp - Elegant Beds  → Table & Floor + Crystal + Decorative + Modern
+   [444/803] ✓ Nordic Industrial Pendant Light - Creati  → Pendants + Industrial + Nordic
+   [445/803] ✓ Industrial Iron Birdcage Pendant Light -  → Pendants + Industrial + Vintage
+   [446/803] ✓ Modern Minimalist LED Wall Light Strip  → Wall + Wall Mounted
+   [447/803] ✓ Glass Tetrapod Industrial Table Lamp  → Table & Floor + Modern
+   [448/803] ✓ Nordic Industrial Macaron Pendant Light  → Pendants + Industrial + Nordic
+   [449/803] ✓ Nordic Industrial Gladiator Chandelier  → Chandeliers + Industrial
+   [450/803] ✓ Industrial Vintage Wall Sconce with Edis  → Wall + Industrial
+   [451/803] ✓ Industrial Hemp Rope Chandelier with Vin  → Chandeliers + Industrial + Lighting + Natural Materials + Rustic
+   [452/803] ✓ Industrial Black Metal Chandelier with E  → Chandeliers + Industrial + Modern
+   [453/803] ✓ Nordic Modern Luxury Crystal Chandelier  → Chandeliers + Modern + Nordic
+   [454/803] ✓ Modern Sphere Cage Pendant Light  → Pendants + Geometric + Modern + Pendant Lights
+   [455/803] ✓ Modern Colored Glass Bar Chandelier - Re  → Chandeliers + Contemporary + Glass + Modern
+   [456/803] ✓ Modern Glass Bar Chandelier - Minimalist  → Chandeliers + Modern
+   [457/803] ✓ Nordic Minimalist Creative Chandelier  → Chandeliers + Modern
+   [458/803] ✓ Nordic Modern Restaurant Chandelier - Cr  → Chandeliers + Modern
+   [459/803] ✓ Nordic Porcelain Pendant Light - Translu  → Pendants + Modern
+   [460/803] ✓ Luxury Rattan Chandelier - Artistic Stat  → Chandeliers + Lighting + Natural Materials
+   [461/803] ✓ Modern Copper Circle Pendant Light - Lux  → Pendants + Metal + Modern
+   [462/803] ✓ Modern Gold Mini Chandelier - Geometric   → Chandeliers + Gold Finish + Lighting + Modern + Small
+   [463/803] ✓ Modern Glass Bar Chandelier - Minimalist  → Chandeliers + Contemporary + Island Lights + Modern
+   [464/803] ✓ Modern Copper Chandelier - Restaurant &   → Chandeliers + Modern
+   [465/803] ✓ Modern Minimalist Multi-Room Chandelier  → Chandeliers + Contemporary + Minimalist + Modern
+   [466/803] ✓ Nordic Ring Chandelier Modern Minimalist  → Chandeliers + Modern + Nordic
+   [467/803] ✓ Golden Copper Linear Dining Room Chandel  → Chandeliers + Modern
+   [468/803] ✓ Nordic 3-Light Linear Dining Chandelier   → Chandeliers + Dining Room + Modern
+   [469/803] ✓ Nordic Cone Pendant Light - Macaron Colo  → Pendants + Modern
+   [470/803] ✓ Modern Glass Single Drop Chandelier  → Pendants + Contemporary + Modern
+   [471/803] ✓ Bamboo Lotus Petal Chandelier - Natural   → Chandeliers + Natural Materials
+   [472/803] ✓ Nordic Modern Linear Wall Sconce - Art L  → Wall + Modern
+   [473/803] ✓ Nordic Brass Pendant Light Modern LED Li  → Pendants + Brass + Contemporary + Lighting + Modern
+   [474/803] ✓ Japanese Bamboo Woven Pendant Chandelier  → Chandeliers + Asian Inspired + Lighting + Natural Materials
+   [475/803] ✓ Nordic Minimalist Dining Room Chandelier  → Chandeliers + Lighting + Modern
+   [476/803] ✓ Modern Artistic Branch Chandelier for Li  → Chandeliers + Artistic + Modern
+   [477/803] ✓ Modern LED Artistic Chandelier for Dinin  → Chandeliers + Modern
+   [478/803] ✓ Modern Streamer Chandelier - Creative Wa  → Chandeliers + Modern
+   [479/803] ✓ Copper Crystal Chandelier - Modern Minim  → Chandeliers + Copper + Modern
+   [480/803] ✓ Modern Cage Chandelier - Industrial Geom  → Chandeliers + Industrial + Modern
+   [481/803] ✓ Postmodern Metal Chandelier for Villa &   → Chandeliers + Metal + Modern
+   [482/803] ✓ Nordic Children's Room Chandelier - Mode  → Chandeliers + Lighting + Modern
+   [483/803] ✓ 3W LED Recessed Downlight - Modern Ceili  → Ceiling + Accent Lights + Downlights + Recessed
+   [484/803] ✓ Whimsical Squirrel Resin Chandelier for   → Chandeliers + Animal + Kids + Lighting
+   [485/803] ✓ Nordic Retro Minimalist Dining Room Chan  → Chandeliers + Lighting + Modern + Scandinavian
+   [486/803] ✓ Stained Glass Art Deco Chandelier - Mode  → Chandeliers + Art Deco + Colorful
+   [487/803] ✓ Artistic Geometric Chandelier for Dining  → Chandeliers + Contemporary
+   [488/803] ✓ Modern Copper Linear Bar Chandelier  → Chandeliers + Industrial + Modern
+   [489/803] ✓ Minimalist Small Chandelier for Dining R  → Chandeliers + Minimalist
+   [490/803] ✓ Crystal Glass Round Pendant Light - Luxu  → Pendants + Modern
+   [491/803] ✓ Nordic Stained Glass Dining Room Chandel  → Chandeliers + Lighting
+   [492/803] ✓ Nordic Crystal Chandelier - Luxury Moder  → Chandeliers + Crystal + Modern
+   [493/803] ✓ Rustic Hemp Rope Chandelier for Study &   → Chandeliers + Industrial + Rustic
+   [494/803] ✓ Modern Colored Glass Chandelier for Livi  → Chandeliers + Glass + Modern
+   [495/803] ✓ Art Glass Single Head Chandelier with LE  → Chandeliers + Glass + Modern
+   [496/803] ✓ Modern Glass Luxury Chandelier - Minimal  → Chandeliers + Glass + Modern
+   [497/803] ✓ Japanese Style Solid Wood Dining Room Ch  → Chandeliers + Lighting + Natural Materials + Rustic
+   [498/803] ✓ Small Crystal Chandelier for Dining & Be  → Chandeliers + Lighting
+   [499/803] ✓ Stained Glass Garden Chandelier - Americ  → Chandeliers + Lighting + Stained Glass + Traditional
+   [500/803] ✓ Retro Copper Glass Chandelier - Dining R  → Chandeliers + Vintage
+   [501/803] ✓ Japanese Ceramic Pendant Light - Retro D  → Pendants + Ceramic + Traditional
+   [502/803] ✓ All Copper American Style Chandelier  → Chandeliers + Traditional
+   [503/803] ✓ Modern LED Living Room Lamp - Minimalist  → Table & Floor + Contemporary + Lighting + Modern
+   [504/803] ✓ Modern Ice Block Crystal Wall Sconce Lig  → Wall + Modern
+   [505/803] ✓ Modern Crystal Table Lamp with Warm Crea  → Table & Floor + Contemporary + Crystal + Decorative + Modern
+   [506/803] ✓ Japanese Tatami Room Chandelier - Zen Te  → Chandeliers + Japanese + Natural Materials + Spa & Wellness
+   [507/803] ✓ Luxury Crystal Chandelier for Dining Roo  → Chandeliers + Crystal
+   [508/803] ✓ Industrial Engineering Chandelier - Mode  → Chandeliers + Industrial + Modern
+   [509/803] ✓ Modern Copper Crystal Chandelier - Three  → Chandeliers + Modern
+   [510/803] ✓ Modern Single Pendant Chandelier Light  → Pendants + Contemporary + Modern
+   [511/803] ✓ Nordic Wooden Ball Chandelier - Modern S  → Chandeliers + Lighting + Modern + Wood
+   [512/803] ✓ Nordic Industrial Glass Chandelier for M  → Chandeliers + Glass + Industrial + Lighting + Nordic
+   [513/803] ✓ Industrial Wood & Iron Pendant Light - V  → Pendants + Industrial + Vintage
+   [514/803] ✓ Nordic Mini Pendant Light with Geometric  → Pendants + Mini + Nordic
+   [515/803] ✓ Cartoon Character Night Light for Kids B  → Table & Floor + Cartoon + Kids + Lighting
+   [516/803] ✓ Japanese Porcelain Chandelier with Soft   → Chandeliers + Asian Inspired + Modern
+   [517/803] ✓ Triple Head Entrance Pendant Light  → Pendants + Contemporary
+   [518/803] ✓ Colorful Macaron Chandelier for Restaura  → Chandeliers + Colorful + Lighting + Multi-Color + Pendant Lights
+   [519/803] ✓ Industrial Wrought Iron Table Lamp - Vin  → Table & Floor + Industrial
+   [520/803] ✓ Wine Bottle Glass Chandelier - Nordic Cr  → Chandeliers + Modern
+   [521/803] ✓ Industrial Iron Pot Chandelier for Bar &  → Chandeliers + Industrial
+   [522/803] ✓ Modern LED Corridor Wall Light - Sleek A  → Wall + Modern
+   [523/803] ✓ Industrial Wrought Iron Wall Sconce - Lo  → Wall + Industrial + Metal
+   [524/803] ✓ Modern Linear LED Acrylic Wall Sconce -   → Wall + Lighting + Modern + Wall Mounted
+   [525/803] ✓ Modern Fist Resin Wall Sconce - Statemen  → Wall + Modern
+   [526/803] ✓ Industrial Water Pipe Wall Light Retro S  → Wall + Industrial + Steampunk
+   [527/803] ✓ Scandinavian Style Wall Sconce Light  → Wall + Lighting + Modern + Scandinavian
+   [528/803] ✓ Modern Bedside Wall Sconce with Adjustab  → Wall + Bedroom + Lighting
+   [529/803] ✓ Modern Ring Wall Sconce - Contemporary C  → Wall + Modern
+   [530/803] ✓ Modern Glass Wall Sconce - Minimalist Be  → Wall + Modern
+   [531/803] ✓ Industrial Pipe Wall Sconce - Vintage Wr  → Wall + Industrial + Vintage
+   [532/803] ✓ Modern Geometric Bedside Table Lamp  → Table & Floor + Bedside + Geometric + Lighting
+   [533/803] ✓ Cloud Star Designer Floor & Table Lamp  → Table & Floor + Decorative + Designer + Lighting + Modern
+   [534/803] ✓ Nordic Minimalist Creative Floor Lamp  → Table & Floor + Modern + Nordic
+   [535/803] ✓ Modern Double Pole Floor Lamp with Eye P  → Table & Floor + Floor Lamps + Lighting + Modern
+   [536/803] ✓ Vintage Iron Industrial Wall Sconce  → Wall + Industrial + Vintage
+   [537/803] ✓ Elegant Wedding Table Lamp for Bedroom &  → Table & Floor + Bedroom + Wedding
+   [538/803] ✓ Creative Bedside Wall Lamp - Modern Bedr  → Wall + Bedroom
+   [539/803] ✓ European Crystal Chandelier with Elegant  → Chandeliers + Crystal + Traditional
+   [540/803] ✓ Rustic Antler Bedside Table Lamp  → Table & Floor + Lighting + Rustic
+   [541/803] ✓ Minimalist Linear LED Pendant Light for   → Pendants + Linear + Modern
+   [542/803] ✓ Designer Wall Sconce for Modern Interior  → Wall + Modern
+   [543/803] ✓ Vintage Wrought Iron Wall Sconce with Ro  → Wall + Industrial + Vintage
+   [544/803] ✓ Natural Wood Aromatherapy Wax Melter Lam  → Table & Floor + Aromatherapy
+   [545/803] ✓ Modern Mesh Ceiling Light - Creative Des  → Ceiling + Flush Mount + Modern
+   [546/803] ✓ Nordic Minimalist Wall Sconce - Modern B  → Wall + Lighting + Modern
+   [547/803] ✓ Wireless Touch Dimming Table Lamp for Ou  → Table & Floor + Portable + Wireless
+   [548/803] ✓ Modern Circular LED Ceiling Light - Mini  → Ceiling + Contemporary + Modern
+   [549/803] ✓ Modern Remote Control Table Lamp with LE  → Table & Floor + Smart Lamps
+   [550/803] ✓ Modern Retro Wall Sconce - Vintage Indus  → Wall + Industrial + Vintage
+   ⟳ timeout — retry 1/3 in 3000ms
+   ⟳ timeout — retry 2/3 in 6000ms
+   [551/803] ✗ Modern Minimalist Chinese Wall Sconce: Fetch failed after 3 attempts: This operation was aborted
+   [552/803] ✓ Retro Swivel Wall Lamp - Adjustable Japa  → Wall + Adjustable + Bedside + Lighting + Swivel Lamps
+   [553/803] ✓ Nordic Copper Glass Sphere Pendant Light  → Pendants
+   [554/803] ✓ Industrial Wrought Iron LED Table Lamp w  → Table & Floor + Bedside + Industrial
+   [555/803] ✓ Geometric Modern Ceiling Light for Livin  → Ceiling + Modern
+   [556/803] ✓ European Style LED Desk Lamp with Plug-i  → Table & Floor + Desk Lamps + Table Lamps
+   [557/803] ✓ Modern Horse Head Wall Sconce - Minimali  → Wall + Functional Art + Modern + Sculptural + Wall Mounted
+   [558/803] ✓ Modern Minimalist Bedside Wall Sconce  → Wall + Modern
+   [559/803] ✓ Modern Personalized Chandelier for Dinin  → Chandeliers + Contemporary
+   [560/803] ✓ Modern Geometric Thin Profile Ceiling Li  → Ceiling + Geometric + Modern
+   [561/803] ✓ Modern Minimalist Table Lamp - Versatile  → Table & Floor + Modern
+   [562/803] ✓ Modern Iron Cage Chandelier - Industrial  → Chandeliers + Industrial + Modern
+   [563/803] ✓ LED Ambient Speaker Light for Bedside Ta  → Table & Floor + Bedroom + LED
+   [564/803] ✓ Modern Bubble Glass Strip Chandelier  → Chandeliers + Modern
+   [565/803] ✓ Vintage American Bar Chandelier - Indust  → Chandeliers + Industrial + Vintage
+   [566/803] ✓ Creative LED Bulb Wall Sconce - Modern M  → Wall + Modern + Small Fixtures + Wall Mounted
+   [567/803] ✓ UFO Modern Luxury Chandelier - Contempor  → Chandeliers + Modern
+   [568/803] ✓ 3D Geometric Pendant Light - Modern Sing  → Pendants + Geometric + Modern + Pendant Lights + Statement Pieces
+   [569/803] ✓ Modern Crystal Chandelier for Living Roo  → Chandeliers + Crystal + Modern
+   [570/803] ✓ Modern Bamboo Chandelier Asian-Inspired   → Chandeliers + Modern
+   [571/803] ✓ Modern Multi-Light Chandelier for Dining  → Chandeliers + Modern
+   [572/803] ✓ Modern Magic Bean Branch Chandelier  → Chandeliers + Modern
+   [573/803] ✓ Bamboo Woven Chandelier - Southeast Asia  → Chandeliers + Bamboo + Lighting + Natural Materials + Rustic
+   [574/803] ✓ Nordic Round Bar Chandelier - Minimalist  → Chandeliers + Linear + Modern
+   [575/803] ✓ Nordic Boho Hand-Woven Rattan Pendant Ch  → Pendants + Boho + Natural Materials
+   [576/803] ✓ Modern Glass Dining Table Chandelier - M  → Chandeliers + Island Lights + Modern
+   [577/803] ✓ Single Glass Globe Pendant Light for Din  → Pendants + Lighting + Modern + Small
+   [578/803] ✓ Italian Rattan Basket Chandelier - Luxur  → Chandeliers + Mediterranean Style + Natural Materials
+   [579/803] ✓ Dandelion Spark Ball Chandelier - Creati  → Chandeliers + Modern
+   [580/803] ✓ Vintage Basketball Chandelier for Sports  → Chandeliers + Themed
+   [581/803] ✓ Modern Linear Conference Chandelier  → Chandeliers + Modern
+   [582/803] ✓ Modern LED Linear Pendant Light - Cylind  → Pendants + Modern
+   [583/803] ✓ Modern Wooden Linear Chandelier for Dini  → Chandeliers + Modern
+   [584/803] ✓ Luxury Small Chandelier for Hallways & M  → Chandeliers + Modern + Small
+   [585/803] ✓ Nordic Glass Orb Chandelier with Texture  → Chandeliers + Glass + Lighting + Luxury
+   [586/803] ✓ Modern Glass Bar Chandelier - Creative B  → Chandeliers + Bedside + Island Lights + Modern
+   [587/803] ✓ Triple Glass Globe Chandelier for Dining  → Chandeliers + Lighting + Modern
+   [588/803] ✓ Modern Crystal Pendant Light Fixture  → Pendants + Crystal + Modern
+   [589/803] ✓ Nordic Copper Pendant Light for Bedside  → Pendants + Bedroom + Nordic
+   [590/803] ✓ Lotus Leaf Chandelier - Oriental Tea Roo  → Chandeliers + Oriental Style + Traditional
+   [591/803] ✓ Modern LED Linear Chandelier - Multi-Roo  → Chandeliers + Ceiling Lights + Linear + Modern + Restaurant
+   [592/803] ✓ Nordic Brass Circle Chandelier for Bar &  → Chandeliers + Modern + Restaurant
+   [593/803] ✓ Nordic Linear Dining Room Chandelier  → Chandeliers + Lighting + Linear
+   [594/803] ✓ Nordic Terrazzo Pendant Light - Creative  → Pendants + Modern
+   [595/803] ✓ Macaron Adjustable Pendant Light - Moder  → Pendants + Colorful + Modern
+   [596/803] ✓ Smart Minimalist Pendant Light for Bedro  → Pendants + Pendant Lights
+   [597/803] ✓ Industrial Iron Cage Pendant Light for B  → Pendants + Industrial
+   [598/803] ✓ Nordic Marble Pattern Pendant Light - Mo  → Pendants + Modern
+   [599/803] ✓ Modern LED Bedside Wall Sconce  → Wall + Bedroom + Modern + Sconces
+   ⟳ timeout — retry 1/3 in 3000ms
+   ⟳ 502 — retry 2/3 in 6000ms
+   [600/803] ✗ Round Feather Chandelier - Bohemian Statement: Medusa API 502: Application failed to respond
+   ⟳ 502 — retry 1/3 in 3000ms
+   [601/803] ✓ Large Industrial Cage Chandelier  → Chandeliers + Industrial + Large
+   [602/803] ✓ Industrial Vintage Chandelier - European  → Chandeliers + Industrial + Vintage
+   [603/803] ✓ Compact Crystal Chandelier for Small Spa  → Chandeliers + Cafe & Restaurant
+   [604/803] ✓ Modern Minimalist Single-Head Chandelier  → Chandeliers + Dining Room + European Style + Minimalist + Modern
+   [605/803] ✓ Nordic Copper Linear Wall Sconce - Minim  → Wall + Modern
+   [606/803] ✓ Moroccan Hand-Woven Lantern Chandelier  → Chandeliers + Ethnic + Moroccan
+   [607/803] ✓ Modern Black Stone LED Garden Light  → Outdoor + Garden Lights
+   [608/803] ✓ Postmodern Creative Chandelier for Livin  → Chandeliers + Contemporary + Lighting + Modern
+   [609/803] ✓ Minimalist Bedside Wall Sconce with Ambi  → Wall + Bedroom + Decorative + Lighting + Modern
+   [610/803] ✓ Nordic Rotating Bedside Lamp - Creative   → Table & Floor + Lighting + Modern
+   [611/803] ✓ Concrete Building Architecture Table Lam  → Table & Floor + Decorative + Modern
+   [612/803] ✓ Rustic Country Pendant Light - Single Bu  → Pendants + Country Style + Rustic
+   [613/803] ✓ LED Reading Desk Lamp with Eye Care Tech  → Table & Floor + Desk Lamps
+   [614/803] ✓ Industrial Iron Single Head Pendant Chan  → Pendants + Industrial + Modern
+   [615/803] ✓ Nordic Wood Aluminum Chandelier Modern M  → Chandeliers + Modern + Scandinavian
+   [616/803] ✓ Handmade Pastoral Chandelier - Vintage C  → Chandeliers + Farmhouse + Lighting + Rustic
+   [617/803] ✓ Botanical Plant Chandelier with Creative  → Chandeliers + Decorative
+   [618/803] ✓ Lunar Glow Bedside Table Lamp - Moon Des  → Table & Floor + Bedside + Lighting + Modern + Moon Lamps
+   [619/803] ✓ Mijia Smart Bedside Table Lamp with Touc  → Table & Floor + Smart Lamps + Table Lamps
+   [620/803] ✓ Creative Artistic Chandelier for Restaur  → Chandeliers + Artistic + Lighting + Modern + Restaurant
+   [621/803] ✓ Industrial Wire Cage Chandelier Surface   → Chandeliers + Industrial + Lighting + Modern + Wire Cage
+   [622/803] ✓ Smart WiFi Vintage Edison Bulb with Voic  → Accessories + Edison Style + Vintage Style + Voice Control
+   [623/803] ✓ Modern LED Ring Chandelier for Dining Sp  → Chandeliers + Modern
+   [624/803] ✓ Modern Linear Bedside Chandelier  → Chandeliers + Modern
+   [625/803] ✓ Creative Macaron Chandelier - Colorful S  → Chandeliers + Contemporary + Modern + Statement
+   [626/803] ✓ Botanical Plant Chandelier - Living Gree  → Chandeliers + Botanical + Hanging Planters + Modern + Plant Fixtures
+   [627/803] ✓ Handwoven Bamboo Rattan Chandelier - Art  → Chandeliers + Bohemian + Natural Materials
+   [628/803] ✓ Rustic Wine Barrel Wooden Chandelier  → Chandeliers + Rustic
+   [629/803] ✓ Industrial Hemp Rope Round Chandelier  → Chandeliers + Industrial + Restaurant
+   [630/803] ✓ Nordic Birdcage Wood Chandelier - Retro   → Chandeliers + Nordic + Rustic
+   [631/803] ✓ Nordic Resin Branch Chandelier - Creativ  → Chandeliers + Modern
+   [632/803] ✓ Nordic Tree Branch Stainless Steel Chand  → Chandeliers + Modern
+   [633/803] ✓ Nordic Bird Art Minimalist Chandelier  → Chandeliers + Modern
+   [634/803] ✓ Industrial Flower Pot Iron Chandelier  → Chandeliers + Industrial + Rustic
+   [635/803] ✓ Nordic Rattan Woven Chandelier - Creativ  → Chandeliers + Lighting + Natural Materials
+   [636/803] ✓ Modern Macaron LED Flying Saucer Chandel  → Chandeliers + Contemporary + Modern
+   [637/803] ✓ Modern Bedside Chandelier - Minimalist D  → Chandeliers + Bedroom
+   [638/803] ✓ Modern Hollow Staircase Chandelier - Dup  → Chandeliers + Modern
+   [639/803] ✓ Sputnik Starburst Chandelier - Geometric  → Chandeliers + Modern
+   [640/803] ✓ Industrial Wire Cage Pendant Light - Vin  → Pendants + Industrial + Vintage
+   [641/803] ✓ Round Ring Wooden Pendant Light  → Pendants + Modern + Natural Materials
+   [642/803] ✓ Japanese Modern Pendant Light - Single H  → Pendants + Japanese Style + Lighting + Modern
+   [643/803] ✓ Vintage Banker's Desk Lamp with Green Gl  → Table & Floor + Desk Lamps + Lighting + Vintage
+   [644/803] ✓ Smart LED Touch Activated Desk & Bedside  → Table & Floor + Desk Lamps + Smart Lamps
+   [645/803] ✓ Modern Glass Globe Table Lamp for Bedroo  → Table & Floor + Modern
+   [646/803] ✓ Nordic Minimalist Desk Lamp with Eye Pro  → Table & Floor + Lighting + Modern
+   [647/803] ✓ Modern Water Drop Table Lamp for Recepti  → Table & Floor + Modern + Sculptural
+   [648/803] ✓ Modern Nordic Banker's Desk Lamp - Minim  → Table & Floor + Desk Lamps + Lighting + Modern
+   [649/803] ✓ Nordic Wooden Table Lamp - Modern Minima  → Table & Floor
+   [650/803] ✓ Smart Faucet LED Night Light with Sound   → Table & Floor + Motion Sensor + Smart Lights
+   [651/803] ✓ Rustic Rattan Ball Pendant Light for Res  → Pendants + Rustic
+   [652/803] ✓ Nordic Deer Antler Wall Sconce with Remo  → Wall + Antler Fixtures + Decorative + Remote Control
+   [653/803] ✓ Industrial Classic Car Wall Sconce Light  → Wall + Automotive + Industrial + Lighting
+   [654/803] ✓ Smart LED Circle Lamp with Bluetooth Spe  → Table & Floor + Lamp Speakers + Multifunctional + Smart Lamps
+   [655/803] ✓ Industrial Wrought Iron Wall Sconce Sing  → Wall + Industrial + Lighting + Vintage
+   [656/803] ✓ Modern LED Ceiling Light - Warm Minimali  → Ceiling + Bedroom Lights + Minimalist
+   [657/803] ✓ Nordic Solid Wood Ceiling Light - Modern  → Ceiling + Modern + Wood
+   [658/803] ✓ Modern Minimalist Hallway Wall Sconce Li  → Wall + Contemporary
+   [659/803] ✓ Modern Creative Table Lamp for Living Ro  → Table & Floor + Modern
+   [660/803] ✓ Modern Retro Minimalist Bedside Table La  → Table & Floor + Lighting + Modern + Retro
+   [661/803] ✓ Nordic Round Wall Sconce - Minimalist Be  → Wall + Modern
+   [662/803] ✓ Musical Note LED Wall Sconce - Modern Si  → Wall + Decorative + Modern + Wall Mounted
+   [663/803] ✓ Retractable Wall Sconce with Swing Arm D  → Wall + Swing Arm
+   [664/803] ✓ Nordic Adjustable Wall Sconce - Modern L  → Wall + Lighting + Modern
+   [665/803] ✓ Modern Wood LED Wall Sconce - Minimalist  → Wall + Modern + Wall Mounted
+   [666/803] ✓ Modern Decorative Wall Sconce for Living  → Wall + Contemporary + Modern
+   [667/803] ✓ Modern Indoor Wall Lamp for Living Room  → Wall + Contemporary + Lighting + Modern
+   [668/803] ✓ Modern Round UFO Chandelier - Nordic Min  → Chandeliers + Contemporary + Lighting + Modern
+   [669/803] ✓ Nordic Retro Flying Saucer Chandelier -   → Chandeliers + Modern
+   [670/803] ✓ Modern LED Ring Chandelier - Minimalist   → Chandeliers + Modern
+   [671/803] ✓ Modern Wall Sconce Bedside Reading Lamp  → Wall + Modern
+   [672/803] ✓ Linear Strip Pendant Light - Minimalist   → Pendants + Island Lights + Linear + Modern + Pendant Lights
+   [673/803] ✓ Modern Glass Bubble Ball Pendant Light -  → Pendants + Glass + Modern
+   [674/803] ✓ Aluminum Profile LED Strip Bar Light - S  → Accessories + Profile Systems + Under Cabinet
+   [675/803] ✓ Modern Japanese Flying Saucer Pendant Li  → Pendants + Contemporary + Modern
+   [676/803] ✓ Vintage Industrial Glass Chandelier for   → Chandeliers + Industrial
+   [677/803] ✓ Nordic Glass Globe Bedside Pendant Light  → Pendants
+   [678/803] ✓ Nordic Mirror Cabinet Light - Minimalist  → Wall + Bathroom + Lighting + Modern
+   [679/803] ✓ Modern Minimalist Bedside Table Lamp - L  → Table & Floor + Modern
+   [680/803] ✓ Modern Minimalist Dining Room Chandelier  → Chandeliers + Ceiling Lights + Lighting + Modern
+   [681/803] ✓ Modern Wall Sconce with Pull Chain Switc  → Wall + Modern
+   [682/803] ✓ Half Circle Modern Chandelier for Bedroo  → Chandeliers + Modern
+   [683/803] ✓ Modern Acrylic Lotus Leaf Chandelier  → Chandeliers + Acrylic + Modern + Nature Inspired
+   [684/803] ✓ Nordic LED Dining Room Chandelier Modern  → Chandeliers + Lighting + Modern
+   [685/803] ✓ Nordic Minimalist Bedside Pendant Light  → Pendants + Bedside + Lighting + Minimalist + Nordic
+   [686/803] ✓ Modern Walnut Wood Bedside Table Lamp  → Table & Floor + Modern + Table Lamps
+   [687/803] ✓ Modern Designer Chandelier for Restauran  → Chandeliers + Modern + Restaurant
+   [688/803] ✓ Modern Glass Corridor Pendant Light  → Pendants + Contemporary + Modern
+   [689/803] ✓ Solid Wood Bedroom Chandelier - Rustic M  → Chandeliers + Rustic
+   [690/803] ✓ Nordic Minimalist Oval Bedside Chandelie  → Chandeliers + Minimalist + Modern
+   [691/803] ✓ Personalized LED License Plate Wall Ligh  → Wall + Corridor + Custom + Lighting + Modern
+   [692/803] ✓ Retro Industrial Chandelier for Commerci  → Chandeliers + Industrial + Retro
+   [693/803] ✓ Modern Three-Light Glass Chandelier  → Chandeliers + Glass + Modern
+   [694/803] ✓ Luxurious Copper Art Pendant Light - Mod  → Pendants + Copper + Luxury + Modern
+   [695/803] ✓ Modern Minimalist Table Lamp with Clean   → Table & Floor + Minimalist + Modern
+   [696/803] ✓ Macaron Table Lamp - Colorful Modern Bed  → Table & Floor + Bedroom + Modern
+   [697/803] ✓ Zen Bamboo LED Table Lamp - Asian Minima  → Table & Floor + Asian Style + Bedside
+   [698/803] ✓ Polar Bear Balloon Kids Ceiling Light  → Ceiling + Cartoon + Kids + Lighting
+   [699/803] ✓ Nordic Single Head Chandelier Modern Din  → Chandeliers + Lighting + Modern
+   [700/803] ✓ Nordic Minimalist Chandelier for Living   → Chandeliers + Lighting + Modern
+   [701/803] ✓ Retro Single Head Mini Chandelier - Crea  → Chandeliers + Small + Vintage
+   [702/803] ✓ Modern Restaurant Pendant Light - Indust  → Pendants + Industrial + Modern
+   [703/803] ✓ Modern Glass Chandelier - Minimalist Din  → Chandeliers + Modern
+   [704/803] ✓ Nordic Glass Melon Chandelier - Restaura  → Chandeliers + Modern
+   [705/803] ✓ Modern Bedside Table Lamp - Minimalist B  → Table & Floor + Bedside + Lighting + Table Lamps
+   [706/803] ✓ Starlight LED Decorative Table Lamp Orna  → Table & Floor + Ambient + Decorative + LED Ornaments
+   [707/803] ✓ Nordic Minimalist Ceiling Light for Hall  → Ceiling + Ceiling Fixtures + Flush Mount + Lighting + Minimalist
+   [708/803] ✓ Modern Wrought Iron Lantern Table Lamp C  → Table & Floor + Industrial + Metal Fixtures + Modern
+   [709/803] ✓ Retractable Brass Mini Chandelier for Be  → Chandeliers + Brass + Mini
+   [710/803] ✓ Japanese Bamboo Chandelier Modern Zen St  → Chandeliers + Bamboo + Lighting + Natural Materials
+   [711/803] ✓ Nordic Vertical Bedside Table Lamp - Mod  → Table & Floor + Lighting + Modern + Table Lamps
+   [712/803] ✓ Modern Globe Table Lamp with Minimalist   → Table & Floor + Modern
+   [713/803] ✓ Nordic Modern LED Atmospheric Pendant Li  → Pendants + Modern + Nordic
+   [714/803] ✓ Industrial Oak Cement Chandelier - Nordi  → Chandeliers + Industrial + Nordic
+   [715/803] ✓ Rustic Twine Industrial Chandelier Retro  → Chandeliers + Industrial + Rustic
+   [716/803] ✓ Modern Round LED Wall Sconce - Minimalis  → Wall + Modern + Wall Mounted
+   [717/803] ✓ Modern Glass Globe Pendant Chandelier  → Pendants + Contemporary + Modern
+   [718/803] ✓ Nordic Glass Chandelier with Vintage Sha  → Chandeliers + Modern
+   [719/803] ✓ Industrial Iron Chandelier - Modern Blac  → Chandeliers + Industrial + Modern
+   [720/803] ✓ Modern Minimalist Wall Sconce for Bedroo  → Wall + Modern + Wall Lights
+   [721/803] ✓ Modern Nordic Triple Pendant Chandelier   → Chandeliers + Lighting + Modern + Multi-Light
+   [722/803] ✓ Minimalist Straw Hat Chandelier - Natura  → Chandeliers + Modern + Natural Materials
+   [723/803] ✓ Nordic Rattan Chandelier - Pastoral Styl  → Chandeliers + Lighting + Natural Materials + Rattan
+   [724/803] ✓ Natural Wood Grain Table Lamp - Unique O  → Table & Floor
+   [725/803] ✓ Nordic Wood Round Pendant Light - Black   → Pendants + Lighting + Pendant Lights
+   [726/803] ✓ Dimmable Glass Bedside Table Lamp - Port  → Table & Floor + Bedside + Portable + Table Lamps
+   [727/803] ✓ Rustic Wood & Glass Table Lamp  → Table & Floor + Lighting + Rustic + Wood
+   [728/803] ✓ Modern Geometric Long Arm Table Lamp  → Table & Floor + Modern + Task Lighting
+   [729/803] ✓ Lighthouse Touch Desk Lamp with Night Li  → Table & Floor + Modern
+   [730/803] ✓ Nordic Solid Wood Table Lamp with Artist  → Table & Floor + Natural Materials + Nordic
+   [731/803] ✓ Modern Spherical Table Lamp with Artisti  → Table & Floor + Modern
+   [732/803] ✓ Smoky Glass Bar Chandelier with Electrop  → Chandeliers + Glass + Modern
+   [733/803] ✓ Modern Chinese Bamboo Woven Wall Sconce  → Wall + Natural Materials
+   [734/803] ✓ Bronze Metal Wall Sconce with Glass Shad  → Wall + Bronze + Hallway + Traditional
+   [735/803] ✓ Nordic Cement Terrazzo Mini Chandelier  → Pendants + Industrial + Modern
+   [736/803] ✓ Nordic Solid Wood Cloth Shade Chandelier  → Chandeliers + Lighting
+   [737/803] ✓ Minimalist Hollow Frame Table Lamp - Mod  → Table & Floor + Minimalist + Modern + Table Lamps
+   [738/803] ✓ Nordic Japanese Bedside Table Lamp - Min  → Table & Floor + Bedside + Lighting + Minimalist
+   [739/803] ✓ Modern Cube Glass Chandelier - Artistic   → Chandeliers + Glass + Modern
+   [740/803] ✓ Glass Bottle Chandelier - Vintage Indust  → Chandeliers + Industrial + Lighting + Vintage
+   [741/803] ✓ Modern LED Art Chandelier - Creative Sus  → Chandeliers + Contemporary + Modern + Suspension Lights
+   [742/803] ✓ Vintage Wrought Iron Chandelier - Indust  → Chandeliers + Industrial + Vintage
+   [743/803] ✓ Modern Iron Tube Chandelier - Minimalist  → Chandeliers + Industrial + Modern
+   [744/803] ✓ Dinosaur Touch Control LED Night Light f  → Table & Floor + Kids + Night Lights + Touch Control
+   [745/803] ✓ Modern USB Rechargeable LED Night Light  → Table & Floor + Lighting + Minimalist + Night Lights + Rechargeable
+   [746/803] ✓ Nordic Corridor Wall Light - Modern Entr  → Wall + Modern
+   [747/803] ✓ Modern Creative Solid Wood Table Lamp  → Table & Floor + Modern + Wood
+   [748/803] ✓ Industrial Wrought Iron Long Arm Wall Sc  → Wall + Industrial + Lighting + Swing Arm + Wall Mounted
+   [749/803] ✓ Nordic Wood LED Desk Lamp with Fabric Sh  → Table & Floor + Lighting + Modern
+   [750/803] ✓ Industrial Vintage Chandelier - Simple M  → Chandeliers + Industrial + Vintage
+   [751/803] ✓ Modern Wrought Iron Glass Wall Sconce  → Wall + Modern
+   [752/803] ✓ Nordic Minimalist Wall Sconce - Designer  → Wall + Lighting + Modern + Wall Mounted
+   [753/803] ✓ Retro Ceramic Night Light with Warm Ambi  → Table & Floor + Ceramic + Lighting + Night Lights
+   [754/803] ✓ Industrial Barn Metal Pendant Light for   → Pendants + Industrial + Island Lights
+   [755/803] ✓ Nicolai Nordic Inspired Pendant Light -   → Pendants + Colored Fixtures + Lighting
+   [756/803] ✓ Nordic Iron LED Chandelier - Modern Dini  → Chandeliers + Lighting + Modern
+   [757/803] ✓ Snail Rattan Pendant Light - Southeast A  → Pendants + Lighting + Natural Materials
+   [758/803] ✓ Wooden Pendant Light for Kitchen Island   → Pendants + Island Lights + Natural Materials + Wood
+   [759/803] ✓ Glass Wood Grain Single Head Pendant Lig  → Pendants + Glass + Modern
+   [760/803] ✓ Modern Geometric Grid Pendant Light with  → Pendants + Geometric + Modern
+   [761/803] ✓ Dandelion Crystal Chandelier - Modern St  → Chandeliers + Crystal + Modern
+   [762/803] ✓ Nordic Minimalist Chandelier Modern Livi  → Chandeliers + Lighting + Modern
+   [763/803] ✓ Modern Macaron Aluminum Pendant Light Co  → Pendants + Modern
+   [764/803] ✓ Wrought Iron LED Pendant Light - Industr  → Pendants + Industrial + Metal
+   [765/803] ✓ Modern Flush Mount Ceiling Light for Hal  → Ceiling + Flush Mount + Lighting + Modern
+   [766/803] ✓ Solar LED Garden Light with Motion Senso  → Outdoor + Garden Lights
+   [767/803] ✓ Modern Minimalist Bedside Table Lamp  → Table & Floor + Bedside + Lighting + Modern
+   [768/803] ✓ Industrial Retro Wrought Iron Flute Wall  → Wall + Industrial + Vintage + Wall Mounted
+   [769/803] ✓ Vintage Wall Sconce for Hallways & TV Ac  → Wall + Classic + Hotel Style + TV Background + Vintage
+   [770/803] ✓ Mini LED Floor Lamp with Floral Shade -   → Table & Floor + Mini
+   [771/803] ✓ Industrial Outdoor Cafe Bar String Light  → Outdoor + Lighting + String Lights
+   [772/803] ✓ Vintage Wrought Iron Wall Sconce - Indus  → Wall + Industrial + Vintage
+   [773/803] ✓ European Baroque Crystal Chandelier - Vi  → Chandeliers + Crystal + Traditional
+   [774/803] ✓ Butterfly Flower Creative Mini Chandelie  → Chandeliers + Butterfly + Creative Design + Decorative + Mini
+   [775/803] ✓ Nordic Blue Glass Art Chandelier - Creat  → Chandeliers + Modern + Nordic
+   [776/803] ✓ Modern Crystal Staircase Chandelier for   → Chandeliers + Crystal + Modern
+   [777/803] ✓ Vintage Cross-Shaped Antique Table Lamp  → Table & Floor + Accent + Geometric + Lighting + Vintage
+   [778/803] ✓ Modern Wireless Wall Sconce with Free Wi  → Wall + Modern
+   [779/803] ✓ LED Grid Panel Light for Auto Detailing   → Accessories + Commercial + LED Panels + Professional
+   [780/803] ✓ Teardrop Floral Chandelier - Modern Bedr  → Chandeliers + Bedroom + Contemporary + Modern
+   [781/803] ✓ Bronze Mirror Bedroom Table Chandelier  → Table & Floor + Bronze + Lighting + Luxury + Mini
+   [782/803] ✓ Nordic Japanese Brass Dining Room Chande  → Chandeliers + Lighting + Minimalist
+   [783/803] ✓ Seagull LED Chandelier - Modern Minimali  → Chandeliers + Contemporary + Modern
+   [784/803] ✓ Modern Ice Cube Glass Chandelier - Minim  → Chandeliers + Modern
+   [785/803] ✓ Industrial LOFT Wall Sconce for Hallways  → Wall + Industrial + Vintage
+   [786/803] ✓ Nordic All-Aluminum Ceiling Light  → Ceiling + Modern + Nordic
+   [787/803] ✓ Modern Flush Mount Ceiling Light for Hal  → Ceiling + Flush Mount
+   [788/803] ✓ Nordic Flying Saucer Chandelier - Postmo  → Chandeliers + Contemporary
+   [789/803] ✓ Modern Creative Bedside Table Lamp for L  → Table & Floor + Contemporary + Modern + Table Lamps
+   [790/803] ✓ Vintage Solar Wall Lamp - Waterproof Gar  → Outdoor + Wall Sconces
+   [791/803] ✓ Creative Minimalist Planet Table Lamp  → Table & Floor + Decorative + Lighting + Modern + Planet
+   [792/803] ✓ Industrial Wrought Iron Wall Sconce with  → Wall + Industrial + Vintage
+   [793/803] ✓ Woven Zen Chandelier - Natural Rattan St  → Chandeliers + Natural Materials + Woven Fixtures
+   [794/803] ✓ Industrial Bar Retro Chandelier with Vin  → Chandeliers + Industrial + Vintage
+   [795/803] ✓ Nordic Modern Chandelier for Restaurant   → Chandeliers
+   [796/803] ✓ Creative Art Sculptural Chandelier  → Chandeliers + Contemporary
+   [797/803] ✓ Solid Wood Eye Protection Desk Lamp  → Table & Floor + Desk Lamps + Eye Protection + Reading Lamps + Task Lighting
+   [798/803] ✓ Modern Creative Bedside Table Lamp  → Table & Floor + Bedside + Contemporary + Lighting + Modern
+   [799/803] ✓ Nordic Style Minimalist Floor Lamp for L  → Table & Floor + Modern
+   [800/803] ✓ Modern Crystal Wall Sconce - Minimalist   → Wall + Contemporary + Crystal + Modern
+   [801/803] ✓ Modern Bedroom Pendant Light with Geomet  → Pendants + Modern
+   [802/803] ✓ Motion Sensor LED Night Light  → Accessories + Battery Operated + Motion Sensor + Night Lights
+   [803/803] ✓ Modern Gold Wall Sconce - Luxury Minimal  → Wall + Gold Finish + Modern
+
+═══════════════════════════════════════════════════════════
+  SUMMARY
+═══════════════════════════════════════════════════════════
+  Products processed:     803
+  Successfully assigned:  797
+  Errors:                 6
+═══════════════════════════════════════════════════════════
+
+Report written to: /Users/matthewsimon/Projects/elvato/reports/assign-cats-live.json
+

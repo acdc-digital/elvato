@@ -1,0 +1,1458 @@
+{
+  "reports": [
+    {
+      "medusaProductId": "prod_01KF76ARTQQHYVGFW00MPSJAMW",
+      "title": "Villa Duplex Large Crystal Chandelier for Living Room",
+      "cjSku": "CJSN1587842",
+      "cjProductId": "1581160687190159360",
+      "storefrontVariantCount": 64,
+      "cjVariantCount": 16,
+      "storefrontOptionNames": [
+        "Finish",
+        "Number of Lights",
+        "Size",
+        "Voltage"
+      ],
+      "storefrontPriceRange": {
+        "min": 17362,
+        "max": 17362,
+        "unique": [
+          17362
+        ]
+      },
+      "cjPriceRange": {
+        "min": 86.81,
+        "max": 325.53,
+        "unique": [
+          86.81,
+          108.51,
+          144.4,
+          159.43,
+          227.04,
+          242.06,
+          308.83,
+          325.53
+        ]
+      },
+      "priceDiscrepancy": true,
+      "allSameStorefrontPrice": true,
+      "storefrontVariants": [
+        {
+          "id": "variant_01KF76ARV5C2MTJWW5R65EDNQ3",
+          "title": "50cm / Black / 111V / 7 Lights",
+          "sku": "ELV582155",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "7 Lights",
+            "Size": "50cm",
+            "Voltage": "111V"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6MKDANT7Q5KSWHWTJ",
+          "title": "50cm / Black / 111V / 11 Lights",
+          "sku": "ELV486017",
+          "options": {
+            "Finish": "Black",
+            "Size": "50cm",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV621PXXYYBZBTT9VPA",
+          "title": "50cm / Black / 111V / 17 Lights",
+          "sku": "ELV333723",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "17 Lights",
+            "Size": "50cm",
+            "Voltage": "111V"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6E0V3JE72CN21PM5D",
+          "title": "50cm / Black / 111V / 23 Lights",
+          "sku": "ELV440908",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Size": "50cm",
+            "Voltage": "111V"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV627C3GX155P7YWP82",
+          "title": "50cm / Black / 240V / 7 Lights",
+          "sku": "ELV382695",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "7 Lights",
+            "Size": "50cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV677DGP5PW8DX48BT7",
+          "title": "50cm / Black / 240V / 11 Lights",
+          "sku": "ELV475073",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Size": "50cm",
+            "Number of Lights": "11 Lights"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV63VSZZ9G02FFMAE86",
+          "title": "50cm / Black / 240V / 17 Lights",
+          "sku": "ELV812670",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Size": "50cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6QZAFT0MW3XNGQPSE",
+          "title": "50cm / Black / 240V / 23 Lights",
+          "sku": "ELV989573",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Size": "50cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6AR1FBEN9PA53EYJN",
+          "title": "50cm / Gold / 111V / 7 Lights",
+          "sku": "ELV437069",
+          "options": {
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Size": "50cm",
+            "Voltage": "111V"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6QQBF14NP62C45TEQ",
+          "title": "50cm / Gold / 111V / 11 Lights",
+          "sku": "ELV861815",
+          "options": {
+            "Finish": "Gold",
+            "Size": "50cm",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV65PQJAR7GNX1NE7W7",
+          "title": "50cm / Gold / 111V / 17 Lights",
+          "sku": "ELV890944",
+          "options": {
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Size": "50cm",
+            "Voltage": "111V"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV62GHJ4BSYWEKWP3X3",
+          "title": "50cm / Gold / 111V / 23 Lights",
+          "sku": "ELV184972",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Gold",
+            "Size": "50cm",
+            "Voltage": "111V"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV65T6K5XBQ855R85J0",
+          "title": "50cm / Gold / 240V / 7 Lights",
+          "sku": "ELV422156",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Size": "50cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV64V2QEG7JA7CF9QRX",
+          "title": "50cm / Gold / 240V / 11 Lights",
+          "sku": "ELV741452",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Size": "50cm",
+            "Number of Lights": "11 Lights"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6GC10WBAN0Z6T1YSP",
+          "title": "50cm / Gold / 240V / 17 Lights",
+          "sku": "ELV293138",
+          "options": {
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Size": "50cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6N3BCZW1F1BYV8A80",
+          "title": "50cm / Gold / 240V / 23 Lights",
+          "sku": "ELV952997",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Size": "50cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6EDYG5C6QFW3RW7QB",
+          "title": "70cm / Black / 111V / 7 Lights",
+          "sku": "ELV988056",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "7 Lights",
+            "Voltage": "111V",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6S9QBRMZ8DTPCNGXQ",
+          "title": "70cm / Black / 111V / 11 Lights",
+          "sku": "ELV579318",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6MTTCGWB1S1GV4AAK",
+          "title": "70cm / Black / 111V / 17 Lights",
+          "sku": "ELV371452",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "17 Lights",
+            "Voltage": "111V",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6KWQ7ZC4QKF03DBM6",
+          "title": "70cm / Black / 111V / 23 Lights",
+          "sku": "ELV721126",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Voltage": "111V",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV610YGM8QZ45AR7YZR",
+          "title": "70cm / Black / 240V / 7 Lights",
+          "sku": "ELV641057",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "7 Lights",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV6NZYRHJJCGCJGW0B0",
+          "title": "70cm / Black / 240V / 11 Lights",
+          "sku": "ELV213497",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "11 Lights",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV69VSMW5TF1DQ6JSXS",
+          "title": "70cm / Black / 240V / 17 Lights",
+          "sku": "ELV742830",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7Z8T0B3CW5WF4JHBC",
+          "title": "70cm / Black / 240V / 23 Lights",
+          "sku": "ELV598444",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV71YTA3ZTKR6BNF9BK",
+          "title": "70cm / Gold / 111V / 7 Lights",
+          "sku": "ELV990079",
+          "options": {
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Voltage": "111V",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7THHPQJ30PMNAZ600",
+          "title": "70cm / Gold / 111V / 11 Lights",
+          "sku": "ELV275051",
+          "options": {
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7KZV4F7DVG7ACHQ1R",
+          "title": "70cm / Gold / 111V / 17 Lights",
+          "sku": "ELV477267",
+          "options": {
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV77EDGKVEX2QWZ7S8K",
+          "title": "70cm / Gold / 111V / 23 Lights",
+          "sku": "ELV302675",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7TK6DVT454RYQF2TB",
+          "title": "70cm / Gold / 240V / 7 Lights",
+          "sku": "ELV637135",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV71RCJV1ZH4A11MH38",
+          "title": "70cm / Gold / 240V / 11 Lights",
+          "sku": "ELV814182",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Number of Lights": "11 Lights",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV78DH3TC65Z29MM0EH",
+          "title": "70cm / Gold / 240V / 17 Lights",
+          "sku": "ELV177520",
+          "options": {
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV79M3XQE6W6R8E0WJZ",
+          "title": "70cm / Gold / 240V / 23 Lights",
+          "sku": "ELV654747",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Size": "70cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7Y1VRECKT8GX11T3W",
+          "title": "90cm / Black / 111V / 7 Lights",
+          "sku": "ELV113849",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "7 Lights",
+            "Voltage": "111V",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7V6J9PND9B92ZA7EE",
+          "title": "90cm / Black / 111V / 11 Lights",
+          "sku": "ELV912153",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7AZ8MMRKNQMJYZCJ6",
+          "title": "90cm / Black / 111V / 17 Lights",
+          "sku": "ELV600146",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "17 Lights",
+            "Voltage": "111V",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7W9B5VWEWCHQSG7PJ",
+          "title": "90cm / Black / 111V / 23 Lights",
+          "sku": "ELV821867",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Voltage": "111V",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7H8F7WKRSX0YWSYYM",
+          "title": "90cm / Black / 240V / 7 Lights",
+          "sku": "ELV353092",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "7 Lights",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7Z4AZ8F5YBMFNZF3T",
+          "title": "90cm / Black / 240V / 11 Lights",
+          "sku": "ELV344839",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "11 Lights",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7EHMA3YYPVBP3HCH1",
+          "title": "90cm / Black / 240V / 17 Lights",
+          "sku": "ELV946111",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7HNAB2V2JWY2PF2QE",
+          "title": "90cm / Black / 240V / 23 Lights",
+          "sku": "ELV372923",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7G47HYZT8Y1FT51GA",
+          "title": "90cm / Gold / 111V / 7 Lights",
+          "sku": "ELV553229",
+          "options": {
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Voltage": "111V",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7M0N7JH7PGF4TA4HA",
+          "title": "90cm / Gold / 111V / 11 Lights",
+          "sku": "ELV622214",
+          "options": {
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV79WT9TZNJMQVY517Y",
+          "title": "90cm / Gold / 111V / 17 Lights",
+          "sku": "ELV618699",
+          "options": {
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV7THTXMES2HJ98MH7M",
+          "title": "90cm / Gold / 111V / 23 Lights",
+          "sku": "ELV775641",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV81K3WTDBQ8J1DGKTM",
+          "title": "90cm / Gold / 240V / 7 Lights",
+          "sku": "ELV495337",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV86DYYVT42SA0265SV",
+          "title": "90cm / Gold / 240V / 11 Lights",
+          "sku": "ELV128589",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Number of Lights": "11 Lights",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8KN74ECWWTCKPHGPG",
+          "title": "90cm / Gold / 240V / 17 Lights",
+          "sku": "ELV963760",
+          "options": {
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8A9574RP5TT4F7G7B",
+          "title": "90cm / Gold / 240V / 23 Lights",
+          "sku": "ELV262147",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Size": "90cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV82FE6WDQP07NN5RVM",
+          "title": "120cm / Black / 111V / 7 Lights",
+          "sku": "ELV140860",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "7 Lights",
+            "Voltage": "111V",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8VF57BK6WBP5JS1D1",
+          "title": "120cm / Black / 111V / 11 Lights",
+          "sku": "ELV862677",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8E3K9QN5VSAYD4E1V",
+          "title": "120cm / Black / 111V / 17 Lights",
+          "sku": "ELV490337",
+          "options": {
+            "Finish": "Black",
+            "Number of Lights": "17 Lights",
+            "Voltage": "111V",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV84PX47J4MPAAX4NC6",
+          "title": "120cm / Black / 111V / 23 Lights",
+          "sku": "ELV696166",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Voltage": "111V",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8ZNY42SNE68Y8A3GE",
+          "title": "120cm / Black / 240V / 7 Lights",
+          "sku": "ELV919203",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "7 Lights",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8E32MTTP4SM96H1GA",
+          "title": "120cm / Black / 240V / 11 Lights",
+          "sku": "ELV950223",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "11 Lights",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8ZSXGXPHCVE6BTN13",
+          "title": "120cm / Black / 240V / 17 Lights",
+          "sku": "ELV813539",
+          "options": {
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8CFWXJP1AP2CHNEZZ",
+          "title": "120cm / Black / 240V / 23 Lights",
+          "sku": "ELV794902",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Black",
+            "Voltage": "240V",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8EBC646WZXD7P89GS",
+          "title": "120cm / Gold / 111V / 7 Lights",
+          "sku": "ELV188345",
+          "options": {
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Voltage": "111V",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8KS4YK0AN06Q8PM2D",
+          "title": "120cm / Gold / 111V / 11 Lights",
+          "sku": "ELV992250",
+          "options": {
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Number of Lights": "11 Lights",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV85HXGDAE3ZYJCY1KE",
+          "title": "120cm / Gold / 111V / 17 Lights",
+          "sku": "ELV187336",
+          "options": {
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8ENGR7RM84VHDZ2SP",
+          "title": "120cm / Gold / 111V / 23 Lights",
+          "sku": "ELV110001",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Finish": "Gold",
+            "Voltage": "111V",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8TS3A0WH5HP7KSTCH",
+          "title": "120cm / Gold / 240V / 7 Lights",
+          "sku": "ELV240630",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Number of Lights": "7 Lights",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV80MF8AC1HPJXBJS41",
+          "title": "120cm / Gold / 240V / 11 Lights",
+          "sku": "ELV566860",
+          "options": {
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Number of Lights": "11 Lights",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8CZXCYCQM172JD8SV",
+          "title": "120cm / Gold / 240V / 17 Lights",
+          "sku": "ELV392060",
+          "options": {
+            "Voltage": "240V",
+            "Number of Lights": "17 Lights",
+            "Finish": "Gold",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        },
+        {
+          "id": "variant_01KF76ARV8PV5453KYBPX8Q7FY",
+          "title": "120cm / Gold / 240V / 23 Lights",
+          "sku": "ELV938703",
+          "options": {
+            "Number of Lights": "23 Lights",
+            "Voltage": "240V",
+            "Finish": "Gold",
+            "Size": "120cm"
+          },
+          "priceUsd": 17362,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 17362
+            }
+          ]
+        }
+      ],
+      "cjVariants": [
+        {
+          "vid": "1581160687253073920",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 7heads gold Warm light",
+          "variantSku": "CJSN158784201AZ",
+          "variantSellPrice": 86.81,
+          "variantSugSellPrice": 86.81,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/4e979d18-a73e-4945-b511-7bd6d1bd93bc.jpg",
+          "variantWeight": 10100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687253073921",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 7heads gold Stepless dimming",
+          "variantSku": "CJSN158784202BY",
+          "variantSellPrice": 108.51,
+          "variantSugSellPrice": 108.51,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/4e979d18-a73e-4945-b511-7bd6d1bd93bc.jpg",
+          "variantWeight": 10100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687257268224",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 11heads gold Warm light",
+          "variantSku": "CJSN158784203CX",
+          "variantSellPrice": 144.4,
+          "variantSugSellPrice": 144.4,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/45d8e5d2-24a1-4176-9f5f-4cb261dcd217.jpg",
+          "variantWeight": 15100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687257268225",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 11heads gold Stepless dimming",
+          "variantSku": "CJSN158784204DW",
+          "variantSellPrice": 159.43,
+          "variantSugSellPrice": 159.43,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/45d8e5d2-24a1-4176-9f5f-4cb261dcd217.jpg",
+          "variantWeight": 15100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687261462528",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 17heads gold Warm light",
+          "variantSku": "CJSN158784205EV",
+          "variantSellPrice": 227.04,
+          "variantSugSellPrice": 227.04,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/310421f2-61a7-44cb-a864-ab85249441ab.jpg",
+          "variantWeight": 20100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687261462529",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 17heads gold Stepless dimming",
+          "variantSku": "CJSN158784206FU",
+          "variantSellPrice": 242.06,
+          "variantSugSellPrice": 242.06,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/310421f2-61a7-44cb-a864-ab85249441ab.jpg",
+          "variantWeight": 20100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687265656832",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 23heads gold Warm light",
+          "variantSku": "CJSN158784207GT",
+          "variantSellPrice": 308.83,
+          "variantSugSellPrice": 308.83,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/f5e160b2-262a-4cd4-a22d-b575de430792.jpg",
+          "variantWeight": 30100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687265656833",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 23heads gold Stepless dimming",
+          "variantSku": "CJSN158784208HS",
+          "variantSellPrice": 325.53,
+          "variantSugSellPrice": 325.53,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/f5e160b2-262a-4cd4-a22d-b575de430792.jpg",
+          "variantWeight": 30100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687265656834",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 7heads black Warm light",
+          "variantSku": "CJSN158784209IR",
+          "variantSellPrice": 86.81,
+          "variantSugSellPrice": 86.81,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/2d1acf66-f23a-4742-9172-1ccb85af5c80.jpg",
+          "variantWeight": 10100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687269851136",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 7heads black Stepless dimming",
+          "variantSku": "CJSN158784210JQ",
+          "variantSellPrice": 108.51,
+          "variantSugSellPrice": 108.51,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/2d1acf66-f23a-4742-9172-1ccb85af5c80.jpg",
+          "variantWeight": 10100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687269851137",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 11heads black Warm light",
+          "variantSku": "CJSN158784211KP",
+          "variantSellPrice": 144.4,
+          "variantSugSellPrice": 144.4,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/11149340-6673-4c03-b3cb-4776414f580e.jpg",
+          "variantWeight": 15100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687269851138",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 11heads black Stepless dimming",
+          "variantSku": "CJSN158784212LO",
+          "variantSellPrice": 159.43,
+          "variantSugSellPrice": 159.43,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/11149340-6673-4c03-b3cb-4776414f580e.jpg",
+          "variantWeight": 15100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687274045440",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 17heads black Warm light",
+          "variantSku": "CJSN158784213MN",
+          "variantSellPrice": 227.04,
+          "variantSugSellPrice": 227.04,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/5d299ca7-ee69-4bc1-b7e7-3145648f512a.jpg",
+          "variantWeight": 20100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687274045441",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 17heads black Stepless dimming",
+          "variantSku": "CJSN158784214NM",
+          "variantSellPrice": 242.06,
+          "variantSugSellPrice": 242.06,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/5d299ca7-ee69-4bc1-b7e7-3145648f512a.jpg",
+          "variantWeight": 20100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687278239744",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 23heads black Warm light",
+          "variantSku": "CJSN158784215OL",
+          "variantSellPrice": 308.83,
+          "variantSugSellPrice": 308.83,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/b456df1b-b6cf-4dd5-a1a6-57f0ee2830db.jpg",
+          "variantWeight": 30100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        },
+        {
+          "vid": "1581160687278239745",
+          "variantNameEn": "Villa Duplex Large Chandelier Living Room 23heads black Stepless dimming",
+          "variantSku": "CJSN158784216PK",
+          "variantSellPrice": 325.53,
+          "variantSugSellPrice": 325.53,
+          "variantStandard": "long=1300,width=1300,height=400",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/b456df1b-b6cf-4dd5-a1a6-57f0ee2830db.jpg",
+          "variantWeight": 30100,
+          "dimensions": {
+            "length": 1300,
+            "width": 1300,
+            "height": 400
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "withDiscrepancy": 1,
+    "errors": 0
+  }
+}
