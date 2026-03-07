@@ -1,0 +1,591 @@
+Mode: LIVE | Markup: 100% | Strategy: min
+
+Authenticating with Medusa Admin...
+✓ Authenticated
+Authenticating with CJ API...
+✓ CJ token acquired
+
+Fetching up to 850 products with CJ metadata...
+  Fetched 50 products from Medusa...  Fetched 100 products from Medusa...  Fetched 150 products from Medusa...  Fetched 200 products from Medusa...  Fetched 250 products from Medusa...  Fetched 300 products from Medusa...  Fetched 350 products from Medusa...  Fetched 400 products from Medusa...  Fetched 450 products from Medusa...  Fetched 500 products from Medusa...  Fetched 550 products from Medusa...  Fetched 600 products from Medusa...  Fetched 650 products from Medusa...  Fetched 700 products from Medusa...  Fetched 750 products from Medusa...  Fetched 800 products from Medusa...Found 803 products
+
+  [1/803] Crystal Glass LED Pendant Light - Post-Modern Design...
+════════════════════════════════════════════════════════════════════════
+  Crystal Glass LED Pendant Light - Post-Modern Design
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76ARFB4YX52H6PJ9TWWWQV
+  CJ SKU:               CJHD1085959
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    finish
+  CJ-only dimensions:   lightType
+  Storefront variants:  12
+  CJ variants:          12
+  Matched:              0
+  Unmatched:            12
+  To update:            0
+  Already correct:      0
+
+  ── CJ Variant Tiers ──
+    $28.67    → lightType=neutral
+    $28.67    → lightType=neutral
+    $30.27    → lightType=neutral
+    $30.27    → lightType=neutral
+    $31.88    → lightType=neutral
+    $31.88    → lightType=neutral
+    $11.44    → finish=black, lightType=neutral
+    $11.44    → finish=black, lightType=warm light
+    $11.44    → finish=black
+    $9.46     → finish=black, lightType=neutral
+    $9.46     → finish=black, lightType=warm light
+    $9.46     → finish=black
+
+  ⚠ Unmatched Variants (12):
+    Gold / 111V / 3 Lights — voltage=111, finish=gold, heads=3
+    Gold / 111V / 6 Lights — heads=6, voltage=111, finish=gold
+    Gold / 111V / 1 Light — heads=1, voltage=111, finish=gold
+    Gold / 240V / 3 Lights — voltage=240, finish=gold, heads=3
+    Gold / 240V / 6 Lights — heads=6, voltage=240, finish=gold
+    Gold / 240V / 1 Light — heads=1, voltage=240, finish=gold
+    Bronze / 111V / 3 Lights — voltage=111, heads=3, finish=bronze
+    Bronze / 111V / 6 Lights — heads=6, voltage=111, finish=bronze
+    Bronze / 111V / 1 Light — heads=1, voltage=111, finish=bronze
+    Bronze / 240V / 3 Lights — voltage=240, heads=3, finish=bronze
+    ... and 2 more
+  [2/803] Villa Duplex Large Crystal Chandelier for Living Room...
+════════════════════════════════════════════════════════════════════════
+  Villa Duplex Large Crystal Chandelier for Living Room
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76ARTQQHYVGFW00MPSJAMW
+  CJ SKU:               CJSN1587842
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    heads, finish
+  CJ-only dimensions:   lightType
+  Storefront variants:  48
+  CJ variants:          16
+  Matched:              48
+  Unmatched:            0
+  To update:            0
+  Already correct:      48
+
+  ── CJ Variant Tiers ──
+    $86.81    → heads=7, finish=gold, lightType=warm light
+    $108.51   → heads=7, finish=gold, lightType=stepless dimming
+    $144.40   → heads=11, finish=gold, lightType=warm light
+    $159.43   → heads=11, finish=gold, lightType=stepless dimming
+    $227.04   → heads=17, finish=gold, lightType=warm light
+    $242.06   → heads=17, finish=gold, lightType=stepless dimming
+    $308.83   → heads=23, finish=gold, lightType=warm light
+    $325.53   → heads=23, finish=gold, lightType=stepless dimming
+    $86.81    → heads=7, finish=black, lightType=warm light
+    $108.51   → heads=7, finish=black, lightType=stepless dimming
+    $144.40   → heads=11, finish=black, lightType=warm light
+    $159.43   → heads=11, finish=black, lightType=stepless dimming
+    $227.04   → heads=17, finish=black, lightType=warm light
+    $242.06   → heads=17, finish=black, lightType=stepless dimming
+    $308.83   → heads=23, finish=black, lightType=warm light
+    $325.53   → heads=23, finish=black, lightType=stepless dimming
+  [3/803] Nordic Minimalist LED Wall Sconce Light...
+════════════════════════════════════════════════════════════════════════
+  Nordic Minimalist LED Wall Sconce Light
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76AWCX76RKY4ZR8XJCPZAM
+  CJ SKU:               CJTH1587350
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    finish, sizeCm
+  CJ-only dimensions:   lightType
+  Storefront variants:  16
+  CJ variants:          19
+  Matched:              4
+  Unmatched:            12
+  To update:            4
+  Already correct:      0
+
+  ── CJ Variant Tiers ──
+    $6.27     → finish=black, sizeCm=50
+    $6.81     → finish=gold, sizeCm=50
+    $7.53     → finish=black, sizeCm=65
+    $8.06     → finish=gold, sizeCm=65
+    $6.27     → sizeCm=50
+    $6.81     → finish=gold, sizeCm=50
+    $7.53     → finish=black, sizeCm=65
+    $8.06     → finish=gold, sizeCm=65
+    $12.48    → finish=black, sizeCm=48
+    $7.63     → finish=black, sizeCm=48
+    $12.48    → finish=gold, sizeCm=48
+    $8.62     → finish=gold, sizeCm=48
+    $15.26    → 
+    $3.86     → finish=black, sizeCm=48
+    $3.69     → finish=black, lightType=warm light, sizeCm=48
+    $3.69     → finish=black, sizeCm=48
+    $3.69     → finish=gold, sizeCm=48
+    $3.69     → finish=gold, lightType=warm light, sizeCm=48
+    $3.69     → finish=gold, sizeCm=48
+
+  ── Planned Price Changes (4) ──
+  Title                                      Current    CJ Cost    New        Delta
+  ─────────────────────────────────────────────────────────────────────────────────────
+  50cm / Black                               $7.38      $6.27      $12.54     +$5.16
+  50cm / Gold                                $7.38      $6.81      $13.62     +$6.24
+  65cm / Black                               $7.38      $7.53      $15.06     +$7.68
+  65cm / Gold                                $7.38      $8.06      $16.12     +$8.74
+
+  ⚠ Unmatched Variants (12):
+    50cm / 50cm right gold — sizeCm=50, finish=50cm right gold
+    50cm / 65cm right black — sizeCm=50, finish=65cm right black
+    50cm / 65cm right gold — sizeCm=50, finish=65cm right gold
+    50cm / 50cm left black — finish=50cm left black, sizeCm=50
+    50cm / 50cm left gold — finish=50cm left gold, sizeCm=50
+    50cm / 65cm left black — finish=65cm left black, sizeCm=50
+    65cm / 50cm right gold — sizeCm=65, finish=50cm right gold
+    65cm / 65cm right black — sizeCm=65, finish=65cm right black
+    65cm / 65cm right gold — sizeCm=65, finish=65cm right gold
+    65cm / 50cm left black — sizeCm=65, finish=50cm left black
+    ... and 2 more
+  Applying 4 price updates...
+  ✓ Updated 4 variant prices
+  [4/803] Smart Modern Chandelier for Living & Dining Rooms...
+════════════════════════════════════════════════════════════════════════
+  Smart Modern Chandelier for Living & Dining Rooms
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76E30VMYWMR8DWXYDEB7N6
+  CJ SKU:               CJSN1637963
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    finish, sizeCm
+  CJ-only dimensions:   wattage
+  Storefront variants:  20
+  CJ variants:          16
+  Matched:              2
+  Unmatched:            18
+  To update:            1
+  Already correct:      1
+
+  ── CJ Variant Tiers ──
+    $31.30    → finish=gold, sizeCm=60, wattage=54
+    $34.20    → finish=gold, sizeCm=60, wattage=54
+    $37.26    → finish=gold, sizeCm=60, wattage=54
+    $38.88    → finish=gold, sizeCm=60, wattage=54
+    $37.59    → finish=gold, sizeCm=60, wattage=64
+    $44.03    → finish=gold, sizeCm=60, wattage=64
+    $47.26    → finish=gold, sizeCm=60, wattage=64
+    $48.87    → finish=gold, sizeCm=60, wattage=64
+    $52.91    → finish=gold, sizeCm=80, wattage=96
+    $57.26    → finish=gold, sizeCm=80, wattage=96
+    $60.97    → finish=gold, sizeCm=80, wattage=96
+    $62.58    → finish=gold, sizeCm=80, wattage=96
+    $61.46    → finish=gold, sizeCm=80, wattage=108
+    $65.33    → finish=gold, sizeCm=80, wattage=108
+    $69.20    → finish=gold, sizeCm=80, wattage=108
+    $70.81    → finish=gold, sizeCm=80, wattage=108
+
+  ── Planned Price Changes (1) ──
+  Title                                      Current    CJ Cost    New        Delta
+  ─────────────────────────────────────────────────────────────────────────────────────
+  80cm / Gold                                $62.60     $52.91     $105.82    +$43.22
+
+  ⚠ Unmatched Variants (18):
+    60cm / Of the item — finish=of the item, sizeCm=60
+    60cm / Gold -54w-40+60cm — finish=gold -54w-40+60cm, sizeCm=60
+    60cm / Gold -64w-20+40+60cm — finish=gold -64w-20+40+60cm, sizeCm=60
+    60cm / Gold -96w-40+60+80cm — finish=gold -96w-40+60+80cm, sizeCm=60
+    60cm / Three-color changing light — finish=three-color changing light, sizeCm=60
+    60cm / Tmall genie driver — finish=tmall genie driver, sizeCm=60
+    60cm / Bedroom — sizeCm=60, finish=bedroom
+    60cm / Study — finish=study, sizeCm=60
+    60cm / White — finish=white, sizeCm=60
+    80cm / Of the item — finish=of the item, sizeCm=80
+    ... and 8 more
+  Applying 1 price updates...
+  ✓ Updated 1 variant prices
+  [5/803] Modern LED Balcony Ceiling Chandelier...
+════════════════════════════════════════════════════════════════════════
+  Modern LED Balcony Ceiling Chandelier
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76E3MJJG3Q90SQXTSNE7K9
+  CJ SKU:               CJJT1469334
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    finish
+  CJ-only dimensions:   sizeCm, lightType
+  Storefront variants:  3
+  CJ variants:          3
+  Matched:              2
+  Unmatched:            1
+  To update:            1
+  Already correct:      1
+
+  ── CJ Variant Tiers ──
+    $11.08    → finish=white, sizeCm=20
+    $11.08    → lightType=warm light, sizeCm=20
+    $14.48    → finish=gold, sizeCm=20
+
+  ── Planned Price Changes (1) ──
+  Title                                      Current    CJ Cost    New        Delta
+  ─────────────────────────────────────────────────────────────────────────────────────
+  Gold                                       $22.16     $14.48     $28.96     +$6.80
+
+  ⚠ Unmatched Variants (1):
+    Golden — finish=golden
+  Applying 1 price updates...
+  ✓ Updated 1 variant prices
+  [6/803] Modern Artistic Study Chandelier for Creative Spaces...
+════════════════════════════════════════════════════════════════════════
+  Modern Artistic Study Chandelier for Creative Spaces
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76E3QDW0VXTXKZB1SHS29B
+  CJ SKU:               CJJT1484543
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    finish
+  CJ-only dimensions:   lightType, sizeCm
+  Storefront variants:  10
+  CJ variants:          2
+  Matched:              0
+  Unmatched:            10
+  To update:            0
+  Already correct:      0
+
+  ── CJ Variant Tiers ──
+    $36.28    → lightType=warm light, sizeCm=40
+    $36.28    → finish=white, sizeCm=40
+
+  ⚠ Unmatched Variants (10):
+    Living room — finish=living room
+    Bedroom — finish=bedroom
+    Study — finish=study
+    Corridor — finish=corridor
+    Courtyard — finish=courtyard
+    Dining room — finish=dining room
+    Kitchen — finish=kitchen
+    Bathroom — finish=bathroom
+    Porch — finish=porch
+    Balcony — finish=balcony
+  [7/803] Industrial Wrought Iron Pendant Light for Restaurant Bar...
+════════════════════════════════════════════════════════════════════════
+  Industrial Wrought Iron Pendant Light for Restaurant Bar
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EAP6YH7Z3NM6TJB1HEJX
+  CJ SKU:               CJSN1330614
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    none
+  CJ-only dimensions:   none
+  Storefront variants:  3
+  CJ variants:          5
+  Matched:              3
+  Unmatched:            0
+  To update:            0
+  Already correct:      3
+
+  ── CJ Variant Tiers ──
+    $23.03    → 
+    $13.04    → 
+    $8.69     → 
+    $8.41     → 
+    $8.41     → 
+  [8/803] Industrial Wire Mesh Pendant Light - Vintage Design...
+════════════════════════════════════════════════════════════════════════
+  Industrial Wire Mesh Pendant Light - Vintage Design
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EAR5B21GBG9N8CYGBT9M
+  CJ SKU:               CJJT1543973
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    none
+  CJ-only dimensions:   none
+  Storefront variants:  20
+  CJ variants:          3
+  Matched:              20
+  Unmatched:            0
+  To update:            0
+  Already correct:      20
+
+  ── CJ Variant Tiers ──
+    $7.42     → 
+    $8.24     → 
+    $8.24     → 
+  [9/803] Rustic Wood Glass Pendant Light - Modern Industrial Design...
+════════════════════════════════════════════════════════════════════════
+  Rustic Wood Glass Pendant Light - Modern Industrial Design
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EBG0PMKHHZAQX06PDYVA
+  CJ SKU:               CJJZSNTH00008
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    none
+  CJ-only dimensions:   none
+  Storefront variants:  3
+  CJ variants:          7
+  Matched:              3
+  Unmatched:            0
+  To update:            0
+  Already correct:      3
+
+  ── CJ Variant Tiers ──
+    $16.67    → 
+    $14.81    → 
+    $10.74    → 
+    $38.07    → 
+    $14.52    → 
+    $15.43    → 
+    $14.29    → 
+  [10/803] Nordic LED Restaurant Pendant Light - Creative Design...
+════════════════════════════════════════════════════════════════════════
+  Nordic LED Restaurant Pendant Light - Creative Design
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EBHPEY5GXEYVY7H1RZJ8
+  CJ SKU:               CJJT1579383
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    none
+  CJ-only dimensions:   finish, lightType
+  Storefront variants:  4
+  CJ variants:          6
+  Matched:              4
+  Unmatched:            0
+  To update:            0
+  Already correct:      4
+
+  ── CJ Variant Tiers ──
+    $9.36     → 
+    $7.74     → finish=white
+    $7.74     → lightType=warm light
+    $9.36     → 
+    $7.74     → finish=white
+    $7.74     → lightType=warm light
+  [11/803] Vintage Copper Pendant Light - Modern Industrial Style...
+════════════════════════════════════════════════════════════════════════
+  Vintage Copper Pendant Light - Modern Industrial Style
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EBMA5N35435G0PQK8WJR
+  CJ SKU:               CJSN1581757
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    none
+  CJ-only dimensions:   finish, sizeCm
+  Storefront variants:  2
+  CJ variants:          3
+  Matched:              2
+  Unmatched:            0
+  To update:            0
+  Already correct:      2
+
+  ── CJ Variant Tiers ──
+    $146.91   → finish=copper, sizeCm=13
+    $297.10   → finish=copper, sizeCm=13
+    $430.75   → finish=copper, sizeCm=13
+  [12/803] Nordic Modern Wall Sconce for Hallways & Porches...
+════════════════════════════════════════════════════════════════════════
+  Nordic Modern Wall Sconce for Hallways & Porches
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EH0ZKAW4DN331V58SFNH
+  CJ SKU:               CJSN1385089
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    none
+  CJ-only dimensions:   none
+  Storefront variants:  12
+  CJ variants:          4
+  Matched:              12
+  Unmatched:            0
+  To update:            0
+  Already correct:      12
+
+  ── CJ Variant Tiers ──
+    $9.45     → 
+    $9.45     → 
+    $8.67     → 
+    $8.67     → 
+  [13/803] Modern Wooden LED Wall Sconce with Adjustable Light Bar...
+════════════════════════════════════════════════════════════════════════
+  Modern Wooden LED Wall Sconce with Adjustable Light Bar
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EHAYGN5TE4NJMTCN78J6
+  CJ SKU:               CJSN1139286
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    none
+  CJ-only dimensions:   none
+  Storefront variants:  36
+  CJ variants:          12
+  Matched:              36
+  Unmatched:            0
+  To update:            0
+  Already correct:      36
+
+  ── CJ Variant Tiers ──
+    $10.93    → 
+    $10.93    → 
+    $10.93    → 
+    $10.93    → 
+    $13.16    → 
+    $13.16    → 
+    $13.16    → 
+    $13.16    → 
+    $10.93    → 
+    $10.93    → 
+    $13.16    → 
+    $13.16    → 
+  [14/803] Modern Minimalist Single-Head Ceiling Light...
+════════════════════════════════════════════════════════════════════════
+  Modern Minimalist Single-Head Ceiling Light
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EYPNPZS396SN4A1NVJDB
+  CJ SKU:               CJJT1547430
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    sizeCm
+  CJ-only dimensions:   none
+  Storefront variants:  20
+  CJ variants:          5
+  Matched:              16
+  Unmatched:            4
+  To update:            12
+  Already correct:      4
+
+  ── CJ Variant Tiers ──
+    $21.10    → sizeCm=19
+    $24.56    → sizeCm=20
+    $24.07    → sizeCm=17
+    $26.71    → sizeCm=5
+    $23.41    → sizeCm=21
+
+  ── Planned Price Changes (12) ──
+  Title                                      Current    CJ Cost    New        Delta
+  ─────────────────────────────────────────────────────────────────────────────────────
+  20cm / 3152 ceiling light 19cm             $42.20     $24.56     $49.12     +$6.92
+  20cm / 6516 ceiling light 20cm             $42.20     $24.56     $49.12     +$6.92
+  20cm / 6563 ceiling light 17cm             $42.20     $24.56     $49.12     +$6.92
+  20cm / 7517 ceiling light 21               $42.20     $24.56     $49.12     +$6.92
+  17cm / 3152 ceiling light 19cm             $42.20     $24.07     $48.14     +$5.94
+  17cm / 6516 ceiling light 20cm             $42.20     $24.07     $48.14     +$5.94
+  17cm / 6563 ceiling light 17cm             $42.20     $24.07     $48.14     +$5.94
+  17cm / 7517 ceiling light 21               $42.20     $24.07     $48.14     +$5.94
+  21cm / 3152 ceiling light 19cm             $42.20     $23.41     $46.82     +$4.62
+  21cm / 6516 ceiling light 20cm             $42.20     $23.41     $46.82     +$4.62
+  21cm / 6563 ceiling light 17cm             $42.20     $23.41     $46.82     +$4.62
+  21cm / 7517 ceiling light 21               $42.20     $23.41     $46.82     +$4.62
+
+  ⚠ Unmatched Variants (4):
+    22cm / 3152 ceiling light 19cm — finish=3152 ceiling light 19cm, sizeCm=22
+    22cm / 6516 ceiling light 20cm — finish=6516 ceiling light 20cm, sizeCm=22
+    22cm / 6563 ceiling light 17cm — sizeCm=22, finish=6563 ceiling light 17cm
+    22cm / 7517 ceiling light 21 — finish=7517 ceiling light 21, sizeCm=22
+  Applying 12 price updates...
+  ✓ Updated 12 variant prices
+  [15/803] Industrial Spider Ceiling Light - Vintage Wrought Iron Fixture...
+════════════════════════════════════════════════════════════════════════
+  Industrial Spider Ceiling Light - Vintage Wrought Iron Fixture
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EZBH3QJQ5HGT3KD9NSW5
+  CJ SKU:               CJJZSNTH00012
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    heads, finish
+  CJ-only dimensions:   none
+  Storefront variants:  9
+  CJ variants:          3
+  Matched:              3
+  Unmatched:            6
+  To update:            2
+  Already correct:      1
+
+  ── CJ Variant Tiers ──
+    $8.24     → heads=6, finish=black
+    $10.98    → heads=8, finish=black
+    $5.49     → heads=4, finish=black
+
+  ── Planned Price Changes (2) ──
+  Title                                      Current    CJ Cost    New        Delta
+  ─────────────────────────────────────────────────────────────────────────────────────
+  Black / 6 Lights                           $10.98     $8.24      $16.48     +$5.50
+  Black / 8 Lights                           $10.98     $10.98     $21.96     +$10.98
+
+  ⚠ Unmatched Variants (6):
+    4 heads (black) / 4 Lights — finish=4 heads (black), heads=4
+    4 heads (black) / 6 Lights — finish=4 heads (black), heads=6
+    4 heads (black) / 8 Lights — finish=4 heads (black), heads=8
+    6 heads (black) / 4 Lights — heads=4, finish=6 heads (black)
+    6 heads (black) / 6 Lights — heads=6, finish=6 heads (black)
+    6 heads (black) / 8 Lights — heads=8, finish=6 heads (black)
+  Applying 2 price updates...
+  ✓ Updated 2 variant prices
+  [16/803] Modern Corridor Ceiling Light for Hallways & Balconies...
+════════════════════════════════════════════════════════════════════════
+  Modern Corridor Ceiling Light for Hallways & Balconies
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76EZEH0DBE6M3R0GE6S5D4
+  CJ SKU:               CJJZSNTH00056
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    finish, sizeCm
+  CJ-only dimensions:   lightType
+  Storefront variants:  12
+  CJ variants:          4
+  Matched:              2
+  Unmatched:            10
+  To update:            1
+  Already correct:      1
+
+  ── CJ Variant Tiers ──
+    $8.52     → finish=white, sizeCm=25
+    $8.52     → lightType=warm light, sizeCm=25
+    $10.22    → finish=white, sizeCm=35
+    $10.22    → lightType=warm light, sizeCm=35
+
+  ── Planned Price Changes (1) ──
+  Title                                      Current    CJ Cost    New        Delta
+  ─────────────────────────────────────────────────────────────────────────────────────
+  35cm / White                               $17.04     $10.22     $20.44     +$3.40
+
+  ⚠ Unmatched Variants (10):
+    25cm / 25cm — finish=25cm, sizeCm=25
+    25cm / Surface style — finish=surface style, sizeCm=25
+    25cm / 35cm — sizeCm=25, finish=35cm
+    25cm / Bathroom — finish=bathroom, sizeCm=25
+    25cm / Children's room — finish=children's room, sizeCm=25
+    35cm / 25cm — sizeCm=35, finish=25cm
+    35cm / Surface style — sizeCm=35, finish=surface style
+    35cm / 35cm — sizeCm=35, finish=35cm
+    35cm / Bathroom — sizeCm=35, finish=bathroom
+    35cm / Children's room — sizeCm=35, finish=children's room
+  Applying 1 price updates...
+  ✓ Updated 1 variant prices
+  [17/803] Modern Adjustable Bedside Table Lamp...
+════════════════════════════════════════════════════════════════════════
+  Modern Adjustable Bedside Table Lamp
+════════════════════════════════════════════════════════════════════════
+  Medusa ID:            prod_01KF76F4WM62KKRTAZEV3A71Y4
+  CJ SKU:               CJJJJTJT40731
+  Markup:               100%
+  Pricing strategy:     min (for multi-match CJ variants)
+  Shared dimensions:    finish
+  CJ-only dimensions:   none
+  Storefront variants:  8
+  CJ variants:          12
+  Matched:              4
+  Unmatched:            4
+  To update:            0
+  Already correct:      4
+
+  ── CJ Variant Tiers ──
+    $9.52     → 
+    $9.52     → finish=black
+    $9.52     → 
+    $9.52     → finish=white
+    $9.52     → 
+    $9.52     → 
+    $9.52     → finish=white
+    $9.52     → finish=black
+    $9.52     → finish=black
+    $9.52     → 
+    $9.52     → finish=white
+    $9.52     → 
+
+  ⚠ Unmatched Variants (4):
+    Gold / 110V — finish=gold, voltage=110
+    Gold / 220V — finish=gold, voltage=220
+    Silver / 110V — finish=silver, voltage=110
+    Silver / 220V — voltage=220, finish=silver

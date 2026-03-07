@@ -1,0 +1,3298 @@
+{
+  "mode": "DRY-RUN",
+  "markup": 100,
+  "pricingStrategy": "min",
+  "results": [
+    {
+      "medusaProductId": "prod_01KF76ARFB4YX52H6PJ9TWWWQV",
+      "title": "Crystal Glass LED Pendant Light - Post-Modern Design",
+      "cjSku": "CJHD1085959",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 12,
+      "cjVariantCount": 12,
+      "storefrontOptionNames": [
+        "Voltage",
+        "Finish",
+        "Number of Lights"
+      ],
+      "sharedDimensions": [
+        "finish"
+      ],
+      "cjOnlyDimensions": [
+        "lightType"
+      ],
+      "matched": 0,
+      "unmatched": 12,
+      "toUpdate": 0,
+      "unchanged": 0,
+      "changes": [
+        {
+          "variantId": "variant_01KF76ARFRQ4BKDFZNDDR3BJW3",
+          "variantTitle": "Gold / 111V / 3 Lights",
+          "sku": "ELV830848",
+          "sfOptions": {
+            "voltage": 111,
+            "finish": "gold",
+            "heads": 3
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGCGSS4CDBR5VHJV10P",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFR0K88KPYHKC77SNR7",
+          "variantTitle": "Gold / 111V / 6 Lights",
+          "sku": "ELV643428",
+          "sfOptions": {
+            "heads": 6,
+            "voltage": 111,
+            "finish": "gold"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDK8FD9VZ9S0VZ68QN",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFRE5G53MVBV3WQ7Q34",
+          "variantTitle": "Gold / 111V / 1 Light",
+          "sku": "ELV983490",
+          "sfOptions": {
+            "heads": 1,
+            "voltage": 111,
+            "finish": "gold"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDQWBQWBRHF33BXE4D",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFRQJ0S9WV8EPDTG0E6",
+          "variantTitle": "Gold / 240V / 3 Lights",
+          "sku": "ELV939177",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 3
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGD5TGDGTVY7DM0DSN1",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFR7CTXRY5Z12RCSE7P",
+          "variantTitle": "Gold / 240V / 6 Lights",
+          "sku": "ELV882696",
+          "sfOptions": {
+            "heads": 6,
+            "voltage": 240,
+            "finish": "gold"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGD7ZT5SYV101V8YH4X",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFR2SKQ7BT5JP8WX4DY",
+          "variantTitle": "Gold / 240V / 1 Light",
+          "sku": "ELV139721",
+          "sfOptions": {
+            "heads": 1,
+            "voltage": 240,
+            "finish": "gold"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDM94G9EABVHPZ82AB",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFRA7VZ4MPWFJNTQEC1",
+          "variantTitle": "Bronze / 111V / 3 Lights",
+          "sku": "ELV825642",
+          "sfOptions": {
+            "voltage": 111,
+            "heads": 3,
+            "finish": "bronze"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDK9MPJRD24D4YHRV2",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFR7BH752QDTMRGAY5W",
+          "variantTitle": "Bronze / 111V / 6 Lights",
+          "sku": "ELV497053",
+          "sfOptions": {
+            "heads": 6,
+            "voltage": 111,
+            "finish": "bronze"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDHV2DYJ0J17HR704S",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFRAZ8WKMYQ9VE7ACY6",
+          "variantTitle": "Bronze / 111V / 1 Light",
+          "sku": "ELV569288",
+          "sfOptions": {
+            "heads": 1,
+            "voltage": 111,
+            "finish": "bronze"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDQ5N4DR4GQEB4X5XZ",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFR88JPS3S9HGD42B17",
+          "variantTitle": "Bronze / 240V / 3 Lights",
+          "sku": "ELV752467",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 3,
+            "finish": "bronze"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDWCM3BV1TNBMP1Q4C",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFRS835NZZJQNXB9FMK",
+          "variantTitle": "Bronze / 240V / 6 Lights",
+          "sku": "ELV788753",
+          "sfOptions": {
+            "heads": 6,
+            "voltage": 240,
+            "finish": "bronze"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDTT85NSX0PXNTAM3V",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76ARFRP0WD8QW0DDDQEC8K",
+          "variantTitle": "Bronze / 240V / 1 Light",
+          "sku": "ELV448063",
+          "sfOptions": {
+            "heads": 1,
+            "voltage": 240,
+            "finish": "bronze"
+          },
+          "currentPriceCents": 1892,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76ARGDP23EWNR36KW2EDDP",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights 1style Neutral light",
+          "sku": "CJHD108595901AZ",
+          "price": 28.67,
+          "parsed": {
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights 2style Neutral light",
+          "sku": "CJHD108595902BY",
+          "price": 28.67,
+          "parsed": {
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights 3style Neutral light",
+          "sku": "CJHD108595903CX",
+          "price": 30.27,
+          "parsed": {
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights 4style Neutral light",
+          "sku": "CJHD108595904DW",
+          "price": 30.27,
+          "parsed": {
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights 5style Neutral light",
+          "sku": "CJHD108595905EV",
+          "price": 31.88,
+          "parsed": {
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights 6style Neutral light",
+          "sku": "CJHD108595906FU",
+          "price": 31.88,
+          "parsed": {
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights Black with cable Neutral light",
+          "sku": "CJHD108595919SH",
+          "price": 11.44,
+          "parsed": {
+            "finish": "black",
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights Black with cable Warm light",
+          "sku": "CJHD108595920TG",
+          "price": 11.44,
+          "parsed": {
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights Black with cable White light",
+          "sku": "CJHD108595921UF",
+          "price": 11.44,
+          "parsed": {
+            "finish": "black"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights Black without switch Neutral light",
+          "sku": "CJHD108595922VE",
+          "price": 9.46,
+          "parsed": {
+            "finish": "black",
+            "lightType": "neutral"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights Black without switch Warm light",
+          "sku": "CJHD108595923WD",
+          "price": 9.46,
+          "parsed": {
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Customizable Post-Modern Crystal Glass Led Pendant Lights Black without switch White light",
+          "sku": "CJHD108595924XC",
+          "price": 9.46,
+          "parsed": {
+            "finish": "black"
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76ARTQQHYVGFW00MPSJAMW",
+      "title": "Villa Duplex Large Crystal Chandelier for Living Room",
+      "cjSku": "CJSN1587842",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 48,
+      "cjVariantCount": 16,
+      "storefrontOptionNames": [
+        "Finish",
+        "Size",
+        "Voltage",
+        "Number of Lights"
+      ],
+      "sharedDimensions": [
+        "heads",
+        "finish"
+      ],
+      "cjOnlyDimensions": [
+        "lightType"
+      ],
+      "matched": 48,
+      "unmatched": 0,
+      "toUpdate": 0,
+      "unchanged": 48,
+      "changes": [
+        {
+          "variantId": "variant_01KF76ARV6MKDANT7Q5KSWHWTJ",
+          "variantTitle": "50cm / Black / 111V / 11 Lights",
+          "sku": "ELV486017",
+          "sfOptions": {
+            "finish": "black",
+            "sizeCm": 50,
+            "voltage": 111,
+            "heads": 11
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7NH1ZTZY73370VJ1FF",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV621PXXYYBZBTT9VPA",
+          "variantTitle": "50cm / Black / 111V / 17 Lights",
+          "sku": "ELV333723",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7NHVZ572WW73E9KDF9",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6E0V3JE72CN21PM5D",
+          "variantTitle": "50cm / Black / 111V / 23 Lights",
+          "sku": "ELV440908",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7P6E0XY3JRGEJENRFY",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV677DGP5PW8DX48BT7",
+          "variantTitle": "50cm / Black / 240V / 11 Lights",
+          "sku": "ELV475073",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 50,
+            "heads": 11
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7P1FTAH1QNS1PG8BBH",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV63VSZZ9G02FFMAE86",
+          "variantTitle": "50cm / Black / 240V / 17 Lights",
+          "sku": "ELV812670",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 50
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7PZFMZG7CCG4YV06N8",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6QZAFT0MW3XNGQPSE",
+          "variantTitle": "50cm / Black / 240V / 23 Lights",
+          "sku": "ELV989573",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 50
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7PMH58WWGWANF9TJJF",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6QQBF14NP62C45TEQ",
+          "variantTitle": "50cm / Gold / 111V / 11 Lights",
+          "sku": "ELV861815",
+          "sfOptions": {
+            "finish": "gold",
+            "sizeCm": 50,
+            "voltage": 111,
+            "heads": 11
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7P1AR3M9MPCAGREEJZ",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV65PQJAR7GNX1NE7W7",
+          "variantTitle": "50cm / Gold / 111V / 17 Lights",
+          "sku": "ELV890944",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7PP4TA3Y97HD5WFWFS",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV62GHJ4BSYWEKWP3X3",
+          "variantTitle": "50cm / Gold / 111V / 23 Lights",
+          "sku": "ELV184972",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "sizeCm": 50,
+            "voltage": 111
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7P2BDF7Z7V10TPQK6T",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV64V2QEG7JA7CF9QRX",
+          "variantTitle": "50cm / Gold / 240V / 11 Lights",
+          "sku": "ELV741452",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 50,
+            "heads": 11
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7PZHNDQJK5YHENH7ME",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6GC10WBAN0Z6T1YSP",
+          "variantTitle": "50cm / Gold / 240V / 17 Lights",
+          "sku": "ELV293138",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 50
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7PAMBC5K0CFFBQF8M1",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6N3BCZW1F1BYV8A80",
+          "variantTitle": "50cm / Gold / 240V / 23 Lights",
+          "sku": "ELV952997",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 50
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7QWBVB2MQD1E1G81M8",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6S9QBRMZ8DTPCNGXQ",
+          "variantTitle": "70cm / Black / 111V / 11 Lights",
+          "sku": "ELV579318",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7Q15M6V645SAMPXH1R",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6MTTCGWB1S1GV4AAK",
+          "variantTitle": "70cm / Black / 111V / 17 Lights",
+          "sku": "ELV371452",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7QJH0NTCFQ1H8V61FT",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6KWQ7ZC4QKF03DBM6",
+          "variantTitle": "70cm / Black / 111V / 23 Lights",
+          "sku": "ELV721126",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7QZ72QPJQW48XEJM94",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV6NZYRHJJCGCJGW0B0",
+          "variantTitle": "70cm / Black / 240V / 11 Lights",
+          "sku": "ELV213497",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7QCZ6C96BEMVPSFY4D",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV69VSMW5TF1DQ6JSXS",
+          "variantTitle": "70cm / Black / 240V / 17 Lights",
+          "sku": "ELV742830",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7QRTMX779QJ7F9TBTA",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7Z8T0B3CW5WF4JHBC",
+          "variantTitle": "70cm / Black / 240V / 23 Lights",
+          "sku": "ELV598444",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7QG1BX4WZ443PSY0X0",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7THHPQJ30PMNAZ600",
+          "variantTitle": "70cm / Gold / 111V / 11 Lights",
+          "sku": "ELV275051",
+          "sfOptions": {
+            "finish": "gold",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7Q2P0G0NBSVBYED93S",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7KZV4F7DVG7ACHQ1R",
+          "variantTitle": "70cm / Gold / 111V / 17 Lights",
+          "sku": "ELV477267",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7RHNX40EY7SCNNSDAX",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV77EDGKVEX2QWZ7S8K",
+          "variantTitle": "70cm / Gold / 111V / 23 Lights",
+          "sku": "ELV302675",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7RCJMRESA5KZGNX6YC",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV71RCJV1ZH4A11MH38",
+          "variantTitle": "70cm / Gold / 240V / 11 Lights",
+          "sku": "ELV814182",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 11,
+            "sizeCm": 70
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7RC0Z95MFD48430K6G",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV78DH3TC65Z29MM0EH",
+          "variantTitle": "70cm / Gold / 240V / 17 Lights",
+          "sku": "ELV177520",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 70
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7R5TRTZ56YJCJFVWZD",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV79M3XQE6W6R8E0WJZ",
+          "variantTitle": "70cm / Gold / 240V / 23 Lights",
+          "sku": "ELV654747",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 70
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7R4MXJJ0TFKW49XSYG",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7V6J9PND9B92ZA7EE",
+          "variantTitle": "90cm / Black / 111V / 11 Lights",
+          "sku": "ELV912153",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7RBX1MC88109FZVF04",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7AZ8MMRKNQMJYZCJ6",
+          "variantTitle": "90cm / Black / 111V / 17 Lights",
+          "sku": "ELV600146",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7RFVDV83VGRYJMAKP0",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7W9B5VWEWCHQSG7PJ",
+          "variantTitle": "90cm / Black / 111V / 23 Lights",
+          "sku": "ELV821867",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7RBJPX4Y6Q5FTS1DZW",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7Z4AZ8F5YBMFNZF3T",
+          "variantTitle": "90cm / Black / 240V / 11 Lights",
+          "sku": "ELV344839",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7SCXZTHX4MYAEN1P74",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7EHMA3YYPVBP3HCH1",
+          "variantTitle": "90cm / Black / 240V / 17 Lights",
+          "sku": "ELV946111",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7S0CB6KRQ58RN4FX67",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7HNAB2V2JWY2PF2QE",
+          "variantTitle": "90cm / Black / 240V / 23 Lights",
+          "sku": "ELV372923",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7SGFEME2BZG3BE64ZP",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7M0N7JH7PGF4TA4HA",
+          "variantTitle": "90cm / Gold / 111V / 11 Lights",
+          "sku": "ELV622214",
+          "sfOptions": {
+            "finish": "gold",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7SEWWEATVXVRB2G573",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV79WT9TZNJMQVY517Y",
+          "variantTitle": "90cm / Gold / 111V / 17 Lights",
+          "sku": "ELV618699",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7SKAEWCVEKD2FJQYZR",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV7THTXMES2HJ98MH7M",
+          "variantTitle": "90cm / Gold / 111V / 23 Lights",
+          "sku": "ELV775641",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7S63FT7VK3F33A1FTC",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV86DYYVT42SA0265SV",
+          "variantTitle": "90cm / Gold / 240V / 11 Lights",
+          "sku": "ELV128589",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 11,
+            "sizeCm": 90
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7S0PMA49QQQD7TJ8J9",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8KN74ECWWTCKPHGPG",
+          "variantTitle": "90cm / Gold / 240V / 17 Lights",
+          "sku": "ELV963760",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 90
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7SK9TWXZX4XC8XN2HT",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8A9574RP5TT4F7G7B",
+          "variantTitle": "90cm / Gold / 240V / 23 Lights",
+          "sku": "ELV262147",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 90
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7SGVDD9A28C3H4G40G",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8VF57BK6WBP5JS1D1",
+          "variantTitle": "120cm / Black / 111V / 11 Lights",
+          "sku": "ELV862677",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7TQCEZ05DN1SGQD2NK",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8E3K9QN5VSAYD4E1V",
+          "variantTitle": "120cm / Black / 111V / 17 Lights",
+          "sku": "ELV490337",
+          "sfOptions": {
+            "finish": "black",
+            "heads": 17,
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7T9FF30H7ZJ38FPWKD",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV84PX47J4MPAAX4NC6",
+          "variantTitle": "120cm / Black / 111V / 23 Lights",
+          "sku": "ELV696166",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7TMR59VNRTG59X11AK",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8E32MTTP4SM96H1GA",
+          "variantTitle": "120cm / Black / 240V / 11 Lights",
+          "sku": "ELV950223",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7TDWR5XX54VP510WGY",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8ZSXGXPHCVE6BTN13",
+          "variantTitle": "120cm / Black / 240V / 17 Lights",
+          "sku": "ELV813539",
+          "sfOptions": {
+            "finish": "black",
+            "voltage": 240,
+            "heads": 17,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7T9V8Z4PYSHZW1RX0S",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8CFWXJP1AP2CHNEZZ",
+          "variantTitle": "120cm / Black / 240V / 23 Lights",
+          "sku": "ELV794902",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "black",
+            "voltage": 240,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7T4P4FVW73RBNFT6XP",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8KS4YK0AN06Q8PM2D",
+          "variantTitle": "120cm / Gold / 111V / 11 Lights",
+          "sku": "ELV992250",
+          "sfOptions": {
+            "finish": "gold",
+            "voltage": 111,
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7THRRAE1VDRP3S0GFR",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV85HXGDAE3ZYJCY1KE",
+          "variantTitle": "120cm / Gold / 111V / 17 Lights",
+          "sku": "ELV187336",
+          "sfOptions": {
+            "heads": 17,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7T1DK8RKFN498S7ZM9",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8ENGR7RM84VHDZ2SP",
+          "variantTitle": "120cm / Gold / 111V / 23 Lights",
+          "sku": "ELV110001",
+          "sfOptions": {
+            "heads": 23,
+            "finish": "gold",
+            "voltage": 111,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7T1BJQA8MCWD496KEK",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV80MF8AC1HPJXBJS41",
+          "variantTitle": "120cm / Gold / 240V / 11 Lights",
+          "sku": "ELV566860",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "gold",
+            "heads": 11,
+            "sizeCm": 120
+          },
+          "currentPriceCents": 28880,
+          "cjCostUsd": 144.4,
+          "cjCostCents": 14440,
+          "newPriceCents": 28880,
+          "priceId": "price_01KK4AYF7TMJDRHW5HSRWE8MDB",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8CZXCYCQM172JD8SV",
+          "variantTitle": "120cm / Gold / 240V / 17 Lights",
+          "sku": "ELV392060",
+          "sfOptions": {
+            "voltage": 240,
+            "heads": 17,
+            "finish": "gold",
+            "sizeCm": 120
+          },
+          "currentPriceCents": 45408,
+          "cjCostUsd": 227.04,
+          "cjCostCents": 22704,
+          "newPriceCents": 45408,
+          "priceId": "price_01KK4AYF7V0CAH1D3HFKFXBHAG",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76ARV8PV5453KYBPX8Q7FY",
+          "variantTitle": "120cm / Gold / 240V / 23 Lights",
+          "sku": "ELV938703",
+          "sfOptions": {
+            "heads": 23,
+            "voltage": 240,
+            "finish": "gold",
+            "sizeCm": 120
+          },
+          "currentPriceCents": 61766,
+          "cjCostUsd": 308.83,
+          "cjCostCents": 30883,
+          "newPriceCents": 61766,
+          "priceId": "price_01KK4AYF7V4V4C9EGRJWZ8Y5R7",
+          "status": "unchanged",
+          "delta": 0
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads gold Warm light",
+          "sku": "CJSN158784201AZ",
+          "price": 86.81,
+          "parsed": {
+            "heads": 7,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads gold Stepless dimming",
+          "sku": "CJSN158784202BY",
+          "price": 108.51,
+          "parsed": {
+            "heads": 7,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads gold Warm light",
+          "sku": "CJSN158784203CX",
+          "price": 144.4,
+          "parsed": {
+            "heads": 11,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads gold Stepless dimming",
+          "sku": "CJSN158784204DW",
+          "price": 159.43,
+          "parsed": {
+            "heads": 11,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads gold Warm light",
+          "sku": "CJSN158784205EV",
+          "price": 227.04,
+          "parsed": {
+            "heads": 17,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads gold Stepless dimming",
+          "sku": "CJSN158784206FU",
+          "price": 242.06,
+          "parsed": {
+            "heads": 17,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads gold Warm light",
+          "sku": "CJSN158784207GT",
+          "price": 308.83,
+          "parsed": {
+            "heads": 23,
+            "finish": "gold",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads gold Stepless dimming",
+          "sku": "CJSN158784208HS",
+          "price": 325.53,
+          "parsed": {
+            "heads": 23,
+            "finish": "gold",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads black Warm light",
+          "sku": "CJSN158784209IR",
+          "price": 86.81,
+          "parsed": {
+            "heads": 7,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 7heads black Stepless dimming",
+          "sku": "CJSN158784210JQ",
+          "price": 108.51,
+          "parsed": {
+            "heads": 7,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads black Warm light",
+          "sku": "CJSN158784211KP",
+          "price": 144.4,
+          "parsed": {
+            "heads": 11,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 11heads black Stepless dimming",
+          "sku": "CJSN158784212LO",
+          "price": 159.43,
+          "parsed": {
+            "heads": 11,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads black Warm light",
+          "sku": "CJSN158784213MN",
+          "price": 227.04,
+          "parsed": {
+            "heads": 17,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 17heads black Stepless dimming",
+          "sku": "CJSN158784214NM",
+          "price": 242.06,
+          "parsed": {
+            "heads": 17,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads black Warm light",
+          "sku": "CJSN158784215OL",
+          "price": 308.83,
+          "parsed": {
+            "heads": 23,
+            "finish": "black",
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Villa Duplex Large Chandelier Living Room 23heads black Stepless dimming",
+          "sku": "CJSN158784216PK",
+          "price": 325.53,
+          "parsed": {
+            "heads": 23,
+            "finish": "black",
+            "lightType": "stepless dimming"
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76AWCX76RKY4ZR8XJCPZAM",
+      "title": "Nordic Minimalist LED Wall Sconce Light",
+      "cjSku": "CJTH1587350",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 16,
+      "cjVariantCount": 19,
+      "storefrontOptionNames": [
+        "Size",
+        "Finish"
+      ],
+      "sharedDimensions": [
+        "finish",
+        "sizeCm"
+      ],
+      "cjOnlyDimensions": [
+        "lightType"
+      ],
+      "matched": 4,
+      "unmatched": 12,
+      "toUpdate": 4,
+      "unchanged": 0,
+      "changes": [
+        {
+          "variantId": "variant_01KF76AWDA6ZMYQGNB3XAKW4GN",
+          "variantTitle": "50cm / 50cm right gold",
+          "sku": "ELV129151",
+          "sfOptions": {
+            "sizeCm": 50,
+            "finish": "50cm right gold"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDW4RQ8AC46BQHV285A",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDA0DWHC21CSBGS458J",
+          "variantTitle": "50cm / 65cm right black",
+          "sku": "ELV345802",
+          "sfOptions": {
+            "sizeCm": 50,
+            "finish": "65cm right black"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDW00D108NBB4BR6H8A",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDA61W8YETQHK3CH81W",
+          "variantTitle": "50cm / 65cm right gold",
+          "sku": "ELV685252",
+          "sfOptions": {
+            "sizeCm": 50,
+            "finish": "65cm right gold"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDWF29ZGQ2FPVFKCB88",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDAWHDCA4YCGHFV5SVN",
+          "variantTitle": "50cm / 50cm left black",
+          "sku": "ELV503090",
+          "sfOptions": {
+            "finish": "50cm left black",
+            "sizeCm": 50
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDWQ5RZ0HPHVEV448Y4",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDABVFMCP2JQ2G3B7E5",
+          "variantTitle": "50cm / 50cm left gold",
+          "sku": "ELV339961",
+          "sfOptions": {
+            "finish": "50cm left gold",
+            "sizeCm": 50
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDWBA5DTRFJZJ164RD8",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDA1J2ZA9HW78YJH69X",
+          "variantTitle": "50cm / 65cm left black",
+          "sku": "ELV950624",
+          "sfOptions": {
+            "finish": "65cm left black",
+            "sizeCm": 50
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDWZX29N3RKGBCVNQBV",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDAEK35ZQW2K3MA0PN0",
+          "variantTitle": "50cm / Black",
+          "sku": "ELV305074",
+          "sfOptions": {
+            "sizeCm": 50,
+            "finish": "black"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": 6.27,
+          "cjCostCents": 627,
+          "newPriceCents": 1254,
+          "priceId": "price_01KF76AWDW8RSVT9TSXAWDWXG1",
+          "status": "update",
+          "delta": 516
+        },
+        {
+          "variantId": "variant_01KF76AWDAG03EAH55T8TCYB7H",
+          "variantTitle": "50cm / Gold",
+          "sku": "ELV353744",
+          "sfOptions": {
+            "sizeCm": 50,
+            "finish": "gold"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": 6.81,
+          "cjCostCents": 681,
+          "newPriceCents": 1362,
+          "priceId": "price_01KF76AWDWSG78ZMVHG0RQDK59",
+          "status": "update",
+          "delta": 624
+        },
+        {
+          "variantId": "variant_01KF76AWDAW1ECT780Q873K23H",
+          "variantTitle": "65cm / 50cm right gold",
+          "sku": "ELV393038",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "50cm right gold"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDW5QJ26BXNJJXGNEE5",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDBNYHCAP8PG8ZM21XR",
+          "variantTitle": "65cm / 65cm right black",
+          "sku": "ELV426152",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "65cm right black"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDW8487B43969GAX9Q9",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDBVY1W0VJ6GFJB2BGF",
+          "variantTitle": "65cm / 65cm right gold",
+          "sku": "ELV468241",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "65cm right gold"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDWTZBJ5SKY16YWRR4S",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDB5FRAPFTMYB6EAKQT",
+          "variantTitle": "65cm / 50cm left black",
+          "sku": "ELV206744",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "50cm left black"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDW9PSZEVD7HJNGWPG5",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDBQ37GNZ26TW504BNE",
+          "variantTitle": "65cm / 50cm left gold",
+          "sku": "ELV350033",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "50cm left gold"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDWB80BDPDA6RV5TZ93",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDBJGBRY5TS624WR99X",
+          "variantTitle": "65cm / 65cm left black",
+          "sku": "ELV982669",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "65cm left black"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76AWDW4S2G7RXMJD9SV2EV",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76AWDBJ25RBVSNJ7M4SEFG",
+          "variantTitle": "65cm / Black",
+          "sku": "ELV680924",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "black"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": 7.53,
+          "cjCostCents": 753,
+          "newPriceCents": 1506,
+          "priceId": "price_01KF76AWDW2XM3KKJWJFYY3NDV",
+          "status": "update",
+          "delta": 768
+        },
+        {
+          "variantId": "variant_01KF76AWDBBEAADR3DKMDXE369",
+          "variantTitle": "65cm / Gold",
+          "sku": "ELV908807",
+          "sfOptions": {
+            "sizeCm": 65,
+            "finish": "gold"
+          },
+          "currentPriceCents": 738,
+          "cjCostUsd": 8.06,
+          "cjCostCents": 806,
+          "newPriceCents": 1612,
+          "priceId": "price_01KF76AWDWSSMAYA6KD6A3NAAY",
+          "status": "update",
+          "delta": 874
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 50cm right black Default tricolour light",
+          "sku": "CJTH158735001AZ",
+          "price": 6.27,
+          "parsed": {
+            "finish": "black",
+            "sizeCm": 50
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 50cm right gold Default tricolour light",
+          "sku": "CJTH158735002BY",
+          "price": 6.81,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 50
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 65cm right black Default tricolour light",
+          "sku": "CJTH158735003CX",
+          "price": 7.53,
+          "parsed": {
+            "finish": "black",
+            "sizeCm": 65
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 65cm right gold Default tricolour light",
+          "sku": "CJTH158735004DW",
+          "price": 8.06,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 65
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 50cm left blac Default tricolour light",
+          "sku": "CJTH158735005EV",
+          "price": 6.27,
+          "parsed": {
+            "sizeCm": 50
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 50cm left gold Default tricolour light",
+          "sku": "CJTH158735006FU",
+          "price": 6.81,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 50
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 65cm left black Default tricolour light",
+          "sku": "CJTH158735007GT",
+          "price": 7.53,
+          "parsed": {
+            "finish": "black",
+            "sizeCm": 65
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 65cm left gold Default tricolour light",
+          "sku": "CJTH158735008HS",
+          "price": 8.06,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 65
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm right black Default tricolour light",
+          "sku": "CJTH158735009IR",
+          "price": 12.48,
+          "parsed": {
+            "finish": "black",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm left black Default tricolour light",
+          "sku": "CJTH158735010JQ",
+          "price": 7.63,
+          "parsed": {
+            "finish": "black",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm right gold Default tricolour light",
+          "sku": "CJTH158735011KP",
+          "price": 12.48,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm left gold Default tricolour light",
+          "sku": "CJTH158735012LO",
+          "price": 8.62,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light Set 1 Default tricolour light",
+          "sku": "CJTH158735013MN",
+          "price": 15.26,
+          "parsed": {}
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm  Black Default tricolour light",
+          "sku": "CJTH158735040NM",
+          "price": 3.86,
+          "parsed": {
+            "finish": "black",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm  Black Warm Light",
+          "sku": "CJTH158735041OL",
+          "price": 3.69,
+          "parsed": {
+            "finish": "black",
+            "lightType": "warm light",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm  Black White Light",
+          "sku": "CJTH158735042PK",
+          "price": 3.69,
+          "parsed": {
+            "finish": "black",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm  Gold Default tricolour light",
+          "sku": "CJTH158735043QJ",
+          "price": 3.69,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm  Gold Warm Light",
+          "sku": "CJTH158735044RI",
+          "price": 3.69,
+          "parsed": {
+            "finish": "gold",
+            "lightType": "warm light",
+            "sizeCm": 48
+          }
+        },
+        {
+          "name": "Scandinavian Minimalist Led Indoor Wall Light 48cm  Gold White Light",
+          "sku": "CJTH158735045SH",
+          "price": 3.69,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 48
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76E30VMYWMR8DWXYDEB7N6",
+      "title": "Smart Modern Chandelier for Living & Dining Rooms",
+      "cjSku": "CJSN1637963",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 20,
+      "cjVariantCount": 16,
+      "storefrontOptionNames": [
+        "Finish",
+        "Size"
+      ],
+      "sharedDimensions": [
+        "finish",
+        "sizeCm"
+      ],
+      "cjOnlyDimensions": [
+        "wattage"
+      ],
+      "matched": 2,
+      "unmatched": 18,
+      "toUpdate": 1,
+      "unchanged": 1,
+      "changes": [
+        {
+          "variantId": "variant_01KF76E31SDZRFFAW285MFHMVP",
+          "variantTitle": "60cm / Of the item",
+          "sku": "ELV973047",
+          "sfOptions": {
+            "finish": "of the item",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HBR3HYMYBAMXSSWWR",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SAXP3J4BH0SM59WCG",
+          "variantTitle": "60cm / Gold -54w-40+60cm",
+          "sku": "ELV476558",
+          "sfOptions": {
+            "finish": "gold -54w-40+60cm",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32H9JYNT8ATS1KPQYHS",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31S1SWPG7HVRMADC80A",
+          "variantTitle": "60cm / Gold -64w-20+40+60cm",
+          "sku": "ELV245688",
+          "sfOptions": {
+            "finish": "gold -64w-20+40+60cm",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HSHPTV4PNTG31MHWX",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31S2VZ2F1ESH0C81QAD",
+          "variantTitle": "60cm / Gold -96w-40+60+80cm",
+          "sku": "ELV147084",
+          "sfOptions": {
+            "finish": "gold -96w-40+60+80cm",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32H67CYKX7W1PN3QRM7",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SV0TW0V843777ADQ9",
+          "variantTitle": "60cm / Three-color changing light",
+          "sku": "ELV118956",
+          "sfOptions": {
+            "finish": "three-color changing light",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HHWSZZSSX18F772Q5",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SEYSBG9G1X3KF9YR9",
+          "variantTitle": "60cm / Tmall genie driver",
+          "sku": "ELV741195",
+          "sfOptions": {
+            "finish": "tmall genie driver",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HJ1CD13B4RD8EPKSK",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SSR90MNJFW5Z2FNY1",
+          "variantTitle": "60cm / Bedroom",
+          "sku": "ELV238118",
+          "sfOptions": {
+            "sizeCm": 60,
+            "finish": "bedroom"
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HDC18V9QZV1ZJXEAK",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31STQD1T6E4ZWVB35WN",
+          "variantTitle": "60cm / Study",
+          "sku": "ELV370808",
+          "sfOptions": {
+            "finish": "study",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HH42B7T02RT156Z71",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SJFCMZ359R2RKZ83D",
+          "variantTitle": "60cm / White",
+          "sku": "ELV930900",
+          "sfOptions": {
+            "finish": "white",
+            "sizeCm": 60
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32H2ZPNNFH6X2F01CG1",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SA74YZ4JCMHFG8MJP",
+          "variantTitle": "60cm / Gold",
+          "sku": "ELV897861",
+          "sfOptions": {
+            "sizeCm": 60,
+            "finish": "gold"
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": 31.3,
+          "cjCostCents": 3130,
+          "newPriceCents": 6260,
+          "priceId": "price_01KF76E32H2A3FZMY55F6R65TQ",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76E31S1NJDVVX2P1VR8K6V",
+          "variantTitle": "80cm / Of the item",
+          "sku": "ELV992673",
+          "sfOptions": {
+            "finish": "of the item",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32H89FS98X9VJK0WHNS",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SJ35K3WE4X9JPY3NS",
+          "variantTitle": "80cm / Gold -54w-40+60cm",
+          "sku": "ELV266546",
+          "sfOptions": {
+            "finish": "gold -54w-40+60cm",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HNHNK8NWNM30EKGFM",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SZ6WXXHFRRG0RK9EJ",
+          "variantTitle": "80cm / Gold -64w-20+40+60cm",
+          "sku": "ELV409369",
+          "sfOptions": {
+            "finish": "gold -64w-20+40+60cm",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HACA0K1C1RV4FQTTN",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31S482GNBBEDXN4GSAF",
+          "variantTitle": "80cm / Gold -96w-40+60+80cm",
+          "sku": "ELV845989",
+          "sfOptions": {
+            "finish": "gold -96w-40+60+80cm",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32H6WFPWT43SK0Q6D37",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SSS0DDAE3V5S2JPPB",
+          "variantTitle": "80cm / Three-color changing light",
+          "sku": "ELV865360",
+          "sfOptions": {
+            "finish": "three-color changing light",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32HE4CS75P4JH33AVM1",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SGQD2XAZ535NQ5AGG",
+          "variantTitle": "80cm / Tmall genie driver",
+          "sku": "ELV314127",
+          "sfOptions": {
+            "finish": "tmall genie driver",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32J8Z5V9CQ5XCE5QPT8",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SS5X9CCET2X9RBZ9N",
+          "variantTitle": "80cm / Bedroom",
+          "sku": "ELV614341",
+          "sfOptions": {
+            "sizeCm": 80,
+            "finish": "bedroom"
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32JGHHYF26WS69BAW7M",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SNP01CKF1WW67W1KZ",
+          "variantTitle": "80cm / Study",
+          "sku": "ELV563599",
+          "sfOptions": {
+            "finish": "study",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32JXZRRP0HPENHRA294",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31STNTPN9GJTEQ291CN",
+          "variantTitle": "80cm / White",
+          "sku": "ELV224712",
+          "sfOptions": {
+            "finish": "white",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E32JTSXS07H0VGNAZW1W",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E31SW2MAXQ83EM12GJBF",
+          "variantTitle": "80cm / Gold",
+          "sku": "ELV471342",
+          "sfOptions": {
+            "finish": "gold",
+            "sizeCm": 80
+          },
+          "currentPriceCents": 6260,
+          "cjCostUsd": 52.91,
+          "cjCostCents": 5291,
+          "newPriceCents": 10582,
+          "priceId": "price_01KF76E32JJVJ7YXDGGCB0TE2T",
+          "status": "update",
+          "delta": 4322
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 54W 40x60CM White light",
+          "sku": "CJSN163796301AZ",
+          "price": 31.3,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 54
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 54W 40x60CM Tricolor dimming",
+          "sku": "CJSN163796302BY",
+          "price": 34.2,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 54
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 54W 40x60CM Tmall Genie",
+          "sku": "CJSN163796303CX",
+          "price": 37.26,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 54
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 54W 40x60CM Mijia Intelligence",
+          "sku": "CJSN163796304DW",
+          "price": 38.88,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 54
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 64W 20x40x60CM White light",
+          "sku": "CJSN163796305EV",
+          "price": 37.59,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 64
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 64W 20x40x60CM Tricolor dimming",
+          "sku": "CJSN163796306FU",
+          "price": 44.03,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 64
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 64W 20x40x60CM Tmall Genie",
+          "sku": "CJSN163796307GT",
+          "price": 47.26,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 64
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 64W 20x40x60CM Mijia Intelligence",
+          "sku": "CJSN163796308HS",
+          "price": 48.87,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 60,
+            "wattage": 64
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 96W 40x60x80CM White light",
+          "sku": "CJSN163796309IR",
+          "price": 52.91,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 96
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 96W 40x60x80CM Tricolor dimming",
+          "sku": "CJSN163796310JQ",
+          "price": 57.26,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 96
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 96W 40x60x80CM Tmall Genie",
+          "sku": "CJSN163796311KP",
+          "price": 60.97,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 96
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 96W 40x60x80CM Mijia Intelligence",
+          "sku": "CJSN163796312LO",
+          "price": 62.58,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 96
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 108W 20x40x60x80CM White light",
+          "sku": "CJSN163796313MN",
+          "price": 61.46,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 108
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 108W 20x40x60x80CM Tricolor dimming",
+          "sku": "CJSN163796314NM",
+          "price": 65.33,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 108
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 108W 20x40x60x80CM Tmall Genie",
+          "sku": "CJSN163796315OL",
+          "price": 69.2,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 108
+          }
+        },
+        {
+          "name": "Living Room Chandelier Dining Room Lamp Intelligent Simple Household Chandelier Gold 108W 20x40x60x80CM Mijia Intelligence",
+          "sku": "CJSN163796316PK",
+          "price": 70.81,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 80,
+            "wattage": 108
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76E3MJJG3Q90SQXTSNE7K9",
+      "title": "Modern LED Balcony Ceiling Chandelier",
+      "cjSku": "CJJT1469334",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 3,
+      "cjVariantCount": 3,
+      "storefrontOptionNames": [
+        "Finish"
+      ],
+      "sharedDimensions": [
+        "finish"
+      ],
+      "cjOnlyDimensions": [
+        "sizeCm",
+        "lightType"
+      ],
+      "matched": 2,
+      "unmatched": 1,
+      "toUpdate": 1,
+      "unchanged": 1,
+      "changes": [
+        {
+          "variantId": "variant_01KF76E3MWDYP788Y596P5YFAV",
+          "variantTitle": "White",
+          "sku": "ELV562419",
+          "sfOptions": {
+            "finish": "white"
+          },
+          "currentPriceCents": 2216,
+          "cjCostUsd": 11.08,
+          "cjCostCents": 1108,
+          "newPriceCents": 2216,
+          "priceId": "price_01KF76E3N5DZHBFZ0BP69P3R5K",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76E3MW2HD7JDD1BCFF5E0W",
+          "variantTitle": "Gold",
+          "sku": "ELV758729",
+          "sfOptions": {
+            "finish": "gold"
+          },
+          "currentPriceCents": 2216,
+          "cjCostUsd": 14.48,
+          "cjCostCents": 1448,
+          "newPriceCents": 2896,
+          "priceId": "price_01KF76E3N5JJV9TMJX9FPBP54B",
+          "status": "update",
+          "delta": 680
+        },
+        {
+          "variantId": "variant_01KF76E3MWT58HFVS4GGDQAK0Q",
+          "variantTitle": "Golden",
+          "sku": "ELV835488",
+          "sfOptions": {
+            "finish": "golden"
+          },
+          "currentPriceCents": 2216,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3N5MNM9XRREV1748CQP",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "New Led Balcony Ceiling Simple Modern Chandelier 20CM golden white light",
+          "sku": "CJJT146933401AZ",
+          "price": 11.08,
+          "parsed": {
+            "finish": "white",
+            "sizeCm": 20
+          }
+        },
+        {
+          "name": "New Led Balcony Ceiling Simple Modern Chandelier 20CM golden warm light",
+          "sku": "CJJT146933402BY",
+          "price": 11.08,
+          "parsed": {
+            "lightType": "warm light",
+            "sizeCm": 20
+          }
+        },
+        {
+          "name": "New Led Balcony Ceiling Simple Modern Chandelier 20CM gold threetone light",
+          "sku": "CJJT146933403CX",
+          "price": 14.48,
+          "parsed": {
+            "finish": "gold",
+            "sizeCm": 20
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76E3QDW0VXTXKZB1SHS29B",
+      "title": "Modern Artistic Study Chandelier for Creative Spaces",
+      "cjSku": "CJJT1484543",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 10,
+      "cjVariantCount": 2,
+      "storefrontOptionNames": [
+        "Finish"
+      ],
+      "sharedDimensions": [
+        "finish"
+      ],
+      "cjOnlyDimensions": [
+        "lightType",
+        "sizeCm"
+      ],
+      "matched": 0,
+      "unmatched": 10,
+      "toUpdate": 0,
+      "unchanged": 0,
+      "changes": [
+        {
+          "variantId": "variant_01KF76E3QQPR5VNZFHY2QEQX2W",
+          "variantTitle": "Living room",
+          "sku": "ELV952591",
+          "sfOptions": {
+            "finish": "living room"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R346H8VCBCAENT02N7",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QQ5M8KFA601VVE6AAX",
+          "variantTitle": "Bedroom",
+          "sku": "ELV418557",
+          "sfOptions": {
+            "finish": "bedroom"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R3K961NX89PB2PMY5Z",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QQSDZRYBZPE26XJF3C",
+          "variantTitle": "Study",
+          "sku": "ELV189215",
+          "sfOptions": {
+            "finish": "study"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R3KBPKKX8Z3H30DP0R",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QQWKYV9ZRC4CRM19W9",
+          "variantTitle": "Corridor",
+          "sku": "ELV170947",
+          "sfOptions": {
+            "finish": "corridor"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R3WW4QN7ACCG446EQW",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QQ53AP26QG8HKB0KJH",
+          "variantTitle": "Courtyard",
+          "sku": "ELV567701",
+          "sfOptions": {
+            "finish": "courtyard"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R35XP2703GFFY172HZ",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QQVRDNMT3RB24V977N",
+          "variantTitle": "Dining room",
+          "sku": "ELV435091",
+          "sfOptions": {
+            "finish": "dining room"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R3B2MERHW3RXP9MA6H",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QQRGE8R5HG43HMGYM4",
+          "variantTitle": "Kitchen",
+          "sku": "ELV365683",
+          "sfOptions": {
+            "finish": "kitchen"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R319MGSZGDHXXC0YX0",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QQPQTF23MW8H5B0E6G",
+          "variantTitle": "Bathroom",
+          "sku": "ELV848464",
+          "sfOptions": {
+            "finish": "bathroom"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R3V2TY2F4B8PX6MQ2Q",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QRB0ZS2FG5AH89FC01",
+          "variantTitle": "Porch",
+          "sku": "ELV363868",
+          "sfOptions": {
+            "finish": "porch"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R3W16XSSY3JW1D3C9H",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        },
+        {
+          "variantId": "variant_01KF76E3QRASJ1C821NZSM4F0Q",
+          "variantTitle": "Balcony",
+          "sku": "ELV713792",
+          "sfOptions": {
+            "finish": "balcony"
+          },
+          "currentPriceCents": 7256,
+          "cjCostUsd": null,
+          "newPriceCents": null,
+          "priceId": "price_01KF76E3R36JHY8QKFEBFBH5WJ",
+          "status": "unmatched",
+          "reason": "No matching CJ variant found"
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Study Cafe Art Lighting Creative Personality Chandelier Diameter 40CM warm light",
+          "sku": "CJJT148454301AZ",
+          "price": 36.28,
+          "parsed": {
+            "lightType": "warm light",
+            "sizeCm": 40
+          }
+        },
+        {
+          "name": "Study Cafe Art Lighting Creative Personality Chandelier Diameter 40CM White light",
+          "sku": "CJJT148454302BY",
+          "price": 36.28,
+          "parsed": {
+            "finish": "white",
+            "sizeCm": 40
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76EAP6YH7Z3NM6TJB1HEJX",
+      "title": "Industrial Wrought Iron Pendant Light for Restaurant Bar",
+      "cjSku": "CJSN1330614",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 3,
+      "cjVariantCount": 5,
+      "storefrontOptionNames": [
+        "Voltage"
+      ],
+      "sharedDimensions": [],
+      "cjOnlyDimensions": [],
+      "matched": 3,
+      "unmatched": 0,
+      "toUpdate": 0,
+      "unchanged": 3,
+      "changes": [
+        {
+          "variantId": "variant_01KF76EAPHDNK75RTKH1N4R0XF",
+          "variantTitle": "36V",
+          "sku": "ELV851738",
+          "sfOptions": {
+            "voltage": 36
+          },
+          "currentPriceCents": 1682,
+          "cjCostUsd": 8.41,
+          "cjCostCents": 841,
+          "newPriceCents": 1682,
+          "priceId": "price_01KF76EAPS5AVFAJ966DFTBYMC",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EAPH13RST1SXVQV4K3SB",
+          "variantTitle": "240V",
+          "sku": "ELV436982",
+          "sfOptions": {
+            "voltage": 240
+          },
+          "currentPriceCents": 1682,
+          "cjCostUsd": 8.41,
+          "cjCostCents": 841,
+          "newPriceCents": 1682,
+          "priceId": "price_01KF76EAPS7D03FW2TY06371YD",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EAPHWE7X4G88S5HRDFJH",
+          "variantTitle": "110-240V (Universal)",
+          "sku": "ELV460084",
+          "sfOptions": {
+            "voltage": 110
+          },
+          "currentPriceCents": 1682,
+          "cjCostUsd": 8.41,
+          "cjCostCents": 841,
+          "newPriceCents": 1682,
+          "priceId": "price_01KF76EAPSEK7A6VCDGFW9EJQF",
+          "status": "unchanged",
+          "delta": 0
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Retro Industrial Style Decoration Restaurant Bar Wrought Iron Lighting Style1",
+          "sku": "CJSN133061401AZ",
+          "price": 23.03,
+          "parsed": {}
+        },
+        {
+          "name": "Retro Industrial Style Decoration Restaurant Bar Wrought Iron Lighting Style3",
+          "sku": "CJSN133061402BY",
+          "price": 13.04,
+          "parsed": {}
+        },
+        {
+          "name": "Retro Industrial Style Decoration Restaurant Bar Wrought Iron Lighting Style4",
+          "sku": "CJSN133061403CX",
+          "price": 8.69,
+          "parsed": {}
+        },
+        {
+          "name": "Retro Industrial Style Decoration Restaurant Bar Wrought Iron Lighting Style5",
+          "sku": "CJSN133061404DW",
+          "price": 8.41,
+          "parsed": {}
+        },
+        {
+          "name": "Retro Industrial Style Decoration Restaurant Bar Wrought Iron Lighting Style6",
+          "sku": "CJSN133061405EV",
+          "price": 8.41,
+          "parsed": {}
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76EAR5B21GBG9N8CYGBT9M",
+      "title": "Industrial Wire Mesh Pendant Light - Vintage Design",
+      "cjSku": "CJJT1543973",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 20,
+      "cjVariantCount": 3,
+      "storefrontOptionNames": [
+        "Voltage",
+        "Finish"
+      ],
+      "sharedDimensions": [],
+      "cjOnlyDimensions": [],
+      "matched": 20,
+      "unmatched": 0,
+      "toUpdate": 0,
+      "unchanged": 20,
+      "changes": [
+        {
+          "variantId": "variant_01KF76EARKK2MKJNBR38070V21",
+          "variantTitle": "With tungsten bulb / 80V",
+          "sku": "ELV915428",
+          "sfOptions": {
+            "voltage": 80,
+            "finish": "with tungsten bulb"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASB4RKBD6QT3PK3VWQ4",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKQA182MG0W1RFX0Z4",
+          "variantTitle": "With tungsten bulb / 240V",
+          "sku": "ELV414727",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "with tungsten bulb"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBKA28KHGEN6S49F3W",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKTKNXA4CSKAZQEE0D",
+          "variantTitle": "Living room / 80V",
+          "sku": "ELV604688",
+          "sfOptions": {
+            "voltage": 80,
+            "finish": "living room"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBR0CR5R1EX3G2WHWM",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK9GD0GX35S4FV2VX6",
+          "variantTitle": "Living room / 240V",
+          "sku": "ELV930801",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "living room"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBDXW4VJVQTHWRPMQX",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK4TMQFWG2WPVW2FBC",
+          "variantTitle": "Bedroom / 80V",
+          "sku": "ELV321823",
+          "sfOptions": {
+            "voltage": 80,
+            "finish": "bedroom"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBYMN1PKXY2PCGS5NW",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKZWKGEB8T008VHBY4",
+          "variantTitle": "Bedroom / 240V",
+          "sku": "ELV282733",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "bedroom"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBF4ESXE3Q43YPY8PD",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK81T71MRZD6ZMQDRP",
+          "variantTitle": "Study / 80V",
+          "sku": "ELV660463",
+          "sfOptions": {
+            "finish": "study",
+            "voltage": 80
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBGETS8FRMZKCSQJBR",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKRCV6MHVA9D3GC4BR",
+          "variantTitle": "Study / 240V",
+          "sku": "ELV572078",
+          "sfOptions": {
+            "finish": "study",
+            "voltage": 240
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASB79SYDS5YZR07K89M",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKMAKBKCD44W4FSW8J",
+          "variantTitle": "Corridor / 80V",
+          "sku": "ELV965439",
+          "sfOptions": {
+            "voltage": 80,
+            "finish": "corridor"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASB8X7D3RV3B5Y4N9NP",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK49E5FCS5B3T9ZVR8",
+          "variantTitle": "Corridor / 240V",
+          "sku": "ELV272417",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "corridor"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASB9KE1FRAP3F1JZSP2",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK0X4MW89HTJ6A4G2R",
+          "variantTitle": "Courtyard / 80V",
+          "sku": "ELV190585",
+          "sfOptions": {
+            "voltage": 80,
+            "finish": "courtyard"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBKQ1M3V7KSYSG65T8",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKPKK5PZZ63AFEZP1C",
+          "variantTitle": "Courtyard / 240V",
+          "sku": "ELV747097",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "courtyard"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASB45QQYJMN1727BCF1",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK97Y0Y06HMFPNPZA7",
+          "variantTitle": "Dining room / 80V",
+          "sku": "ELV551617",
+          "sfOptions": {
+            "voltage": 80,
+            "finish": "dining room"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBE4C1Z0N34NDD0GEC",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKPBDQCZN16RWV37YB",
+          "variantTitle": "Dining room / 240V",
+          "sku": "ELV507791",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "dining room"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBBACCGA7KGM3ED7XR",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK580NKABNAFDWGZK9",
+          "variantTitle": "Kitchen / 80V",
+          "sku": "ELV216789",
+          "sfOptions": {
+            "voltage": 80,
+            "finish": "kitchen"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBG2C90AACTYKD6E6A",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKJEF37P78HZ71X7Y6",
+          "variantTitle": "Kitchen / 240V",
+          "sku": "ELV863747",
+          "sfOptions": {
+            "voltage": 240,
+            "finish": "kitchen"
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBZR7EPM715JM0T6CM",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK0WFGQWPP7MW5N3RS",
+          "variantTitle": "Bathroom / 80V",
+          "sku": "ELV427795",
+          "sfOptions": {
+            "finish": "bathroom",
+            "voltage": 80
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBTXH89PEV443W1D2V",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKYR2SP94C178JJNSF",
+          "variantTitle": "Bathroom / 240V",
+          "sku": "ELV650633",
+          "sfOptions": {
+            "finish": "bathroom",
+            "voltage": 240
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBDB4SBMTRK8XPRX3B",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARKKPBFMGE4KVHB4KAQ",
+          "variantTitle": "Porch / 80V",
+          "sku": "ELV290037",
+          "sfOptions": {
+            "finish": "porch",
+            "voltage": 80
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBH6MBPWYPTHQXPYM7",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EARK3D3EE3JDG1235G9D",
+          "variantTitle": "Porch / 240V",
+          "sku": "ELV354813",
+          "sfOptions": {
+            "finish": "porch",
+            "voltage": 240
+          },
+          "currentPriceCents": 1484,
+          "cjCostUsd": 7.42,
+          "cjCostCents": 742,
+          "newPriceCents": 1484,
+          "priceId": "price_01KF76EASBXA86F50VQ8T1S0KJ",
+          "status": "unchanged",
+          "delta": 0
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Retro Bar Theme Restaurant Wrought Iron Single Head Mesh Chandelier D0204 Without light source",
+          "sku": "CJJT154397301AZ",
+          "price": 7.42,
+          "parsed": {}
+        },
+        {
+          "name": "Retro Bar Theme Restaurant Wrought Iron Single Head Mesh Chandelier D0204 With tungsten bulb",
+          "sku": "CJJT154397302BY",
+          "price": 8.24,
+          "parsed": {}
+        },
+        {
+          "name": "Retro Bar Theme Restaurant Wrought Iron Single Head Mesh Chandelier D0204 With LED bulb",
+          "sku": "CJJT154397303CX",
+          "price": 8.24,
+          "parsed": {}
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76EBG0PMKHHZAQX06PDYVA",
+      "title": "Rustic Wood Glass Pendant Light - Modern Industrial Design",
+      "cjSku": "CJJZSNTH00008",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 3,
+      "cjVariantCount": 7,
+      "storefrontOptionNames": [
+        "Finish"
+      ],
+      "sharedDimensions": [],
+      "cjOnlyDimensions": [],
+      "matched": 3,
+      "unmatched": 0,
+      "toUpdate": 0,
+      "unchanged": 3,
+      "changes": [
+        {
+          "variantId": "variant_01KF76EBGC8THR3EZC8XP6P2R2",
+          "variantTitle": "Energy saving lamp",
+          "sku": "ELV452096",
+          "sfOptions": {
+            "finish": "energy saving lamp"
+          },
+          "currentPriceCents": 2148,
+          "cjCostUsd": 10.74,
+          "cjCostCents": 1074,
+          "newPriceCents": 2148,
+          "priceId": "price_01KF76EBGK7H93TG5B62NHY69X",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EBGCK5SD894TD1MYREF7",
+          "variantTitle": "Edison light source",
+          "sku": "ELV419055",
+          "sfOptions": {
+            "finish": "edison light source"
+          },
+          "currentPriceCents": 2148,
+          "cjCostUsd": 10.74,
+          "cjCostCents": 1074,
+          "newPriceCents": 2148,
+          "priceId": "price_01KF76EBGKRP6J3AC6RCQ05JPF",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EBGCCTT8YT6AG912PF4D",
+          "variantTitle": "Etc",
+          "sku": "ELV640839",
+          "sfOptions": {
+            "finish": "etc"
+          },
+          "currentPriceCents": 2148,
+          "cjCostUsd": 10.74,
+          "cjCostCents": 1074,
+          "newPriceCents": 2148,
+          "priceId": "price_01KF76EBGK16WH70KXZRMNNM9A",
+          "status": "unchanged",
+          "delta": 0
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Modern Led Glass Pendant Light Fixture With Wood Vintage Rustic Hanging Lamp For Cafe Bar Restaurant Home Deco Loft Lighting Clear C",
+          "sku": "CJJZSNTH00008-Clear C",
+          "price": 16.67,
+          "parsed": {}
+        },
+        {
+          "name": "Modern Led Glass Pendant Light Fixture With Wood Vintage Rustic Hanging Lamp For Cafe Bar Restaurant Home Deco Loft Lighting Clear B",
+          "sku": "CJJZSNTH00008-Clear B",
+          "price": 14.81,
+          "parsed": {}
+        },
+        {
+          "name": "Modern Led Glass Pendant Light Fixture With Wood Vintage Rustic Hanging Lamp For Cafe Bar Restaurant Home Deco Loft Lighting Clear A",
+          "sku": "CJJZSNTH00008-Clear A",
+          "price": 10.74,
+          "parsed": {}
+        },
+        {
+          "name": "Modern Led Glass Pendant Light Fixture With Wood Vintage Rustic Hanging Lamp For Cafe Bar Restaurant Home Deco Loft Lighting ABC",
+          "sku": "CJJZSNTH00008-ABC",
+          "price": 38.07,
+          "parsed": {}
+        },
+        {
+          "name": "Modern Led Glass Pendant Light Fixture With Wood Vintage Rustic Hanging Lamp For Cafe Bar Restaurant Home Deco Loft Lighting C",
+          "sku": "CJJZSNTH00008-C",
+          "price": 14.52,
+          "parsed": {}
+        },
+        {
+          "name": "Modern Led Glass Pendant Light Fixture With Wood Vintage Rustic Hanging Lamp For Cafe Bar Restaurant Home Deco Loft Lighting B",
+          "sku": "CJJZSNTH00008-B",
+          "price": 15.43,
+          "parsed": {}
+        },
+        {
+          "name": "Modern Led Glass Pendant Light Fixture With Wood Vintage Rustic Hanging Lamp For Cafe Bar Restaurant Home Deco Loft Lighting A",
+          "sku": "CJJZSNTH00008-A",
+          "price": 14.29,
+          "parsed": {}
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76EBHPEY5GXEYVY7H1RZJ8",
+      "title": "Nordic LED Restaurant Pendant Light - Creative Design",
+      "cjSku": "CJJT1579383",
+      "markupPercent": 100,
+      "pricingStrategy": "min",
+      "storefrontVariantCount": 4,
+      "cjVariantCount": 6,
+      "storefrontOptionNames": [
+        "Size"
+      ],
+      "sharedDimensions": [],
+      "cjOnlyDimensions": [
+        "finish",
+        "lightType"
+      ],
+      "matched": 4,
+      "unmatched": 0,
+      "toUpdate": 0,
+      "unchanged": 4,
+      "changes": [
+        {
+          "variantId": "variant_01KF76EBJ10HGZCV4SAYBF8SYH",
+          "variantTitle": "28cm",
+          "sku": "ELV111456",
+          "sfOptions": {
+            "sizeCm": 28
+          },
+          "currentPriceCents": 1548,
+          "cjCostUsd": 7.74,
+          "cjCostCents": 774,
+          "newPriceCents": 1548,
+          "priceId": "price_01KF76EBJBC060PVM9JCBD19CQ",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EBJ1P02GSVC05AVN1JN0",
+          "variantTitle": "10cm",
+          "sku": "ELV816782",
+          "sfOptions": {
+            "sizeCm": 10
+          },
+          "currentPriceCents": 1548,
+          "cjCostUsd": 7.74,
+          "cjCostCents": 774,
+          "newPriceCents": 1548,
+          "priceId": "price_01KF76EBJBC0G42HZY03P4M0VH",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EBJ16VZJ2N8FHG5CBY01",
+          "variantTitle": "32cm",
+          "sku": "ELV332567",
+          "sfOptions": {
+            "sizeCm": 32
+          },
+          "currentPriceCents": 1548,
+          "cjCostUsd": 7.74,
+          "cjCostCents": 774,
+          "newPriceCents": 1548,
+          "priceId": "price_01KF76EBJBQDD0BKENPZDPSHA3",
+          "status": "unchanged",
+          "delta": 0
+        },
+        {
+          "variantId": "variant_01KF76EBJ1E69SW1RNX5SH6E6Q",
+          "variantTitle": "100cm",
+          "sku": "ELV365026",
+          "sfOptions": {
+            "sizeCm": 100
+          },
+          "currentPriceCents": 1548,
+          "cjCostUsd": 7.74,
+          "cjCostCents": 774,
+          "newPriceCents": 1548,
+          "priceId": "price_01KF76EBJB6ACQPVH7AVZ32X3D",
+          "status": "unchanged",
+          "delta": 0
+        }
+      ],
+      "cjVariantSummary": [
+        {
+          "name": "Nordic Creative LED Restaurant Pendant Lamp Bicircle Tricolor dimming",
+          "sku": "CJJT157938301AZ",
+          "price": 9.36,
+          "parsed": {}
+        },
+        {
+          "name": "Nordic Creative LED Restaurant Pendant Lamp Bicircle White light",
+          "sku": "CJJT157938302BY",
+          "price": 7.74,
+          "parsed": {
+            "finish": "white"
+          }
+        },
+        {
+          "name": "Nordic Creative LED Restaurant Pendant Lamp Bicircle Warm light",
+          "sku": "CJJT157938303CX",
+          "price": 7.74,
+          "parsed": {
+            "lightType": "warm light"
+          }
+        },
+        {
+          "name": "Nordic Creative LED Restaurant Pendant Lamp Triangle Tricolor dimming",
+          "sku": "CJJT157938304DW",
+          "price": 9.36,
+          "parsed": {}
+        },
+        {
+          "name": "Nordic Creative LED Restaurant Pendant Lamp Triangle White light",
+          "sku": "CJJT157938305EV",
+          "price": 7.74,
+          "parsed": {
+            "finish": "white"
+          }
+        },
+        {
+          "name": "Nordic Creative LED Restaurant Pendant Lamp Triangle Warm light",
+          "sku": "CJJT157938306FU",
+          "price": 7.74,
+          "parsed": {
+            "lightType": "warm light"
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "products": 10,
+    "totalVariants": 139,
+    "updates": 6,
+    "unchanged": 80,
+    "unmatched": 53
+  }
+}

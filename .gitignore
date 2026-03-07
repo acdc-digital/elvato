@@ -7,3 +7,4 @@
 .env
 .env.local
 node_modules
+.cj-token-cache.json
