@@ -1,15 +1,25 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import Script from "next/script"
-import { Fraunces, Inclusive_Sans } from "next/font/google"
+import { Fraunces } from "next/font/google"
+import localFont from "next/font/local"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from '@vercel/analytics/next';
 import "styles/globals.css"
 
-const inclusiveSans = Inclusive_Sans({
-  weight: "400",
-  subsets: ["latin"],
+const inclusiveSans = localFont({
+  src: [
+    {
+      path: "../../public/fonts/InclusiveSans-VariableFont_wght.ttf",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/InclusiveSans-Italic-VariableFont_wght.ttf",
+      style: "italic",
+    },
+  ],
   variable: "--font-inclusive",
+  display: "swap",
 })
 
 const fraunces = Fraunces({
