@@ -42,7 +42,7 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
                   "border-ui-border-interactive": v === current,
                   "hover:shadow-elevation-card-rest transition-shadow ease-in-out duration-150":
                     v !== current && isAvailable,
-                  "opacity-40 cursor-not-allowed": !isAvailable,
+                  "opacity-50 cursor-not-allowed bg-ui-bg-disabled text-ui-fg-disabled": !isAvailable,
                 }
               )}
               disabled={disabled || !isAvailable}

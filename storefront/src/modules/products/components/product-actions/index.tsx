@@ -59,46 +59,6 @@ export default function ProductActions({
     })
   }, [product.variants, options])
 
-  // Determine which options actually affect pricing. An option affects
-  // pricing if changing its value (with other options held constant) ever
-  // produces a different price.
-  const priceAffectingOptionIds = useMemo(() => {
-    const ids = new Set<string>()
-    for (const option of product.options || []) {
-      // Group variants by all OTHER option values
-      const groups = new Map<string, number[]>()
-      for (const variant of product.variants || []) {
-        const vo = optionsAsKeymap(variant.options) ?? {}
-        const groupKey = Object.entries(vo)
-          .filter(([id]) => id !== option.id)
-          .sort(([a], [b]) => a.localeCompare(b))
-          .map(([, v]) => v)
-          .join("|")
-        const price =
-          (variant as any).calculated_price?.calculated_amount ?? 0
-        const arr = groups.get(groupKey) || []
-        arr.push(price)
-        groups.set(groupKey, arr)
-      }
-      // If any group has varying prices, this option affects pricing
-      const groupValues = Array.from(groups.values())
-      for (let i = 0; i < groupValues.length; i++) {
-        const prices = groupValues[i]
-        if (prices.length > 1 && new Set(prices).size > 1) {
-          ids.add(option.id)
-          break
-        }
-      }
-    }
-    // If we couldn't determine pricing (no calculated_price), show all
-    if (ids.size === 0) {
-      for (const option of product.options || []) {
-        ids.add(option.id)
-      }
-    }
-    return ids
-  }, [product.options, product.variants])
-
   // For each option, determine which values are available given the other
   // currently-selected options.
   const availableOptionValues = useMemo(() => {
@@ -236,9 +196,7 @@ export default function ProductActions({
         <div>
           {(product.variants?.length ?? 0) > 1 && (
             <div className="flex flex-col gap-y-4">
-              {(product.options || [])
-                .filter((option) => priceAffectingOptionIds.has(option.id))
-                .map((option) => {
+              {(product.options || []).map((option) => {
                   return (
                     <div key={option.id}>
                       <OptionSelect
