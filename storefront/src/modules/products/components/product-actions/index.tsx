@@ -81,7 +81,9 @@ export default function ProductActions({
         groups.set(groupKey, arr)
       }
       // If any group has varying prices, this option affects pricing
-      for (const prices of groups.values()) {
+      const groupValues = Array.from(groups.values())
+      for (let i = 0; i < groupValues.length; i++) {
+        const prices = groupValues[i]
         if (prices.length > 1 && new Set(prices).size > 1) {
           ids.add(option.id)
           break
