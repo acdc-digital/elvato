@@ -37,3 +37,8 @@ For detailed documentation on each technology:
 - Follow Medusa's framework conventions for API routes, workflows, and modules
 - Include proper error handling and loading states
 - Write self-documenting code with clear variable and function names
+
+## Terminal / Scripting
+
+- **Never use inline `node -e` or `node -p` with multi-line JS in zsh** — zsh mangles quotes, backticks, and special characters. Always write a temporary `.mjs` script file and run it with `node scripts/debug/_tmp.mjs`, then delete after.
+- Place temporary debug scripts in `scripts/debug/` with a `_tmp` prefix.

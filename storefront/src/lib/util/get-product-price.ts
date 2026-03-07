@@ -3,7 +3,7 @@ import { getPercentageDiff } from "./get-percentage-diff"
 import { convertToLocale } from "./money"
 
 export const getPricesForVariant = (variant: any) => {
-  if (!variant?.calculated_price?.calculated_amount) {
+  if (variant?.calculated_price?.calculated_amount == null) {
     return null
   }
 
