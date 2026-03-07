@@ -85,13 +85,40 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${getBaseURL()}/${params.countryCode}`,
+      },
+      ...params.category.map((segment: string, index: number) => ({
+        "@type": "ListItem",
+        position: index + 2,
+        name: index === params.category.length - 1
+          ? productCategory.name
+          : segment.replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase()),
+        item: `${getBaseURL()}/${params.countryCode}/categories/${params.category.slice(0, index + 1).join("/")}`,
+      })),
+    ],
+  }
+
   return (
-    <CategoryTemplate
-      category={productCategory}
-      sortBy={sortBy}
-      page={page}
-      countryCode={params.countryCode}
-      limit={limit}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <CategoryTemplate
+        category={productCategory}
+        sortBy={sortBy}
+        page={page}
+        countryCode={params.countryCode}
+        limit={limit}
+      />
+    </>
   )
 }

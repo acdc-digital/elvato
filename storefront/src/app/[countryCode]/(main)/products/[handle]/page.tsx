@@ -1,57 +1,19 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { listProducts } from "@lib/data/products"
-import { getRegion, listRegions } from "@lib/data/regions"
+import { getRegion } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
 import { HttpTypes } from "@medusajs/types"
 import { withCdnImages } from "@lib/data/convex-images"
 import { getBaseURL } from "@lib/util/env"
 
+// Product pages rely on cookies (auth headers, cache tags) and searchParams,
+// which are dynamic server APIs incompatible with static generation in Next 15.
+export const dynamic = "force-dynamic"
+
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
   searchParams: Promise<{ v_id?: string }>
-}
-
-export async function generateStaticParams() {
-  try {
-    const countryCodes = await listRegions().then((regions) =>
-      regions?.map((r) => r.countries?.map((c) => c.iso_2)).flat()
-    )
-
-    if (!countryCodes) {
-      return []
-    }
-
-    const promises = countryCodes.map(async (country) => {
-      const { response } = await listProducts({
-        countryCode: country,
-        queryParams: { limit: 100, fields: "handle" },
-      })
-
-      return {
-        country,
-        products: response.products,
-      }
-    })
-
-    const countryProducts = await Promise.all(promises)
-
-    return countryProducts
-      .flatMap((countryData) =>
-        countryData.products.map((product) => ({
-          countryCode: countryData.country,
-          handle: product.handle,
-        }))
-      )
-      .filter((param) => param.handle)
-  } catch (error) {
-    console.error(
-      `Failed to generate static paths for product pages: ${
-        error instanceof Error ? error.message : "Unknown error"
-      }.`
-    )
-    return []
-  }
 }
 
 function getImagesForVariant(
@@ -132,12 +94,44 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: pricedProduct.title,
+    description: pricedProduct.description,
+    image: pricedProduct.images?.map((i) => i.url) ?? [],
+    sku: pricedProduct.variants?.[0]?.sku ?? pricedProduct.id,
+    brand: {
+      "@type": "Brand",
+      name: "Elvato",
+    },
+    offers: pricedProduct.variants?.map((v) => ({
+      "@type": "Offer",
+      url: `${getBaseURL()}/${params.countryCode}/products/${pricedProduct.handle}?v_id=${v.id}`,
+      priceCurrency: region.currency_code?.toUpperCase() ?? "USD",
+      price: v.calculated_price?.calculated_amount
+        ? (v.calculated_price.calculated_amount / 100).toFixed(2)
+        : undefined,
+      availability:
+        (v.inventory_quantity ?? 0) > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
+    })) ?? [],
+  }
+
   return (
-    <ProductTemplate
-      product={pricedProduct}
-      region={region}
-      countryCode={params.countryCode}
-      images={images}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <ProductTemplate
+        product={pricedProduct}
+        region={region}
+        countryCode={params.countryCode}
+        images={images}
+      />
+    </>
   )
 }

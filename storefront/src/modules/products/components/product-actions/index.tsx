@@ -183,6 +183,14 @@ export default function ProductActions({
             : "Add to cart"}
         </Button>
 
+        {/* SKU */}
+        {selectedVariant?.sku && (
+          <div className="pt-4 mt-4 border-t border-ui-border-base flex items-center justify-between">
+            <span className="text-xs font-medium uppercase tracking-wider text-ui-fg-muted">SKU</span>
+            <span className="text-xs font-mono text-ui-fg-base">{selectedVariant.sku}</span>
+          </div>
+        )}
+
         {/* Shipping & Returns */}
         <div className="pt-6 mt-4 border-t border-ui-border-base">
           <h3 className="text-xs font-medium uppercase tracking-wider text-ui-fg-muted mb-4">

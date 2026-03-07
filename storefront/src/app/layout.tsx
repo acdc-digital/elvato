@@ -48,12 +48,20 @@ const webSiteJsonLd = {
   "@type": "WebSite",
   name: "Elvato",
   url: getBaseURL(),
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${getBaseURL()}/us/store?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
 }
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <head>
+      <body className={fraunces.variable}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V929297BMM"
           strategy="afterInteractive"
@@ -66,8 +74,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             gtag('config', 'G-V929297BMM');
           `}
         </Script>
-      </head>
-      <body className={fraunces.variable}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
