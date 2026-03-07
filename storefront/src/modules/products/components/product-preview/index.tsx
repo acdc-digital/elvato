@@ -6,6 +6,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Image from "next/image"
 import PreviewPrice from "./price"
 import { getCdnThumbnail } from "@lib/data/convex-images"
+import { convertToLocale } from "@lib/util/money"
 
 /**
  * Map common finish / colour names to hex values.
@@ -50,9 +51,6 @@ function getSwatchColor(value: string): string {
   return COLOR_MAP[lower] ?? "#CCCCCC"
 }
 
-/** Placeholder price range — will be replaced by dynamic pricing API */
-const PLACEHOLDER_PRICE_RANGE = "$320 - $485"
-
 export default async function ProductPreview({
   product,
   isFeatured,
@@ -62,9 +60,23 @@ export default async function ProductPreview({
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
 }) {
-  const { cheapestPrice } = getProductPrice({
-    product,
-  })
+  // Compute real price display from variant calculated_prices
+  const pricedVariants = (product.variants ?? []).filter(
+    (v: any) => v.calculated_price?.calculated_amount != null
+  )
+  let priceDisplay = ""
+  if (pricedVariants.length > 0) {
+    const amounts = pricedVariants.map(
+      (v: any) => v.calculated_price.calculated_amount as number
+    )
+    const currencyCode =
+      (pricedVariants[0] as any).calculated_price.currency_code ?? "cad"
+    const min = Math.min(...amounts)
+    const max = Math.max(...amounts)
+    const fmt = (n: number) =>
+      convertToLocale({ amount: n, currency_code: currencyCode })
+    priceDisplay = min === max ? fmt(min) : `${fmt(min)} – ${fmt(max)}`
+  }
 
   // Resolve CDN thumbnail (falls back to original if not ingested)
   const cdnThumb = product.handle
@@ -142,7 +154,7 @@ export default async function ProductPreview({
           {/* Option count + Price row */}
           <div className="flex items-baseline justify-between mt-0.5">
             <p className="text-sm font-semibold text-grey-80 tracking-tight" data-testid="product-price">
-              {PLACEHOLDER_PRICE_RANGE}
+              {priceDisplay || "Price unavailable"}
             </p>
             {totalOptionCount > 0 && (
               <p className="text-[11px] text-grey-40 font-sans">
