@@ -184,10 +184,10 @@ export default function ProductActions({
         </Button>
 
         {/* SKU */}
-        {selectedVariant?.sku && (
+        {(selectedVariant?.sku || product.variants?.[0]?.sku) && (
           <div className="pt-4 mt-4 border-t border-ui-border-base flex items-center justify-between">
             <span className="text-xs font-medium uppercase tracking-wider text-ui-fg-muted">SKU</span>
-            <span className="text-xs font-mono text-ui-fg-base">{selectedVariant.sku}</span>
+            <span className="text-xs font-mono text-ui-fg-base">{selectedVariant?.sku || product.variants?.[0]?.sku}</span>
           </div>
         )}
 
