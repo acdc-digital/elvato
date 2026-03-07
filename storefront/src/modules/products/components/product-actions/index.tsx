@@ -59,12 +59,105 @@ export default function ProductActions({
     })
   }, [product.variants, options])
 
+  // Determine which options actually affect pricing. An option affects
+  // pricing if changing its value (with other options held constant) ever
+  // produces a different price.
+  const priceAffectingOptionIds = useMemo(() => {
+    const ids = new Set<string>()
+    for (const option of product.options || []) {
+      // Group variants by all OTHER option values
+      const groups = new Map<string, number[]>()
+      for (const variant of product.variants || []) {
+        const vo = optionsAsKeymap(variant.options) ?? {}
+        const groupKey = Object.entries(vo)
+          .filter(([id]) => id !== option.id)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([, v]) => v)
+          .join("|")
+        const price =
+          (variant as any).calculated_price?.calculated_amount ?? 0
+        const arr = groups.get(groupKey) || []
+        arr.push(price)
+        groups.set(groupKey, arr)
+      }
+      // If any group has varying prices, this option affects pricing
+      for (const prices of groups.values()) {
+        if (prices.length > 1 && new Set(prices).size > 1) {
+          ids.add(option.id)
+          break
+        }
+      }
+    }
+    // If we couldn't determine pricing (no calculated_price), show all
+    if (ids.size === 0) {
+      for (const option of product.options || []) {
+        ids.add(option.id)
+      }
+    }
+    return ids
+  }, [product.options, product.variants])
+
+  // For each option, determine which values are available given the other
+  // currently-selected options.
+  const availableOptionValues = useMemo(() => {
+    const result: Record<string, Set<string>> = {}
+    for (const option of product.options || []) {
+      const available = new Set<string>()
+      const otherSelected = Object.entries(options).filter(
+        ([id]) => id !== option.id
+      )
+      for (const variant of product.variants || []) {
+        const variantOpts = optionsAsKeymap(variant.options) ?? {}
+        const matchesOthers = otherSelected.every(
+          ([id, val]) => !val || variantOpts[id] === val
+        )
+        if (matchesOthers && variantOpts[option.id]) {
+          available.add(variantOpts[option.id])
+        }
+      }
+      result[option.id] = available
+    }
+    return result
+  }, [product.variants, product.options, options])
+
   // update the options when a variant is selected
   const setOptionValue = (optionId: string, value: string) => {
-    setOptions((prev) => ({
-      ...prev,
-      [optionId]: value,
-    }))
+    setOptions((prev) => {
+      const next = { ...prev, [optionId]: value }
+
+      // Auto-correct other options that become invalid with the new selection
+      for (const option of product.options || []) {
+        if (option.id === optionId) continue
+        const currentVal = next[option.id]
+        if (!currentVal) continue
+
+        const otherSelected = Object.entries(next).filter(
+          ([id]) => id !== option.id
+        )
+        const stillAvailable = (product.variants || []).some((variant) => {
+          const vo = optionsAsKeymap(variant.options) ?? {}
+          return (
+            vo[option.id] === currentVal &&
+            otherSelected.every(([id, val]) => !val || vo[id] === val)
+          )
+        })
+
+        if (!stillAvailable) {
+          const firstAvailable = (product.variants || []).find((variant) => {
+            const vo = optionsAsKeymap(variant.options) ?? {}
+            return otherSelected.every(
+              ([id, val]) => !val || vo[id] === val
+            )
+          })
+          if (firstAvailable) {
+            const vo = optionsAsKeymap(firstAvailable.options) ?? {}
+            next[option.id] = vo[option.id]
+          }
+        }
+      }
+
+      return next
+    })
   }
 
   //check if the selected options produce a valid variant
@@ -141,20 +234,23 @@ export default function ProductActions({
         <div>
           {(product.variants?.length ?? 0) > 1 && (
             <div className="flex flex-col gap-y-4">
-              {(product.options || []).map((option) => {
-                return (
-                  <div key={option.id}>
-                    <OptionSelect
-                      option={option}
-                      current={options[option.id]}
-                      updateOption={setOptionValue}
-                      title={option.title ?? ""}
-                      data-testid="product-options"
-                      disabled={!!disabled || isAdding}
-                    />
-                  </div>
-                )
-              })}
+              {(product.options || [])
+                .filter((option) => priceAffectingOptionIds.has(option.id))
+                .map((option) => {
+                  return (
+                    <div key={option.id}>
+                      <OptionSelect
+                        option={option}
+                        current={options[option.id]}
+                        updateOption={setOptionValue}
+                        title={option.title ?? ""}
+                        data-testid="product-options"
+                        disabled={!!disabled || isAdding}
+                        availableValues={availableOptionValues[option.id]}
+                      />
+                    </div>
+                  )
+                })}
               <Divider />
             </div>
           )}
