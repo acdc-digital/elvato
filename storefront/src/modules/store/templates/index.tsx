@@ -3,6 +3,7 @@ import { Suspense } from "react"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList, { SortOptions } from "@modules/store/components/refinement-list"
 import { type PerPageOption, DEFAULT_PER_PAGE } from "@modules/store/components/refinement-list"
+import PerPageDropdown from "@modules/store/components/refinement-list/per-page-dropdown"
 
 import PaginatedProducts from "./paginated-products"
 
@@ -48,11 +49,16 @@ const StoreTemplate = async ({
 
       {/* Main Content */}
       <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">All Products</h1>
-          <p className="text-base-regular text-ui-fg-subtle mt-1">
-            Browse our complete lighting collection
-          </p>
+        <div className="mb-8 text-2xl-semi flex items-start justify-between">
+          <div>
+            <h1 data-testid="store-page-title">All Products</h1>
+            <p className="text-base-regular text-ui-fg-subtle mt-1">
+              Browse our complete lighting collection
+            </p>
+          </div>
+          <div className="hidden small:block">
+            <PerPageDropdown perPage={perPage} data-testid="desktop-per-page" />
+          </div>
         </div>
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts

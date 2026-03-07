@@ -69,14 +69,6 @@ const RefinementList = async ({
               <SortDropdown sortBy={sortBy} data-testid="desktop-sort" />
             </div>
 
-            {/* Per Page Section */}
-            <div className="mb-6 pb-6 border-b border-ui-border-base">
-              <h3 className="txt-compact-small-plus text-ui-fg-muted mb-4">
-                Products per page
-              </h3>
-              <PerPageDropdown perPage={perPage} data-testid="desktop-per-page" />
-            </div>
-
             {/* Category Filter Section */}
             <CategoryFilter
               categories={categories}

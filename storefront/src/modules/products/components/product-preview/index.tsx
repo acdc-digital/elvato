@@ -89,19 +89,13 @@ export default async function ProductPreview({
 
   return (
     <LocalizedClientLink href={`/products/${product.handle}`} className="group w-full">
-      <div 
+      <div
         data-testid="product-wrapper"
-        className="relative border border-black rounded-t-2xl rounded-b-none overflow-visible bg-white group-hover:shadow-lg transition-shadow ease-in-out duration-150 w-full"
+        className="relative rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-black/[0.04] group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 ease-out w-full"
       >
-        {/* Inner image container with fixed aspect ratio */}
-        <div className="m-2 border border-black rounded-t-xl rounded-b-none overflow-hidden bg-gray-100 relative before:content-[''] before:block before:pt-[133.33%]">
-          {/* Fixture name bar — overlays top of image */}
-          <div className="absolute top-0 left-0 right-0 z-10 bg-white border-b border-black px-2 py-1">
-            <p className="text-xs font-sans text-black leading-tight text-center">
-              {product.title}
-            </p>
-          </div>
-          <div className="absolute inset-0">
+        {/* Image container — edge-to-edge, no inner border */}
+        <div className="relative overflow-hidden bg-grey-5 before:content-[''] before:block before:pt-[133.33%]">
+          <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
             {thumbnail ? (
               <Image
                 src={thumbnail}
@@ -112,15 +106,20 @@ export default async function ProductPreview({
                 sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs font-sans">
+              <div className="w-full h-full flex items-center justify-center text-grey-30 text-xs font-sans">
                 No image
               </div>
             )}
           </div>
         </div>
 
-        {/* Options & pricing below image — left-aligned with inner image (m-2) */}
-        <div className="flex flex-col items-start py-3 mx-2 gap-1.5">
+        {/* Product details — clean, warm typography */}
+        <div className="flex flex-col px-4 pt-3.5 pb-4 gap-2">
+          {/* Product title */}
+          <h3 className="text-[13px] font-medium leading-snug text-grey-80 line-clamp-2">
+            {product.title}
+          </h3>
+
           {/* Finish swatches */}
           {finishSwatches.length > 0 && (
             <div className="flex items-center gap-1.5">
@@ -128,22 +127,29 @@ export default async function ProductPreview({
                 <span
                   key={swatch.label}
                   title={swatch.label}
-                  className="w-5 h-5 rounded-full border border-black/30 inline-block"
+                  className="w-4 h-4 rounded-full ring-1 ring-black/10 inline-block shadow-sm"
                   style={{ backgroundColor: swatch.color }}
                 />
               ))}
+              {finishSwatches.length > 6 && (
+                <span className="text-[11px] text-grey-40 ml-0.5">
+                  +{finishSwatches.length - 6}
+                </span>
+              )}
             </div>
           )}
-          {/* Total option count */}
-          {totalOptionCount > 0 && (
-            <p className="text-xs text-black font-sans">
-              {totalOptionCount} {totalOptionCount === 1 ? "Option" : "Options"}
+
+          {/* Option count + Price row */}
+          <div className="flex items-baseline justify-between mt-0.5">
+            <p className="text-sm font-semibold text-grey-80 tracking-tight" data-testid="product-price">
+              {PLACEHOLDER_PRICE_RANGE}
             </p>
-          )}
-          {/* Price range */}
-          <p className="text-sm text-black font-semibold mt-0.5" data-testid="product-price">
-            {PLACEHOLDER_PRICE_RANGE}
-          </p>
+            {totalOptionCount > 0 && (
+              <p className="text-[11px] text-grey-40 font-sans">
+                {totalOptionCount} {totalOptionCount === 1 ? "option" : "options"}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </LocalizedClientLink>
