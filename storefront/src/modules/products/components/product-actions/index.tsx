@@ -59,71 +59,12 @@ export default function ProductActions({
     })
   }, [product.variants, options])
 
-  // For each option, determine which values are available given the other
-  // currently-selected options. A value is available if at least one variant
-  // exists that matches all other selected options AND has this value.
-  const availableOptionValues = useMemo(() => {
-    const result: Record<string, Set<string>> = {}
-    for (const option of product.options || []) {
-      const available = new Set<string>()
-      const otherSelected = Object.entries(options).filter(
-        ([id]) => id !== option.id
-      )
-      for (const variant of product.variants || []) {
-        const variantOpts = optionsAsKeymap(variant.options) ?? {}
-        // Check if this variant matches all OTHER selected options
-        const matchesOthers = otherSelected.every(
-          ([id, val]) => !val || variantOpts[id] === val
-        )
-        if (matchesOthers && variantOpts[option.id]) {
-          available.add(variantOpts[option.id])
-        }
-      }
-      result[option.id] = available
-    }
-    return result
-  }, [product.variants, product.options, options])
-
   // update the options when a variant is selected
   const setOptionValue = (optionId: string, value: string) => {
-    setOptions((prev) => {
-      const next = { ...prev, [optionId]: value }
-
-      // Auto-correct other options that become invalid with the new selection
-      for (const option of product.options || []) {
-        if (option.id === optionId) continue
-        const currentVal = next[option.id]
-        if (!currentVal) continue
-
-        // Check if currentVal is still available given the new selection
-        const otherSelected = Object.entries(next).filter(
-          ([id]) => id !== option.id
-        )
-        const stillAvailable = (product.variants || []).some((variant) => {
-          const vo = optionsAsKeymap(variant.options) ?? {}
-          return (
-            vo[option.id] === currentVal &&
-            otherSelected.every(([id, val]) => !val || vo[id] === val)
-          )
-        })
-
-        if (!stillAvailable) {
-          // Pick the first available value for this option
-          const firstAvailable = (product.variants || []).find((variant) => {
-            const vo = optionsAsKeymap(variant.options) ?? {}
-            return otherSelected.every(
-              ([id, val]) => !val || vo[id] === val
-            )
-          })
-          if (firstAvailable) {
-            const vo = optionsAsKeymap(firstAvailable.options) ?? {}
-            next[option.id] = vo[option.id]
-          }
-        }
-      }
-
-      return next
-    })
+    setOptions((prev) => ({
+      ...prev,
+      [optionId]: value,
+    }))
   }
 
   //check if the selected options produce a valid variant
@@ -210,7 +151,6 @@ export default function ProductActions({
                       title={option.title ?? ""}
                       data-testid="product-options"
                       disabled={!!disabled || isAdding}
-                      availableValues={availableOptionValues[option.id]}
                     />
                   </div>
                 )

@@ -9,7 +9,6 @@ type OptionSelectProps = {
   title: string
   disabled: boolean
   "data-testid"?: string
-  availableValues?: Set<string>
 }
 
 const OptionSelect: React.FC<OptionSelectProps> = ({
@@ -19,7 +18,6 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
   title,
   "data-testid": dataTestId,
   disabled,
-  availableValues,
 }) => {
   const filteredOptions = (option.values ?? []).map((v) => v.value)
 
@@ -31,7 +29,6 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
         data-testid={dataTestId}
       >
         {filteredOptions.map((v) => {
-          const isAvailable = !availableValues || availableValues.has(v)
           return (
             <button
               onClick={() => updateOption(option.id, v)}
@@ -41,12 +38,10 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
                 {
                   "border-ui-border-interactive": v === current,
                   "hover:shadow-elevation-card-rest transition-shadow ease-in-out duration-150":
-                    v !== current && isAvailable,
-                  "opacity-40 cursor-not-allowed line-through":
-                    !isAvailable,
+                    v !== current,
                 }
               )}
-              disabled={disabled || !isAvailable}
+              disabled={disabled}
               data-testid="option-button"
             >
               {v}
