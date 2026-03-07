@@ -77,7 +77,7 @@ const webSiteJsonLd = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <body className={`${inclusiveSans.variable} ${fraunces.variable}`}>
+      <body className={`${inclusiveSans.variable} ${fraunces.variable} font-sans`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V929297BMM"
           strategy="afterInteractive"
