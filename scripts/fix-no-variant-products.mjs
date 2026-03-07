@@ -92,14 +92,9 @@ async function main() {
     // Build option values for the variant (match product options)
     const options = product.options || [];
     const variantOptions = {};
-    for (const opt of options) {
-      // Use the first defined value, or "Default"
-      const firstValue = opt.values?.[0]?.value || "Default";
-      variantOptions[opt.title] = firstValue;
-    }
 
-    // If no options exist on the product, we need to create a "Default" option first
     if (options.length === 0) {
+      // No options exist — create a "Default" option
       if (!DRY_RUN) {
         const optRes = await apiFetch(`/admin/products/${p.id}/options`, {
           method: "POST",
@@ -115,6 +110,28 @@ async function main() {
         }
       }
       variantOptions["Default"] = "Default";
+    } else {
+      // Options exist — for each, use existing value or add "Default" as a value
+      for (const opt of options) {
+        const existingValue = opt.values?.[0]?.value;
+        if (existingValue) {
+          variantOptions[opt.title] = existingValue;
+        } else {
+          // Option has no values — add "Default" value via update
+          if (!DRY_RUN) {
+            const updRes = await apiFetch(`/admin/products/${p.id}/options/${opt.id}`, {
+              method: "POST",
+              headers,
+              body: JSON.stringify({ values: ["Default"] }),
+            });
+            if (!updRes.ok) {
+              const errText = await updRes.text();
+              console.log(`  ⚠️  Failed to add value to option "${opt.title}": ${updRes.status} ${errText.slice(0, 100)}`);
+            }
+          }
+          variantOptions[opt.title] = "Default";
+        }
+      }
     }
 
     if (DRY_RUN) {

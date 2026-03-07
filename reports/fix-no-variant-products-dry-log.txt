@@ -1,0 +1,47 @@
+Mode: DRY RUN
+Products with 0 variants: 37
+
+[DRY] Would create default variant for "Minimalist Straw Hat Chandelier - Natural Woven Design" (options: {"Finish":"Default","Size":"Default","Voltage":"Default"})
+[DRY] Would create default variant for "Nordic Rattan Chandelier - Pastoral Style Statement Piece" (options: {"Size":"Default"})
+[DRY] Would create default variant for "Natural Wood Grain Table Lamp - Unique Organic Design" (options: {"Finish":"Default"})
+[DRY] Would create default variant for "Mini LED Floor Lamp with Floral Shade - Cordless Design" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Industrial Outdoor Cafe Bar String Lights" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Vintage Wrought Iron Wall Sconce - Industrial Retro Design" (options: {"Default":"Default"})
+[DRY] Would create default variant for "European Baroque Crystal Chandelier - Vintage Elegance" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Butterfly Flower Creative Mini Chandelier" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Nordic Blue Glass Art Chandelier - Creative Modern Design" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Modern Crystal Staircase Chandelier for Duplex Homes" (options: {"Finish":"Default","Number of Lights":"Default","Size":"Default"})
+[DRY] Would create default variant for "Vintage Cross-Shaped Antique Table Lamp" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Modern Wireless Wall Sconce with Free Wiring Design" (options: {"Finish":"Default"})
+[DRY] Would create default variant for "LED Grid Panel Light for Auto Detailing Workshop" (options: {"Size":"Default"})
+[DRY] Would create default variant for "Teardrop Floral Chandelier - Modern Bedroom Lighting" (options: {"Finish":"Default"})
+[DRY] Would create default variant for "Bronze Mirror Bedroom Table Chandelier" (options: {"Finish":"Default","Size":"Default"})
+[DRY] Would create default variant for "Nordic Japanese Brass Dining Room Chandelier" (options: {"Voltage":"Default"})
+[DRY] Would create default variant for "Seagull LED Chandelier - Modern Minimalist Design" (options: {"Number of Lights":"Default","Wattage":"Default"})
+[DRY] Would create default variant for "Modern Ice Cube Glass Chandelier - Minimalist Design" (options: {"Finish":"Default","Wattage":"Default"})
+[DRY] Would create default variant for "Industrial LOFT Wall Sconce for Hallways & Staircases" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Nordic All-Aluminum Ceiling Light" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Modern Flush Mount Ceiling Light for Hallways" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Nordic Flying Saucer Chandelier - Postmodern Art Design" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Modern Creative Bedside Table Lamp for Living Room" (options: {"Bulb Type":"Default","Finish":"Default","Voltage":"Default"})
+[DRY] Would create default variant for "Vintage Solar Wall Lamp - Waterproof Garden Light" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Creative Minimalist Planet Table Lamp" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Industrial Wrought Iron Wall Sconce with Pipe Design" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Woven Zen Chandelier - Natural Rattan Style" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Industrial Bar Retro Chandelier with Vintage Edison Bulbs" (options: {"Finish":"Default"})
+[DRY] Would create default variant for "Nordic Modern Chandelier for Restaurant Dining" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Creative Art Sculptural Chandelier" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Solid Wood Eye Protection Desk Lamp" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Modern Creative Bedside Table Lamp" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Nordic Style Minimalist Floor Lamp for Living Room" (options: {"Finish":"Default","Size":"Default"})
+[DRY] Would create default variant for "Modern Crystal Wall Sconce - Minimalist Living Room Light" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Modern Bedroom Pendant Light with Geometric Design" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Motion Sensor LED Night Light" (options: {"Default":"Default"})
+[DRY] Would create default variant for "Modern Gold Wall Sconce - Luxury Minimalist Design" (options: {"Default":"Default"})
+
+════════════════════════════════════
+Created: 37
+Skipped: 0
+Failed: 0
+════════════════════════════════════
+Report saved to reports/fix-no-variant-products-dry.json
