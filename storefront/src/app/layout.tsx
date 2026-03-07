@@ -1,10 +1,16 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import Script from "next/script"
-import { Fraunces } from "next/font/google"
+import { Fraunces, Inclusive_Sans } from "next/font/google"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from '@vercel/analytics/next';
 import "styles/globals.css"
+
+const inclusiveSans = Inclusive_Sans({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-inclusive",
+})
 
 const fraunces = Fraunces({
   weight: "900",
@@ -61,7 +67,7 @@ const webSiteJsonLd = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
-      <body className={fraunces.variable}>
+      <body className={`${inclusiveSans.variable} ${fraunces.variable}`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V929297BMM"
           strategy="afterInteractive"
