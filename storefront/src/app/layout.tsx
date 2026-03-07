@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/next';
 import "styles/globals.css"
 
 const inclusiveSans = Inclusive_Sans({
-  weight: ["400", "700"],
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-inclusive",
 })
