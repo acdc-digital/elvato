@@ -8,14 +8,17 @@ import { getBaseURL } from "@lib/util/env"
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseURL()
 
-  const regions = await listRegions()
-  const countryCodes =
-    regions
-      ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
-      .filter(Boolean) ?? []
-
-  // Use the first country code as the default for sitemap entries
-  const defaultCountry = countryCodes[0] || "us"
+  let defaultCountry = "us"
+  try {
+    const regions = await listRegions()
+    const countryCodes =
+      regions
+        ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
+        .filter(Boolean) ?? []
+    defaultCountry = countryCodes[0] || "us"
+  } catch (e) {
+    console.error("Sitemap: failed to fetch regions", e)
+  }
 
   // Static pages
   const staticPages = [
