@@ -97,7 +97,7 @@ export default async function ProductPreview({
         <div className="m-2 border border-black rounded-t-xl rounded-b-none overflow-hidden bg-gray-100 relative before:content-[''] before:block before:pt-[133.33%]">
           {/* Fixture name bar — overlays top of image */}
           <div className="absolute top-0 left-0 right-0 z-10 bg-white border-b border-black px-2 py-1">
-            <p className="text-[11px] font-mono text-black leading-tight text-center">
+            <p className="text-xs font-sans text-black leading-tight text-center">
               {product.title}
             </p>
           </div>
@@ -112,7 +112,7 @@ export default async function ProductPreview({
                 sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs font-mono">
+              <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs font-sans">
                 No image
               </div>
             )}
@@ -136,7 +136,7 @@ export default async function ProductPreview({
           )}
           {/* Total option count */}
           {totalOptionCount > 0 && (
-            <p className="text-xs text-black font-mono">
+            <p className="text-xs text-black font-sans">
               {totalOptionCount} {totalOptionCount === 1 ? "Option" : "Options"}
             </p>
           )}

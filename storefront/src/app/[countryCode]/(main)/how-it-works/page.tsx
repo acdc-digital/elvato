@@ -17,7 +17,7 @@ export default function HowItWorksPage() {
           <h1 className="text-4xl lg:text-6xl font-semibold leading-tight font-sans">
             How it works.
           </h1>
-          <p className="mt-6 text-base lg:text-lg leading-relaxed font-mono text-gray-700 max-w-2xl">
+          <p className="mt-6 text-base lg:text-lg leading-relaxed font-sans text-gray-700 max-w-2xl">
             From discovery to delivery, we&apos;ve designed every step to be
             straightforward. Browse a curated selection, get expert guidance when
             you need it, and receive fixtures that transform your space.
@@ -32,7 +32,7 @@ export default function HowItWorksPage() {
           <div>
             <div className="text-sm font-mono text-gray-400 mb-2">01</div>
             <h3 className="text-lg font-semibold font-sans mb-3">Browse</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Explore our collection of contemporary fixtures — pendants,
               chandeliers, wall sconces, table lamps, outdoor lighting, and smart
               controls. Every piece has been hand-selected for design merit and
@@ -42,7 +42,7 @@ export default function HowItWorksPage() {
           <div>
             <div className="text-sm font-mono text-gray-400 mb-2">02</div>
             <h3 className="text-lg font-semibold font-sans mb-3">Specify</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Need help choosing? Our team provides submittal sheets,
               specification documents, and professional lighting consultation for
               projects of any scale — from a single room to an entire building.
@@ -51,7 +51,7 @@ export default function HowItWorksPage() {
           <div>
             <div className="text-sm font-mono text-gray-400 mb-2">03</div>
             <h3 className="text-lg font-semibold font-sans mb-3">Order</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Place your order with confidence. Free shipping on orders over
               $1,500, a 30-day satisfaction guarantee, and a dedicated support
               team behind every purchase.
@@ -60,7 +60,7 @@ export default function HowItWorksPage() {
           <div>
             <div className="text-sm font-mono text-gray-400 mb-2">04</div>
             <h3 className="text-lg font-semibold font-sans mb-3">Install</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Receive your fixtures carefully packaged and ready to install. Every
               product ships with full documentation, and our team is available for
               post-purchase support.
@@ -93,7 +93,7 @@ export default function HowItWorksPage() {
             <h3 className="text-lg font-semibold font-sans mb-3">
               Curated selection
             </h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               We don&apos;t carry everything — we carry the right things. Every
               fixture is evaluated for design integrity, build quality, and how it
               serves the space it&apos;s meant for.
@@ -103,7 +103,7 @@ export default function HowItWorksPage() {
             <h3 className="text-lg font-semibold font-sans mb-3">
               Submittal sheets
             </h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Professional specification documents available for every product.
               Share with your contractor, designer, or architect to ensure the
               right fit before you order.
@@ -113,7 +113,7 @@ export default function HowItWorksPage() {
             <h3 className="text-lg font-semibold font-sans mb-3">
               Expert support
             </h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Whether you need help with colour temperature, dimming
               compatibility, or choosing the right fixture for your ceiling
               height — we&apos;re here to help.
@@ -127,7 +127,7 @@ export default function HowItWorksPage() {
         <h2 className="text-2xl lg:text-3xl font-semibold font-sans mb-4">
           Ready to get started?
         </h2>
-        <p className="text-sm font-mono text-gray-600 mb-8 max-w-xl mx-auto">
+        <p className="text-sm font-sans text-gray-600 mb-8 max-w-xl mx-auto">
           Browse our collection or reach out for personalized lighting
           guidance on your next project.
         </p>

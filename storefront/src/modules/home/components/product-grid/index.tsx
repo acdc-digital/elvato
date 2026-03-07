@@ -53,7 +53,7 @@ const ProductGrid = () => {
               {/* Left: Image */}
               <div className="sm:w-1/2 h-1/2 sm:h-full bg-gray-100 flex items-center justify-center p-6 border-b sm:border-b-0 sm:border-r border-gray-200">
                 <div className="w-full h-full bg-white rounded-lg border border-gray-300 flex items-center justify-center">
-                  <span className="text-gray-400 font-mono text-sm">Image</span>
+                  <span className="text-gray-400 font-sans text-sm">Image</span>
                 </div>
               </div>
 
@@ -68,7 +68,7 @@ const ProductGrid = () => {
                 <p className="mt-4 text-lg font-mono text-black">
                   {product.price}
                 </p>
-                <p className="mt-4 text-sm font-mono text-gray-700 leading-relaxed">
+                <p className="mt-4 text-sm font-sans text-gray-700 leading-relaxed">
                   {product.description}
                 </p>
               </div>

@@ -7,7 +7,7 @@ const PhotoGrid = () => {
             key={i}
             className={`aspect-square bg-gray-200 border-b border-l border-black flex items-center justify-center ${i === 3 ? 'border-r' : ''}`}
           >
-            <span className="text-gray-400 font-mono text-sm">Photo {i + 1}</span>
+            <span className="text-gray-400 font-sans text-sm">Photo {i + 1}</span>
           </div>
         ))}
       </div>

@@ -123,7 +123,7 @@ const CountrySelectCompact = ({ regions }: CountrySelectCompactProps) => {
         }
       >
         <ListboxButton 
-          className="flex items-center gap-x-1.5 text-base font-mono text-black hover:opacity-60 transition-opacity focus:outline-none"
+          className="flex items-center gap-x-1.5 text-base font-sans text-black hover:opacity-60 transition-opacity focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           {current && (
@@ -149,7 +149,7 @@ const CountrySelectCompact = ({ regions }: CountrySelectCompactProps) => {
           leaveTo="opacity-0"
         >
           <ListboxOptions
-            className="absolute top-full right-0 mt-1 max-h-[300px] overflow-y-scroll z-[900] bg-white border border-black text-sm font-mono uppercase text-black no-scrollbar w-48 focus:outline-none"
+            className="absolute top-full right-0 mt-1 max-h-[300px] overflow-y-scroll z-[900] bg-white border border-black text-sm font-sans uppercase text-black no-scrollbar w-48 focus:outline-none"
             static
           >
             {sortedOptions?.map((o, index) => {
@@ -157,7 +157,7 @@ const CountrySelectCompact = ({ regions }: CountrySelectCompactProps) => {
               return (
                 <Fragment key={index}>
                   {separator && (
-                    <div className="px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-gray-400 bg-gray-50 border-b border-gray-100">
+                    <div className="px-3 py-1.5 text-xs font-sans uppercase tracking-wider text-gray-400 bg-gray-50 border-b border-gray-100">
                       {separator}
                     </div>
                   )}

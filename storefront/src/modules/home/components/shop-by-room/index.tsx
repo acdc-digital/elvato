@@ -32,7 +32,7 @@ const rooms = [
 export default function ShopByRoom() {
   return (
     <section className="w-full bg-white px-8 small:px-12 py-10">
-      <h2 className="text-sm font-mono text-black mb-6 tracking-wider">
+      <h2 className="text-sm font-sans font-semibold text-black mb-6 uppercase tracking-widest">
         Shop by room
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
@@ -51,7 +51,7 @@ export default function ShopByRoom() {
                 sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw"
               />
             </div>
-            <span className="text-sm font-mono text-black group-hover:underline underline-offset-4 transition-all duration-150">
+            <span className="text-sm font-sans text-black group-hover:underline underline-offset-4 transition-all duration-150">
               {room.label}
             </span>
           </LocalizedClientLink>

@@ -19,7 +19,7 @@ export default async function AccountButton() {
       <Button
         variant="link"
         asChild
-        className="font-mono tracking-wider text-black"
+        className="font-sans tracking-wide font-medium text-black"
       >
         <LocalizedClientLink href="/account" data-testid="nav-account-link">
           <span className="flex items-center gap-x-1.5">
@@ -40,7 +40,7 @@ export default async function AccountButton() {
     <Button
       variant="link"
       asChild
-      className="font-mono tracking-wider text-black"
+      className="font-sans tracking-wide font-medium text-black"
     >
       <LocalizedClientLink href="/account" data-testid="nav-account-link">
         Account

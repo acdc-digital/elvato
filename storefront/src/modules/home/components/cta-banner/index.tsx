@@ -11,7 +11,7 @@ const CtaBanner = () => {
           {/* Submittal Sheets */}
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5" />
-            <p className="text-lg font-mono text-black">
+            <p className="text-lg font-sans text-black">
               Submittal Sheets Available
             </p>
           </div>
@@ -21,7 +21,7 @@ const CtaBanner = () => {
             <Headphones className="w-5 h-5" />
             <LocalizedClientLink
               href="/design-services"
-              className="text-lg font-mono text-black hover:underline underline-offset-4 transition-all duration-200"
+              className="text-lg font-sans text-black hover:underline underline-offset-4 transition-all duration-200"
             >
               Expert Lighting Support
             </LocalizedClientLink>
@@ -36,7 +36,7 @@ const CtaBanner = () => {
               <Star className="w-4 h-4 fill-black text-black" />
               <Star className="w-4 h-4 fill-black text-black" />
             </div>
-            <p className="text-lg font-mono text-black">
+            <p className="text-lg font-sans text-black">
               5.0 Rating
             </p>
           </div>

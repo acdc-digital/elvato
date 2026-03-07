@@ -24,7 +24,7 @@ const Hero = () => {
                 <LocalizedClientLink
                   key={badge.label}
                   href={badge.href}
-                  className={`px-3 py-1 text-sm font-mono uppercase tracking-wide hover:underline underline-offset-4 transition-all duration-200 ${badge.label === 'Sale' ? 'text-red-600' : 'text-black'}`}
+                  className={`px-3 py-1 text-sm font-sans font-medium uppercase tracking-wide hover:underline underline-offset-4 transition-all duration-200 ${badge.label === 'Sale' ? 'text-red-600' : 'text-black'}`}
                 >
                   {badge.label}
                 </LocalizedClientLink>
@@ -33,10 +33,10 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col justify-center flex-1 px-6 pt-0 pb-8 lg:px-10 lg:pt-0 lg:pb-10">
-            <h1 className="m-0 text-4xl lg:text-7xl font-semibold leading-tight font-sans">
+            <h1 className="m-0 text-4xl lg:text-7xl font-bold leading-tight font-sans">
               Contemporary lighting for your next project.
             </h1>
-            <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
+            <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-sans text-black">
               Elvato lighting is a curated collection of 803 published, affordable handpicked lighting designs
               sourced from top manufacturers around the world.
             </p>
@@ -58,7 +58,7 @@ const Hero = () => {
             </div>
 
             {/* Trust Signals */}
-            <div className="flex items-center gap-6 mt-6 text-xs font-mono text-gray-600">
+            <div className="flex items-center gap-6 mt-6 text-xs font-sans text-gray-500">
               <div className="flex items-center gap-1.5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 <span>30-Day Guarantee</span>
@@ -148,7 +148,7 @@ const Hero = () => {
                 href="#"
                 className="aspect-square bg-white border-t lg:border-t-0 border-b border-r border-black overflow-hidden relative block"
               >
-                <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-mono uppercase z-10">
+                <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-sans uppercase z-10">
                   Featured
                 </div>
                 {i === 0 && (

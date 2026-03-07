@@ -21,7 +21,7 @@ const SecondaryHero = () => {
                 href="#"
                 className="aspect-square bg-gray-200 border-b border-r border-black overflow-hidden relative block"
               >
-                <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-mono uppercase z-10">
+                <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-sans uppercase z-10">
                   Featured
                 </div>
                 {i === 0 && (
@@ -79,7 +79,7 @@ const SecondaryHero = () => {
             <h2 className="m-0 pt-8 text-3xl lg:text-7xl font-semibold leading-tight font-sans">
               Lighting controls & design services.
             </h2>
-            <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-mono text-black">
+            <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-sans text-black">
               From smart dimmers to complete lighting control systems, our team provides 
               expert specification and design services tailored to your project requirements.
             </p>

@@ -126,7 +126,7 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
         }
       >
         <ListboxButton 
-          className="flex items-center gap-x-2 text-sm font-mono text-black hover:opacity-60 transition-opacity focus:outline-none cursor-pointer"
+          className="flex items-center gap-x-2 text-sm font-sans text-black hover:opacity-60 transition-opacity focus:outline-none cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span className="uppercase">Shipping to:</span>
@@ -153,7 +153,7 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
           leaveTo="opacity-0"
         >
           <ListboxOptions
-            className="absolute bottom-full right-0 mb-1 max-h-[300px] overflow-y-scroll z-[900] bg-white border border-black text-sm font-mono uppercase text-black no-scrollbar w-48 focus:outline-none"
+            className="absolute bottom-full right-0 mb-1 max-h-[300px] overflow-y-scroll z-[900] bg-white border border-black text-sm font-sans uppercase text-black no-scrollbar w-48 focus:outline-none"
             static
           >
             {sortedOptions?.map((o, index) => {
@@ -161,7 +161,7 @@ const CountrySelect = ({ toggleState, regions, isOpen, setIsOpen }: CountrySelec
               return (
                 <Fragment key={index}>
                   {separator && (
-                    <div className="px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-gray-400 bg-gray-50 border-b border-gray-100">
+                    <div className="px-3 py-1.5 text-xs font-sans uppercase tracking-wider text-gray-400 bg-gray-50 border-b border-gray-100">
                       {separator}
                     </div>
                   )}

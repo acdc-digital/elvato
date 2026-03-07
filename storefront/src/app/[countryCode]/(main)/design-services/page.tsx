@@ -16,7 +16,7 @@ export default function DesignServicesPage() {
           <h1 className="text-4xl lg:text-6xl font-semibold leading-tight font-sans">
             Lighting design services.
           </h1>
-          <p className="mt-6 text-base lg:text-lg leading-relaxed font-mono text-gray-700">
+          <p className="mt-6 text-base lg:text-lg leading-relaxed font-sans text-gray-700">
             Whether you&apos;re designing a single room or an entire building, our team
             provides expert specification and design services tailored to your
             project requirements.
@@ -45,7 +45,7 @@ export default function DesignServicesPage() {
           <div>
             <div className="text-sm font-mono text-gray-400 mb-2">01</div>
             <h3 className="text-lg font-semibold font-sans mb-3">Share your vision</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Tell us about your project — room dimensions, style preferences,
               and functional requirements. Share photos, floor plans, or mood boards.
             </p>
@@ -53,7 +53,7 @@ export default function DesignServicesPage() {
           <div>
             <div className="text-sm font-mono text-gray-400 mb-2">02</div>
             <h3 className="text-lg font-semibold font-sans mb-3">Receive your plan</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Our lighting specialists will curate a personalized selection of fixtures
               and controls, complete with submittal sheets and specification documents.
             </p>
@@ -61,7 +61,7 @@ export default function DesignServicesPage() {
           <div>
             <div className="text-sm font-mono text-gray-400 mb-2">03</div>
             <h3 className="text-lg font-semibold font-sans mb-3">Review & order</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Review the recommendations with your team, request adjustments,
               and place your order with confidence. We handle the rest.
             </p>
@@ -75,28 +75,28 @@ export default function DesignServicesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border border-black p-8">
             <h3 className="text-lg font-semibold font-sans mb-3">Residential</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Complete lighting plans for homes, condos, and renovations.
               From single-room refreshes to full-home lighting design.
             </p>
           </div>
           <div className="border border-black p-8">
             <h3 className="text-lg font-semibold font-sans mb-3">Commercial & Hospitality</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Specification services for restaurants, hotels, offices, and retail spaces.
               Volume pricing and project coordination included.
             </p>
           </div>
           <div className="border border-black p-8">
             <h3 className="text-lg font-semibold font-sans mb-3">Lighting Controls</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Smart dimming systems, scene controllers, and whole-home automation.
               Compatible with major home automation platforms.
             </p>
           </div>
           <div className="border border-black p-8">
             <h3 className="text-lg font-semibold font-sans mb-3">Trade Program</h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Dedicated support for designers, architects, and contractors.
               Trade pricing, priority ordering, and dedicated account management.
             </p>
@@ -109,7 +109,7 @@ export default function DesignServicesPage() {
         <h2 className="text-2xl lg:text-3xl font-semibold font-sans mb-4">
           Ready to get started?
         </h2>
-        <p className="text-sm font-mono text-gray-600 mb-8 max-w-xl mx-auto">
+        <p className="text-sm font-sans text-gray-600 mb-8 max-w-xl mx-auto">
           Reach out to our team and we&apos;ll help you find the perfect lighting
           solution for your project.
         </p>

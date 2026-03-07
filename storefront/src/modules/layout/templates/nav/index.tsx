@@ -33,7 +33,7 @@ export default async function Nav() {
 
           {/* Center: Navigation Links */}
           <div className="hidden small:flex items-center gap-x-2 h-full">
-            <Button variant="link" asChild className="font-mono tracking-wider text-black">
+            <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
                 href="/store"
                 data-testid="nav-browse-link"
@@ -41,7 +41,7 @@ export default async function Nav() {
                 Lighting
               </LocalizedClientLink>
             </Button>
-            <Button variant="link" asChild className="font-mono tracking-wider text-black">
+            <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
                 href="/about"
                 data-testid="nav-about-link"
@@ -49,7 +49,7 @@ export default async function Nav() {
                 About us
               </LocalizedClientLink>
             </Button>
-            <Button variant="link" asChild className="font-mono tracking-wider text-black">
+            <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
                 href="/how-it-works"
                 data-testid="nav-how-link"
@@ -58,7 +58,7 @@ export default async function Nav() {
               </LocalizedClientLink>
             </Button>
 
-            <Button variant="link" asChild className="font-mono tracking-wider text-black">
+            <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
                 href="/how-it-works"
                 data-testid="nav-how-link"
@@ -66,7 +66,7 @@ export default async function Nav() {
                 LED-itorial
               </LocalizedClientLink>
             </Button>
-            <Button variant="link" asChild className="font-mono tracking-wider text-black">
+            <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
                 href="/documents"
                 data-testid="nav-documents-link"
@@ -99,7 +99,7 @@ export default async function Nav() {
                     <path d="M11.375 17.863h41.25v36.75h-41.25z" />
                     <path d="M22.25 18c0-7.105 4.35-9 9.75-9s9.75 1.895 9.75 9" />
                   </svg>
-                  <span className="text-base font-mono">(0)</span>
+                  <span className="text-base font-sans">(0)</span>
                 </LocalizedClientLink>
               }
             >

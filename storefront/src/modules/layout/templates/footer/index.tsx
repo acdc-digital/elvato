@@ -18,7 +18,7 @@ export default async function Footer() {
                 Elvato
               </span>
             </LocalizedClientLink>
-            <p className="mt-3 text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="mt-3 text-sm font-sans text-gray-500 leading-relaxed">
               Contemporary lighting &<br />controls for your next project.
             </p>
           </div>
@@ -33,7 +33,7 @@ export default async function Footer() {
                 <li key={c.id}>
                   <LocalizedClientLink
                     href={`/collections/${c.handle}`}
-                    className="text-sm font-mono text-gray-600 hover:text-black transition-colors"
+                    className="text-sm font-sans text-gray-500 hover:text-black transition-colors"
                   >
                     {c.title}
                   </LocalizedClientLink>
@@ -42,7 +42,7 @@ export default async function Footer() {
               <li>
                 <LocalizedClientLink
                   href="/store"
-                  className="text-sm font-mono text-gray-600 hover:text-black transition-colors"
+                  className="text-sm font-sans text-gray-500 hover:text-black transition-colors"
                 >
                   View All
                 </LocalizedClientLink>
@@ -57,17 +57,17 @@ export default async function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <LocalizedClientLink href="/about" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/about" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   About Us
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/how-it-works" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/how-it-works" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   How It Works
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/store" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/store" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Collections
                 </LocalizedClientLink>
               </li>
@@ -81,27 +81,27 @@ export default async function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <LocalizedClientLink href="/contact" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/contact" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Contact Us
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/shipping-returns" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/shipping-returns" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Shipping & Returns
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/faq" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/faq" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   FAQ
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/privacy" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/privacy" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Privacy Policy
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/terms" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/terms" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Terms of Service
                 </LocalizedClientLink>
               </li>
@@ -115,17 +115,17 @@ export default async function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <LocalizedClientLink href="/account" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/account" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   My Account
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/account/orders" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/account/orders" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Orders
                 </LocalizedClientLink>
               </li>
               <li>
-                <LocalizedClientLink href="/cart" className="text-sm font-mono text-gray-600 hover:text-black transition-colors">
+                <LocalizedClientLink href="/cart" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Cart
                 </LocalizedClientLink>
               </li>
@@ -135,7 +135,7 @@ export default async function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-6 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs font-mono text-gray-500">
+          <p className="text-xs font-sans text-gray-500">
             © {new Date().getFullYear()} Elvato. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
@@ -143,7 +143,7 @@ export default async function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              className="text-xs font-mono text-gray-500 hover:text-black transition-colors uppercase tracking-wider"
+              className="text-xs font-sans text-gray-500 hover:text-black transition-colors uppercase tracking-wider"
             >
               Instagram
             </a>
@@ -151,7 +151,7 @@ export default async function Footer() {
               href="https://pinterest.com"
               target="_blank"
               rel="noreferrer"
-              className="text-xs font-mono text-gray-500 hover:text-black transition-colors uppercase tracking-wider"
+              className="text-xs font-sans text-gray-500 hover:text-black transition-colors uppercase tracking-wider"
             >
               Pinterest
             </a>

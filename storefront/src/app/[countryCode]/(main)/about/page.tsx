@@ -17,13 +17,13 @@ export default function AboutPage() {
           <h1 className="text-4xl lg:text-6xl font-semibold leading-tight font-sans">
             Contemporary lighting, thoughtfully curated.
           </h1>
-          <p className="mt-6 text-base lg:text-lg leading-relaxed font-mono text-gray-700 max-w-2xl">
+          <p className="mt-6 text-base lg:text-lg leading-relaxed font-sans text-gray-700 max-w-2xl">
             Elvato is built on a simple belief: the right light changes everything.
             Founded on over a decade of supply chain expertise in the lighting
             industry, we hand-select every fixture in our collection for its design
             merit, its craft, and the way it makes a space feel.
           </p>
-          <p className="mt-4 text-base lg:text-lg leading-relaxed font-mono text-gray-700 max-w-2xl">
+          <p className="mt-4 text-base lg:text-lg leading-relaxed font-sans text-gray-700 max-w-2xl">
             We work directly with manufacturers and designers around the world to
             bring contemporary lighting to projects of every scale — from a single
             room to an entire building.
@@ -39,7 +39,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold font-sans mb-3">
               Curated, not collected
             </h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Every fixture in our catalogue is hand-selected for its design integrity.
               We don&apos;t aggregate bulk inventories — we choose pieces that reflect
               a clear point of view on contemporary lighting and how it serves the
@@ -50,7 +50,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold font-sans mb-3">
               Design meets engineering
             </h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Light is both technical and emotional. We care as much about colour
               temperature, beam angles, and dimming compatibility as we do about
               form, finish, and the feeling a fixture brings to a room. That
@@ -61,7 +61,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold font-sans mb-3">
               Expert guidance
             </h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               We&apos;re not just a store — we&apos;re a resource. Our team provides
               specification services, submittal sheets, and professional consultation
               for residential and commercial projects alike. The right light for your
@@ -72,7 +72,7 @@ export default function AboutPage() {
             <h3 className="text-lg font-semibold font-sans mb-3">
               Supply chain excellence
             </h3>
-            <p className="text-sm font-mono text-gray-600 leading-relaxed">
+            <p className="text-sm font-sans text-gray-600 leading-relaxed">
               Behind every order is over a decade of logistics expertise — reliable
               sourcing, quality assurance, and fulfilment you can count on. We
               celebrate the designers and manufacturers who create these fixtures,
@@ -101,7 +101,7 @@ export default function AboutPage() {
         <h2 className="text-2xl lg:text-3xl font-semibold font-sans mb-4">
           Let&apos;s light your next project.
         </h2>
-        <p className="text-sm font-mono text-gray-600 mb-8 max-w-xl mx-auto">
+        <p className="text-sm font-sans text-gray-600 mb-8 max-w-xl mx-auto">
           Browse our curated collection or connect with our team for expert
           guidance on your residential or commercial project.
         </p>

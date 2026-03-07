@@ -48,7 +48,7 @@ const SearchButton = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search"
-              className="flex-1 px-4 py-2 text-sm font-mono focus:outline-none bg-transparent"
+              className="flex-1 px-4 py-2 text-sm font-sans focus:outline-none bg-transparent"
             />
             <button
               type="submit"
