@@ -22,7 +22,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   return (
     <div className="flex flex-col gap-y-4 w-full">
       {/* Main expanded image */}
-      <Container className="relative aspect-[29/34] w-full overflow-hidden bg-ui-bg-subtle">
+      <Container className="relative aspect-[29/25] w-full overflow-hidden bg-ui-bg-subtle">
         {selectedImage?.url && (
           <Image
             src={selectedImage.url}
