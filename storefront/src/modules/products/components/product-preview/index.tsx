@@ -5,6 +5,7 @@ import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 import PreviewPrice from "./price"
+import CardActions from "./card-actions"
 import { getCdnThumbnail } from "@lib/data/convex-images"
 import { convertToLocale } from "@lib/util/money"
 
@@ -84,6 +85,12 @@ export default async function ProductPreview({
     : null
   const thumbnail = cdnThumb ?? product.thumbnail ?? product.images?.[0]?.url ?? null
 
+  // Resolve default variant for quick-add
+  const defaultVariantId =
+    pricedVariants.length > 0
+      ? (pricedVariants[0] as any).id as string
+      : product.variants?.[0]?.id ?? null
+
   // Extract finish / colour option for swatches
   const finishOption = product.options?.find(
     (o) => o.title?.toLowerCase() === "finish" || o.title?.toLowerCase() === "color" || o.title?.toLowerCase() === "colour"
@@ -100,70 +107,76 @@ export default async function ProductPreview({
   )
 
   return (
-    <LocalizedClientLink href={`/products/${product.handle}`} className="group w-full">
+    <div className="group w-full">
       <div
         data-testid="product-wrapper"
         className="relative rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-black/[0.04] group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 ease-out w-full"
       >
-        {/* Image container — edge-to-edge, no inner border */}
-        <div className="relative overflow-hidden bg-grey-5 before:content-[''] before:block before:pt-[133.33%]">
-          <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
-            {thumbnail ? (
-              <Image
-                src={thumbnail}
-                alt={product.title || 'Product'}
-                fill
-                loading="lazy"
-                className="object-cover object-center"
-                sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-grey-30 text-xs font-sans">
-                No image
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Product details — clean, warm typography */}
-        <div className="flex flex-col px-4 pt-3.5 pb-4 gap-2">
-          {/* Product title */}
-          <h3 className="text-[13px] font-medium leading-snug text-grey-80 line-clamp-2">
-            {product.title}
-          </h3>
-
-          {/* Finish swatches */}
-          {finishSwatches.length > 0 && (
-            <div className="flex items-center gap-1.5">
-              {finishSwatches.slice(0, 6).map((swatch) => (
-                <span
-                  key={swatch.label}
-                  title={swatch.label}
-                  className="w-4 h-4 rounded-full ring-1 ring-black/10 inline-block shadow-sm"
-                  style={{ backgroundColor: swatch.color }}
+        {/* Clickable area — image + product info */}
+        <LocalizedClientLink href={`/products/${product.handle}`}>
+          {/* Image container — edge-to-edge, no inner border */}
+          <div className="relative overflow-hidden bg-grey-5 before:content-[''] before:block before:pt-[133.33%]">
+            <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
+              {thumbnail ? (
+                <Image
+                  src={thumbnail}
+                  alt={product.title || 'Product'}
+                  fill
+                  loading="lazy"
+                  className="object-cover object-center"
+                  sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
                 />
-              ))}
-              {finishSwatches.length > 6 && (
-                <span className="text-[11px] text-grey-40 ml-0.5">
-                  +{finishSwatches.length - 6}
-                </span>
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-grey-30 text-xs font-sans">
+                  No image
+                </div>
               )}
             </div>
-          )}
-
-          {/* Option count + Price row */}
-          <div className="flex items-baseline justify-between mt-0.5">
-            <p className="text-sm font-semibold text-grey-80 tracking-tight" data-testid="product-price">
-              {priceDisplay || "Price unavailable"}
-            </p>
-            {totalOptionCount > 0 && (
-              <p className="text-[11px] text-grey-40 font-sans">
-                {totalOptionCount} {totalOptionCount === 1 ? "option" : "options"}
-              </p>
-            )}
           </div>
-        </div>
+
+          {/* Product details — clean, warm typography */}
+          <div className="flex flex-col px-4 pt-3.5 pb-3 gap-2">
+            {/* Product title */}
+            <h3 className="text-[13px] font-medium leading-snug text-grey-80 line-clamp-2">
+              {product.title}
+            </h3>
+
+            {/* Finish swatches */}
+            {finishSwatches.length > 0 && (
+              <div className="flex items-center gap-1.5">
+                {finishSwatches.slice(0, 6).map((swatch) => (
+                  <span
+                    key={swatch.label}
+                    title={swatch.label}
+                    className="w-4 h-4 rounded-full ring-1 ring-black/10 inline-block shadow-sm"
+                    style={{ backgroundColor: swatch.color }}
+                  />
+                ))}
+                {finishSwatches.length > 6 && (
+                  <span className="text-[11px] text-grey-40 ml-0.5">
+                    +{finishSwatches.length - 6}
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Option count + Price row */}
+            <div className="flex items-baseline justify-between mt-0.5">
+              <p className="text-sm font-semibold text-grey-80 tracking-tight" data-testid="product-price">
+                {priceDisplay || "Price unavailable"}
+              </p>
+              {totalOptionCount > 0 && (
+                <p className="text-[11px] text-grey-40 font-sans">
+                  {totalOptionCount} {totalOptionCount === 1 ? "option" : "options"}
+                </p>
+              )}
+            </div>
+          </div>
+        </LocalizedClientLink>
+
+        {/* Quick-add row — quantity picker + add to cart */}
+        <CardActions variantId={defaultVariantId} productHandle={product.handle ?? ""} />
       </div>
-    </LocalizedClientLink>
+    </div>
   )
 }

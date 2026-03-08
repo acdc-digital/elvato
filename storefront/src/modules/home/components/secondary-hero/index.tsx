@@ -65,7 +65,7 @@ const SecondaryHero = () => {
           
           <div className="overflow-hidden lg:w-[96%] flex-1">
             <img 
-              src="/controls/Lutron-Controls-Installation.png" 
+              src="/controls/hero-2.2.svg"
               alt="Lutron lighting controls installation"
               className="w-full h-full object-cover"
               style={{ objectPosition: '20% center' }}
