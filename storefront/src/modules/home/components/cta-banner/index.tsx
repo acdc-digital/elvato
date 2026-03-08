@@ -1,21 +1,13 @@
 "use client"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { FileText, Headphones, Star } from "lucide-react"
+import { Headphones, Star } from "lucide-react"
 
 const CtaBanner = () => {
   return (
     <div className="w-full bg-white">
       <div className="px-8 small:px-12 pt-8 pb-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Submittal Sheets */}
-          <div className="flex items-center gap-2">
-            <FileText className="w-5 h-5" />
-            <p className="text-lg font-sans text-black">
-              Submittal Sheets Available
-            </p>
-          </div>
-
           {/* Expert Support */}
           <div className="flex items-center gap-2">
             <Headphones className="w-5 h-5" />

@@ -12,7 +12,7 @@ export default function AnnouncementBanner({ regions }: AnnouncementBannerProps)
     <div className="w-full bg-white border-b border-black">
       <div className="content-container py-3 flex items-center justify-between">
         <p className="text-sm font-sans text-black flex items-center gap-1 whitespace-nowrap">
-          Elvato; <img src="/brand/black-leaf.svg" alt="" className="w-4 h-4 inline-block" /> Canadian pure-play lighting e-tailor.<span className="hidden md:inline"> Lighting & Controls for your next project.</span>
+          Elvato; <img src="/brand/black-leaf.svg" alt="" className="w-4 h-4 inline-block" /> Curated lighting, delivered to your door.<span className="hidden md:inline"> 800+ designs from top brands worldwide.</span>
         </p>
         <div className="flex items-center gap-x-4">
           {/* Payment badges */}
