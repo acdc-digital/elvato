@@ -51,14 +51,14 @@ const Hero = () => {
             <div className="flex flex-row gap-4 mt-8 lg:mt-10">
               <LocalizedClientLink
                 href="/store"
-                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-[#B8860B] text-white text-sm font-medium rounded-none border border-[#B8860B] transition-all duration-200 hover:bg-[#FFF8E1] hover:text-[#B8860B] hover:border-[#B8860B]"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-black text-white text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-white hover:text-black"
               >
                 SHOP NOW
               </LocalizedClientLink>
 
               <LocalizedClientLink
                 href="/design-services"
-                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-[#FFF8E1] text-[#B8860B] text-sm font-medium rounded-none border border-[#B8860B] transition-all duration-200 hover:bg-[#B8860B] hover:text-white hover:border-[#B8860B]"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-grey-70 hover:text-white"
               >
                 DESIGN SERVICES
               </LocalizedClientLink>
