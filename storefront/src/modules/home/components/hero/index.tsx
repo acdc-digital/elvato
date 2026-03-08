@@ -153,7 +153,7 @@ const Hero = () => {
                 </div>
                 {i === 0 && (
                   <img 
-                    src="/hero/H-feature-2.jpg" 
+                    src="/hero/H-feature-2.svg" 
                     alt="Featured"
                     className="w-full h-full object-cover"
                   />
@@ -161,7 +161,7 @@ const Hero = () => {
                 {i === 1 && (
                   <div className="w-full h-full bg-[#AAAAAA]">
                     <img 
-                      src="/hero/H-feature-3.jpg" 
+                      src="/hero/H-feature-3.svg" 
                       alt="Featured"
                       className="w-full h-full object-cover scale-125 -translate-y-5 -translate-x-3"
                     />
@@ -169,21 +169,21 @@ const Hero = () => {
                 )}
                 {i === 2 && (
                   <img 
-                    src="/hero/H-feature-4.jpg" 
+                    src="/hero/H-feature-4.svg"
                     alt="Featured"
                     className="w-full h-full object-cover scale-125 translate-y-1"
                   />
                 )}
                 {i === 3 && (
                   <img 
-                    src="/hero/H-feature-5.jpg" 
+                    src="/hero/H-feature-5.svg" 
                     alt="Featured"
                     className="w-full h-full object-cover scale-125 -translate-y-2"
                   />
                 )}
                 {i === 4 && (
                   <img 
-                    src="/hero/H-feature-6.png" 
+                    src="/hero/H-feature-6.svg" 
                     alt="Featured"
                     className="w-full h-full object-cover scale-110"
                   />

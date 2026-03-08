@@ -24,7 +24,7 @@ export default function AnnouncementBanner({ regions }: AnnouncementBannerProps)
               <Stripe />
               <span className="text-xs font-bold tracking-tight" style={{ color: '#635BFF' }}>stripe</span>
             </div>
-            <div
+            {/* <div
               className="flex items-center gap-x-1.5 border border-gray-200 rounded-md px-2 py-1 bg-white"
               title="Pay with PayPal"
             >
@@ -33,7 +33,7 @@ export default function AnnouncementBanner({ regions }: AnnouncementBannerProps)
                 <span style={{ color: '#003087' }}>Pay</span>
                 <span style={{ color: '#009CDE' }}>Pal</span>
               </span>
-            </div>
+            </div> */}
           </div>
           {/* Divider */}
           <div className="hidden sm:block h-4 w-px bg-gray-300" />
