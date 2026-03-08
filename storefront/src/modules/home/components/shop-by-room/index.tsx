@@ -5,27 +5,27 @@ const rooms = [
   {
     label: "Bedroom",
     href: "/store",
-    image: "/byRoom/storefront-bedroom 1.png",
+    image: "/byRoom/storefront-bedroom 1.svg",
   },
   {
     label: "Bathroom",
     href: "/store",
-    image: "/byRoom/storefront-bathroom 1.png",
+    image: "/byRoom/storefront-bathroom 1.svg",
   },
   {
     label: "Dining",
     href: "/store",
-    image: "/byRoom/storefront-dining 1.png",
+    image: "/byRoom/storefront-dining 1.svg",
   },
   {
     label: "Kitchen",
     href: "/store",
-    image: "/byRoom/storefront-kitchen 1.png",
+    image: "/byRoom/storefront-kitchen 1.svg",
   },
   {
     label: "Office",
     href: "/store",
-    image: "/byRoom/storefront-office 1.png",
+    image: "/byRoom/storefront-office 1.svg",
   },
 ]
 
