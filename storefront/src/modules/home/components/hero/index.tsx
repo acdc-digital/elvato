@@ -176,7 +176,7 @@ const Hero = () => {
                 )}
                 {i === 3 && (
                   <img 
-                    src="/hero/H-feature-5.svg" 
+                    src="/hero/H-feature-5.svg"
                     alt="Featured"
                     className="w-full h-full object-cover scale-125 -translate-y-2"
                   />
