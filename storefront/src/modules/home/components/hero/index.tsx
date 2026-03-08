@@ -34,7 +34,14 @@ const Hero = () => {
 
           <div className="flex flex-col justify-center flex-1 px-6 pt-0 pb-8 lg:px-10 lg:pt-0 lg:pb-10">
             <h1 className="m-0 text-4xl lg:text-7xl font-bold leading-tight font-sans">
-              Contemporary lighting for your next project.
+              <span className="relative inline-block">
+                <span className="relative z-10">Contemporary</span>
+                <span
+                  className="absolute left-0 bottom-[0.1em] w-full h-[0.35em] bg-yellow-300/60 -z-0 -rotate-[0.5deg]"
+                  aria-hidden="true"
+                />
+              </span>{" "}
+              lighting for your next project.
             </h1>
             <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-sans text-black">
               Elvato lighting is a curated collection of 803 published, affordable handpicked lighting designs
@@ -44,14 +51,14 @@ const Hero = () => {
             <div className="flex flex-row gap-4 mt-8 lg:mt-10">
               <LocalizedClientLink
                 href="/store"
-                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-black text-white text-sm font-medium rounded-none border border-black transition-all duration-200 hover:bg-white hover:text-black"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-[#B8860B] text-white text-sm font-medium rounded-none border border-[#B8860B] transition-all duration-200 hover:bg-[#FFF8E1] hover:text-[#B8860B] hover:border-[#B8860B]"
               >
                 SHOP NOW
               </LocalizedClientLink>
 
               <LocalizedClientLink
                 href="/design-services"
-                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-grey-70 hover:text-white"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 bg-[#FFF8E1] text-[#B8860B] text-sm font-medium rounded-none border border-[#B8860B] transition-all duration-200 hover:bg-[#B8860B] hover:text-white hover:border-[#B8860B]"
               >
                 DESIGN SERVICES
               </LocalizedClientLink>
