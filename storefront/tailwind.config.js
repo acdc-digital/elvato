@@ -34,6 +34,15 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        accent: {
+          50:  "#FFF8E1",
+          100: "#FFECB3",
+          200: "#FFD54F",
+          400: "#D4AF37",
+          600: "#B8860B",
+          700: "#8B6914",
+        },
+        warm: "#f0eeea",
       },
       borderRadius: {
         none: "0px",

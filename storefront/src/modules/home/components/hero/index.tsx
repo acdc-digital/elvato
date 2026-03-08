@@ -51,7 +51,7 @@ const Hero = () => {
 
               <LocalizedClientLink
                 href="/design-services"
-                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-[#373737] hover:text-white"
+                className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-grey-70 hover:text-white"
               >
                 DESIGN SERVICES
               </LocalizedClientLink>

@@ -42,7 +42,7 @@ export default function ShopByRoom() {
             href={room.href}
             className="group flex flex-col gap-3"
           >
-            <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#f0eeea] rounded-sm">
+            <div className="relative aspect-[3/4] w-full overflow-hidden bg-warm rounded-sm">
               <Image
                 src={room.image}
                 alt={`Shop ${room.label} lighting`}
