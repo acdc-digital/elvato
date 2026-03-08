@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react"
 import { useRouter, useSearchParams, usePathname } from "next/navigation"
-import { ChevronDown, ChevronRight, Check } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import { clx } from "@medusajs/ui"
 import { CategoryNode } from "@lib/data/categories-client"
 
@@ -78,32 +78,33 @@ const CategoryFilter = ({
       <div key={category.id} className="w-full">
         <div
           className={clx(
-            "flex items-center justify-between py-2 px-3 rounded-md transition-colors",
-            "hover:bg-ui-bg-subtle cursor-pointer",
-            isSelected && "bg-ui-bg-subtle-hover font-medium",
-            depth > 0 && "ml-4 text-small-regular"
+            "flex items-center justify-between py-2.5 px-3 rounded-xl transition-all duration-150 cursor-pointer",
+            isSelected
+              ? "bg-grey-90 text-white shadow-sm"
+              : "hover:bg-grey-5",
+            depth > 0 && "ml-4"
           )}
         >
           <div
-            className="flex items-center gap-2 flex-1"
+            className="flex items-center gap-2.5 flex-1 min-w-0"
             onClick={() => handleCategorySelect(category.id)}
           >
-            <div
+            <span
               className={clx(
-                "w-4 h-4 rounded border flex items-center justify-center flex-shrink-0",
-                isSelected
-                  ? "bg-ui-fg-base border-ui-fg-base"
-                  : "border-ui-border-base"
+                "text-[13px] font-medium leading-snug truncate",
+                isSelected ? "text-white" : "text-grey-80"
               )}
             >
-              {isSelected && <Check className="w-3 h-3 text-ui-bg-base" />}
-            </div>
-            <span className="text-ui-fg-base text-small-regular">
               {category.name}
             </span>
             {category.productCount !== undefined && category.productCount > 0 && (
-              <span className="text-ui-fg-subtle text-xsmall-regular">
-                ({category.productCount})
+              <span
+                className={clx(
+                  "text-[11px] tabular-nums flex-shrink-0",
+                  isSelected ? "text-white/60" : "text-grey-30"
+                )}
+              >
+                {category.productCount}
               </span>
             )}
           </div>
@@ -114,19 +115,22 @@ const CategoryFilter = ({
                 e.stopPropagation()
                 toggleExpanded(category.id)
               }}
-              className="p-1 hover:bg-ui-bg-subtle-hover rounded"
+              className={clx(
+                "p-1 rounded-lg flex-shrink-0 transition-colors",
+                isSelected ? "hover:bg-white/10" : "hover:bg-grey-10"
+              )}
             >
               {isExpanded ? (
-                <ChevronDown className="w-4 h-4 text-ui-fg-muted" />
+                <ChevronDown className={clx("w-3.5 h-3.5", isSelected ? "text-white/60" : "text-grey-40")} />
               ) : (
-                <ChevronRight className="w-4 h-4 text-ui-fg-muted" />
+                <ChevronRight className={clx("w-3.5 h-3.5", isSelected ? "text-white/60" : "text-grey-40")} />
               )}
             </button>
           )}
         </div>
 
         {hasChildren && isExpanded && (
-          <div className="border-l border-ui-border-base ml-5 pl-1">
+          <div className="border-l border-grey-10 ml-5 pl-1 mt-0.5">
             {category.children.map((child) => renderCategory(child, depth + 1))}
           </div>
         )}
@@ -140,25 +144,27 @@ const CategoryFilter = ({
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="txt-compact-small-plus text-ui-fg-muted">Categories</h3>
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-[11px] font-semibold uppercase tracking-widest text-grey-40">
+          Categories
+        </h3>
         {selectedCategoryIds.length > 0 && (
           <button
             onClick={clearAllFilters}
-            className="text-small-regular text-ui-fg-subtle hover:text-ui-fg-base underline"
+            className="text-[11px] text-accent-600 hover:text-accent-700 font-medium transition-colors"
           >
             Clear
           </button>
         )}
       </div>
 
-      <div className="space-y-1 max-h-[400px] overflow-y-auto">
+      <div className="space-y-0.5">
         {categories.map((category) => renderCategory(category))}
       </div>
 
       {selectedCategoryIds.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-ui-border-base">
-          <p className="text-small-regular text-ui-fg-subtle">
+        <div className="mt-4 pt-3 border-t border-grey-10">
+          <p className="text-[11px] text-grey-30">
             {selectedCategoryIds.length} filter
             {selectedCategoryIds.length > 1 ? "s" : ""} applied
           </p>

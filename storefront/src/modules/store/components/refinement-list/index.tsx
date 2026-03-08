@@ -4,6 +4,7 @@ import SortDropdown from "./sort-dropdown"
 import PerPageDropdown, { PerPageOption, DEFAULT_PER_PAGE } from "./per-page-dropdown"
 import MobileFilters from "./mobile-filters"
 import ActiveFilters from "./active-filters"
+import SearchInput from "./search-input"
 
 // Re-export types for backwards compatibility
 export { type SortOptions } from "./sort-dropdown"
@@ -34,7 +35,7 @@ const RefinementList = async ({
 
   return (
     <div
-      className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 small:min-w-[250px] small:ml-[1.675rem]"
+      className="flex small:flex-col gap-12 py-4 mb-8 small:px-0 pl-6 pr-6 small:pr-8 small:min-w-[250px] small:ml-[1.675rem]"
       data-testid={dataTestId}
     >
       {showCategoryFilter ? (
@@ -60,14 +61,12 @@ const RefinementList = async ({
           </div>
 
           {/* Desktop: Sidebar layout */}
-          <div className="hidden small:block">
-            {/* Sort Section */}
-            <div className="mb-6 pb-6 border-b border-ui-border-base">
-              <h3 className="txt-compact-small-plus text-ui-fg-muted mb-4">
-                Sort by
-              </h3>
-              <SortDropdown sortBy={sortBy} data-testid="desktop-sort" />
-            </div>
+          <div className="hidden small:block space-y-6">
+            {/* Search */}
+            <SearchInput data-testid="desktop-search" />
+
+            {/* Divider */}
+            <div className="border-t border-grey-10" />
 
             {/* Category Filter Section */}
             <CategoryFilter

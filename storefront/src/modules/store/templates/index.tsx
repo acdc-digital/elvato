@@ -4,6 +4,7 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import RefinementList, { SortOptions } from "@modules/store/components/refinement-list"
 import { type PerPageOption, DEFAULT_PER_PAGE } from "@modules/store/components/refinement-list"
 import PerPageDropdown from "@modules/store/components/refinement-list/per-page-dropdown"
+import SortDropdown from "@modules/store/components/refinement-list/sort-dropdown"
 
 import PaginatedProducts from "./paginated-products"
 
@@ -56,7 +57,8 @@ const StoreTemplate = async ({
               Browse our complete lighting collection
             </p>
           </div>
-          <div className="hidden small:block">
+          <div className="hidden small:flex items-center gap-2">
+            <SortDropdown sortBy={sort} data-testid="desktop-sort" />
             <PerPageDropdown perPage={perPage} data-testid="desktop-per-page" />
           </div>
         </div>
