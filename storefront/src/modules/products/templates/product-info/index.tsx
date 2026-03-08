@@ -29,17 +29,17 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           {product.collection && (
             <LocalizedClientLink
               href={`/collections/${product.collection.handle}`}
-              className="text-xs font-medium uppercase tracking-wider text-ui-fg-muted hover:text-ui-fg-base transition-colors w-fit"
+              className="text-sm font-medium uppercase tracking-wider text-ui-fg-muted hover:text-ui-fg-base transition-colors w-fit"
             >
               {product.collection.title}
             </LocalizedClientLink>
           )}
-          <span className="inline-flex items-center gap-x-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
+          <span className="inline-flex items-center gap-x-1.5 rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-3.5 w-3.5"
+              className="h-4 w-4"
             >
               <path d="M6.5 3c-1.051 0-2.093.04-3.125.117A1.49 1.49 0 002 4.607V10.5h9V4.606c0-.771-.59-1.43-1.375-1.489A41.568 41.568 0 006.5 3zM2 12v2.5A1.5 1.5 0 003.5 16h.041a3 3 0 015.918 0h1.082a3 3 0 015.918 0H17a1.5 1.5 0 001.5-1.5V12H2z" />
               <path d="M12.5 7.556V10H17v-.277a1.5 1.5 0 00-.629-1.217l-2.21-1.584A1.5 1.5 0 0012.5 7.556zM7 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM16.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
