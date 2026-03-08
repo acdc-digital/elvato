@@ -194,26 +194,31 @@ export default function ProductActions({
     <>
       <div className="flex flex-col gap-y-2" ref={actionsRef}>
         <div>
-          {(product.options?.length ?? 0) > 0 && (
-            <div className="flex flex-col gap-y-4">
-              {(product.options || []).map((option) => {
-                  return (
-                    <div key={option.id}>
-                      <OptionSelect
-                        option={option}
-                        current={options[option.id]}
-                        updateOption={setOptionValue}
-                        title={option.title ?? ""}
-                        data-testid="product-options"
-                        disabled={!!disabled || isAdding}
-                        availableValues={availableOptionValues[option.id]}
-                      />
-                    </div>
-                  )
-                })}
-              <Divider />
-            </div>
-          )}
+          {(product.options?.length ?? 0) > 0 && (() => {
+            // Skip options where every value is "Default" (single-variant placeholders)
+            const meaningfulOptions = (product.options || []).filter(
+              (o) => !(o.values?.length === 1 && o.values[0]?.value?.toLowerCase() === "default")
+            )
+            if (meaningfulOptions.length === 0) return null
+            return (
+              <div className="flex flex-col gap-y-4">
+                {meaningfulOptions.map((option) => (
+                  <div key={option.id}>
+                    <OptionSelect
+                      option={option}
+                      current={options[option.id]}
+                      updateOption={setOptionValue}
+                      title={option.title ?? ""}
+                      data-testid="product-options"
+                      disabled={!!disabled || isAdding}
+                      availableValues={availableOptionValues[option.id]}
+                    />
+                  </div>
+                ))}
+                <Divider />
+              </div>
+            )
+          })()}
         </div>
 
         <ProductPrice product={product} variant={selectedVariant} />

@@ -16,22 +16,24 @@ type Props = {
   searchParams: Promise<{ v_id?: string }>
 }
 
-function getImagesForVariant(
-  product: HttpTypes.StoreProduct,
-  selectedVariantId?: string
-) {
-  if (!selectedVariantId || !product.variants) {
-    return product.images ?? []
-  }
-
-  const variant = product.variants!.find((v) => v.id === selectedVariantId)
-  if (!variant || !variant.images?.length) {
-    return product.images ?? []
-  }
-
-  const imageIdsMap = new Map(variant.images.map((i) => [i.id, true]))
-  return (product.images ?? []).filter((i) => imageIdsMap.has(i.id))
-}
+// TODO: Re-enable once CDN images carry Medusa image IDs so
+// variant-level filtering can match them.
+// function getImagesForVariant(
+//   product: HttpTypes.StoreProduct,
+//   selectedVariantId?: string
+// ) {
+//   if (!selectedVariantId || !product.variants) {
+//     return product.images ?? []
+//   }
+//
+//   const variant = product.variants!.find((v) => v.id === selectedVariantId)
+//   if (!variant || !variant.images?.length) {
+//     return product.images ?? []
+//   }
+//
+//   const imageIdsMap = new Map(variant.images.map((i) => [i.id, true]))
+//   return (product.images ?? []).filter((i) => imageIdsMap.has(i.id))
+// }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
@@ -88,7 +90,7 @@ export default async function ProductPage(props: Props) {
 
   const pricedProduct = await withCdnImages(rawProduct)
 
-  const images = getImagesForVariant(pricedProduct, selectedVariantId)
+  const images = pricedProduct.images ?? []
 
   if (!pricedProduct) {
     notFound()
