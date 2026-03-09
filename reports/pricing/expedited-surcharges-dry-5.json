@@ -1,0 +1,1500 @@
+{
+  "timestamp": "2026-03-09T00:10:19.960Z",
+  "mode": "DRY-RUN",
+  "buffer": 15,
+  "summary": {
+    "productsProcessed": 5,
+    "variantsUpdated": 66,
+    "variantsSkipped": 0,
+    "tier1Available": 66,
+    "tier2Available": 17
+  },
+  "results": [
+    {
+      "medusaProductId": "prod_01KF76ARFB4YX52H6PJ9TWWWQV",
+      "cjSku": "CJHD1085959",
+      "variants": [
+        {
+          "medusaVariantId": "variant_01KF76ARFRQ4BKDFZNDDR3BJW3",
+          "sku": "ELV830848",
+          "variantTitle": "Gold / 111V / 3 Lights",
+          "baseCost": 22.37,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 17,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 25.25,
+            "rawCostUS": 34.3
+          },
+          "tier2": {
+            "surcharge": 29,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFR0K88KPYHKC77SNR7",
+          "sku": "ELV643428",
+          "variantTitle": "Gold / 111V / 6 Lights",
+          "baseCost": 22.37,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 17,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 25.25,
+            "rawCostUS": 34.3
+          },
+          "tier2": {
+            "surcharge": 29,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFRE5G53MVBV3WQ7Q34",
+          "sku": "ELV983490",
+          "variantTitle": "Gold / 111V / 1 Light",
+          "baseCost": 22.37,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 17,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 25.25,
+            "rawCostUS": 34.3
+          },
+          "tier2": {
+            "surcharge": 29,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFRQJ0S9WV8EPDTG0E6",
+          "sku": "ELV939177",
+          "variantTitle": "Gold / 240V / 3 Lights",
+          "baseCost": 22.37,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 17,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 25.25,
+            "rawCostUS": 34.3
+          },
+          "tier2": {
+            "surcharge": 29,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFR7CTXRY5Z12RCSE7P",
+          "sku": "ELV882696",
+          "variantTitle": "Gold / 240V / 6 Lights",
+          "baseCost": 22.37,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 17,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 25.25,
+            "rawCostUS": 34.3
+          },
+          "tier2": {
+            "surcharge": 29,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFR2SKQ7BT5JP8WX4DY",
+          "sku": "ELV139721",
+          "variantTitle": "Gold / 240V / 1 Light",
+          "baseCost": 22.37,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 17,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 25.25,
+            "rawCostUS": 34.3
+          },
+          "tier2": {
+            "surcharge": 29,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFRA7VZ4MPWFJNTQEC1",
+          "sku": "ELV825642",
+          "variantTitle": "Bronze / 111V / 3 Lights",
+          "baseCost": 26.78,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 20,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 29.69,
+            "rawCostUS": 40.83
+          },
+          "tier2": {
+            "surcharge": 25,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFR7BH752QDTMRGAY5W",
+          "sku": "ELV497053",
+          "variantTitle": "Bronze / 111V / 6 Lights",
+          "baseCost": 26.78,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 20,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 29.69,
+            "rawCostUS": 40.83
+          },
+          "tier2": {
+            "surcharge": 25,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFRAZ8WKMYQ9VE7ACY6",
+          "sku": "ELV569288",
+          "variantTitle": "Bronze / 111V / 1 Light",
+          "baseCost": 26.78,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 20,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 29.69,
+            "rawCostUS": 40.83
+          },
+          "tier2": {
+            "surcharge": 25,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFR88JPS3S9HGD42B17",
+          "sku": "ELV752467",
+          "variantTitle": "Bronze / 240V / 3 Lights",
+          "baseCost": 26.78,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 20,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 29.69,
+            "rawCostUS": 40.83
+          },
+          "tier2": {
+            "surcharge": 25,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFRS835NZZJQNXB9FMK",
+          "sku": "ELV788753",
+          "variantTitle": "Bronze / 240V / 6 Lights",
+          "baseCost": 26.78,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 20,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 29.69,
+            "rawCostUS": 40.83
+          },
+          "tier2": {
+            "surcharge": 25,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARFRP0WD8QW0DDDQEC8K",
+          "sku": "ELV448063",
+          "variantTitle": "Bronze / 240V / 1 Light",
+          "baseCost": 26.78,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 20,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": "CJPacket Fast Ordinary",
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": 29.69,
+            "rawCostUS": 40.83
+          },
+          "tier2": {
+            "surcharge": 25,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76ARTQQHYVGFW00MPSJAMW",
+      "cjSku": "CJSN1587842",
+      "variants": [
+        {
+          "medusaVariantId": "variant_01KF76ARV6MKDANT7Q5KSWHWTJ",
+          "sku": "ELV486017",
+          "variantTitle": "50cm / Black / 111V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV621PXXYYBZBTT9VPA",
+          "sku": "ELV333723",
+          "variantTitle": "50cm / Black / 111V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6E0V3JE72CN21PM5D",
+          "sku": "ELV440908",
+          "variantTitle": "50cm / Black / 111V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV677DGP5PW8DX48BT7",
+          "sku": "ELV475073",
+          "variantTitle": "50cm / Black / 240V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV63VSZZ9G02FFMAE86",
+          "sku": "ELV812670",
+          "variantTitle": "50cm / Black / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6QZAFT0MW3XNGQPSE",
+          "sku": "ELV989573",
+          "variantTitle": "50cm / Black / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6QQBF14NP62C45TEQ",
+          "sku": "ELV861815",
+          "variantTitle": "50cm / Gold / 111V / 11 Lights",
+          "baseCost": 2542.78,
+          "baseMethodCA": "DHL Official",
+          "baseMethodUS": "CJPacket Air Sensitive",
+          "baseDaysCA": "4-12",
+          "baseDaysUS": "15-25",
+          "tier1": {
+            "surcharge": 65,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "DHL Official",
+            "rawCostCA": null,
+            "rawCostUS": 2267.57
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV65PQJAR7GNX1NE7W7",
+          "sku": "ELV890944",
+          "variantTitle": "50cm / Gold / 111V / 17 Lights",
+          "baseCost": 2542.78,
+          "baseMethodCA": "DHL Official",
+          "baseMethodUS": "CJPacket Air Sensitive",
+          "baseDaysCA": "4-12",
+          "baseDaysUS": "15-25",
+          "tier1": {
+            "surcharge": 65,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "DHL Official",
+            "rawCostCA": null,
+            "rawCostUS": 2267.57
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV62GHJ4BSYWEKWP3X3",
+          "sku": "ELV184972",
+          "variantTitle": "50cm / Gold / 111V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV64V2QEG7JA7CF9QRX",
+          "sku": "ELV741452",
+          "variantTitle": "50cm / Gold / 240V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6GC10WBAN0Z6T1YSP",
+          "sku": "ELV293138",
+          "variantTitle": "50cm / Gold / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6N3BCZW1F1BYV8A80",
+          "sku": "ELV952997",
+          "variantTitle": "50cm / Gold / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6S9QBRMZ8DTPCNGXQ",
+          "sku": "ELV579318",
+          "variantTitle": "70cm / Black / 111V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6MTTCGWB1S1GV4AAK",
+          "sku": "ELV371452",
+          "variantTitle": "70cm / Black / 111V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6KWQ7ZC4QKF03DBM6",
+          "sku": "ELV721126",
+          "variantTitle": "70cm / Black / 111V / 23 Lights",
+          "baseCost": 2542.78,
+          "baseMethodCA": "DHL Official",
+          "baseMethodUS": "CJPacket Air Sensitive",
+          "baseDaysCA": "4-12",
+          "baseDaysUS": "15-25",
+          "tier1": {
+            "surcharge": 65,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "DHL Official",
+            "rawCostCA": null,
+            "rawCostUS": 2267.57
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV6NZYRHJJCGCJGW0B0",
+          "sku": "ELV213497",
+          "variantTitle": "70cm / Black / 240V / 11 Lights",
+          "baseCost": 2542.78,
+          "baseMethodCA": "DHL Official",
+          "baseMethodUS": "CJPacket Air Sensitive",
+          "baseDaysCA": "4-12",
+          "baseDaysUS": "15-25",
+          "tier1": {
+            "surcharge": 65,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "DHL Official",
+            "rawCostCA": null,
+            "rawCostUS": 2267.57
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV69VSMW5TF1DQ6JSXS",
+          "sku": "ELV742830",
+          "variantTitle": "70cm / Black / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7Z8T0B3CW5WF4JHBC",
+          "sku": "ELV598444",
+          "variantTitle": "70cm / Black / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7THHPQJ30PMNAZ600",
+          "sku": "ELV275051",
+          "variantTitle": "70cm / Gold / 111V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7KZV4F7DVG7ACHQ1R",
+          "sku": "ELV477267",
+          "variantTitle": "70cm / Gold / 111V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV77EDGKVEX2QWZ7S8K",
+          "sku": "ELV302675",
+          "variantTitle": "70cm / Gold / 111V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV71RCJV1ZH4A11MH38",
+          "sku": "ELV814182",
+          "variantTitle": "70cm / Gold / 240V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV78DH3TC65Z29MM0EH",
+          "sku": "ELV177520",
+          "variantTitle": "70cm / Gold / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV79M3XQE6W6R8E0WJZ",
+          "sku": "ELV654747",
+          "variantTitle": "70cm / Gold / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7V6J9PND9B92ZA7EE",
+          "sku": "ELV912153",
+          "variantTitle": "90cm / Black / 111V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7AZ8MMRKNQMJYZCJ6",
+          "sku": "ELV600146",
+          "variantTitle": "90cm / Black / 111V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7W9B5VWEWCHQSG7PJ",
+          "sku": "ELV821867",
+          "variantTitle": "90cm / Black / 111V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7Z4AZ8F5YBMFNZF3T",
+          "sku": "ELV344839",
+          "variantTitle": "90cm / Black / 240V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7EHMA3YYPVBP3HCH1",
+          "sku": "ELV946111",
+          "variantTitle": "90cm / Black / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7HNAB2V2JWY2PF2QE",
+          "sku": "ELV372923",
+          "variantTitle": "90cm / Black / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7M0N7JH7PGF4TA4HA",
+          "sku": "ELV622214",
+          "variantTitle": "90cm / Gold / 111V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV79WT9TZNJMQVY517Y",
+          "sku": "ELV618699",
+          "variantTitle": "90cm / Gold / 111V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV7THTXMES2HJ98MH7M",
+          "sku": "ELV775641",
+          "variantTitle": "90cm / Gold / 111V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV86DYYVT42SA0265SV",
+          "sku": "ELV128589",
+          "variantTitle": "90cm / Gold / 240V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8KN74ECWWTCKPHGPG",
+          "sku": "ELV963760",
+          "variantTitle": "90cm / Gold / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8A9574RP5TT4F7G7B",
+          "sku": "ELV262147",
+          "variantTitle": "90cm / Gold / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8VF57BK6WBP5JS1D1",
+          "sku": "ELV862677",
+          "variantTitle": "120cm / Black / 111V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8E3K9QN5VSAYD4E1V",
+          "sku": "ELV490337",
+          "variantTitle": "120cm / Black / 111V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV84PX47J4MPAAX4NC6",
+          "sku": "ELV696166",
+          "variantTitle": "120cm / Black / 111V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8E32MTTP4SM96H1GA",
+          "sku": "ELV950223",
+          "variantTitle": "120cm / Black / 240V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8ZSXGXPHCVE6BTN13",
+          "sku": "ELV813539",
+          "variantTitle": "120cm / Black / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8CFWXJP1AP2CHNEZZ",
+          "sku": "ELV794902",
+          "variantTitle": "120cm / Black / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8KS4YK0AN06Q8PM2D",
+          "sku": "ELV992250",
+          "variantTitle": "120cm / Gold / 111V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV85HXGDAE3ZYJCY1KE",
+          "sku": "ELV187336",
+          "variantTitle": "120cm / Gold / 111V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8ENGR7RM84VHDZ2SP",
+          "sku": "ELV110001",
+          "variantTitle": "120cm / Gold / 111V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV80MF8AC1HPJXBJS41",
+          "sku": "ELV566860",
+          "variantTitle": "120cm / Gold / 240V / 11 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8CZXCYCQM172JD8SV",
+          "sku": "ELV392060",
+          "variantTitle": "120cm / Gold / 240V / 17 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        },
+        {
+          "medusaVariantId": "variant_01KF76ARV8PV5453KYBPX8Q7FY",
+          "sku": "ELV938703",
+          "variantTitle": "120cm / Gold / 240V / 23 Lights",
+          "baseCost": 1624.97,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 1321,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 2561.83
+          },
+          "tier2": null
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76AWCX76RKY4ZR8XJCPZAM",
+      "cjSku": "CJTH1587350",
+      "variants": [
+        {
+          "medusaVariantId": "variant_01KF76AWDAEK35ZQW2K3MA0PN0",
+          "sku": "ELV305074",
+          "variantTitle": "50cm / Black",
+          "baseCost": 30.48,
+          "baseMethodCA": "CJPacket Sensitive",
+          "baseMethodUS": "YunExpress Sensitive",
+          "baseDaysCA": "7-12",
+          "baseDaysUS": "8-15",
+          "tier1": {
+            "surcharge": 25,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 47.92
+          },
+          "tier2": {
+            "surcharge": 40,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 61.54,
+            "rawCostUS": 61.54
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76AWDAG03EAH55T8TCYB7H",
+          "sku": "ELV353744",
+          "variantTitle": "50cm / Gold",
+          "baseCost": 30.48,
+          "baseMethodCA": "CJPacket Sensitive",
+          "baseMethodUS": "YunExpress Sensitive",
+          "baseDaysCA": "7-12",
+          "baseDaysUS": "8-15",
+          "tier1": {
+            "surcharge": 25,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 47.92
+          },
+          "tier2": {
+            "surcharge": 40,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 61.54,
+            "rawCostUS": 61.54
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76AWDBJ25RBVSNJ7M4SEFG",
+          "sku": "ELV680924",
+          "variantTitle": "65cm / Black",
+          "baseCost": 30.48,
+          "baseMethodCA": "CJPacket Sensitive",
+          "baseMethodUS": "YunExpress Sensitive",
+          "baseDaysCA": "7-12",
+          "baseDaysUS": "8-15",
+          "tier1": {
+            "surcharge": 25,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 47.92
+          },
+          "tier2": {
+            "surcharge": 40,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 61.54,
+            "rawCostUS": 61.54
+          }
+        },
+        {
+          "medusaVariantId": "variant_01KF76AWDBBEAADR3DKMDXE369",
+          "sku": "ELV908807",
+          "variantTitle": "65cm / Gold",
+          "baseCost": 30.48,
+          "baseMethodCA": "CJPacket Sensitive",
+          "baseMethodUS": "YunExpress Sensitive",
+          "baseDaysCA": "7-12",
+          "baseDaysUS": "8-15",
+          "tier1": {
+            "surcharge": 25,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 47.92
+          },
+          "tier2": {
+            "surcharge": 40,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 61.54,
+            "rawCostUS": 61.54
+          }
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76E30VMYWMR8DWXYDEB7N6",
+      "cjSku": "CJSN1637963",
+      "variants": [
+        {
+          "medusaVariantId": "variant_01KF76E31SW2MAXQ83EM12GJBF",
+          "sku": "ELV471342",
+          "variantTitle": "80cm / Gold",
+          "baseCost": 229.65,
+          "baseMethodCA": "CJPacket Ordinary",
+          "baseMethodUS": "CJPacket Ordinary",
+          "baseDaysCA": "7-11",
+          "baseDaysUS": "7-15",
+          "tier1": {
+            "surcharge": 188,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 362.85
+          },
+          "tier2": null
+        }
+      ]
+    },
+    {
+      "medusaProductId": "prod_01KF76E3MJJG3Q90SQXTSNE7K9",
+      "cjSku": "CJJT1469334",
+      "variants": [
+        {
+          "medusaVariantId": "variant_01KF76E3MW2HD7JDD1BCFF5E0W",
+          "sku": "ELV758729",
+          "variantTitle": "Gold",
+          "baseCost": 17.53,
+          "baseMethodCA": "CJPacket Sensitive",
+          "baseMethodUS": "YunExpress Sensitive",
+          "baseDaysCA": "7-12",
+          "baseDaysUS": "8-15",
+          "tier1": {
+            "surcharge": 14,
+            "displayName": "USPS Priority",
+            "displayDays": "7-14 business days",
+            "methodCA": null,
+            "methodUS": "CJPacket USPS Remote",
+            "rawCostCA": null,
+            "rawCostUS": 27.5
+          },
+          "tier2": {
+            "surcharge": 34,
+            "displayName": "DHL Express",
+            "displayDays": "3-7 business days",
+            "methodCA": "DHL Official",
+            "methodUS": "DHL Official",
+            "rawCostCA": 44.62,
+            "rawCostUS": 44.62
+          }
+        }
+      ]
+    }
+  ]
+}

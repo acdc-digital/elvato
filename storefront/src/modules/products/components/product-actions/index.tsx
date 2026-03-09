@@ -10,6 +10,7 @@ import { isEqual } from "lodash"
 import { useParams, usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import ProductPrice from "../product-price"
+import ShippingSelector from "../shipping-selector"
 import MobileActions from "./mobile-actions"
 import { useRouter } from "next/navigation"
 
@@ -38,6 +39,7 @@ export default function ProductActions({
 
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
+  const [shippingSurcharge, setShippingSurcharge] = useState(0)
   const countryCode = useParams().countryCode as string
 
   // If there is only 1 variant, preselect the options
@@ -58,6 +60,11 @@ export default function ProductActions({
       return isEqual(variantOptions, options)
     })
   }, [product.variants, options])
+
+  // Reset shipping surcharge when variant changes
+  useEffect(() => {
+    setShippingSurcharge(0)
+  }, [selectedVariant?.id])
 
   // For each option, determine which values are available given the other
   // currently-selected options.
@@ -221,7 +228,7 @@ export default function ProductActions({
           })()}
         </div>
 
-        <ProductPrice product={product} variant={selectedVariant} />
+        <ProductPrice product={product} variant={selectedVariant} shippingSurcharge={shippingSurcharge} />
 
         <Button
           onClick={handleAddToCart}
@@ -243,6 +250,13 @@ export default function ProductActions({
             ? "Out of stock"
             : "Add to cart"}
         </Button>
+
+        <ShippingSelector
+          variant={selectedVariant}
+          currencyCode={product.variants?.[0]?.calculated_price?.currency_code || "usd"}
+          selectedSurcharge={shippingSurcharge}
+          onSurchargeChange={setShippingSurcharge}
+        />
 
         {/* SKU */}
         {(selectedVariant?.sku || product.variants?.[0]?.sku) && (
@@ -298,6 +312,8 @@ export default function ProductActions({
           isAdding={isAdding}
           show={!inView}
           optionsDisabled={!!disabled || isAdding}
+          shippingSurcharge={shippingSurcharge}
+          onSurchargeChange={setShippingSurcharge}
         />
       </div>
     </>

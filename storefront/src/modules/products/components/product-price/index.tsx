@@ -1,14 +1,17 @@
 import { clx } from "@medusajs/ui"
 
 import { getProductPrice } from "@lib/util/get-product-price"
+import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
 
 export default function ProductPrice({
   product,
   variant,
+  shippingSurcharge = 0,
 }: {
   product: HttpTypes.StoreProduct
   variant?: HttpTypes.StoreProductVariant
+  shippingSurcharge?: number
 }) {
   const { cheapestPrice, variantPrice } = getProductPrice({
     product,
@@ -21,21 +24,38 @@ export default function ProductPrice({
     return <div className="block w-32 h-9 bg-gray-100 animate-pulse" />
   }
 
+  const hasSurcharge = shippingSurcharge > 0 && variant
+  const combinedAmount = hasSurcharge
+    ? selectedPrice.calculated_price_number + shippingSurcharge
+    : selectedPrice.calculated_price_number
+  const combinedFormatted = hasSurcharge
+    ? convertToLocale({
+        amount: combinedAmount,
+        currency_code: selectedPrice.currency_code,
+      })
+    : selectedPrice.calculated_price
+
   return (
     <div className="flex flex-col text-ui-fg-base">
       <span
         className={clx("text-xl-semi", {
-          "text-ui-fg-interactive": selectedPrice.price_type === "sale",
+          "text-ui-fg-interactive": selectedPrice.price_type === "sale" || hasSurcharge,
         })}
       >
         {!variant && "From "}
         <span
           data-testid="product-price"
-          data-value={selectedPrice.calculated_price_number}
+          data-value={combinedAmount}
         >
-          {selectedPrice.calculated_price}
+          {combinedFormatted}
         </span>
       </span>
+      {hasSurcharge && (
+        <p className="text-small-regular text-ui-fg-subtle">
+          <span className="line-through">{selectedPrice.calculated_price}</span>
+          <span className="ml-1 text-ui-fg-muted">(expedited shipping)</span>
+        </p>
+      )}
       {selectedPrice.price_type === "sale" && (
         <>
           <p>

@@ -7,7 +7,9 @@ import ChevronDown from "@modules/common/icons/chevron-down"
 import X from "@modules/common/icons/x"
 
 import { getProductPrice } from "@lib/util/get-product-price"
+import { convertToLocale } from "@lib/util/money"
 import OptionSelect from "./option-select"
+import ShippingSelector from "../shipping-selector"
 import { HttpTypes } from "@medusajs/types"
 import { isSimpleProduct } from "@lib/util/product"
 
@@ -21,6 +23,8 @@ type MobileActionsProps = {
   isAdding?: boolean
   show: boolean
   optionsDisabled: boolean
+  shippingSurcharge?: number
+  onSurchargeChange?: (surcharge: number) => void
 }
 
 const MobileActions: React.FC<MobileActionsProps> = ({
@@ -33,6 +37,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   isAdding,
   show,
   optionsDisabled,
+  shippingSurcharge = 0,
+  onSurchargeChange,
 }) => {
   const { state, open, close } = useToggleState()
 
@@ -49,6 +55,16 @@ const MobileActions: React.FC<MobileActionsProps> = ({
 
     return variantPrice || cheapestPrice || null
   }, [price])
+
+  const hasSurcharge = shippingSurcharge > 0 && variant && selectedPrice
+  const displayPrice = useMemo(() => {
+    if (!selectedPrice) return null
+    if (!hasSurcharge) return selectedPrice.calculated_price
+    return convertToLocale({
+      amount: selectedPrice.calculated_price_number + shippingSurcharge,
+      currency_code: selectedPrice.currency_code,
+    })
+  }, [selectedPrice, shippingSurcharge, hasSurcharge])
 
   const isSimple = isSimpleProduct(product)
 
@@ -88,10 +104,10 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   <span
                     className={clx({
                       "text-ui-fg-interactive":
-                        selectedPrice.price_type === "sale",
+                        selectedPrice.price_type === "sale" || hasSurcharge,
                     })}
                   >
-                    {selectedPrice.calculated_price}
+                    {displayPrice}
                   </span>
                 </div>
               ) : (
@@ -187,6 +203,16 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                             </div>
                           )
                         })}
+                      </div>
+                    )}
+                    {onSurchargeChange && (
+                      <div className="mt-4">
+                        <ShippingSelector
+                          variant={variant}
+                          currencyCode={product.variants?.[0]?.calculated_price?.currency_code || "usd"}
+                          selectedSurcharge={shippingSurcharge}
+                          onSurchargeChange={onSurchargeChange}
+                        />
                       </div>
                     )}
                   </div>

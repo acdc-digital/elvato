@@ -25,4 +25,27 @@
   "chat.tools.terminal.autoApprove": {
     "npx medusa": true
   },
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.md": "markdownEditorOptimized.editor",
+    "*.markdown": "markdownEditorOptimized.editor",
+    "*.mdx": "markdownEditorOptimized.editor",
+    "*.mdc": "markdownEditorOptimized.editor",
+    "git:/**/*.md": "default",
+    "git:/**/*.markdown": "default",
+    "git:/**/*.mdx": "default",
+    "git:/**/*.mdc": "default",
+    "git:**/*.md": "default",
+    "git:**/*.markdown": "default",
+    "git:**/*.mdx": "default",
+    "git:**/*.mdc": "default",
+    "chat-editing-text-model:/**/*.md": "default",
+    "chat-editing-text-model:/**/*.markdown": "default",
+    "chat-editing-text-model:/**/*.mdx": "default",
+    "chat-editing-text-model:/**/*.mdc": "default",
+    "chat-editing-text-model:**/*.md": "default",
+    "chat-editing-text-model:**/*.markdown": "default",
+    "chat-editing-text-model:**/*.mdx": "default",
+    "chat-editing-text-model:**/*.mdc": "default"
+  },
 }
