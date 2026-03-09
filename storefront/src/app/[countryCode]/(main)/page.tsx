@@ -96,8 +96,8 @@ export default async function Home(props: {
 
       {/* Tagline above secondary hero */}
       <div className="px-6 small:px-14 pt-24 pb-10">
-        <h2 className="text-4xl lg:text-7xl font-bold leading-tight font-sans">
-          Contemporary lighting for your next project.
+        <h2 className="text-xl lg:text-3xl font-bold leading-tight font-sans">
+          Curated designs for every room — handpicked, affordable, and ready to ship.
         </h2>
       </div>
 
