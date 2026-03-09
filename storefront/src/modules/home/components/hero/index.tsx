@@ -149,10 +149,16 @@ const Hero = () => {
         <div className="order-3 bg-gray-100 relative min-h-[200px] lg:min-h-0 overflow-hidden">
           {/* Grid of squares at the top */}
           <div className="absolute top-0 left-0 right-0 z-10 grid grid-cols-5">
-            {[...Array(5)].map((_, i) => (
+            {[
+              "/products/modern-retro-wall-sconce-vintage-industrial-design-01ce7684?v_id=variant_01KJK3N8TXJM2TJ05JQZJ0HP0S",
+              "/products/modern-hollow-staircase-chandelier-duplex-design-55298816",
+              "/products/modern-luxury-glass-bubble-chandelier-55049984",
+              "/products/nordic-flying-saucer-chandelier-postmodern-art-design-93837056?v_id=variant_01KK4BYCY4JCSQQTTY7FNEYK56",
+              "/products/postmodern-creative-chandelier-for-living-rooms-06790656",
+            ].map((href, i) => (
               <LocalizedClientLink
                 key={i}
-                href="#"
+                href={href}
                 className="aspect-square bg-white border-t lg:border-t-0 border-b border-r border-black overflow-hidden relative block"
               >
                 <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-sans uppercase z-10">
@@ -199,12 +205,14 @@ const Hero = () => {
             ))}
           </div>
           
-          <img 
-            src="/hero/hero-2.jpg" 
-            alt="Elvato"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: '30% center' }}
-          />
+          <LocalizedClientLink href="/products/nordic-minimalist-resin-art-chandelier" className="block w-full h-full">
+            <img 
+              src="/hero/hero-2.jpg" 
+              alt="Elvato"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '30% center' }}
+            />
+          </LocalizedClientLink>
           {/* Overlay image - hugs left border, hidden on mobile */}
           <img 
             src="/overlays/crinkle-v2.svg" 

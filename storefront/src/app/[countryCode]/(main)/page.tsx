@@ -33,8 +33,6 @@ const HOMEPAGE_COLLECTIONS_TOP = [
 
 const HOMEPAGE_COLLECTIONS_BOTTOM = [
   "table-floor",    // Lower price point, impulse/add-on purchases
-  "outdoor",        // Distinct audience, seasonal appeal
-  "accessories",    // Complementary add-ons
 ]
 
 function sortCollectionsByPriority(
@@ -96,8 +94,13 @@ export default async function Home(props: {
         </div>
       )}
 
-      {/* TODO: PhotoGrid above hero-2 */}
-      {/* <PhotoGrid /> */}
+      {/* Tagline above secondary hero */}
+      <div className="px-6 small:px-14 pt-24 pb-10">
+        <h2 className="text-4xl lg:text-7xl font-bold leading-tight font-sans">
+          Contemporary lighting for your next project.
+        </h2>
+      </div>
+
       <SecondaryHero />
     </>
   )
