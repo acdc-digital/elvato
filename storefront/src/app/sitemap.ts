@@ -5,6 +5,8 @@ import { listCategories } from "@lib/data/categories"
 import { listRegions } from "@lib/data/regions"
 import { getBaseURL } from "@lib/util/env"
 
+export const dynamic = "force-dynamic"
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseURL()
 
