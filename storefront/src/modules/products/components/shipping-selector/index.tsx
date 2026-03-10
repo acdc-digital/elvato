@@ -38,26 +38,28 @@ export default function ShippingSelector({
     ]
 
     if (meta?.expeditedTier1Surcharge != null && meta.expeditedTier1Surcharge > 0) {
+      const surchargeInCents = meta.expeditedTier1Surcharge * 100
       options.push({
         id: "tier1",
         label: meta.expeditedTier1DisplayName || "USPS Priority",
         days: meta.expeditedTier1Days || "7-14 business days",
-        surcharge: meta.expeditedTier1Surcharge,
+        surcharge: surchargeInCents,
         formatted: convertToLocale({
-          amount: meta.expeditedTier1Surcharge,
+          amount: surchargeInCents,
           currency_code: currencyCode,
         }),
       })
     }
 
     if (meta?.expeditedTier2Surcharge != null && meta.expeditedTier2Surcharge > 0) {
+      const surchargeInCents = meta.expeditedTier2Surcharge * 100
       options.push({
         id: "tier2",
         label: meta.expeditedTier2DisplayName || "DHL Express",
         days: meta.expeditedTier2Days || "3-7 business days",
-        surcharge: meta.expeditedTier2Surcharge,
+        surcharge: surchargeInCents,
         formatted: convertToLocale({
-          amount: meta.expeditedTier2Surcharge,
+          amount: surchargeInCents,
           currency_code: currencyCode,
         }),
       })
