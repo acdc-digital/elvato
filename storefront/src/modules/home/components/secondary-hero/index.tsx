@@ -1,3 +1,4 @@
+import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const SecondaryHero = () => {
@@ -8,6 +9,7 @@ const SecondaryHero = () => {
         <img 
           src="/overlays/crinkle-leftv2.svg" 
           alt=""
+          loading="lazy"
           className="hidden lg:block absolute left-1/2 -translate-x-20 top-1/2 -translate-y-1/2 h-[120%] w-auto object-cover z-10 pointer-events-none"
         />
         
@@ -25,38 +27,48 @@ const SecondaryHero = () => {
                   Featured
                 </div>
                 {i === 0 && (
-                  <img 
-                    src="/controls/controls-1v3.png" 
+                  <Image
+                    src="/controls/controls-1v3.png"
                     alt="Featured"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="10vw"
+                    className="object-cover"
                   />
                 )}
                 {i === 1 && (
-                  <img 
-                    src="/controls/controls-2.png" 
+                  <Image
+                    src="/controls/controls-2.png"
                     alt="Featured"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="10vw"
+                    className="object-cover"
                   />
                 )}
                 {i === 2 && (
-                  <img 
-                    src="/controls/controls-3v2.png" 
+                  <Image
+                    src="/controls/controls-3v2.png"
                     alt="Featured"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="10vw"
+                    className="object-cover"
                   />
                 )}
                 {i === 3 && (
-                  <img 
-                    src="/controls/controls-4.png" 
+                  <Image
+                    src="/controls/controls-4.png"
                     alt="Featured"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="10vw"
+                    className="object-cover"
                   />
                 )}
                 {i === 4 && (
-                  <img 
-                    src="/controls/controls-5.png" 
+                  <Image
+                    src="/controls/controls-5.png"
                     alt="Featured"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="10vw"
+                    className="object-cover"
                   />
                 )}
               </LocalizedClientLink>
@@ -67,6 +79,7 @@ const SecondaryHero = () => {
             <img 
               src="/controls/controls-hero-2.svg"
               alt="Lutron lighting controls installation"
+              loading="lazy"
               className="w-full h-full object-cover"
               style={{ objectPosition: '20% center' }}
             />

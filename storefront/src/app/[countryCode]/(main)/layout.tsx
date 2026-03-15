@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { Suspense } from "react"
 
 import { listCartOptions, retrieveCart } from "@lib/data/cart"
 import { retrieveCustomer } from "@lib/data/customer"
@@ -15,26 +16,27 @@ export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
 
-export default async function PageLayout(props: { children: React.ReactNode }) {
-  const customer = await retrieveCustomer()
-  const cart = await retrieveCart()
-  const regions: StoreRegion[] = await listRegions()
-  let shippingOptions: StoreCartShippingOption[] = []
+/**
+ * Async component that fetches personalized cart/customer data and renders
+ * banners. Wrapped in Suspense so the page shell streams immediately.
+ */
+async function PersonalizedBanners() {
+  const [customer, cart] = await Promise.all([
+    retrieveCustomer(),
+    retrieveCart(),
+  ])
 
+  let shippingOptions: StoreCartShippingOption[] = []
   if (cart) {
     const { shipping_options } = await listCartOptions()
-
     shippingOptions = shipping_options
   }
 
   return (
     <>
-      <AnnouncementBanner regions={regions} />
-      <Nav />
       {customer && cart && (
         <CartMismatchBanner customer={customer} cart={cart} />
       )}
-
       {cart && (
         <FreeShippingPriceNudge
           variant="popup"
@@ -42,6 +44,20 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
           shippingOptions={shippingOptions}
         />
       )}
+    </>
+  )
+}
+
+export default async function PageLayout(props: { children: React.ReactNode }) {
+  const regions: StoreRegion[] = await listRegions()
+
+  return (
+    <>
+      <AnnouncementBanner regions={regions} />
+      <Nav />
+      <Suspense fallback={null}>
+        <PersonalizedBanners />
+      </Suspense>
       {props.children}
       <Footer />
     </>

@@ -4,8 +4,6 @@ import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
 import CtaBanner from "@modules/home/components/cta-banner"
 import SecondaryHero from "@modules/home/components/secondary-hero"
-import ProductGrid from "@modules/home/components/product-grid"
-import PhotoGrid from "@modules/home/components/photo-grid"
 import ShopByRoom from "@modules/home/components/shop-by-room"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
@@ -16,6 +14,8 @@ export const metadata: Metadata = {
   description:
     "Shop 803 published, affordable lighting designs — pendants, chandeliers, ceiling, wall, floor & table lamps, outdoor lighting, and smart controls.",
 }
+
+export const revalidate = 300
 
 /**
  * Homepage collection display order.
@@ -50,11 +50,10 @@ export default async function Home(props: {
   const params = await props.params
   const { countryCode } = params
 
-  const region = await getRegion(countryCode)
-
-  const { collections } = await listCollections({
-    fields: "id, handle, title",
-  })
+  const [region, { collections }] = await Promise.all([
+    getRegion(countryCode),
+    listCollections({ fields: "id, handle, title" }),
+  ])
 
   if (!collections || !region) {
     return null

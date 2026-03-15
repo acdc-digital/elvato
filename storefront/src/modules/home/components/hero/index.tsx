@@ -1,5 +1,4 @@
-"use client"
-
+import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const Hero = () => {
@@ -205,11 +204,14 @@ const Hero = () => {
             ))}
           </div>
           
-          <LocalizedClientLink href="/products/nordic-minimalist-resin-art-chandelier" className="block w-full h-full">
-            <img 
-              src="/hero/hero-2.jpg" 
+          <LocalizedClientLink href="/products/nordic-minimalist-resin-art-chandelier" className="relative block w-full h-full">
+            <Image
+              src="/hero/hero-2.jpg"
               alt="Elvato"
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
               style={{ objectPosition: '30% center' }}
             />
           </LocalizedClientLink>
@@ -217,6 +219,7 @@ const Hero = () => {
           <img 
             src="/overlays/crinkle-v2.svg" 
             alt=""
+            loading="lazy"
             className="hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 h-[115%] w-auto object-contain z-20"
           />
           {/* Gradient overlay on crinkle */}
@@ -235,26 +238,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes ticker {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-        @keyframes ticker-vertical {
-          0% { transform: translateY(0%); }
-          100% { transform: translateY(-50%); }
-        }
-        .animate-ticker {
-          animation: ticker 32s infinite linear;
-        }
-        .animate-ticker-vertical {
-          animation: ticker-vertical 20s infinite linear;
-        }
-        .writing-vertical {
-          writing-mode: vertical-rl;
-          text-orientation: mixed;
-        }
-      `}</style>
     </div>
   )
 }

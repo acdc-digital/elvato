@@ -77,6 +77,13 @@ const webSiteJsonLd = {
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-mode="light">
+      <head>
+        {/* Preconnect to CDN origins so image/font requests skip DNS+TLS */}
+        <link rel="preconnect" href="https://elvatoStorage-CDN.b-cdn.net" />
+        <link rel="dns-prefetch" href="https://elvatoStorage-CDN.b-cdn.net" />
+        <link rel="preconnect" href="https://cf.cjdropshipping.com" />
+        <link rel="dns-prefetch" href="https://cf.cjdropshipping.com" />
+      </head>
       <body className={`${inclusiveSans.variable} ${fraunces.variable} font-sans`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V929297BMM"

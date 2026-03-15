@@ -1,19 +1,62 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { cache } from "react"
 import { listProducts } from "@lib/data/products"
-import { getRegion } from "@lib/data/regions"
+import { getRegion, listRegions } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes, StoreRegion } from "@medusajs/types"
 import { withCdnImages } from "@lib/data/convex-images"
 import { getBaseURL } from "@lib/util/env"
 
-// Product pages rely on cookies (auth headers, cache tags) and searchParams,
-// which are dynamic server APIs incompatible with static generation in Next 15.
-export const dynamic = "force-dynamic"
+// ISR: serve cached HTML and revalidate in the background every 5 minutes.
+// The page is still dynamically rendered per-request (cookies in downstream
+// data functions), but removing force-dynamic re-enables Next.js router cache
+// and avoids blanket disabling of fetch caching.
+export const revalidate = 300
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
   searchParams: Promise<{ v_id?: string }>
+}
+
+/**
+ * React.cache deduplicates this call within a single request so
+ * generateMetadata and ProductPage share one Medusa round-trip.
+ */
+const getProduct = cache(async (countryCode: string, handle: string) => {
+  return listProducts({
+    countryCode,
+    queryParams: { handle },
+  }).then(({ response }) => response.products[0])
+})
+
+/**
+ * Pre-generate routes for all published products × regions.
+ * Next.js will also dynamically render any product not returned here
+ * (fallback: "blocking" is the default with dynamicParams = true).
+ */
+export async function generateStaticParams() {
+  try {
+    const countryCodes = await listRegions().then((regions: StoreRegion[]) =>
+      regions
+        ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
+        .filter(Boolean) as string[]
+    )
+
+    const { response } = await listProducts({
+      countryCode: countryCodes[0] ?? "us",
+      queryParams: { limit: 100, fields: "handle" },
+    })
+
+    return countryCodes.flatMap((countryCode) =>
+      response.products.map((p) => ({
+        countryCode,
+        handle: p.handle!,
+      }))
+    )
+  } catch {
+    return []
+  }
 }
 
 // TODO: Re-enable once CDN images carry Medusa image IDs so
@@ -44,10 +87,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     notFound()
   }
 
-  const product = await listProducts({
-    countryCode: params.countryCode,
-    queryParams: { handle },
-  }).then(({ response }) => response.products[0])
+  const product = await getProduct(params.countryCode, handle)
 
   if (!product) {
     notFound()
@@ -83,10 +123,7 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
-  const rawProduct = await listProducts({
-    countryCode: params.countryCode,
-    queryParams: { handle: params.handle },
-  }).then(({ response }) => response.products[0])
+  const rawProduct = await getProduct(params.countryCode, params.handle)
 
   const pricedProduct = await withCdnImages(rawProduct)
 

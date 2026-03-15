@@ -12,20 +12,35 @@ const PRODUCTS_PER_RAIL = 5
 export default async function ProductRail({
   collection,
   region,
+  products: prefetchedProducts,
 }: {
   collection: HttpTypes.StoreCollection
   region: HttpTypes.StoreRegion
+  products?: HttpTypes.StoreProduct[]
 }) {
-  const {
-    response: { products: pricedProducts },
-  } = await listProducts({
-    regionId: region.id,
-    queryParams: {
-      collection_id: collection.id,
-      fields: "*variants.calculated_price,title,handle,thumbnail,images.url,options.title,options.values.value",
-      limit: PRODUCTS_PER_RAIL,
-    },
-  })
+  // Use pre-fetched products when available (parallel fetch from parent),
+  // otherwise fetch here (standalone usage).
+  let pricedProducts = prefetchedProducts
+  if (!pricedProducts) {
+    const {
+      response: { products },
+    } = await listProducts({
+      regionId: region.id,
+      queryParams: {
+        collection_id: collection.id,
+        fields:
+          "*variants.calculated_price,title,handle,thumbnail,images.url,options.title,options.values.value",
+        limit: PRODUCTS_PER_RAIL,
+      },
+    })
+    pricedProducts = products
+
+    // Batch-prefetch CDN thumbnails in one Convex query
+    const handles = pricedProducts
+      .map((p) => p.handle)
+      .filter(Boolean) as string[]
+    await prefetchThumbnails(handles)
+  }
 
   if (!pricedProducts || pricedProducts.length === 0) {
     return (
@@ -45,10 +60,6 @@ export default async function ProductRail({
       </div>
     )
   }
-
-  // Batch-prefetch CDN thumbnails in one Convex query
-  const handles = pricedProducts.map((p) => p.handle).filter(Boolean) as string[]
-  await prefetchThumbnails(handles)
 
   return (
     <div className="px-6 small:px-14 pt-8 pb-10">

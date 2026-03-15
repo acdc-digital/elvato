@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Browse our complete collection of lighting fixtures and accessories.",
 }
 
+export const revalidate = 300
+
 type Params = {
   searchParams: Promise<{
     sortBy?: SortOptions

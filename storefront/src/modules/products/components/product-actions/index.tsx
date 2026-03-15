@@ -6,7 +6,6 @@ import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
 import OptionSelect from "@modules/products/components/product-actions/option-select"
-import { isEqual } from "lodash"
 import { useParams, usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import ProductPrice from "../product-price"
@@ -57,7 +56,11 @@ export default function ProductActions({
 
     return product.variants.find((v) => {
       const variantOptions = optionsAsKeymap(v.options)
-      return isEqual(variantOptions, options)
+      const keys = Object.keys(variantOptions)
+      return (
+        keys.length === Object.keys(options).length &&
+        keys.every((k) => variantOptions[k] === options[k])
+      )
     })
   }, [product.variants, options])
 
@@ -133,7 +136,11 @@ export default function ProductActions({
   const isValidVariant = useMemo(() => {
     return product.variants?.some((v) => {
       const variantOptions = optionsAsKeymap(v.options)
-      return isEqual(variantOptions, options)
+      const keys = Object.keys(variantOptions)
+      return (
+        keys.length === Object.keys(options).length &&
+        keys.every((k) => variantOptions[k] === options[k])
+      )
     })
   }, [product.variants, options])
 
