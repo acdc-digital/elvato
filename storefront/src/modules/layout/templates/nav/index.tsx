@@ -66,14 +66,14 @@ export default async function Nav() {
                 LED-itorial
               </LocalizedClientLink>
             </Button>
-            <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
+            {/* <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
                 href="/documents"
                 data-testid="nav-documents-link"
               >
                 Documents
               </LocalizedClientLink>
-            </Button>
+            </Button> */}
           </div>
 
           {/* Right: Search, Account, Cart */}

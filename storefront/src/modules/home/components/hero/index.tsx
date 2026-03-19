@@ -85,7 +85,7 @@ const Hero = () => {
                   <div key={i} className="flex items-center mr-4 flex-shrink-0 py-3">
                     <div className="w-7 mr-5">
                       <img 
-                        src="/brand/brand/scroll-E.svg" 
+                        src="/brand/scroll-E.svg" 
                         alt=""
                         className="w-full h-auto"
                       />
