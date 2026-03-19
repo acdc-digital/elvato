@@ -137,6 +137,7 @@ export default function ProductActions({
   const isValidVariant = useMemo(() => {
     return product.variants?.some((v) => {
       const variantOptions = optionsAsKeymap(v.options)
+      if (!variantOptions) return false
       const keys = Object.keys(variantOptions)
       return (
         keys.length === Object.keys(options).length &&
