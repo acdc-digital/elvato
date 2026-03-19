@@ -104,32 +104,37 @@ async function getCountryCode(
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
-  let redirectUrl = request.nextUrl.href
+  const cacheIdCookie = request.cookies.get("_medusa_cache_id")
+  const cacheId = cacheIdCookie?.value || crypto.randomUUID()
 
-  let response = NextResponse.redirect(redirectUrl, 307)
-
-  let cacheIdCookie = request.cookies.get("_medusa_cache_id")
-
-  let cacheId = cacheIdCookie?.value || crypto.randomUUID()
-
-  const regionMap = await getRegionMap(cacheId)
+  // Attempt to load the region map from Medusa.  If the backend is
+  // unreachable we fall back gracefully instead of returning 500 to every
+  // request (which tanks Google's crawl of the whole site).
+  let regionMap: Map<string, HttpTypes.StoreRegion> | undefined
+  try {
+    regionMap = await getRegionMap(cacheId)
+  } catch (error) {
+    console.error("Middleware: region map fetch failed, passing through", error)
+    // Let the request continue — pages can still render from cache / ISR.
+    return NextResponse.next()
+  }
 
   const countryCode = regionMap && (await getCountryCode(request, regionMap))
 
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
 
-  // if one of the country codes is in the url and the cache id is set, return next
-  if (urlHasCountryCode && cacheIdCookie) {
-    return NextResponse.next()
-  }
-
-  // if one of the country codes is in the url and the cache id is not set, set the cache id and redirect
-  if (urlHasCountryCode && !cacheIdCookie) {
-    response.cookies.set("_medusa_cache_id", cacheId, {
-      maxAge: 60 * 60 * 24,
-    })
-
+  // URL already has a valid country code — pass through.
+  // If the cache-id cookie is missing, set it on the *passthrough* response
+  // instead of issuing a redirect (redirecting just to set a cookie wastes
+  // Googlebot's crawl budget and creates spurious 302/307 entries).
+  if (urlHasCountryCode) {
+    const response = NextResponse.next()
+    if (!cacheIdCookie) {
+      response.cookies.set("_medusa_cache_id", cacheId, {
+        maxAge: 60 * 60 * 24,
+      })
+    }
     return response
   }
 
@@ -143,19 +148,21 @@ export async function middleware(request: NextRequest) {
 
   const queryString = request.nextUrl.search ? request.nextUrl.search : ""
 
-  // If no country code is set, we redirect to the relevant region.
-  if (!urlHasCountryCode && countryCode) {
-    redirectUrl = `${request.nextUrl.origin}/${countryCode}${redirectPath}${queryString}`
-    response = NextResponse.redirect(`${redirectUrl}`, 307)
-  } else if (!urlHasCountryCode && !countryCode) {
-    // Handle case where no valid country code exists (empty regions)
-    return new NextResponse(
-      "No valid regions configured. Please set up regions with countries in your Medusa Admin.",
-      { status: 500 }
-    )
+  // No country code in the URL — redirect to the prefixed version.
+  // Use 301 (permanent) so search engines transfer link equity and index
+  // the canonical /{countryCode}/… URL directly.
+  if (countryCode) {
+    const redirectUrl = `${request.nextUrl.origin}/${countryCode}${redirectPath}${queryString}`
+    return NextResponse.redirect(redirectUrl, 301)
   }
 
-  return response
+  // Fallback: no valid country code could be resolved (empty regions).
+  // Instead of returning 500, fall through and let the page attempt to
+  // render. If regions truly aren't configured the page will handle it.
+  console.error(
+    "Middleware: no country code resolved, falling through to page render"
+  )
+  return NextResponse.next()
 }
 
 export const config = {
