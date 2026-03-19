@@ -13,6 +13,9 @@ const S3_PATHNAME = process.env.MEDUSA_CLOUD_S3_PATHNAME
  */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    staticGenerationMaxConcurrency: 10,
+  },
   logging: {
     fetches: {
       fullUrl: true,

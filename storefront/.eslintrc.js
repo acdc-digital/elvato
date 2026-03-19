@@ -3,6 +3,7 @@ module.exports = {
   extends: ["next/core-web-vitals"],
   rules: {
     "@next/next/no-page-custom-font": "off",
+    "@next/next/no-typos": "off",
   },
   settings: {
     next: {
