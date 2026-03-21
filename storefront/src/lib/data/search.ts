@@ -146,22 +146,27 @@ export async function searchProducts(
 
   const sort = sortBy && SORT_MAP[sortBy] ? [SORT_MAP[sortBy]] : undefined
 
-  const result = await meili.index("products").search(query, {
-    filter,
-    sort,
-    limit,
-    offset,
-    facets: FACET_FIELDS,
-  })
+  try {
+    const result = await meili.index("products").search(query, {
+      filter,
+      sort,
+      limit,
+      offset,
+      facets: FACET_FIELDS,
+    })
 
-  return {
-    hits: result.hits as SearchHit[],
-    totalHits: result.estimatedTotalHits ?? result.hits.length,
-    page,
-    totalPages: Math.ceil(
-      (result.estimatedTotalHits ?? result.hits.length) / limit
-    ),
-    processingTimeMs: result.processingTimeMs,
-    facetDistribution: result.facetDistribution as FacetDistribution | undefined,
+    return {
+      hits: result.hits as SearchHit[],
+      totalHits: result.estimatedTotalHits ?? result.hits.length,
+      page,
+      totalPages: Math.ceil(
+        (result.estimatedTotalHits ?? result.hits.length) / limit
+      ),
+      processingTimeMs: result.processingTimeMs,
+      facetDistribution: result.facetDistribution as FacetDistribution | undefined,
+    }
+  } catch (error) {
+    console.error("Meilisearch query failed, falling back:", error)
+    return null
   }
 }

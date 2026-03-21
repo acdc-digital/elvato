@@ -75,8 +75,11 @@ export default class MeilisearchModuleService {
   }
 
   async configureIndex(settings: Record<string, any>) {
+    const client = await this.getClient()
     const index = await this.getProductIndex()
-    return index.updateSettings(settings)
+    const task = await index.updateSettings(settings)
+    await client.waitForTask(task.taskUid, { timeOutMs: 60000 })
+    return task
   }
 
   async getIndexStats() {
