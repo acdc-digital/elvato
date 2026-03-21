@@ -17,6 +17,10 @@ type Params = {
     category_id?: string
     q?: string
     limit?: string
+    materials?: string
+    styles?: string
+    room_types?: string
+    sub_categories?: string
   }>
   params: Promise<{
     countryCode: string
@@ -26,7 +30,7 @@ type Params = {
 export default async function StorePage(props: Params) {
   const params = await props.params
   const searchParams = await props.searchParams
-  const { sortBy, page, category_id, q, limit } = searchParams
+  const { sortBy, page, category_id, q, limit, materials, styles, room_types, sub_categories } = searchParams
 
   return (
     <StoreTemplate
@@ -36,6 +40,10 @@ export default async function StorePage(props: Params) {
       categoryId={category_id}
       query={q}
       limit={limit}
+      materials={materials}
+      styles={styles}
+      roomTypes={room_types}
+      subCategories={sub_categories}
     />
   )
 }

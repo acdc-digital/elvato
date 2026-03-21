@@ -26,6 +26,10 @@ export default async function PaginatedProducts({
   countryCode,
   query,
   limit: limitProp,
+  materials,
+  styles,
+  roomTypes,
+  subCategories,
 }: {
   sortBy?: SortOptions
   page: number
@@ -36,6 +40,10 @@ export default async function PaginatedProducts({
   countryCode: string
   query?: string
   limit?: number
+  materials?: string[]
+  styles?: string[]
+  roomTypes?: string[]
+  subCategories?: string[]
 }) {
   const PRODUCT_LIMIT = limitProp || DEFAULT_PRODUCT_LIMIT
   const region = await getRegion(countryCode)
@@ -62,6 +70,10 @@ export default async function PaginatedProducts({
       sortBy,
       page: Math.max(page, 1),
       limit: PRODUCT_LIMIT,
+      materials,
+      styles,
+      roomTypes,
+      subCategories,
     })
   } catch (e) {
     // MeiliSearch unavailable — fall through to Medusa API

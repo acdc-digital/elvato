@@ -5,17 +5,41 @@ import { X, SlidersHorizontal } from "lucide-react"
 import { clx } from "@medusajs/ui"
 import { CategoryNode } from "@lib/data/categories-client"
 import CategoryFilter from "../category-filter"
+import FacetFilter from "../facet-filter"
 
 interface MobileFiltersProps {
   categories: CategoryNode[]
   selectedCategoryIds: string[]
+  roomTypeFacets?: Record<string, number>
+  materialFacets?: Record<string, number>
+  styleFacets?: Record<string, number>
+  subCategoryFacets?: Record<string, number>
+  selectedRoomTypes?: string[]
+  selectedMaterials?: string[]
+  selectedStyles?: string[]
+  selectedSubCategories?: string[]
 }
 
 const MobileFilters = ({
   categories,
   selectedCategoryIds,
+  roomTypeFacets = {},
+  materialFacets = {},
+  styleFacets = {},
+  subCategoryFacets = {},
+  selectedRoomTypes = [],
+  selectedMaterials = [],
+  selectedStyles = [],
+  selectedSubCategories = [],
 }: MobileFiltersProps) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const totalActiveFilters =
+    selectedCategoryIds.length +
+    selectedRoomTypes.length +
+    selectedMaterials.length +
+    selectedStyles.length +
+    selectedSubCategories.length
 
   return (
     <>
@@ -26,9 +50,9 @@ const MobileFilters = ({
       >
         <SlidersHorizontal className="w-4 h-4 text-ui-fg-subtle" />
         <span className="txt-compact-small-plus text-ui-fg-base">Filters</span>
-        {selectedCategoryIds.length > 0 && (
+        {totalActiveFilters > 0 && (
           <span className="flex items-center justify-center w-5 h-5 text-xsmall-semibold bg-ui-fg-base text-ui-bg-base rounded-full">
-            {selectedCategoryIds.length}
+            {totalActiveFilters}
           </span>
         )}
       </button>
@@ -62,11 +86,65 @@ const MobileFilters = ({
         </div>
 
         {/* Content */}
-        <div className="p-4 overflow-y-auto h-[calc(100%-140px)]">
+        <div className="p-4 overflow-y-auto h-[calc(100%-140px)] space-y-6">
+          {/* Room Type — top-level */}
+          {Object.keys(roomTypeFacets).length > 0 && (
+            <>
+              <FacetFilter
+                title="Room Type"
+                paramName="room_types"
+                facets={roomTypeFacets}
+                selectedValues={selectedRoomTypes}
+                initialLimit={10}
+              />
+              <div className="border-t border-grey-10" />
+            </>
+          )}
+
+          {/* Categories */}
           <CategoryFilter
             categories={categories}
             selectedCategoryIds={selectedCategoryIds}
           />
+
+          {/* Sub-Categories */}
+          {Object.keys(subCategoryFacets).length > 0 && (
+            <>
+              <div className="border-t border-grey-10" />
+              <FacetFilter
+                title="Type"
+                paramName="sub_categories"
+                facets={subCategoryFacets}
+                selectedValues={selectedSubCategories}
+              />
+            </>
+          )}
+
+          {/* Materials */}
+          {Object.keys(materialFacets).length > 0 && (
+            <>
+              <div className="border-t border-grey-10" />
+              <FacetFilter
+                title="Material"
+                paramName="materials"
+                facets={materialFacets}
+                selectedValues={selectedMaterials}
+              />
+            </>
+          )}
+
+          {/* Styles */}
+          {Object.keys(styleFacets).length > 0 && (
+            <>
+              <div className="border-t border-grey-10" />
+              <FacetFilter
+                title="Style"
+                paramName="styles"
+                facets={styleFacets}
+                selectedValues={selectedStyles}
+              />
+            </>
+          )}
         </div>
 
         {/* Footer */}

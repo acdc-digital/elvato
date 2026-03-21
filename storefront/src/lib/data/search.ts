@@ -23,6 +23,11 @@ function getClient(): MeiliSearch | null {
 type SearchProductsOptions = {
   query?: string
   categoryIds?: string[]
+  mainCategory?: string
+  subCategories?: string[]
+  materials?: string[]
+  styles?: string[]
+  roomTypes?: string[]
   sortBy?: SortOptions
   page?: number
   limit?: number
@@ -42,7 +47,14 @@ export type SearchHit = {
   price_cents: number
   created_at: number
   variant_count: number
+  main_category: string
+  sub_categories: string[]
+  materials: string[]
+  styles: string[]
+  room_types: string[]
 }
+
+export type FacetDistribution = Record<string, Record<string, number>>
 
 export type SearchResult = {
   hits: SearchHit[]
@@ -50,6 +62,7 @@ export type SearchResult = {
   page: number
   totalPages: number
   processingTimeMs: number
+  facetDistribution?: FacetDistribution
 }
 
 const SORT_MAP: Record<string, string> = {
@@ -57,6 +70,15 @@ const SORT_MAP: Record<string, string> = {
   price_desc: "price_cents:desc",
   created_at: "created_at:desc",
 }
+
+// Facets we request distribution for on every search
+const FACET_FIELDS = [
+  "main_category",
+  "sub_categories",
+  "materials",
+  "styles",
+  "room_types",
+]
 
 export async function searchProducts(
   options: SearchProductsOptions
@@ -67,6 +89,11 @@ export async function searchProducts(
   const {
     query = "",
     categoryIds = [],
+    mainCategory,
+    subCategories = [],
+    materials = [],
+    styles = [],
+    roomTypes = [],
     sortBy,
     page: rawPage,
     limit: rawLimit,
@@ -85,6 +112,38 @@ export async function searchProducts(
     filter.push(`(${categoryFilter})`)
   }
 
+  if (mainCategory) {
+    filter.push(`main_category = "${mainCategory}"`)
+  }
+
+  if (subCategories.length > 0) {
+    const subFilter = subCategories
+      .map((s) => `sub_categories = "${s}"`)
+      .join(" OR ")
+    filter.push(`(${subFilter})`)
+  }
+
+  if (materials.length > 0) {
+    const matFilter = materials
+      .map((m) => `materials = "${m}"`)
+      .join(" OR ")
+    filter.push(`(${matFilter})`)
+  }
+
+  if (styles.length > 0) {
+    const styleFilter = styles
+      .map((s) => `styles = "${s}"`)
+      .join(" OR ")
+    filter.push(`(${styleFilter})`)
+  }
+
+  if (roomTypes.length > 0) {
+    const roomFilter = roomTypes
+      .map((r) => `room_types = "${r}"`)
+      .join(" OR ")
+    filter.push(`(${roomFilter})`)
+  }
+
   const sort = sortBy && SORT_MAP[sortBy] ? [SORT_MAP[sortBy]] : undefined
 
   const result = await meili.index("products").search(query, {
@@ -92,6 +151,7 @@ export async function searchProducts(
     sort,
     limit,
     offset,
+    facets: FACET_FIELDS,
   })
 
   return {
@@ -102,5 +162,6 @@ export async function searchProducts(
       (result.estimatedTotalHits ?? result.hits.length) / limit
     ),
     processingTimeMs: result.processingTimeMs,
+    facetDistribution: result.facetDistribution as FacetDistribution | undefined,
   }
 }

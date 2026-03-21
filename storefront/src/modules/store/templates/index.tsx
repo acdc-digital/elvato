@@ -15,6 +15,10 @@ type StoreTemplateProps = {
   categoryId?: string
   query?: string
   limit?: string
+  materials?: string
+  styles?: string
+  roomTypes?: string
+  subCategories?: string
 }
 
 const StoreTemplate = async ({
@@ -24,6 +28,10 @@ const StoreTemplate = async ({
   categoryId,
   query,
   limit,
+  materials,
+  styles,
+  roomTypes,
+  subCategories,
 }: StoreTemplateProps) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
@@ -32,6 +40,20 @@ const StoreTemplate = async ({
   // Parse category IDs from URL (comma-separated)
   const selectedCategoryIds = categoryId
     ? categoryId.split(",").filter((id) => id.trim() !== "")
+    : []
+
+  // Parse facet filters from URL (comma-separated)
+  const selectedMaterials = materials
+    ? materials.split(",").filter((v) => v.trim() !== "")
+    : []
+  const selectedStyles = styles
+    ? styles.split(",").filter((v) => v.trim() !== "")
+    : []
+  const selectedRoomTypes = roomTypes
+    ? roomTypes.split(",").filter((v) => v.trim() !== "")
+    : []
+  const selectedSubCategories = subCategories
+    ? subCategories.split(",").filter((v) => v.trim() !== "")
     : []
 
   return (
@@ -44,6 +66,10 @@ const StoreTemplate = async ({
         sortBy={sort}
         perPage={perPage}
         selectedCategoryIds={selectedCategoryIds}
+        selectedMaterials={selectedMaterials}
+        selectedStyles={selectedStyles}
+        selectedRoomTypes={selectedRoomTypes}
+        selectedSubCategories={selectedSubCategories}
         showCategoryFilter={true}
         data-testid="refinement-list"
       />
@@ -70,6 +96,10 @@ const StoreTemplate = async ({
             categoryIds={selectedCategoryIds}
             query={query}
             limit={perPage}
+            materials={selectedMaterials}
+            styles={selectedStyles}
+            roomTypes={selectedRoomTypes}
+            subCategories={selectedSubCategories}
           />
         </Suspense>
       </div>
