@@ -113,7 +113,7 @@ export const listProductsWithSort = async ({
   nextPage: number | null
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
 }> => {
-  const limit = queryParams?.limit || 12
+  const limit = queryParams?.limit || 24
 
   // Price-based sorts require fetching all products for client-side sorting
   if (sortBy === "price_asc" || sortBy === "price_desc") {

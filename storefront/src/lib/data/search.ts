@@ -100,7 +100,7 @@ export async function searchProducts(
   } = options
 
   const page = Number(rawPage) > 0 ? Number(rawPage) : 1
-  const limit = Number(rawLimit) > 0 ? Number(rawLimit) : 12
+  const limit = Number(rawLimit) > 0 ? Number(rawLimit) : 24
   const offset = (page - 1) * limit
 
   const filter: string[] = ['status = "published"']
