@@ -19,4 +19,4 @@ ENV NODE_ENV=production
 
 EXPOSE 9000
 
-CMD npx medusa db:migrate && npx medusa exec ./src/scripts/bootstrap-meilisearch.ts && npm run start
+CMD npx medusa db:migrate && (npx medusa exec ./src/scripts/bootstrap-meilisearch.ts || echo "⚠️  Meilisearch bootstrap failed — server starting without search index") && npm run start
