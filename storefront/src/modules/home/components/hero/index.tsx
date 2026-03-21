@@ -215,21 +215,7 @@ const Hero = () => {
               style={{ objectPosition: '30% center' }}
             />
           </LocalizedClientLink>
-          {/* Overlay image - hugs left border, hidden on mobile */}
-          <img 
-            src="/overlays/crinkle-v2.svg" 
-            alt=""
-            loading="lazy"
-            className="hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 h-[115%] w-auto object-contain z-20"
-          />
-          {/* Gradient overlay on crinkle */}
-          <div 
-            className="hidden lg:block absolute -left-6 top-1/2 -translate-y-1/2 h-[115%] w-[120px] z-20 pointer-events-none"
-            style={{ 
-              background: 'linear-gradient(to right, #F5F5F5, transparent)',
-              mixBlendMode: 'overlay'
-            }}
-          />
+
           {/* Discount text overlay */}
           {/* <div className="absolute top-24 left-44 font-mono text-white flex flex-col leading-tight">
             <span className="text-lg lg:text-6xl font-black">75%</span>

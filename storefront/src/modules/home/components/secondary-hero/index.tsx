@@ -5,13 +5,6 @@ const SecondaryHero = () => {
   return (
     <div className="w-full border-t border-black overflow-hidden min-h-[50vh] lg:h-[50vh]">
       <div className="grid grid-cols-1 lg:grid-cols-2 relative h-full">
-        {/* Crinkle overlay - positioned at grid level to span across panels */}
-        <img 
-          src="/overlays/crinkle-leftv2.svg" 
-          alt=""
-          loading="lazy"
-          className="hidden lg:block absolute left-1/2 -translate-x-20 top-1/2 -translate-y-1/2 h-[120%] w-auto object-cover z-10 pointer-events-none"
-        />
         
         {/* Left Panel - Image */}
         <div className="relative bg-white order-2 lg:order-1">

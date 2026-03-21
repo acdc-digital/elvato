@@ -30,6 +30,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 // =============================================================================
 // ENV LOADING
@@ -171,7 +172,8 @@ async function fetchMedusaProducts(medusaUrl, jwt, maxProducts) {
 // =============================================================================
 
 const CJ_BASE = "https://developers.cjdropshipping.com";
-const CJ_TOKEN_CACHE = path.join(process.cwd(), ".cj-token-cache.json");
+const __script_dir = path.dirname(fileURLToPath(import.meta.url));
+const CJ_TOKEN_CACHE = path.join(__script_dir, ".cj-token-cache.json");
 let cjAccessToken = null;
 
 function loadCachedCjToken() {

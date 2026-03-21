@@ -358,7 +358,7 @@ Body: { email: "...", password: "..." }
 Response: { data: { accessToken: "...", ... } }
 ```
 
-Token is cached locally in `.cj-token-cache.json` with 23-hour TTL.
+Token is cached locally in `scripts/pricing/.cj-token-cache.json` with 23-hour TTL.
 
 ### Freight Calculation
 

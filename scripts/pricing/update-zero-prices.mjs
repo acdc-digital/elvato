@@ -32,6 +32,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../convex/_generated/api.js";
 
@@ -46,7 +47,8 @@ const DEFAULTS = {
 };
 
 const CJ_BASE = "https://developers.cjdropshipping.com";
-const CJ_TOKEN_CACHE = path.join(process.cwd(), ".cj-token-cache.json");
+const __script_dir = path.dirname(fileURLToPath(import.meta.url));
+const CJ_TOKEN_CACHE = path.join(__script_dir, ".cj-token-cache.json");
 
 // =============================================================================
 // ENV LOADING
