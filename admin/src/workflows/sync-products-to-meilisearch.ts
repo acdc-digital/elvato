@@ -6,6 +6,7 @@ import {
 import { useQueryGraphStep } from "@medusajs/medusa/core-flows"
 import { syncProductsToMeilisearchStep } from "./steps/sync-products-to-meilisearch"
 import { deleteProductsFromMeilisearchStep } from "./steps/delete-products-from-meilisearch"
+import { extractFacets } from "../modules/meilisearch/facet-mapping"
 
 type SyncProductsToMeilisearchInput = {
   product_ids?: string[]
@@ -64,6 +65,15 @@ export const syncProductsToMeilisearchWorkflow = createWorkflow(
             .filter((p: any) => typeof p === "number")
           const priceCents = prices.length > 0 ? Math.min(...prices) : 0
 
+          // Extract structured facets from product metadata
+          const facets = extractFacets({
+            categoryNames,
+            tags,
+            optionValues,
+            title: product.title || "",
+            description: product.description || "",
+          })
+
           toIndex.push({
             id: product.id,
             handle: product.handle,
@@ -80,6 +90,12 @@ export const syncProductsToMeilisearchWorkflow = createWorkflow(
               new Date(product.created_at).getTime() / 1000
             ),
             variant_count: (product.variants || []).length,
+            // Structured facets
+            main_category: facets.main_category,
+            sub_categories: facets.sub_categories,
+            materials: facets.materials,
+            styles: facets.styles,
+            room_types: facets.room_types,
           })
         } else {
           toDelete.push(product.id)

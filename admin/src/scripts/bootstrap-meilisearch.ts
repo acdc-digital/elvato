@@ -1,16 +1,26 @@
 import { ExecArgs } from "@medusajs/framework/types"
+import { Modules } from "@medusajs/framework/utils"
 import { MEILISEARCH_MODULE } from "../modules/meilisearch"
 import MeilisearchModuleService from "../modules/meilisearch/service"
+import { syncProductsToMeilisearchWorkflow } from "../workflows/sync-products-to-meilisearch"
 
-export default async function configureMeilisearch({ container }: ExecArgs) {
+/**
+ * Bootstrap Meilisearch: configure index settings + full product sync.
+ *
+ * Run via:  npx medusa exec ./src/scripts/bootstrap-meilisearch.ts
+ *
+ * This is the single command to run after every Meilisearch restart
+ * (Railway ephemeral storage wipes the index on each deploy).
+ */
+export default async function bootstrapMeilisearch({ container }: ExecArgs) {
   const logger = container.resolve("logger")
   const meilisearchService: MeilisearchModuleService =
     container.resolve(MEILISEARCH_MODULE)
 
-  logger.info("Configuring MeiliSearch product index settings...")
+  // --- Step 1: Configure index settings ---
+  logger.info("[bootstrap] Step 1/2: Configuring index settings...")
 
   await meilisearchService.configureIndex({
-    // Ordered by relevance weight — title matches rank highest
     searchableAttributes: [
       "title",
       "description",
@@ -57,7 +67,6 @@ export default async function configureMeilisearch({ container }: ExecArgs) {
       "styles",
       "room_types",
     ],
-    // Common English stop words to improve relevance
     stopWords: [
       "the", "a", "an", "and", "or", "but", "in", "on", "at", "to",
       "for", "of", "with", "by", "from", "is", "it", "this", "that",
@@ -65,7 +74,6 @@ export default async function configureMeilisearch({ container }: ExecArgs) {
       "would", "could", "should", "may", "might", "can", "each",
       "which", "their", "not", "also", "than", "then", "its",
     ],
-    // Lighting-specific synonyms
     synonyms: {
       chandelier: ["chandeliers", "hanging light", "ceiling fixture"],
       pendant: ["pendants", "pendant light", "hanging pendant"],
@@ -78,5 +86,47 @@ export default async function configureMeilisearch({ container }: ExecArgs) {
     },
   })
 
-  logger.info("MeiliSearch index configured successfully with expanded facet settings")
+  logger.info("[bootstrap] Index settings configured")
+
+  // --- Step 2: Full product sync ---
+  logger.info("[bootstrap] Step 2/2: Syncing all products...")
+
+  const productModule = container.resolve(Modules.PRODUCT)
+  const batchSize = 50
+  let offset = 0
+  let totalIndexed = 0
+  let errors: string[] = []
+
+  while (true) {
+    const [products] = await productModule.listAndCountProducts(
+      {},
+      { take: batchSize, skip: offset, select: ["id"] }
+    )
+
+    if (!products.length) break
+
+    const productIds = products.map((p: any) => p.id)
+
+    try {
+      await syncProductsToMeilisearchWorkflow(container).run({
+        input: { product_ids: productIds },
+      })
+      totalIndexed += products.length
+      logger.info(`[bootstrap] Synced ${totalIndexed} products...`)
+    } catch (e: any) {
+      logger.error(`[bootstrap] Batch failed at offset ${offset}: ${e.message}`)
+      errors.push(`Batch at offset ${offset}: ${e.message}`)
+    }
+
+    offset += batchSize
+    if (products.length < batchSize) break
+  }
+
+  logger.info(
+    `[bootstrap] Complete: ${totalIndexed} products indexed, ${errors.length} errors`
+  )
+
+  if (errors.length > 0) {
+    logger.warn(`[bootstrap] Errors:\n${errors.join("\n")}`)
+  }
 }

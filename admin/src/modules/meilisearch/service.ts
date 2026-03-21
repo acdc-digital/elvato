@@ -18,6 +18,11 @@ type ProductDocument = {
   price_cents: number
   created_at: number
   variant_count: number
+  main_category: string
+  sub_categories: string[]
+  materials: string[]
+  styles: string[]
+  room_types: string[]
 }
 
 export default class MeilisearchModuleService {

@@ -33,8 +33,37 @@ Detailed documentation for each service is maintained in `.docs/`:
 | Service | Documentation |
 |---------|---------------|
 | Railway Admin Backend | [`.docs/railway-admin-backend.md`](.docs/railway-admin-backend.md) |
+| Docker Container (Railway) | [`.docs/docker-container.md`](.docs/docker-container.md) |
 | MeiliSearch Product Search | [`.docs/product-index/meilisearch-integration.md`](.docs/product-index/meilisearch-integration.md) |
 | Vercel Storefront Deployment | [`.docs/vercel-storefront-deployment.md`](.docs/vercel-storefront-deployment.md) |
 | Neon PostgreSQL Database | [`.docs/neon-postgresql-database.md`](.docs/neon-postgresql-database.md) |
 | Stripe Payment Processing | [`.docs/stripe-payment-processing.md`](.docs/stripe-payment-processing.md) |
 | Convex CDN Image Layer | [`.docs/convex-cdn-image-layer.md`](.docs/convex-cdn-image-layer.md) |
+
+### Docker Container (Railway)
+
+The Medusa admin backend runs as a Docker container on Railway, built from [`admin/Dockerfile`](admin/Dockerfile) and configured via [`railway.json`](railway.json).
+
+**Build pipeline:**
+1. Railway detects a push to the linked branch
+2. Builds a Docker image using `admin/Dockerfile` (Node 20, production dependencies only)
+3. Deploys the image as a container on Railway infrastructure
+
+**Startup sequence (CMD):**
+```
+npx medusa db:migrate
+npx medusa exec ./src/scripts/bootstrap-meilisearch.ts
+npm run start
+```
+
+| Step | Purpose |
+|------|---------|
+| `db:migrate` | Applies any pending database migrations to Neon PostgreSQL |
+| `bootstrap-meilisearch` | Configures index settings (searchable/filterable fields, stop words, synonyms) and syncs all products into MeiliSearch. Required because MeiliSearch uses ephemeral storage — data is wiped on each Railway restart. |
+| `start` | Starts the Medusa server on port 9000 |
+
+**Key details:**
+- The container is **not** visible in Docker Desktop — Railway builds and runs it remotely
+- Service status is monitored via the Railway dashboard (deploy logs, runtime logs, metrics)
+- MeiliSearch is a **separate** Railway service with ephemeral storage; the bootstrap step repopulates it on every deploy
+- The storefront falls back to the Medusa Store API if MeiliSearch is temporarily unavailable during startup

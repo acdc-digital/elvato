@@ -19,4 +19,4 @@ ENV NODE_ENV=production
 
 EXPOSE 9000
 
-CMD ["npm", "run", "start"]
+CMD npx medusa db:migrate && npx medusa exec ./src/scripts/bootstrap-meilisearch.ts && npm run start
