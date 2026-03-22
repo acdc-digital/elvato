@@ -4,6 +4,7 @@ module.exports = {
   rules: {
     "@next/next/no-page-custom-font": "off",
     "@next/next/no-typos": "off",
+    "@next/next/no-duplicate-head": "off",
   },
   settings: {
     next: {

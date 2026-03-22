@@ -1,12 +1,13 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-import { getCategoryByHandle, listCategories } from "@lib/data/categories"
-import { listRegions } from "@lib/data/regions"
-import { StoreRegion } from "@medusajs/types"
+import { getCategoryByHandle } from "@lib/data/categories"
 import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list"
 import { getBaseURL } from "@lib/util/env"
+
+export const revalidate = 300
+export const dynamicParams = true
 
 type Props = {
   params: Promise<{ category: string[]; countryCode: string }>
@@ -18,39 +19,9 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  try {
-    const product_categories = await listCategories()
-
-    if (!product_categories) {
-      return []
-    }
-
-    const countryCodes = await listRegions().then((regions: StoreRegion[]) =>
-      regions?.map((r) => r.countries?.map((c) => c.iso_2)).flat()
-    )
-
-    const categoryHandles = product_categories.map(
-      (category: any) => category.handle
-    )
-
-    const staticParams = countryCodes
-      ?.map((countryCode: string | undefined) =>
-        categoryHandles.map((handle: any) => ({
-          countryCode,
-          category: [handle],
-        }))
-      )
-      .flat()
-
-    return staticParams
-  } catch (error) {
-    console.error(
-      `Failed to generate static paths for category pages: ${
-        error instanceof Error ? error.message : "Unknown error"
-      }.`
-    )
-    return []
-  }
+  // Return empty array to avoid prerendering all category pages at build time.
+  // Pages are generated on first request and cached via `revalidate = 300`.
+  return []
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
