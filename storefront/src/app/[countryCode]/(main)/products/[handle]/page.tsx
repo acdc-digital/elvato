@@ -125,13 +125,13 @@ export default async function ProductPage(props: Props) {
 
   const rawProduct = await getProduct(params.countryCode, params.handle)
 
+  if (!rawProduct) {
+    notFound()
+  }
+
   const pricedProduct = await withCdnImages(rawProduct)
 
   const images = pricedProduct.images ?? []
-
-  if (!pricedProduct) {
-    notFound()
-  }
 
   const productJsonLd = {
     "@context": "https://schema.org",
