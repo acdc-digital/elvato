@@ -44,7 +44,7 @@ export default async function ProductRail({
 
   if (!pricedProducts || pricedProducts.length === 0) {
     return (
-      <div className="px-6 small:px-14 pt-8 pb-10">
+      <div id={collection.handle} className="px-6 small:px-14 pt-8 pb-10">
         <div className="flex items-baseline justify-between mb-8">
           <LocalizedClientLink
             href="/store"
@@ -62,7 +62,7 @@ export default async function ProductRail({
   }
 
   return (
-    <div className="px-6 small:px-14 pt-8 pb-10">
+    <div id={collection.handle} className="px-6 small:px-14 pt-8 pb-10">
       {/* Section header */}
       <div className="flex items-baseline justify-between mb-8">
         <LocalizedClientLink

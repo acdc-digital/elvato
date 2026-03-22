@@ -11,14 +11,13 @@ const Hero = () => {
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
             <div className="flex flex-wrap gap-1">
               {[
-                { label: 'Featured', href: '/store' },
-                { label: 'Chandeliers', href: '/store' },
-                { label: 'Pendants', href: '/store' },
-                { label: 'Ceiling', href: '/store' },
-                { label: 'Wall', href: '/store' },
-                { label: 'Desk & Floor', href: '/store' },
-                { label: 'Controls', href: '/store' },
-                { label: 'Sale', href: '/store' },
+                { label: 'Featured', href: '#Featured' },
+                { label: 'Chandeliers', href: '#chandeliers' },
+                { label: 'Pendants', href: '#pendants' },
+                { label: 'Ceiling', href: '#ceiling' },
+                { label: 'Wall', href: '#wall' },
+                { label: 'Desk & Floor', href: '#table-floor' },
+                { label: 'Sale', href: '/' },
               ].map((badge) => (
                 <LocalizedClientLink
                   key={badge.label}
@@ -71,7 +70,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center gap-1.5">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                <span>Free Shipping $1,500+</span>
+                <span>Free Shipping</span>
               </div>
               <span>803 Published Designs</span>
             </div>
