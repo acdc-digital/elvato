@@ -53,12 +53,12 @@ export default class MeilisearchModuleService {
     return client.index(this.productIndexName)
   }
 
-  // Compatible with meilisearch SDK v0.40+ (waitForTask moved off client in v0.46+)
+  // Compatible with meilisearch SDK v0.46+ (task methods moved to client.tasks namespace)
   private async waitForTask(taskUid: number, timeoutMs = 60000): Promise<void> {
     const client = await this.getClient()
     const deadline = Date.now() + timeoutMs
     while (Date.now() < deadline) {
-      const task = await client.getTask(taskUid)
+      const task = await client.tasks.getTask(taskUid)
       if (task.status === "succeeded") return
       if (task.status === "failed" || task.status === "canceled") {
         throw new Error(
