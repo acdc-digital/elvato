@@ -9,7 +9,7 @@ const SecondaryHero = () => {
         {/* Left Panel - Image */}
         <div className="relative bg-white order-2 lg:order-1">
           {/* Grid of squares at the top */}
-          <div className="grid grid-cols-5 lg:w-[95%] border-t lg:border-t-0 border-black">
+          <div className="grid grid-cols-5 lg:w-[95%] border-t border-black">
             {[...Array(5)].map((_, i) => (
               <LocalizedClientLink
                 key={i}
