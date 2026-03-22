@@ -110,7 +110,7 @@ export default async function ProductPreview({
     <div className="group w-full">
       <div
         data-testid="product-wrapper"
-        className="relative rounded-2xl overflow-hidden bg-[#FDFCFA] shadow-sm ring-1 ring-black/[0.04] group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 ease-out w-full"
+        className="relative rounded-2xl overflow-hidden bg-[#FDFCFA] shadow-sm ring-1 ring-black/[0.14] group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 ease-out w-full"
       >
         {/* Clickable area — image + product info */}
         <LocalizedClientLink href={`/products/${product.handle}`}>
