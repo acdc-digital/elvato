@@ -2,6 +2,15 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset anchor scroll targets so the section heading is visible below the nav */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 @layer base {
   /* Remove default focus ring from buttons */
   button:focus,
