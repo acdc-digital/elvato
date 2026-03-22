@@ -46,6 +46,9 @@
     "chat-editing-text-model:**/*.md": "default",
     "chat-editing-text-model:**/*.markdown": "default",
     "chat-editing-text-model:**/*.mdx": "default",
-    "chat-editing-text-model:**/*.mdc": "default"
+    "chat-editing-text-model:**/*.mdc": "default",
+    "/Users/matthewsimon/Projects/elvato/admin/src/api/admin/meilisearch/health/route.ts": "default",
+    "admin/src/api/admin/meilisearch/health/route.ts": "default",
+    "**/admin/src/api/admin/meilisearch/health/route.ts": "default"
   },
 }

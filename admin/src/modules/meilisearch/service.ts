@@ -53,13 +53,28 @@ export default class MeilisearchModuleService {
     return client.index(this.productIndexName)
   }
 
+  // Compatible with meilisearch SDK v0.40+ (waitForTask moved off client in v0.46+)
+  private async waitForTask(taskUid: number, timeoutMs = 60000): Promise<void> {
+    const client = await this.getClient()
+    const deadline = Date.now() + timeoutMs
+    while (Date.now() < deadline) {
+      const task = await client.getTask(taskUid)
+      if (task.status === "succeeded") return
+      if (task.status === "failed" || task.status === "canceled") {
+        throw new Error(
+          `MeiliSearch task ${taskUid} ${task.status}: ${JSON.stringify(task.error)}`
+        )
+      }
+      await new Promise((r) => setTimeout(r, 500))
+    }
+    throw new Error(`MeiliSearch task ${taskUid} timed out after ${timeoutMs}ms`)
+  }
+
   async indexData(documents: Record<string, any>[]) {
     if (!documents.length) return
-    const client = await this.getClient()
     const index = await this.getProductIndex()
     const task = await index.addDocuments(documents, { primaryKey: "id" })
-    // Wait for indexing to complete before returning
-    await client.waitForTask(task.taskUid, { timeOutMs: 30000 })
+    await this.waitForTask(task.taskUid, 30000)
     return task
   }
 
@@ -75,10 +90,9 @@ export default class MeilisearchModuleService {
   }
 
   async configureIndex(settings: Record<string, any>) {
-    const client = await this.getClient()
     const index = await this.getProductIndex()
     const task = await index.updateSettings(settings)
-    await client.waitForTask(task.taskUid, { timeOutMs: 60000 })
+    await this.waitForTask(task.taskUid, 60000)
     return task
   }
 
