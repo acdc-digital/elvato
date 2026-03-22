@@ -3,7 +3,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 const Hero = () => {
   return (
-    <div className="min-h-[75vh] lg:h-[75vh] w-full border-b border-black relative bg-white">
+    <div className="min-h-[75vh] lg:h-[75vh] w-full relative bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
         {/* Left: Content */}
         <div className="flex flex-col order-1" style={{ background: 'linear-gradient(to right, #F5F5F5, #FFFFFF)' }}>
