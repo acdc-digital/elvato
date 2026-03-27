@@ -1,14 +1,14 @@
 "use client"
 
 import { useQuery } from "convex/react"
-import { api } from "@convex/_generated/api"
+import { anyApi } from "convex/server"
 
 /**
  * Real-time hook: all shipments for a customer, ordered by date desc.
  */
 export function useShipments(customerId: string | undefined) {
   return useQuery(
-    api.shipping.tracking.getByCustomerId,
+    anyApi.shipping.tracking.getByCustomerId,
     customerId ? { customerId } : "skip"
   )
 }
@@ -18,7 +18,7 @@ export function useShipments(customerId: string | undefined) {
  */
 export function useShipment(medusaOrderId: string | undefined) {
   return useQuery(
-    api.shipping.tracking.getByMedusaOrderId,
+    anyApi.shipping.tracking.getByMedusaOrderId,
     medusaOrderId ? { medusaOrderId } : "skip"
   )
 }

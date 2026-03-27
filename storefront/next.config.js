@@ -11,19 +11,8 @@ const S3_PATHNAME = process.env.MEDUSA_CLOUD_S3_PATHNAME
 /**
  * @type {import('next').NextConfig}
  */
-const path = require("path")
-
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: [path.resolve(__dirname, "../convex")],
-  webpack: (config) => {
-    // Ensure modules imported from ../convex resolve deps from storefront/node_modules
-    config.resolve.modules = [
-      path.resolve(__dirname, "node_modules"),
-      ...(config.resolve.modules || ["node_modules"]),
-    ]
-    return config
-  },
   experimental: {
     staticGenerationMaxConcurrency: 10,
   },
