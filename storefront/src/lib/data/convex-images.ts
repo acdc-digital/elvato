@@ -13,7 +13,7 @@
 import { Redis } from "@upstash/redis"
 
 const CONVEX_URL =
-  process.env.NEXT_PUBLIC_CONVEX_URL || "http://127.0.0.1:3210"
+  process.env.NEXT_PUBLIC_CONVEX_URL || "https://superb-dotterel-37.convex.cloud"
 
 type ConvexImage = {
   path: string
