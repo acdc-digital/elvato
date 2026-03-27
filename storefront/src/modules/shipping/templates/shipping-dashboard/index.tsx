@@ -10,8 +10,16 @@ type ShippingDashboardProps = {
   customerId: string
 }
 
+type OrderItem = {
+  title: string
+  quantity: number
+  unitPrice: number
+  thumbnail: string | null
+  sku: string | null
+}
+
 const ShippingDashboard = ({ customerId }: ShippingDashboardProps) => {
-  const shipments = useShipments(customerId)
+  const shipments = useShipments(customerId) as any
 
   return (
     <div className="flex-1 small:py-12" data-testid="shipping-dashboard">
@@ -101,7 +109,7 @@ const ShippingDashboard = ({ customerId }: ShippingDashboardProps) => {
 
                 {/* Item thumbnails */}
                 <div className="grid grid-cols-2 small:grid-cols-4 gap-4 my-4">
-                  {shipment.orderItems.slice(0, 4).map((item, idx) => (
+                  {shipment.orderItems.slice(0, 4).map((item: OrderItem, idx: number) => (
                     <div
                       key={idx}
                       className="flex flex-col gap-y-2"

@@ -6,12 +6,27 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import ProgressTracker from "@modules/shipping/components/progress-tracker"
 import StatusBadge from "@modules/shipping/components/status-badge"
 
+type OrderItem = {
+  title: string
+  quantity: number
+  unitPrice: number
+  thumbnail: string | null
+  sku: string | null
+}
+
+type TrackingEvent = {
+  status: string
+  description: string
+  timestamp: number
+  location?: string
+}
+
 type ShipmentTrackerProps = {
   medusaOrderId: string
 }
 
 const ShipmentTracker = ({ medusaOrderId }: ShipmentTrackerProps) => {
-  const shipment = useShipment(medusaOrderId)
+  const shipment = useShipment(medusaOrderId) as any
 
   if (shipment === undefined) {
     return (
@@ -49,8 +64,8 @@ const ShipmentTracker = ({ medusaOrderId }: ShipmentTrackerProps) => {
     shipment.currentStatus === "issue" ||
     shipment.currentStatus === "returned"
 
-  const sortedEvents = [...shipment.trackingEvents].sort(
-    (a, b) => b.timestamp - a.timestamp
+  const sortedEvents: TrackingEvent[] = [...shipment.trackingEvents].sort(
+    (a: TrackingEvent, b: TrackingEvent) => b.timestamp - a.timestamp
   )
 
   return (
@@ -201,7 +216,7 @@ const ShipmentTracker = ({ medusaOrderId }: ShipmentTrackerProps) => {
         <div className="mb-10">
           <h2 className="text-large-semi mb-4">Order Items</h2>
           <div className="grid grid-cols-2 small:grid-cols-4 gap-4">
-            {shipment.orderItems.map((item, idx) => (
+            {shipment.orderItems.map((item: OrderItem, idx: number) => (
               <div key={idx} className="flex flex-col gap-y-2">
                 {item.thumbnail ? (
                   <div className="relative w-full aspect-square bg-gray-100 rounded overflow-hidden">
@@ -252,7 +267,7 @@ const ShipmentTracker = ({ medusaOrderId }: ShipmentTrackerProps) => {
           <div className="mb-10">
             <h2 className="text-large-semi mb-4">Tracking Timeline</h2>
             <div className="relative">
-              {sortedEvents.map((event, idx) => {
+              {sortedEvents.map((event: TrackingEvent, idx: number) => {
                 const isFirst = idx === 0
                 const isLast = idx === sortedEvents.length - 1
 
