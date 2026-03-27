@@ -502,4 +502,143 @@ export default defineSchema({
   })
     .index("by_optionType", ["optionType"])
     .index("by_displayOrder", ["displayOrder"]),
+
+  // ===========================================================================
+  // TABLE: cjCertifications (CJ Product Compliance Audit)
+  // Stores ALL certification data, buyer reviews, and merchant Q&A scraped
+  // from CJ API and product pages. One record per CJ product (upsert on re-scan).
+  // ===========================================================================
+  cjCertifications: defineTable({
+    // --- Identity (links back to cjMyProducts) ---
+    sku:         v.string(),   // CJ SKU (e.g. CJSN1234567)
+    cjProductId: v.string(),   // CJ productId
+    nameEn:      v.string(),   // Product name
+
+    // --- Phase 1: CJ API data ---
+    // Raw product attributes array as returned by /api2.0/v1/product/query
+    apiAttributes:   v.optional(v.array(v.any())),
+    // Raw description HTML from the API response
+    apiDescriptionHtml: v.optional(v.string()),
+
+    // --- Certifications found (extracted from ALL sources) ---
+    // e.g. ["UL", "CE", "RoHS", "CCC", "ETL", "CSA", "IP44", ...]
+    listings:       v.array(v.string()),
+    // Which source(s) contained the certifications
+    listingsSources: v.array(v.string()), // e.g. ["api_attributes", "scrape_reviews"]
+
+    // --- Phase 2: All buyer reviews (scraped, no cap) ---
+    // Each entry: { rating, author, date, title, text, images[], verified }
+    buyerReviews:       v.optional(v.array(v.any())),
+    buyerReviewsTotal:  v.optional(v.number()),  // total count displayed on page
+    buyerRatingSummary: v.optional(v.any()),      // { avg, 5star%, 4star%, ... } if shown
+
+    // --- Phase 2: All merchant Q&A pairs (scraped, no cap) ---
+    // Each entry: { question, answer, askedBy, askedDate, answeredDate }
+    merchantComments:      v.optional(v.array(v.any())),
+    merchantCommentsTotal: v.optional(v.number()), // total Q&A count shown on page
+
+    // --- Draft question for cert inquiry (set when listings === []) ---
+    draftQuestion:         v.optional(v.string()),
+    questionSubmitted:     v.boolean(),
+    questionSubmittedAt:   v.optional(v.number()),
+
+    // --- Scan metadata ---
+    lastScannedAt: v.number(),
+    scanStatus:    v.union(
+      v.literal("ok"),
+      v.literal("api_error"),
+      v.literal("scrape_error"),
+      v.literal("partial"),    // API ok, scrape failed or skipped
+      v.literal("skipped")
+    ),
+    errorMessage: v.optional(v.string()),
+
+    // --- Timestamps ---
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_sku",               ["sku"])
+    .index("by_cjProductId",       ["cjProductId"])
+    .index("by_lastScannedAt",     ["lastScannedAt"])
+    .index("by_scanStatus",        ["scanStatus"])
+    .index("by_questionSubmitted", ["questionSubmitted"]),
+
+  // ===========================================================================
+  // TABLE: shippingTracking (Real-Time Order Shipping Tracking)
+  // Stores shipping status for customer orders. Updated by CJ Dropshipping
+  // logistics webhooks relayed through Medusa admin backend.
+  // Data Flow: Medusa order.placed → Convex record → CJ webhook → status updates
+  // ===========================================================================
+  shippingTracking: defineTable({
+    // --- Order References ---
+    medusaOrderId: v.string(),
+    medusaOrderDisplayId: v.number(),
+    customerId: v.string(),
+
+    // --- CJ Dropshipping References ---
+    cjOrderId: v.optional(v.string()),
+    trackingNumber: v.optional(v.string()),
+    lastMileCarrier: v.optional(v.string()),
+    lastMileTrackingNumber: v.optional(v.string()),
+    logisticName: v.optional(v.string()),
+
+    // --- Order Details ---
+    orderItems: v.array(v.object({
+      title: v.string(),
+      quantity: v.number(),
+      unitPrice: v.number(),
+      thumbnail: v.optional(v.string()),
+      sku: v.optional(v.string()),
+    })),
+    orderTotal: v.number(),
+    currencyCode: v.string(),
+
+    // --- Dates ---
+    orderDate: v.number(),
+    estimatedDeliveryDate: v.optional(v.number()),
+    actualDeliveryDate: v.optional(v.number()),
+
+    // --- Shipping Address ---
+    shippingAddress: v.object({
+      firstName: v.string(),
+      lastName: v.string(),
+      address1: v.string(),
+      address2: v.optional(v.string()),
+      city: v.string(),
+      postalCode: v.string(),
+      countryCode: v.string(),
+      phone: v.optional(v.string()),
+    }),
+
+    // --- Progress ---
+    currentStatus: v.union(
+      v.literal("order_placed"),
+      v.literal("processing"),
+      v.literal("shipped"),
+      v.literal("in_transit"),
+      v.literal("arrived_in_country"),
+      v.literal("out_for_delivery"),
+      v.literal("delivered"),
+      v.literal("issue"),
+      v.literal("returned")
+    ),
+    cjStatusCode: v.optional(v.number()),
+
+    // --- Tracking Timeline ---
+    trackingEvents: v.array(v.object({
+      status: v.string(),
+      description: v.string(),
+      location: v.optional(v.string()),
+      timestamp: v.number(),
+      cjStatusCode: v.optional(v.number()),
+    })),
+
+    // --- Timestamps ---
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_customerId", ["customerId"])
+    .index("by_medusaOrderId", ["medusaOrderId"])
+    .index("by_trackingNumber", ["trackingNumber"])
+    .index("by_currentStatus", ["currentStatus"]),
 });

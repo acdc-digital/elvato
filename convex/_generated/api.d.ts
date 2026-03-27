@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as cj_certifications from "../cj/certifications.js";
 import type * as cj_myProducts from "../cj/myProducts.js";
 import type * as files from "../files.js";
 import type * as fs from "../fs.js";
@@ -16,6 +17,7 @@ import type * as medusa_staging from "../medusa/staging.js";
 import type * as medusa_variantMapping from "../medusa/variantMapping.js";
 import type * as products_actionHistory from "../products/actionHistory.js";
 import type * as products_products from "../products/products.js";
+import type * as shipping_tracking from "../shipping/tracking.js";
 import type * as utils_copilot from "../utils/copilot.js";
 import type * as utils_files from "../utils/files.js";
 
@@ -26,6 +28,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  "cj/certifications": typeof cj_certifications;
   "cj/myProducts": typeof cj_myProducts;
   files: typeof files;
   fs: typeof fs;
@@ -34,6 +37,7 @@ declare const fullApi: ApiFromModules<{
   "medusa/variantMapping": typeof medusa_variantMapping;
   "products/actionHistory": typeof products_actionHistory;
   "products/products": typeof products_products;
+  "shipping/tracking": typeof shipping_tracking;
   "utils/copilot": typeof utils_copilot;
   "utils/files": typeof utils_files;
 }>;

@@ -20,7 +20,8 @@
       "@modules/*": ["modules/*"],
       "@pages/*": ["pages/*"],
       "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "@convex/*": ["../../convex/*"]
     },
     "plugins": [
       {

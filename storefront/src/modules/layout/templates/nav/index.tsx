@@ -66,6 +66,14 @@ export default async function Nav() {
                 LED-itorial
               </LocalizedClientLink>
             </Button>
+            <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
+              <LocalizedClientLink
+                href="/shipping"
+                data-testid="nav-shipping-link"
+              >
+                Shipping
+              </LocalizedClientLink>
+            </Button>
             {/* <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
                 href="/documents"
