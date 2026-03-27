@@ -73,7 +73,7 @@ const ShippingDashboard = ({ customerId }: ShippingDashboardProps) => {
             className="flex flex-col gap-y-8 w-full"
             data-testid="shipments-list"
           >
-            {shipments.map((shipment) => (
+            {shipments.map((shipment: any) => (
               <div
                 key={shipment._id}
                 className="bg-white flex flex-col border-b border-gray-200 pb-8"
