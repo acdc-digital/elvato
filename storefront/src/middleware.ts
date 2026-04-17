@@ -63,34 +63,37 @@ async function getRegionMap(cacheId: string) {
 }
 
 /**
- * Fetches regions from Medusa and sets the region cookie.
- * @param request
- * @param response
+ * Resolves the country code for a request.
+ *
+ * SEO note: GeoIP-based redirects make the destination of a bare URL
+ * (e.g. `/products/foo`) non-deterministic for Googlebot, which crawls
+ * from many regions. That caused "Page with redirect" failures and
+ * 5xx on country prefixes that lack pricing for a given product.
+ *
+ * Resolution order (deterministic):
+ *   1. URL already contains a valid country code → keep it.
+ *   2. Otherwise → DEFAULT_REGION.
+ *
+ * GeoIP is intentionally ignored. Real users still get correct
+ * currency/shipping after their first navigation because the country
+ * selector flow updates the region cookie and rewrites the URL.
  */
 async function getCountryCode(
   request: NextRequest,
   regionMap: Map<string, HttpTypes.StoreRegion | number>
 ) {
   try {
-    let countryCode
-
-    const vercelCountryCode = request.headers
-      .get("x-vercel-ip-country")
-      ?.toLowerCase()
-
     const urlCountryCode = request.nextUrl.pathname.split("/")[1]?.toLowerCase()
 
     if (urlCountryCode && regionMap.has(urlCountryCode)) {
-      countryCode = urlCountryCode
-    } else if (vercelCountryCode && regionMap.has(vercelCountryCode)) {
-      countryCode = vercelCountryCode
-    } else if (regionMap.has(DEFAULT_REGION)) {
-      countryCode = DEFAULT_REGION
-    } else if (regionMap.keys().next().value) {
-      countryCode = regionMap.keys().next().value
+      return urlCountryCode
     }
 
-    return countryCode
+    if (regionMap.has(DEFAULT_REGION)) {
+      return DEFAULT_REGION
+    }
+
+    return regionMap.keys().next().value
   } catch (error) {
     if (process.env.NODE_ENV === "development") {
       console.error(

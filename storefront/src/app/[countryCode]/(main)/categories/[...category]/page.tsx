@@ -2,9 +2,11 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { getCategoryByHandle } from "@lib/data/categories"
+import { listRegions } from "@lib/data/regions"
 import CategoryTemplate from "@modules/categories/templates"
 import { SortOptions } from "@modules/store/components/refinement-list"
 import { getBaseURL } from "@lib/util/env"
+import { buildAlternates } from "@lib/util/seo"
 
 export const revalidate = 300
 export const dynamicParams = true
@@ -33,14 +35,30 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       productCategory.description ??
       `Shop ${productCategory.name} lighting at Elvato.`
 
+    let countryCodes: string[] = []
+    try {
+      const regions = await listRegions()
+      countryCodes = regions
+        ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
+        .filter((c): c is string => Boolean(c)) ?? []
+    } catch {
+      // hreflang is best-effort; canonical alone is still emitted.
+    }
+
     return {
       title: productCategory.name,
       description,
-      alternates: {
-        canonical: `${getBaseURL()}/${params.countryCode}/categories/${params.category.join("/")}`,
-      },
+      alternates: buildAlternates(
+        `/categories/${params.category.join("/")}`,
+        countryCodes
+      ),
     }
   } catch (error) {
+    if ((error as Error)?.message?.includes("NEXT_NOT_FOUND")) throw error
+    console.error(
+      `[seo] category generateMetadata failed for ${params.category.join("/")}:`,
+      error
+    )
     notFound()
   }
 }
@@ -50,9 +68,16 @@ export default async function CategoryPage(props: Props) {
   const params = await props.params
   const { sortBy, page, limit } = searchParams
 
-  const productCategory = await getCategoryByHandle(params.category)
-
-  if (!productCategory) {
+  let productCategory
+  try {
+    productCategory = await getCategoryByHandle(params.category)
+    if (!productCategory) notFound()
+  } catch (e) {
+    if ((e as Error)?.message?.includes("NEXT_NOT_FOUND")) throw e
+    console.error(
+      `[category] render failed for ${params.category.join("/")}:`,
+      e
+    )
     notFound()
   }
 

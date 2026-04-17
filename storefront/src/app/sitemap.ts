@@ -4,23 +4,16 @@ import { listCollections } from "@lib/data/collections"
 import { listCategories } from "@lib/data/categories"
 import { listRegions } from "@lib/data/regions"
 import { getBaseURL } from "@lib/util/env"
+import { DEFAULT_SEO_COUNTRY } from "@lib/util/seo"
 
-export const dynamic = "force-dynamic"
+// ISR: rebuild the sitemap at most once per hour. Avoids re-fetching the
+// entire catalog on every Googlebot request (which previously caused
+// timeouts when Medusa was warming up). See .docs/SEO/05-indexing-recovery.md.
+export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getBaseURL()
-
-  let defaultCountry = "us"
-  try {
-    const regions = await listRegions()
-    const countryCodes =
-      regions
-        ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
-        .filter(Boolean) ?? []
-    defaultCountry = countryCodes[0] || "us"
-  } catch (e) {
-    console.error("Sitemap: failed to fetch regions", e)
-  }
+  const country = DEFAULT_SEO_COUNTRY
 
   // Static pages
   const staticPages = [
@@ -32,21 +25,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   const staticEntries: MetadataRoute.Sitemap = staticPages.map((path) => ({
-    url: `${baseUrl}/${defaultCountry}${path}`,
+    url: `${baseUrl}/${country}${path}`,
     lastModified: new Date(),
     changeFrequency: path === "" ? "daily" : "weekly",
     priority: path === "" ? 1 : 0.8,
   }))
 
-  // Product pages
+  // Per-section fetches isolated so one failure cannot blank the sitemap.
   let productEntries: MetadataRoute.Sitemap = []
   try {
     const { response } = await listProducts({
-      countryCode: defaultCountry,
+      countryCode: country,
       queryParams: { limit: 1000, fields: "handle,updated_at" },
     })
     productEntries = response.products.map((product) => ({
-      url: `${baseUrl}/${defaultCountry}/products/${product.handle}`,
+      url: `${baseUrl}/${country}/products/${product.handle}`,
       lastModified: product.updated_at ? new Date(product.updated_at) : new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
@@ -55,12 +48,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Sitemap: failed to fetch products", e)
   }
 
-  // Collection pages
   let collectionEntries: MetadataRoute.Sitemap = []
   try {
     const { collections } = await listCollections()
     collectionEntries = collections.map((collection) => ({
-      url: `${baseUrl}/${defaultCountry}/collections/${collection.handle}`,
+      url: `${baseUrl}/${country}/collections/${collection.handle}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
@@ -69,12 +61,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("Sitemap: failed to fetch collections", e)
   }
 
-  // Category pages
   let categoryEntries: MetadataRoute.Sitemap = []
   try {
     const categories = await listCategories()
     categoryEntries = (categories ?? []).map((category) => ({
-      url: `${baseUrl}/${defaultCountry}/categories/${category.handle}`,
+      url: `${baseUrl}/${country}/categories/${category.handle}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.6,

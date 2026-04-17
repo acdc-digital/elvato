@@ -7,6 +7,7 @@ import { StoreCollection, StoreRegion } from "@medusajs/types"
 import CollectionTemplate from "@modules/collections/templates"
 import { SortOptions } from "@modules/store/components/refinement-list"
 import { getBaseURL } from "@lib/util/env"
+import { buildAlternates } from "@lib/util/seo"
 
 type Props = {
   params: Promise<{ handle: string; countryCode: string }>
@@ -63,24 +64,39 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
-  const collection = await getCollectionByHandle(params.handle)
+  let collection: StoreCollection | undefined
+  let countryCodes: string[] = []
 
-  if (!collection) {
+  try {
+    collection = await getCollectionByHandle(params.handle)
+    if (!collection) notFound()
+
+    const regions = await listRegions()
+    countryCodes = regions
+      ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
+      .filter((c): c is string => Boolean(c)) ?? []
+  } catch (e) {
+    if ((e as Error)?.message?.includes("NEXT_NOT_FOUND")) throw e
+    console.error(
+      `[seo] collection generateMetadata failed for ${params.handle}:`,
+      e
+    )
     notFound()
   }
 
-  const description = `Shop the ${collection.title} collection at Elvato — contemporary lighting designs.`
+  const description = `Shop the ${collection!.title} collection at Elvato — contemporary lighting designs.`
 
   return {
-    title: collection.title,
+    title: collection!.title,
     description,
     openGraph: {
-      title: `${collection.title} | Elvato`,
+      title: `${collection!.title} | Elvato`,
       description,
     },
-    alternates: {
-      canonical: `${getBaseURL()}/${params.countryCode}/collections/${params.handle}`,
-    },
+    alternates: buildAlternates(
+      `/collections/${params.handle}`,
+      countryCodes
+    ),
   }
 }
 
