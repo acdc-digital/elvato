@@ -6,30 +6,7 @@ type ProductInfoProps = {
   product: HttpTypes.StoreProduct
 }
 
-// Trim long descriptions for the at-a-glance card.
-// Cuts at the nearest sentence end, falling back to a word boundary.
-const MAX_DESCRIPTION_CHARS = 220
-function shortenDescription(raw?: string | null): string | null {
-  if (!raw) return null
-  const text = raw.replace(/\s+/g, " ").trim()
-  if (text.length <= MAX_DESCRIPTION_CHARS) return text
-
-  const slice = text.slice(0, MAX_DESCRIPTION_CHARS)
-  const sentenceEnd = Math.max(
-    slice.lastIndexOf(". "),
-    slice.lastIndexOf("! "),
-    slice.lastIndexOf("? ")
-  )
-  if (sentenceEnd > MAX_DESCRIPTION_CHARS * 0.6) {
-    return slice.slice(0, sentenceEnd + 1)
-  }
-  const wordEnd = slice.lastIndexOf(" ")
-  return `${slice.slice(0, wordEnd > 0 ? wordEnd : MAX_DESCRIPTION_CHARS).trim()}…`
-}
-
 const ProductInfo = ({ product }: ProductInfoProps) => {
-  const shortDescription = shortenDescription(product.description)
-
   // Surface the variant axes (e.g. "Color", "Size") as headline highlights —
   // only options that actually offer a choice (>1 value) are included.
   const variantHighlights = (product.options ?? [])
@@ -117,13 +94,13 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           {product.title}
         </Heading>
 
-        {/* Shortened description */}
-        {shortDescription && (
+        {/* Description (full, no truncation — supports paragraph breaks) */}
+        {product.description && (
           <Text
-            className="text-sm leading-relaxed text-ui-fg-subtle"
+            className="text-sm leading-relaxed text-ui-fg-subtle whitespace-pre-line"
             data-testid="product-description"
           >
-            {shortDescription}
+            {product.description}
           </Text>
         )}
 
