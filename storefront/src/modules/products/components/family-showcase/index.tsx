@@ -1,7 +1,7 @@
-import { listProducts } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"
 import { getCdnThumbnail } from "@lib/data/convex-images"
 import { convertToLocale } from "@lib/util/money"
+import { pickFamilySibling } from "@lib/util/pick-family-sibling"
 import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
@@ -29,37 +29,14 @@ export default async function FamilyShowcase({
   const region = await getRegion(countryCode)
   if (!region) return null
 
-  const queryParams: HttpTypes.StoreProductListParams = {
-    region_id: region.id,
-    is_giftcard: false,
-    limit: 8,
-  }
-  if (product.collection_id) {
-    queryParams.collection_id = [product.collection_id]
-  } else if (product.type_id) {
-    queryParams.type_id = [product.type_id]
-  } else if (product.tags?.length) {
-    queryParams.tag_id = product.tags.map((t) => t.id).filter(Boolean) as string[]
-  }
+  const result = await pickFamilySibling({
+    product,
+    countryCode,
+    regionId: region.id,
+  })
+  if (!result) return null
 
-  let candidates: HttpTypes.StoreProduct[] = []
-  try {
-    const { response } = await listProducts({ countryCode, queryParams })
-    candidates = response.products.filter((p) => p.id !== product.id)
-  } catch {
-    return null
-  }
-
-  if (candidates.length === 0) return null
-
-  // Prefer a sibling that has been priced for the region.
-  const sibling =
-    candidates.find((p) =>
-      (p.variants ?? []).some(
-        (v) => (v as any).calculated_price?.calculated_amount != null
-      )
-    ) ?? candidates[0]
-
+  const { sibling } = result
   const pricedVariants = (sibling.variants ?? []).filter(
     (v: any) => v.calculated_price?.calculated_amount != null
   )

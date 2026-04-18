@@ -1,6 +1,7 @@
 import { listProducts } from "@lib/data/products"
 import { prefetchThumbnails } from "@lib/data/convex-images"
 import { getRegion } from "@lib/data/regions"
+import { pickFamilySibling } from "@lib/util/pick-family-sibling"
 import { HttpTypes } from "@medusajs/types"
 import Product from "../product-preview"
 
@@ -8,6 +9,8 @@ type RelatedProductsProps = {
   product: HttpTypes.StoreProduct
   countryCode: string
 }
+
+const MAX_RELATED = 8
 
 export default async function RelatedProducts({
   product,
@@ -19,29 +22,45 @@ export default async function RelatedProducts({
     return null
   }
 
-  // edit this function to define your related products logic
-  const queryParams: HttpTypes.StoreProductListParams = {}
-  if (region?.id) {
-    queryParams.region_id = region.id
+  // Build query with collection → type → tags fallback so we always
+  // have a meaningful pool, even for products without a collection.
+  const queryParams: HttpTypes.StoreProductListParams = {
+    region_id: region.id,
+    is_giftcard: false,
+    limit: 24,
   }
   if (product.collection_id) {
     queryParams.collection_id = [product.collection_id]
-  }
-  if (product.tags) {
+  } else if (product.type_id) {
+    queryParams.type_id = [product.type_id]
+  } else if (product.tags?.length) {
     queryParams.tag_id = product.tags
       .map((t) => t.id)
       .filter(Boolean) as string[]
   }
-  queryParams.is_giftcard = false
 
-  const products = await listProducts({
-    queryParams,
-    countryCode,
-  }).then(({ response }) => {
-    return response.products.filter(
-      (responseProduct) => responseProduct.id !== product.id
-    )
-  })
+  // Resolve the FamilyShowcase pick in parallel so we can exclude it
+  // from this grid and avoid duplicating the hero recommendation above.
+  const [listResult, family] = await Promise.all([
+    listProducts({ queryParams, countryCode }).catch(() => null),
+    pickFamilySibling({ product, countryCode, regionId: region.id }),
+  ])
+
+  if (!listResult) {
+    return null
+  }
+
+  const familySiblingId = family?.sibling.id ?? null
+
+  const products = listResult.response.products
+    .filter((p) => p.id !== product.id && p.id !== familySiblingId)
+    // Newest first
+    .sort((a, b) => {
+      const at = a.created_at ? new Date(a.created_at).getTime() : 0
+      const bt = b.created_at ? new Date(b.created_at).getTime() : 0
+      return bt - at
+    })
+    .slice(0, MAX_RELATED)
 
   if (!products.length) {
     return null
