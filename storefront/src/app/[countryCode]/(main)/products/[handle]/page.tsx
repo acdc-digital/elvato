@@ -157,7 +157,29 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
-  const images = pricedProduct!.images ?? []
+  // If the URL pins a specific variant, lift its variant-level image (if any)
+  // to the front of the gallery so the hero image matches the selection.
+  // Variant images are stored as metadata.image (string URL) by the CJ
+  // expansion script, since Medusa's variant.images relation is sparsely
+  // wired through the CDN pipeline today.
+  const baseImages = pricedProduct!.images ?? []
+  let images = baseImages
+  if (selectedVariantId) {
+    const selectedVariant = pricedProduct!.variants?.find(
+      (v) => v.id === selectedVariantId
+    )
+    const variantImageUrl =
+      (selectedVariant?.metadata as { image?: string } | null | undefined)
+        ?.image
+    if (variantImageUrl) {
+      const filtered = baseImages.filter((i) => i.url !== variantImageUrl)
+      images = [
+        { id: `variant-${selectedVariantId}`, url: variantImageUrl } as
+          HttpTypes.StoreProductImage,
+        ...filtered,
+      ]
+    }
+  }
 
   const productJsonLd = {
     "@context": "https://schema.org",

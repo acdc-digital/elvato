@@ -38,7 +38,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       >
         {/* Left: Image gallery */}
         <div className="w-full small:w-[48%] small:sticky small:top-32">
-          <ImageGallery images={images} />
+          <ImageGallery images={images} variants={product.variants} />
         </div>
 
         {/* Center: Product details */}
