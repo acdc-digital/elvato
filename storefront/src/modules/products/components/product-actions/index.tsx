@@ -160,7 +160,20 @@ export default function ProductActions({
       params.delete("v_id")
     }
 
-    router.replace(pathname + "?" + params.toString())
+    // Update the URL silently with history.replaceState so the App Router
+    // does NOT refetch server components (which previously caused the
+    // perceived "page reload" when changing options). The image gallery
+    // listens for the custom event below to swap images instantly.
+    if (typeof window !== "undefined") {
+      const qs = params.toString()
+      const newUrl = pathname + (qs ? `?${qs}` : "")
+      window.history.replaceState(null, "", newUrl)
+      window.dispatchEvent(
+        new CustomEvent("elvato:variant-change", {
+          detail: { variantId: value ?? null },
+        })
+      )
+    }
   }, [selectedVariant, isValidVariant])
 
   // check if the selected variant is in stock

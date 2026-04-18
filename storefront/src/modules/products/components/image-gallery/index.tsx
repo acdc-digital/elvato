@@ -14,58 +14,92 @@ type ImageGalleryProps = {
   images: HttpTypes.StoreProductImage[]
   /**
    * All product variants. When provided, the gallery will react to the
-   * `?v_id=` URL search param (set by ProductActions) and hoist the
-   * matching variant's `metadata.image` to the front client-side, so the
-   * hero image updates instantly when the user changes options — without
-   * waiting for a server re-render.
+   * `?v_id=` URL search param (set by ProductActions on first render) and
+   * to the `elvato:variant-change` custom event (dispatched on subsequent
+   * client-side option changes) — switching to the matching variant's
+   * `metadata.image` instantly without a server round-trip.
    */
   variants?: HttpTypes.StoreProductVariant[]
 }
 
 const ImageGallery = ({ images: initialImages, variants }: ImageGalleryProps) => {
+  // Seed from SSR-visible search params so hydration matches.
   const searchParams = useSearchParams()
-  const vId = searchParams.get("v_id")
+  const ssrVId = searchParams.get("v_id")
+  const [vId, setVId] = useState<string | null>(ssrVId)
 
-  // Re-derive the gallery whenever the selected variant changes. This runs
-  // on the client without any network round-trip; the server has already
-  // produced the correct `initialImages` for the URL's initial `v_id`, so
-  // the first client render matches SSR (no hydration mismatch).
-  const images = useMemo(() => {
-    if (!vId || !variants?.length) return initialImages
+  // Listen for client-side variant changes from ProductActions. We avoid
+  // router.replace() over there to skip the RSC refetch — instead the
+  // actions component dispatches this custom event after updating the URL
+  // via history.replaceState.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<{ variantId: string | null }>).detail
+      setVId(detail?.variantId ?? null)
+    }
+    window.addEventListener("elvato:variant-change", handler as EventListener)
+    return () =>
+      window.removeEventListener(
+        "elvato:variant-change",
+        handler as EventListener
+      )
+  }, [])
+
+  // Pick the gallery layout + which image to show. If the variant's image is
+  // already present in the initial gallery (the common case), we just point
+  // the selected index at it — no array mutation, no new <img src>, no
+  // network round-trip. Browsers reuse the cached thumbnail instantly.
+  const { displayImages, targetIndex } = useMemo(() => {
+    if (!vId || !variants?.length) {
+      return { displayImages: initialImages, targetIndex: 0 }
+    }
     const variant = variants.find((v) => v.id === vId)
     const variantImageUrl = (variant?.metadata as { image?: string } | null | undefined)?.image
-    if (!variantImageUrl) return initialImages
+    if (!variantImageUrl) return { displayImages: initialImages, targetIndex: 0 }
 
+    const existing = initialImages.findIndex((i) => i.url === variantImageUrl)
+    if (existing !== -1) {
+      // Reuse the existing thumbnail position — instant swap.
+      return { displayImages: initialImages, targetIndex: existing }
+    }
+
+    // Variant image isn't in the SSR gallery — prepend it as the new hero.
     const variantImageId = `variant-${vId}`
-    // Drop any prior variant-image marker AND any base image with the same
-    // URL, then prepend the variant image so it becomes the hero.
     const rest = initialImages.filter(
-      (i) => i.id !== variantImageId && i.url !== variantImageUrl && !String(i.id).startsWith("variant-")
+      (i) => i.id !== variantImageId && !String(i.id).startsWith("variant-")
     )
-    return [
-      { id: variantImageId, url: variantImageUrl } as HttpTypes.StoreProductImage,
-      ...rest,
-    ]
+    return {
+      displayImages: [
+        { id: variantImageId, url: variantImageUrl } as HttpTypes.StoreProductImage,
+        ...rest,
+      ],
+      targetIndex: 0,
+    }
   }, [vId, variants, initialImages])
 
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(targetIndex)
 
-  // Reset to first (hero / variant) image when the variant or image set changes.
+  // When the variant changes (and thus targetIndex), follow it.
   useEffect(() => {
-    setSelectedIndex(0)
-  }, [vId, images])
+    setSelectedIndex(targetIndex)
+  }, [targetIndex])
 
-  const selectedImage = images[selectedIndex]
+  const selectedImage = displayImages[selectedIndex] ?? displayImages[0]
 
   return (
     <div className="flex flex-col gap-y-3 w-full">
-      {/* Main expanded image — 1:1 keeps the hero compact and balanced */}
+      {/* Main expanded image — 1:1 keeps the hero compact and balanced.
+          The bg-ui-bg-subtle behind the image acts as a gentle skeleton
+          while a not-yet-cached variant image loads. */}
       <Container className="relative aspect-square w-full overflow-hidden bg-ui-bg-subtle rounded-lg">
         {selectedImage?.url && (
           <Image
+            // key forces a clean swap (and lets the bg show briefly if the
+            // image isn't cached yet)
+            key={selectedImage.url}
             src={selectedImage.url}
             priority
-            className="absolute inset-0 transition-opacity duration-200"
+            className="absolute inset-0 animate-enter"
             alt={`Product image ${selectedIndex + 1}`}
             fill
             sizes="(max-width: 576px) 100vw, (max-width: 992px) 40vw, 460px"
@@ -75,9 +109,9 @@ const ImageGallery = ({ images: initialImages, variants }: ImageGalleryProps) =>
       </Container>
 
       {/* Thumbnail row */}
-      {images.length > 1 && (
+      {displayImages.length > 1 && (
         <div className="flex gap-x-2 overflow-x-auto no-scrollbar pb-1">
-          {images.map((image, index) => (
+          {displayImages.map((image, index) => (
             <button
               key={image.id}
               onClick={() => setSelectedIndex(index)}
