@@ -6,7 +6,67 @@ type ProductInfoProps = {
   product: HttpTypes.StoreProduct
 }
 
+// Trim long descriptions for the at-a-glance card.
+// Cuts at the nearest sentence end, falling back to a word boundary.
+const MAX_DESCRIPTION_CHARS = 220
+function shortenDescription(raw?: string | null): string | null {
+  if (!raw) return null
+  const text = raw.replace(/\s+/g, " ").trim()
+  if (text.length <= MAX_DESCRIPTION_CHARS) return text
+
+  const slice = text.slice(0, MAX_DESCRIPTION_CHARS)
+  const sentenceEnd = Math.max(
+    slice.lastIndexOf(". "),
+    slice.lastIndexOf("! "),
+    slice.lastIndexOf("? ")
+  )
+  if (sentenceEnd > MAX_DESCRIPTION_CHARS * 0.6) {
+    return slice.slice(0, sentenceEnd + 1)
+  }
+  const wordEnd = slice.lastIndexOf(" ")
+  return `${slice.slice(0, wordEnd > 0 ? wordEnd : MAX_DESCRIPTION_CHARS).trim()}…`
+}
+
 const ProductInfo = ({ product }: ProductInfoProps) => {
+  const shortDescription = shortenDescription(product.description)
+
+  // Surface the variant axes (e.g. "Color", "Size") as headline highlights —
+  // only options that actually offer a choice (>1 value) are included.
+  const variantHighlights = (product.options ?? [])
+    .map((option) => {
+      const values = Array.from(
+        new Set(
+          (option.values ?? [])
+            .map((v) => v.value?.trim())
+            .filter((v): v is string => Boolean(v))
+        )
+      )
+      if (values.length < 2) return null
+      const preview = values.slice(0, 4).join(" · ")
+      const more = values.length > 4 ? ` +${values.length - 4} more` : ""
+      return {
+        label: `${values.length} ${option.title} options`,
+        detail: `${preview}${more}`,
+      }
+    })
+    .filter((h): h is { label: string; detail: string } => h !== null)
+
+  // Secondary feature bullets pulled from structured product fields.
+  const featureHighlights: { label: string; detail?: string }[] = []
+  featureHighlights.push({ label: "Free shipping", detail: "Worldwide" })
+  if (product.material) {
+    featureHighlights.push({ label: "Material", detail: product.material })
+  }
+  if (product.length && product.width && product.height) {
+    featureHighlights.push({
+      label: "Dimensions",
+      detail: `${product.length} × ${product.width} × ${product.height} mm`,
+    })
+  }
+  if (product.weight) {
+    featureHighlights.push({ label: "Weight", detail: `${product.weight} g` })
+  }
+
   const specs = [
     { label: "Material", value: product.material },
     { label: "Origin", value: product.origin_country },
@@ -57,13 +117,53 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           {product.title}
         </Heading>
 
-        {/* Description */}
-        <Text
-          className="text-sm leading-relaxed text-ui-fg-subtle whitespace-pre-line"
-          data-testid="product-description"
-        >
-          {product.description}
-        </Text>
+        {/* Shortened description */}
+        {shortDescription && (
+          <Text
+            className="text-sm leading-relaxed text-ui-fg-subtle"
+            data-testid="product-description"
+          >
+            {shortDescription}
+          </Text>
+        )}
+
+        {/* Highlights — variant choices first, then key features */}
+        {(variantHighlights.length > 0 || featureHighlights.length > 0) && (
+          <ul className="flex flex-col gap-y-2 pt-1">
+            {variantHighlights.map((h) => (
+              <li
+                key={`variant-${h.label}`}
+                className="flex items-start gap-x-2 text-sm text-ui-fg-base"
+              >
+                <span
+                  aria-hidden
+                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600"
+                />
+                <span>
+                  <span className="font-medium">{h.label}</span>
+                  <span className="text-ui-fg-subtle"> — {h.detail}</span>
+                </span>
+              </li>
+            ))}
+            {featureHighlights.map((h) => (
+              <li
+                key={`feature-${h.label}`}
+                className="flex items-start gap-x-2 text-sm text-ui-fg-base"
+              >
+                <span
+                  aria-hidden
+                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ui-fg-muted/50"
+                />
+                <span>
+                  <span className="font-medium">{h.label}</span>
+                  {h.detail && (
+                    <span className="text-ui-fg-subtle"> — {h.detail}</span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Product specs */}
         {specs.length > 0 && (
