@@ -64,11 +64,13 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
     }
   })()
 
+  // Note: Weight intentionally omitted — it's already covered by the
+  // comparison table's shared rows (and was the only field showing for
+  // most products, making the Specifications block look redundant).
   const specs = [
     { label: "Material", value: product.material },
     { label: "Origin", value: product.origin_country },
     { label: "Type", value: product.type?.value },
-    { label: "Weight", value: product.weight ? `${product.weight} g` : null },
     {
       label: "Dimensions",
       value:

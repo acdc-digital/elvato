@@ -9,6 +9,7 @@ import OptionSelect from "@modules/products/components/product-actions/option-se
 import { useParams, usePathname, useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import ProductPrice from "../product-price"
+import QuantitySelector from "../quantity-selector"
 import ShippingSelector from "../shipping-selector"
 import MobileActions from "./mobile-actions"
 import { useRouter } from "next/navigation"
@@ -39,6 +40,7 @@ export default function ProductActions({
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
   const [shippingSurcharge, setShippingSurcharge] = useState(0)
+  const [quantity, setQuantity] = useState(1)
   const countryCode = useParams().countryCode as string
 
   // If there is only 1 variant, preselect the options
@@ -212,7 +214,7 @@ export default function ProductActions({
 
     await addToCart({
       variantId: selectedVariant.id,
-      quantity: 1,
+      quantity,
       countryCode,
     })
 
@@ -250,7 +252,14 @@ export default function ProductActions({
           })()}
         </div>
 
-        <ProductPrice product={product} variant={selectedVariant} shippingSurcharge={shippingSurcharge} />
+        <div className="flex items-center justify-between gap-x-4">
+          <ProductPrice product={product} variant={selectedVariant} shippingSurcharge={shippingSurcharge} />
+          <QuantitySelector
+            value={quantity}
+            onChange={setQuantity}
+            disabled={!!disabled || isAdding}
+          />
+        </div>
 
         <Button
           onClick={handleAddToCart}
@@ -259,7 +268,8 @@ export default function ProductActions({
             !selectedVariant ||
             !!disabled ||
             isAdding ||
-            !isValidVariant
+            !isValidVariant ||
+            quantity < 1
           }
           variant="primary"
           className="w-full h-10"
@@ -270,6 +280,8 @@ export default function ProductActions({
             ? "Select options"
             : !inStock || !isValidVariant
             ? "Out of stock"
+            : quantity < 1
+            ? "Choose quantity"
             : "Add to cart"}
         </Button>
 
