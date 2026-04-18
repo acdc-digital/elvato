@@ -43,6 +43,12 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   if (product.weight) {
     featureHighlights.push({ label: "Weight", detail: `${product.weight} g` })
   }
+  // Optional package size — set via product.metadata.packageSize (string).
+  // e.g. "A: 590x240x180(mm); B: 390x240x180(mm)"
+  const packageSize = (product.metadata as { packageSize?: string } | null | undefined)?.packageSize
+  if (packageSize) {
+    featureHighlights.push({ label: "Package Size", detail: packageSize })
+  }
 
   // Optional side-by-side comparison table, sourced from product.metadata.
   // Schema:
