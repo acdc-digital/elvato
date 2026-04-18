@@ -1,0 +1,163 @@
+{
+  "timestamp": "2026-04-18T00:19:09.693Z",
+  "mode": "DRY-RUN",
+  "productId": "prod_01KJK5WG6WWRHXSQX9VF2M0KMD",
+  "cjProductSku": "CJJT1386169",
+  "markupRatio": 4.224175035868006,
+  "currentState": {
+    "options": [
+      {
+        "id": "opt_01KJK5WG6W3SETV8CMP3VMZJXG",
+        "title": "Default",
+        "values": [
+          {
+            "id": "optval_01KJK5WG6WWB46YKWG3DSTGQ4N",
+            "value": "Default",
+            "metadata": null,
+            "option_id": "opt_01KJK5WG6W3SETV8CMP3VMZJXG",
+            "created_at": "2026-02-28T22:28:40.797Z",
+            "updated_at": "2026-02-28T22:28:40.797Z",
+            "deleted_at": null
+          }
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "id": "variant_01KK4BZ9JG48EY2J921G90VEJY",
+        "sku": "CJJT1386169",
+        "title": "Default",
+        "prices": [
+          {
+            "id": "price_01KK7JZX8MWSYF4KCQTF36Y06K",
+            "amount": 11777,
+            "currency_code": "usd",
+            "min_quantity": null,
+            "max_quantity": null,
+            "variant_id": "variant_01KK4BZ9JG48EY2J921G90VEJY",
+            "created_at": "2026-03-08T20:42:32.717Z",
+            "updated_at": "2026-03-08T20:42:32.717Z",
+            "rules": {}
+          }
+        ],
+        "options": [
+          {
+            "id": "optval_01KJK5WG6WWB46YKWG3DSTGQ4N",
+            "value": "Default",
+            "metadata": null,
+            "option_id": "opt_01KJK5WG6W3SETV8CMP3VMZJXG",
+            "option": {
+              "id": "opt_01KJK5WG6W3SETV8CMP3VMZJXG",
+              "title": "Default",
+              "metadata": null,
+              "product_id": "prod_01KJK5WG6WWRHXSQX9VF2M0KMD",
+              "created_at": "2026-02-28T22:28:40.797Z",
+              "updated_at": "2026-02-28T22:28:40.797Z",
+              "deleted_at": null
+            },
+            "created_at": "2026-02-28T22:28:40.797Z",
+            "updated_at": "2026-02-28T22:28:40.797Z",
+            "deleted_at": null
+          }
+        ]
+      }
+    ]
+  },
+  "plan": {
+    "optionUpdates": [
+      {
+        "id": "opt_01KJK5WG6W3SETV8CMP3VMZJXG",
+        "title": "Size",
+        "values": [
+          "Large (590mm)",
+          "Small (390mm)"
+        ],
+        "_note": "Repurposing existing 'Default' option → 'Size'"
+      }
+    ],
+    "optionCreates": [
+      {
+        "title": "Light Color",
+        "values": [
+          "Warm White",
+          "3-Color"
+        ]
+      }
+    ],
+    "variantUpdates": [
+      {
+        "id": "variant_01KK4BZ9JG48EY2J921G90VEJY",
+        "sku": "CJJT138616901AZ",
+        "title": "Large (590mm) / Warm White",
+        "options": {
+          "Size": "Large (590mm)",
+          "Light Color": "Warm White"
+        },
+        "keepPriceCents": 11777,
+        "metadata": {
+          "image": "https://cf.cjdropshipping.com/91d49997-89bd-401b-a792-17c5ed54922b.jpg"
+        },
+        "_note": "Reuse existing 'Default' variant — no price change, just rename + set options + new SKU"
+      }
+    ],
+    "variantCreates": [
+      {
+        "sku": "CJJT138616902BY",
+        "title": "Large (590mm) / 3-Color",
+        "options": {
+          "Size": "Large (590mm)",
+          "Light Color": "3-Color"
+        },
+        "priceCents": 12364,
+        "cjCostUsd": 29.27,
+        "weightGrams": 2020,
+        "dimensionsMm": {
+          "length": 590,
+          "width": 240,
+          "height": 180
+        },
+        "metadata": {
+          "image": "https://cf.cjdropshipping.com/91d49997-89bd-401b-a792-17c5ed54922b.jpg"
+        }
+      },
+      {
+        "sku": "CJJT138616903CX",
+        "title": "Small (390mm) / Warm White",
+        "options": {
+          "Size": "Small (390mm)",
+          "Light Color": "Warm White"
+        },
+        "priceCents": 11777,
+        "cjCostUsd": 27.88,
+        "weightGrams": 2020,
+        "dimensionsMm": {
+          "length": 390,
+          "width": 240,
+          "height": 180
+        },
+        "metadata": {
+          "image": "https://cf.cjdropshipping.com/f138f3d3-bb30-4bcb-a59e-c60796f7977b.jpg"
+        }
+      },
+      {
+        "sku": "CJJT138616904DW",
+        "title": "Small (390mm) / 3-Color",
+        "options": {
+          "Size": "Small (390mm)",
+          "Light Color": "3-Color"
+        },
+        "priceCents": 12073,
+        "cjCostUsd": 28.58,
+        "weightGrams": 2020,
+        "dimensionsMm": {
+          "length": 390,
+          "width": 240,
+          "height": 180
+        },
+        "metadata": {
+          "image": "https://cf.cjdropshipping.com/f138f3d3-bb30-4bcb-a59e-c60796f7977b.jpg"
+        }
+      }
+    ]
+  }
+}

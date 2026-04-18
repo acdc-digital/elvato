@@ -7,4 +7,6 @@
 .env
 .env.local
 node_modules
+scripts/.cj-browser-profile/
+scripts/.cj-token-cache.json
 scripts/pricing/.cj-token-cache.json

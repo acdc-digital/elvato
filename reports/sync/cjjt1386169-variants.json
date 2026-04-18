@@ -1,0 +1,121 @@
+{
+  "reports": [
+    {
+      "medusaProductId": "prod_01KJK5WG6WWRHXSQX9VF2M0KMD",
+      "title": "Modern Gold Wall Sconce - Luxury Minimalist Design",
+      "cjSku": "CJJT1386169",
+      "cjProductId": "1473828238575931392",
+      "storefrontVariantCount": 1,
+      "cjVariantCount": 4,
+      "storefrontOptionNames": [
+        "Default"
+      ],
+      "storefrontPriceRange": {
+        "min": 11777,
+        "max": 11777,
+        "unique": [
+          11777
+        ]
+      },
+      "cjPriceRange": {
+        "min": 27.88,
+        "max": 29.27,
+        "unique": [
+          27.88,
+          28.58,
+          29.27
+        ]
+      },
+      "priceDiscrepancy": true,
+      "allSameStorefrontPrice": true,
+      "storefrontVariants": [
+        {
+          "id": "variant_01KK4BZ9JG48EY2J921G90VEJY",
+          "title": "Default",
+          "sku": "CJJT1386169",
+          "options": {
+            "Default": "Default"
+          },
+          "priceUsd": 11777,
+          "allPrices": [
+            {
+              "currency": "usd",
+              "amount": 11777
+            }
+          ]
+        }
+      ],
+      "cjVariants": [
+        {
+          "vid": "1473828238722732032",
+          "variantNameEn": "Modern Simple Golden Light Luxury Wall Lamp A Warm light",
+          "variantSku": "CJJT138616901AZ",
+          "variantSellPrice": 27.88,
+          "variantSugSellPrice": 27.88,
+          "variantStandard": "long=590,width=240,height=180",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/91d49997-89bd-401b-a792-17c5ed54922b.jpg",
+          "variantWeight": 2020,
+          "dimensions": {
+            "length": 590,
+            "width": 240,
+            "height": 180
+          }
+        },
+        {
+          "vid": "1473828238726926336",
+          "variantNameEn": "Modern Simple Golden Light Luxury Wall Lamp A Three color light",
+          "variantSku": "CJJT138616902BY",
+          "variantSellPrice": 29.27,
+          "variantSugSellPrice": 29.27,
+          "variantStandard": "long=590,width=240,height=180",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/91d49997-89bd-401b-a792-17c5ed54922b.jpg",
+          "variantWeight": 2020,
+          "dimensions": {
+            "length": 590,
+            "width": 240,
+            "height": 180
+          }
+        },
+        {
+          "vid": "1473828238731120640",
+          "variantNameEn": "Modern Simple Golden Light Luxury Wall Lamp B Warm light",
+          "variantSku": "CJJT138616903CX",
+          "variantSellPrice": 27.88,
+          "variantSugSellPrice": 27.88,
+          "variantStandard": "long=390,width=240,height=180",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/f138f3d3-bb30-4bcb-a59e-c60796f7977b.jpg",
+          "variantWeight": 2020,
+          "dimensions": {
+            "length": 390,
+            "width": 240,
+            "height": 180
+          }
+        },
+        {
+          "vid": "1473828238735314944",
+          "variantNameEn": "Modern Simple Golden Light Luxury Wall Lamp B three color light",
+          "variantSku": "CJJT138616904DW",
+          "variantSellPrice": 28.58,
+          "variantSugSellPrice": 28.58,
+          "variantStandard": "long=390,width=240,height=180",
+          "variantProperty": "[]",
+          "variantImage": "https://cf.cjdropshipping.com/f138f3d3-bb30-4bcb-a59e-c60796f7977b.jpg",
+          "variantWeight": 2020,
+          "dimensions": {
+            "length": 390,
+            "width": 240,
+            "height": 180
+          }
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "withDiscrepancy": 1,
+    "errors": 0
+  }
+}

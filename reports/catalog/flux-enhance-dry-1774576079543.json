@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-03-27T01:47:59.092Z",
+  "dryRun": true,
+  "model": "flux-2-pro-preview",
+  "outputSize": 1024,
+  "product": null,
+  "originalThumbnail": null,
+  "fluxTaskId": null,
+  "fluxCost": null,
+  "generatedImageUrl": null,
+  "newThumbnailPath": null,
+  "movedOldThumbnail": null,
+  "status": "error",
+  "error": "Medusa search failed: 502 {\"status\":\"error\",\"code\":502,\"message\":\"Application failed to respond\",\"request_id\":\"8nR5JyTTTniUPhi8ezItjw\"}"
+}

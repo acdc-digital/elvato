@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-03-27T01:48:46.669Z",
+  "dryRun": true,
+  "model": "flux-2-pro-preview",
+  "outputSize": 1024,
+  "product": null,
+  "originalThumbnail": null,
+  "fluxTaskId": null,
+  "fluxCost": null,
+  "generatedImageUrl": null,
+  "newThumbnailPath": null,
+  "movedOldThumbnail": null,
+  "status": "error",
+  "error": "fetch failed"
+}

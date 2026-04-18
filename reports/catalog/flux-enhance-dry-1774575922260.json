@@ -1,0 +1,20 @@
+{
+  "startedAt": "2026-03-27T01:45:10.017Z",
+  "dryRun": true,
+  "model": "flux-2-pro-preview",
+  "outputSize": 1024,
+  "product": {
+    "id": "prod_01KF76EZEH0DBE6M3R0GE6S5D4",
+    "title": "Modern Corridor Ceiling Light for Hallways & Balconies",
+    "handle": "modern-corridor-ceiling-light-for-hallways-balconies"
+  },
+  "originalThumbnail": "https://superb-dotterel-37.convex.site/fs/blobs/db0bbe11-e0ff-476d-92cc-b82fa070545e?path=%2Fproducts%2Fmodern-corridor-ceiling-light-for-hallways-balconies%2Fthumbnail.jpg",
+  "fluxTaskId": "2403a8e2-e60e-42e2-928c-432ace49555b",
+  "fluxCost": 4.5,
+  "generatedImageUrl": "https://bfldeliveryscus.blob.core.windows.net/results/2026/03/27/aa3bb91a161f42de9cfc62694792ca67_sample.png?se=2026-03-27T01%3A55%3A20Z&sp=r&sv=2024-11-04&sr=b&rsct=image/png&sig=F/u4VrEXwsXZYkKwMljpU2%2BbtIihwhvCAQmPY/aoR8A%3D",
+  "newThumbnailPath": null,
+  "movedOldThumbnail": null,
+  "status": "dry-run-complete",
+  "error": null,
+  "completedAt": "2026-03-27T01:45:22.260Z"
+}

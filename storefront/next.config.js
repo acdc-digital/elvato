@@ -28,6 +28,22 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
+    // Custom loader routes Bunny CDN images through Bunny Optimizer
+    // (width/quality query params) and passes other hosts through unchanged.
+    // This avoids Vercel "image optimization transformation" charges, since
+    // Bunny is already our image pipeline.
+    loader: "custom",
+    loaderFile: "./src/lib/util/image-loader.ts",
+    // NOTE: `remotePatterns` below is retained as a safety net only.
+    // With `loader: "custom"`, Next.js no longer uses its built-in
+    // optimizer (`/_next/image`), so this allowlist is effectively unused
+    // at runtime today. We keep it so that if the custom loader is ever
+    // disabled or removed, image requests don't immediately break.
+    // WARNING: this is NOT the source of truth for allowed image hosts in
+    // the current architecture — the custom loader in
+    // `src/lib/util/image-loader.ts` is. Update that file when adding new
+    // image hosts; only mirror them here if you also expect to fall back
+    // to the Next.js built-in optimizer.
     remotePatterns: [
       {
         protocol: "http",

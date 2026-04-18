@@ -47,8 +47,8 @@
     "chat-editing-text-model:**/*.markdown": "default",
     "chat-editing-text-model:**/*.mdx": "default",
     "chat-editing-text-model:**/*.mdc": "default",
-    "/Users/matthewsimon/Projects/elvato/admin/src/api/admin/meilisearch/health/route.ts": "default",
-    "admin/src/api/admin/meilisearch/health/route.ts": "default",
-    "**/admin/src/api/admin/meilisearch/health/route.ts": "default"
+    "/Users/matthewsimon/Projects/elvato/scripts/debug/_tmp_probe_comment_flow.mjs": "default",
+    "scripts/debug/_tmp_probe_comment_flow.mjs": "default",
+    "**/scripts/debug/_tmp_probe_comment_flow.mjs": "default"
   },
 }

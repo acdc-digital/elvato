@@ -1,0 +1,20 @@
+{
+  "startedAt": "2026-03-27T01:37:36.209Z",
+  "dryRun": true,
+  "model": "flux-2-pro-preview",
+  "outputSize": 1024,
+  "product": {
+    "id": "prod_01KF76E3MJJG3Q90SQXTSNE7K9",
+    "title": "Modern LED Balcony Ceiling Chandelier",
+    "handle": "modern-led-balcony-ceiling-chandelier"
+  },
+  "originalThumbnail": "https://superb-dotterel-37.convex.site/fs/blobs/9b24044d-f4ee-4eb0-b68b-56575e1f47db?path=%2Fproducts%2Fmodern-led-balcony-ceiling-chandelier%2Fthumbnail.jpg",
+  "fluxTaskId": "4990cef7-bce7-4eb5-a744-9a6c0cf3d725",
+  "fluxCost": 4.5,
+  "generatedImageUrl": "https://bfldeliveryprodeu4.blob.core.windows.net/results/2026/03/27/c7fe572064de4fabb0e2a2234e8318ab_sample.png?se=2026-03-27T01%3A47%3A48Z&sp=r&sv=2024-11-04&sr=b&rsct=image/png&sig=a7syk0lBa3Po5iveiHrkTtBrmmagvpp2AXX%2BDKO%2BXHo%3D",
+  "newThumbnailPath": null,
+  "movedOldThumbnail": null,
+  "status": "dry-run-complete",
+  "error": null,
+  "completedAt": "2026-03-27T01:37:50.635Z"
+}
