@@ -75,13 +75,14 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       </div>
 
       {/*
-        Split row: customer reviews (2/3) + family showcase (1/3).
-        Stacks vertically on mobile, splits at the `small` breakpoint.
+        Three-column row: customer reviews (left), family showcase (middle),
+        and a reserved slot on the right for future content. Stacks
+        vertically on mobile, splits into 3 equal columns at `small`.
       */}
       <div
         className="content-container my-16 small:my-24 grid grid-cols-1 small:grid-cols-3 gap-y-12 small:gap-x-12 medium:gap-x-16 items-start"
       >
-        <div className="small:col-span-2">
+        <div className="small:col-span-1">
           <CustomerReviews />
         </div>
         <div className="small:col-span-1">
@@ -97,6 +98,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
             <FamilyShowcase product={product} countryCode={countryCode} />
           </Suspense>
         </div>
+        {/* Reserved right column — placeholder for future content (e.g.
+            Q&A, shipping calculator, brand story). Intentionally empty. */}
+        <div className="hidden small:block small:col-span-1" aria-hidden />
       </div>
 
       {/* Related products grid — broader discovery surface */}
