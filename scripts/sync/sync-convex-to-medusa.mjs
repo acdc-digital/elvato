@@ -13,6 +13,7 @@
  *   --batch-size N       Products per batch (default: 10)
  *   --dry-run            Validate transforms without pushing to Medusa
  *   --offset N           Skip first N ready products (default: 0)
+ *   --external-id ID     Sync only the product with this externalId (skips bulkMarkReadyToSync)
  *   --out FILE           Write results to JSON file
  *   --convex-url URL     Override CONVEX_URL env var
  *   --medusa-url URL     Override MEDUSA_BACKEND_URL env var
@@ -63,6 +64,7 @@ function parseArgs(argv) {
     out: null,
     convexUrl: null,
     medusaUrl: null,
+    externalId: null,
   };
 
   for (let i = 2; i < argv.length; i++) {
@@ -99,6 +101,12 @@ function parseArgs(argv) {
     if (arg === "--medusa-url") {
       args.medusaUrl = argv[++i];
       if (!args.medusaUrl) throw new Error("--medusa-url requires a URL");
+      continue;
+    }
+
+    if (arg === "--external-id") {
+      args.externalId = argv[++i];
+      if (!args.externalId) throw new Error("--external-id requires a value");
       continue;
     }
 
@@ -511,22 +519,34 @@ async function runSync(args) {
   console.log(`   ✓ ${medusaCategories.length} categories loaded (${categoryMaps.byName.size} name mappings)\n`);
 
   // --- 3. Ensure products are marked ready to sync ---
-  console.log("🔄 Marking pending products as ready to sync...");
-  const markResult = await convex.mutation(api.medusa.staging.bulkMarkReadyToSync, {
-    limit: args.batchSize + args.offset + 50, // Mark enough for this batch + buffer
-  });
-  console.log(`   ✓ Marked ${markResult.marked} new products ready (${markResult.total} total pending)\n`);
+  if (args.externalId) {
+    console.log(`🔎 Targeted mode: syncing only externalId=${args.externalId} (skipping bulkMarkReadyToSync)\n`);
+  } else {
+    console.log("🔄 Marking pending products as ready to sync...");
+    const markResult = await convex.mutation(api.medusa.staging.bulkMarkReadyToSync, {
+      limit: args.batchSize + args.offset + 50, // Mark enough for this batch + buffer
+    });
+    console.log(`   ✓ Marked ${markResult.marked} new products ready (${markResult.total} total pending)\n`);
+  }
 
   // --- 4. Fetch products ready to sync ---
-  const fetchLimit = args.batchSize + args.offset;
+  const fetchLimit = args.externalId
+    ? 500 // load enough to filter
+    : args.batchSize + args.offset;
   console.log(`📦 Fetching up to ${fetchLimit} ready products from Convex...`);
   const allReady = await convex.query(api.medusa.staging.getProductsReadyToSync, {
     limit: fetchLimit,
   });
-  
-  // Apply offset
-  const products = allReady.slice(args.offset, args.offset + args.batchSize);
-  console.log(`   ✓ ${allReady.length} total ready, processing ${products.length} (offset ${args.offset})\n`);
+
+  // Apply external-id filter or offset/batch slicing
+  let products;
+  if (args.externalId) {
+    products = allReady.filter((p) => p.externalId === args.externalId);
+    console.log(`   ✓ ${allReady.length} total ready, ${products.length} match externalId=${args.externalId}\n`);
+  } else {
+    products = allReady.slice(args.offset, args.offset + args.batchSize);
+    console.log(`   ✓ ${allReady.length} total ready, processing ${products.length} (offset ${args.offset})\n`);
+  }
 
   if (products.length === 0) {
     console.log("ℹ️  No products to sync. Done.");
