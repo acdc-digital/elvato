@@ -6,6 +6,7 @@ import ProductOnboardingCta from "@modules/products/components/product-onboardin
 import RelatedProducts from "@modules/products/components/related-products"
 import CustomerReviews from "@modules/products/components/customer-reviews"
 import FamilyShowcase from "@modules/products/components/family-showcase"
+import CategoryBadges from "@modules/products/components/category-badges"
 import ProductInfo from "@modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 import { notFound } from "next/navigation"
@@ -45,6 +46,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         <div className="w-full small:w-[38%] small:sticky small:top-32">
           <div className="mx-auto w-full max-w-[460px]">
             <ImageGallery images={images} variants={product.variants ?? undefined} />
+            <CategoryBadges />
           </div>
         </div>
 
