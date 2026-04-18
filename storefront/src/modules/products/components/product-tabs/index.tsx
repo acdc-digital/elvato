@@ -85,10 +85,10 @@ const ShippingInfoTab = () => {
         <div className="flex items-start gap-x-2">
           <FastDelivery />
           <div>
-            <span className="font-semibold">Fast delivery</span>
+            <span className="font-semibold">Free worldwide shipping</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
+              Standard delivery arrives in 10-21 business days. Expedited
+              shipping options are available at checkout.
             </p>
           </div>
         </div>
