@@ -44,6 +44,26 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
     featureHighlights.push({ label: "Weight", detail: `${product.weight} g` })
   }
 
+  // Optional side-by-side comparison table, sourced from product.metadata.
+  // Schema:
+  // metadata.comparisonTable = {
+  //   headers: string[]                              // column headers (e.g. ["Option A","Option B"])
+  //   rows:    { label: string; values: string[] }[] // per-option differences
+  //   shared?: { label: string; value: string }[]    // rows that span all columns
+  // }
+  const comparisonTable = (() => {
+    const ct = (product.metadata as any)?.comparisonTable
+    if (!ct || !Array.isArray(ct.headers) || !Array.isArray(ct.rows)) return null
+    if (ct.headers.length === 0 || ct.rows.length === 0) return null
+    return {
+      headers: ct.headers as string[],
+      rows: ct.rows as { label: string; values: string[] }[],
+      shared: Array.isArray(ct.shared)
+        ? (ct.shared as { label: string; value: string }[])
+        : [],
+    }
+  })()
+
   const specs = [
     { label: "Material", value: product.material },
     { label: "Origin", value: product.origin_country },
@@ -102,6 +122,72 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
           >
             {product.description}
           </Text>
+        )}
+
+        {/* Side-by-side comparison table (driven by metadata.comparisonTable) */}
+        {comparisonTable && (
+          <div
+            className="overflow-hidden rounded-lg border border-ui-border-base"
+            data-testid="product-comparison-table"
+          >
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-ui-bg-subtle">
+                  <th className="w-32 px-4 py-2.5 text-left text-xs font-medium uppercase tracking-wider text-ui-fg-muted">
+                    {/* spacer */}
+                  </th>
+                  {comparisonTable.headers.map((h) => (
+                    <th
+                      key={h}
+                      className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-ui-fg-base"
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonTable.rows.map((row, i) => (
+                  <tr
+                    key={`row-${row.label}`}
+                    className={
+                      i % 2 === 1
+                        ? "bg-ui-bg-subtle/40 border-t border-ui-border-base"
+                        : "border-t border-ui-border-base"
+                    }
+                  >
+                    <td className="px-4 py-2.5 text-xs font-medium uppercase tracking-wider text-ui-fg-muted align-top">
+                      {row.label}
+                    </td>
+                    {comparisonTable.headers.map((_, ci) => (
+                      <td
+                        key={ci}
+                        className="px-4 py-2.5 text-ui-fg-base align-top"
+                      >
+                        {row.values[ci] ?? "—"}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+                {comparisonTable.shared.map((row) => (
+                  <tr
+                    key={`shared-${row.label}`}
+                    className="border-t border-ui-border-base bg-ui-bg-base"
+                  >
+                    <td className="px-4 py-2.5 text-xs font-medium uppercase tracking-wider text-ui-fg-muted align-top">
+                      {row.label}
+                    </td>
+                    <td
+                      colSpan={comparisonTable.headers.length}
+                      className="px-4 py-2.5 text-ui-fg-base align-top"
+                    >
+                      {row.value}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
 
         {/* Highlights — variant choices first, then key features */}
