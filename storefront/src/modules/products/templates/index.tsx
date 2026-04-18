@@ -5,6 +5,7 @@ import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
 import RelatedProducts from "@modules/products/components/related-products"
 import CustomerReviews from "@modules/products/components/customer-reviews"
+import FamilyShowcase from "@modules/products/components/family-showcase"
 import ProductInfo from "@modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 import { notFound } from "next/navigation"
@@ -31,23 +32,29 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
   return (
     <>
-      {/* Main product section – 3 column layout */}
+      {/*
+        Main product section — 3 column layout.
+        Gallery is intentionally narrower (38%) so it doesn't overwhelm
+        the page; the info + actions columns get more breathing room.
+      */}
       <div
-        className="content-container flex flex-col small:flex-row small:items-start py-6 small:py-12 relative gap-y-8 small:gap-x-8 medium:gap-x-12"
+        className="content-container flex flex-col small:flex-row small:items-start py-6 small:py-12 relative gap-y-8 small:gap-x-10 medium:gap-x-14"
         data-testid="product-container"
       >
-        {/* Left: Image gallery */}
-        <div className="w-full small:w-[48%] small:sticky small:top-32">
-          <ImageGallery images={images} variants={product.variants ?? undefined} />
+        {/* Left: Image gallery — capped width keeps the hero tasteful */}
+        <div className="w-full small:w-[38%] small:sticky small:top-32">
+          <div className="mx-auto w-full max-w-[460px]">
+            <ImageGallery images={images} variants={product.variants ?? undefined} />
+          </div>
         </div>
 
         {/* Center: Product details */}
-        <div className="w-full small:w-[28%] py-2 small:py-0">
+        <div className="w-full small:w-[34%] py-2 small:py-0">
           <ProductInfo product={product} />
         </div>
 
         {/* Right: Purchase actions */}
-        <div className="w-full small:w-[24%] small:sticky small:top-32">
+        <div className="w-full small:w-[28%] small:sticky small:top-32">
           <div className="flex flex-col gap-y-6">
             <ProductOnboardingCta />
             <Suspense
@@ -65,12 +72,32 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         </div>
       </div>
 
-      {/* Customer reviews */}
-      <div className="content-container my-16 small:my-24">
-        <CustomerReviews />
+      {/*
+        Split row: customer reviews (2/3) + family showcase (1/3).
+        Stacks vertically on mobile, splits at the `small` breakpoint.
+      */}
+      <div
+        className="content-container my-16 small:my-24 grid grid-cols-1 small:grid-cols-3 gap-y-12 small:gap-x-12 medium:gap-x-16 items-start"
+      >
+        <div className="small:col-span-2">
+          <CustomerReviews />
+        </div>
+        <div className="small:col-span-1">
+          <Suspense
+            fallback={
+              <div className="border-t border-ui-border-base pt-12">
+                <div className="h-4 w-24 bg-ui-bg-subtle rounded mb-3 animate-pulse" />
+                <div className="h-6 w-40 bg-ui-bg-subtle rounded mb-6 animate-pulse" />
+                <div className="aspect-square w-full bg-ui-bg-subtle rounded-2xl animate-pulse" />
+              </div>
+            }
+          >
+            <FamilyShowcase product={product} countryCode={countryCode} />
+          </Suspense>
+        </div>
       </div>
 
-      {/* Related products */}
+      {/* Related products grid — broader discovery surface */}
       <div
         className="content-container my-16 small:my-24"
         data-testid="related-products-container"

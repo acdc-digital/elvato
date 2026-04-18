@@ -1,18 +1,21 @@
 const CustomerReviews = () => {
   return (
     <div className="border-t border-ui-border-base pt-12">
-      <div className="flex flex-col items-center text-center">
-        <h2 className="text-2xl font-semibold text-ui-fg-base mb-2">
+      <div className="flex flex-col">
+        <p className="text-xs font-medium uppercase tracking-wider text-ui-fg-muted mb-1">
+          Feedback
+        </p>
+        <h2 className="text-xl font-semibold text-ui-fg-base mb-2">
           Customer Reviews
         </h2>
-        <p className="text-sm text-ui-fg-muted max-w-md">
+        <p className="text-sm text-ui-fg-subtle max-w-md">
           No reviews yet. Be the first to share your experience with this
           product.
         </p>
 
         {/* Placeholder for future review cards and star ratings */}
-        <div className="mt-8 w-full max-w-2xl">
-          <div className="flex items-center justify-center gap-x-1 mb-6">
+        <div className="mt-8 w-full">
+          <div className="flex items-center gap-x-1 mb-6">
             {[...Array(5)].map((_, i) => (
               <svg
                 key={i}

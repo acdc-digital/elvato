@@ -58,17 +58,17 @@ const ImageGallery = ({ images: initialImages, variants }: ImageGalleryProps) =>
   const selectedImage = images[selectedIndex]
 
   return (
-    <div className="flex flex-col gap-y-4 w-full">
-      {/* Main expanded image */}
-      <Container className="relative aspect-[29/25] w-full overflow-hidden bg-ui-bg-subtle">
+    <div className="flex flex-col gap-y-3 w-full">
+      {/* Main expanded image — 1:1 keeps the hero compact and balanced */}
+      <Container className="relative aspect-square w-full overflow-hidden bg-ui-bg-subtle rounded-lg">
         {selectedImage?.url && (
           <Image
             src={selectedImage.url}
             priority
-            className="absolute inset-0 rounded-rounded transition-opacity duration-200"
+            className="absolute inset-0 transition-opacity duration-200"
             alt={`Product image ${selectedIndex + 1}`}
             fill
-            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 600px"
+            sizes="(max-width: 576px) 100vw, (max-width: 992px) 40vw, 460px"
             style={{ objectFit: "cover" }}
           />
         )}
@@ -76,12 +76,12 @@ const ImageGallery = ({ images: initialImages, variants }: ImageGalleryProps) =>
 
       {/* Thumbnail row */}
       {images.length > 1 && (
-        <div className="flex gap-x-3 overflow-x-auto no-scrollbar pb-1">
+        <div className="flex gap-x-2 overflow-x-auto no-scrollbar pb-1">
           {images.map((image, index) => (
             <button
               key={image.id}
               onClick={() => setSelectedIndex(index)}
-              className={`relative flex-shrink-0 w-[72px] h-[72px] small:w-[80px] small:h-[80px] rounded-md overflow-hidden bg-ui-bg-subtle transition-all duration-150 ${
+              className={`relative flex-shrink-0 w-[60px] h-[60px] small:w-[68px] small:h-[68px] rounded-md overflow-hidden bg-ui-bg-subtle transition-all duration-150 ${
                 index === selectedIndex
                   ? "ring-2 ring-ui-fg-base ring-offset-2"
                   : "ring-1 ring-ui-border-base hover:ring-ui-fg-muted"
@@ -92,7 +92,7 @@ const ImageGallery = ({ images: initialImages, variants }: ImageGalleryProps) =>
                   src={image.url}
                   alt={`Thumbnail ${index + 1}`}
                   fill
-                  sizes="80px"
+                  sizes="68px"
                   className="rounded-md"
                   style={{ objectFit: "cover" }}
                 />
