@@ -65,18 +65,15 @@ async function getRegionMap(cacheId: string) {
 /**
  * Resolves the country code for a request.
  *
- * SEO note: GeoIP-based redirects make the destination of a bare URL
- * (e.g. `/products/foo`) non-deterministic for Googlebot, which crawls
- * from many regions. That caused "Page with redirect" failures and
- * 5xx on country prefixes that lack pricing for a given product.
+ * Resolution order:
+ *   1. URL already contains a valid country code → keep it (deterministic for SEO).
+ *   2. Persisted user choice cookie (`_user_region`) → use it.
+ *   3. GeoIP header (Vercel's `x-vercel-ip-country`) → use it if it matches a region.
+ *   4. DEFAULT_REGION fallback.
  *
- * Resolution order (deterministic):
- *   1. URL already contains a valid country code → keep it.
- *   2. Otherwise → DEFAULT_REGION.
- *
- * GeoIP is intentionally ignored. Real users still get correct
- * currency/shipping after their first navigation because the country
- * selector flow updates the region cookie and rewrites the URL.
+ * Steps 2 + 3 only fire when the URL has no country prefix, so Googlebot
+ * (which has no cookie and arrives at bare URLs) still gets a deterministic
+ * destination — DEFAULT_REGION — preserving SEO.
  */
 async function getCountryCode(
   request: NextRequest,
@@ -89,6 +86,26 @@ async function getCountryCode(
       return urlCountryCode
     }
 
+    // 2. Returning visitor — honour their last chosen region.
+    const cookieCountry = request.cookies
+      .get("_user_region")
+      ?.value?.toLowerCase()
+    if (cookieCountry && regionMap.has(cookieCountry)) {
+      return cookieCountry
+    }
+
+    // 3. First-time visitor — try GeoIP from Vercel/CDN header.
+    //    `x-vercel-ip-country` is set by Vercel; `cf-ipcountry` by Cloudflare.
+    const geoCountry = (
+      request.headers.get("x-vercel-ip-country") ||
+      request.headers.get("cf-ipcountry") ||
+      ""
+    ).toLowerCase()
+    if (geoCountry && regionMap.has(geoCountry)) {
+      return geoCountry
+    }
+
+    // 4. Deterministic fallback.
     if (regionMap.has(DEFAULT_REGION)) {
       return DEFAULT_REGION
     }
@@ -102,6 +119,8 @@ async function getCountryCode(
     }
   }
 }
+
+const USER_REGION_COOKIE_MAX_AGE = 60 * 60 * 24 * 365 // 1 year
 
 /**
  * Middleware to handle region selection and onboarding status.
@@ -138,6 +157,19 @@ export async function middleware(request: NextRequest) {
         maxAge: 60 * 60 * 24,
       })
     }
+    // Persist the visitor's region preference so bare-URL visits
+    // (e.g. someone navigating to "/products/foo" later) come back to
+    // the same country instead of falling through to DEFAULT_REGION.
+    if (
+      countryCode &&
+      request.cookies.get("_user_region")?.value?.toLowerCase() !== countryCode
+    ) {
+      response.cookies.set("_user_region", countryCode, {
+        maxAge: USER_REGION_COOKIE_MAX_AGE,
+        sameSite: "lax",
+        path: "/",
+      })
+    }
     return response
   }
 
@@ -156,7 +188,17 @@ export async function middleware(request: NextRequest) {
   // the canonical /{countryCode}/… URL directly.
   if (countryCode) {
     const redirectUrl = `${request.nextUrl.origin}/${countryCode}${redirectPath}${queryString}`
-    return NextResponse.redirect(redirectUrl, 301)
+    const response = NextResponse.redirect(redirectUrl, 301)
+    if (
+      request.cookies.get("_user_region")?.value?.toLowerCase() !== countryCode
+    ) {
+      response.cookies.set("_user_region", countryCode, {
+        maxAge: USER_REGION_COOKIE_MAX_AGE,
+        sameSite: "lax",
+        path: "/",
+      })
+    }
+    return response
   }
 
   // Fallback: no valid country code could be resolved (empty regions).
