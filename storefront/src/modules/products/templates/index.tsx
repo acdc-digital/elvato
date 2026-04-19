@@ -87,7 +87,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           <CustomerReviews />
         </div>
         <div className="small:col-span-1">
-          <CustomerQuestions />
+          <CustomerQuestions
+            productId={product.id}
+            productHandle={product.handle ?? ""}
+          />
         </div>
         <div className="small:col-span-1">
           <Suspense

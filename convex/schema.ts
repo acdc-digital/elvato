@@ -641,4 +641,42 @@ export default defineSchema({
     .index("by_medusaOrderId", ["medusaOrderId"])
     .index("by_trackingNumber", ["trackingNumber"])
     .index("by_currentStatus", ["currentStatus"]),
+
+  // ===========================================================================
+  // TABLE: customerComments (Per-product Q&A / Comments)
+  // Public comment threads scoped to a Medusa product. Customers post a
+  // question; site staff (or future authenticated users) can reply via
+  // parentId threading. Records the Medusa product handle for fast lookup
+  // by the storefront and the productId for reliable joins.
+  // ===========================================================================
+  customerComments: defineTable({
+    // --- Product references ---
+    medusaProductId: v.string(),         // prod_xxx — stable id
+    medusaProductHandle: v.string(),     // url-safe handle for storefront query
+
+    // --- Author ---
+    authorName: v.string(),              // display name (free-text on submit)
+    authorEmail: v.optional(v.string()), // optional contact, never displayed
+    customerId: v.optional(v.string()),  // Medusa customer id if logged in
+
+    // --- Content ---
+    body: v.string(),                    // plain-text comment body
+    parentId: v.optional(v.id("customerComments")), // reply-to (threading)
+
+    // --- Moderation ---
+    status: v.union(
+      v.literal("published"),            // visible on the storefront
+      v.literal("pending"),               // awaiting moderation
+      v.literal("hidden")                 // soft-removed
+    ),
+    isStaff: v.boolean(),                // true => rendered as official reply
+
+    // --- Timestamps ---
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_product",        ["medusaProductId"])
+    .index("by_handle",         ["medusaProductHandle"])
+    .index("by_product_status", ["medusaProductId", "status"])
+    .index("by_parent",         ["parentId"]),
 });
