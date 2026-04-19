@@ -235,6 +235,27 @@ async function fetchCjProductBySku(productSku) {
   );
 }
 
+/**
+ * CJ's /product/query returns `productImage` as a JSON-stringified array of
+ * URLs (e.g. `'["https://.../a.jpg","https://.../b.jpg"]'`). Older / sibling
+ * endpoints sometimes return a plain string URL or a real array. Normalize
+ * to the first usable URL, or "" if none.
+ */
+function pickFirstImage(value) {
+  if (!value) return "";
+  if (Array.isArray(value)) return value[0] ?? "";
+  const s = String(value).trim();
+  if (s.startsWith("[")) {
+    try {
+      const arr = JSON.parse(s);
+      if (Array.isArray(arr) && arr.length) return String(arr[0]);
+    } catch {
+      /* fall through */
+    }
+  }
+  return s;
+}
+
 // =============================================================================
 // CJ PAYLOAD → CONVEX MUTATION ARGS
 // =============================================================================
@@ -258,8 +279,8 @@ function buildCjUpsertArgs(cj) {
     : [nameEn];
 
   const bigImage =
-    cj.productImage ||
-    cj.bigImage ||
+    pickFirstImage(cj.productImage) ||
+    pickFirstImage(cj.bigImage) ||
     (Array.isArray(cj.productImageSet) ? cj.productImageSet[0] : "") ||
     "";
 
