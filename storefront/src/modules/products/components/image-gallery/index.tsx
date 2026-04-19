@@ -54,7 +54,11 @@ const ImageGallery = ({ images: initialImages, variants }: ImageGalleryProps) =>
       return { displayImages: initialImages, targetIndex: 0 }
     }
     const variant = variants.find((v) => v.id === vId)
-    const variantImageUrl = (variant?.metadata as { image?: string } | null | undefined)?.image
+    const meta = variant?.metadata as
+      | { image?: string; color_image?: string }
+      | null
+      | undefined
+    const variantImageUrl = meta?.image || meta?.color_image
     if (!variantImageUrl) return { displayImages: initialImages, targetIndex: 0 }
 
     const existing = initialImages.findIndex((i) => i.url === variantImageUrl)
