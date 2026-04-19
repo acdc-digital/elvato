@@ -70,22 +70,6 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
     }
   })()
 
-  // Note: Weight intentionally omitted — it's already covered by the
-  // comparison table's shared rows (and was the only field showing for
-  // most products, making the Specifications block look redundant).
-  const specs = [
-    { label: "Material", value: product.material },
-    { label: "Origin", value: product.origin_country },
-    { label: "Type", value: product.type?.value },
-    {
-      label: "Dimensions",
-      value:
-        product.length && product.width && product.height
-          ? `${product.length}L x ${product.width}W x ${product.height}H`
-          : null,
-    },
-  ].filter((s) => s.value)
-
   return (
     <div id="product-info">
       <div className="flex flex-col gap-y-5">
@@ -234,25 +218,6 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
               </li>
             ))}
           </ul>
-        )}
-
-        {/* Product specs */}
-        {specs.length > 0 && (
-          <div className="pt-4 border-t border-ui-border-base">
-            <h3 className="text-xs font-medium uppercase tracking-wider text-ui-fg-muted mb-3">
-              Specifications
-            </h3>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-              {specs.map((spec) => (
-                <div key={spec.label}>
-                  <span className="text-xs text-ui-fg-muted">
-                    {spec.label}
-                  </span>
-                  <p className="text-sm text-ui-fg-base">{spec.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         )}
       </div>
     </div>
