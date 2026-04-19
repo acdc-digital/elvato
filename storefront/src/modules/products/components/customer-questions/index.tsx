@@ -3,6 +3,7 @@
 import { useMutation, useQuery } from "convex/react"
 import { anyApi } from "convex/server"
 import { useMemo, useState } from "react"
+import ConvexClientProvider from "@lib/providers/convex-provider"
 
 type CustomerQuestionsProps = {
   productId: string
@@ -44,7 +45,7 @@ const initials = (name: string) =>
     .join("")
     .toUpperCase() || "?"
 
-const CustomerQuestions = ({
+const CustomerQuestionsInner = ({
   productId,
   productHandle,
 }: CustomerQuestionsProps) => {
@@ -243,5 +244,11 @@ const CustomerQuestions = ({
     </div>
   )
 }
+
+const CustomerQuestions = (props: CustomerQuestionsProps) => (
+  <ConvexClientProvider>
+    <CustomerQuestionsInner {...props} />
+  </ConvexClientProvider>
+)
 
 export default CustomerQuestions
