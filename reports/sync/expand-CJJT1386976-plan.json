@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-04-19T13:40:55.568Z",
+  "cjSku": "CJJT1386976",
+  "medusa": {
+    "productId": "prod_01KPJZEAWM0J683NQFKNWWVWR6",
+    "title": "Modern Minimalist Creative Bedroom Bedside Wall Lamp",
+    "handle": "modern-minimalist-creative-bedroom-bedside-wall-lamp-77024256"
+  },
+  "pricing": {
+    "strategy": "preserve-existing-markup",
+    "markupRatio": 2,
+    "baseCjCostUsd": 13.25,
+    "baseCjVariantSku": "CJJT138697601AZ",
+    "basePriceCents": 2650,
+    "_note": "All variant prices = round(cjCostUsd * 100 * markupRatio). The existing variant keeps its current price exactly. Edit `priceCents` per variant below to override."
+  },
+  "optionUpdates": [
+    {
+      "id": "opt_01KPJZEAWN7E7JX9FXGJWHQDC9",
+      "title": "Color",
+      "values": [
+        "Gold"
+      ],
+      "_note": "Renaming existing option \"Default\" → \"Color\""
+    }
+  ],
+  "optionCreates": [],
+  "variantUpdates": [
+    {
+      "existingVariantId": "variant_01KPJZEC4NC9CFYS81EF3N8RFB",
+      "sku": "CJJT138697601AZ",
+      "title": "Gold",
+      "options": {
+        "Color": "Gold"
+      },
+      "cjCostUsd": 13.25,
+      "weightGrams": 3020,
+      "dimensionsMm": {
+        "length": 550,
+        "width": 300,
+        "height": 150
+      },
+      "image": "https://cf.cjdropshipping.com/76ea4be8-d5a5-4ead-ab97-9d20c1c2468b.jpg",
+      "keepPriceCents": 2650,
+      "_note": "Reuse existing variant — preserves price, cart history, inventory."
+    }
+  ],
+  "variantCreates": [],
+  "_cjVariants": [
+    {
+      "variantSku": "CJJT138697601AZ",
+      "variantKey": "Gold",
+      "variantNameEn": "Modern Minimalist Creative Bedroom Bedside Wall Lamp Gold",
+      "variantSellPrice": 13.25,
+      "variantImage": "https://cf.cjdropshipping.com/76ea4be8-d5a5-4ead-ab97-9d20c1c2468b.jpg"
+    }
+  ]
+}

@@ -24,6 +24,32 @@ export async function pickFamilySibling({
   countryCode: string
   regionId: string
 }): Promise<FamilySiblingResult> {
+  // Manual override: products can pin a specific sibling via
+  // metadata.family_sibling_handle (string) — useful when the automatic
+  // collection/type/tag heuristic doesn't surface the desired companion.
+  const overrideHandle =
+    typeof (product.metadata as any)?.family_sibling_handle === "string"
+      ? ((product.metadata as any).family_sibling_handle as string).trim()
+      : ""
+  if (overrideHandle) {
+    try {
+      const { response } = await listProducts({
+        countryCode,
+        queryParams: {
+          region_id: regionId,
+          handle: overrideHandle,
+          limit: 1,
+        } as HttpTypes.StoreProductListParams,
+      })
+      const pinned = response.products.find((p) => p.id !== product.id)
+      if (pinned) {
+        return { sibling: pinned, candidates: [pinned] }
+      }
+    } catch {
+      // fall through to heuristic selection
+    }
+  }
+
   const queryParams: HttpTypes.StoreProductListParams = {
     region_id: regionId,
     is_giftcard: false,
