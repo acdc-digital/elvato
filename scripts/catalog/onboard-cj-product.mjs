@@ -175,7 +175,7 @@ async function ensureCjToken() {
   return cjAccessToken;
 }
 
-async function cjGet(endpoint, retries = 3) {
+async function cjGet(endpoint, retries = 5) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     const token = await ensureCjToken();
     const res = await fetch(`${CJ_BASE}${endpoint}`, {
@@ -187,19 +187,52 @@ async function cjGet(endpoint, retries = 3) {
       cjAccessToken = null;
       continue;
     }
+    if (data.code === 1600200) {
+      // QPS limit (4/sec) — back off and retry
+      const wait = 400 * attempt;
+      await new Promise((r) => setTimeout(r, wait));
+      continue;
+    }
     return data;
   }
   throw new Error(`CJ GET ${endpoint} failed after ${retries} attempts`);
 }
 
-async function fetchCjProductBySku(productSku) {
+async function tryProductQuery(productSku) {
   const data = await cjGet(
     `/api2.0/v1/product/query?productSku=${encodeURIComponent(productSku)}&features=enable_inventory`,
   );
-  if (!data.result || !data.data) {
-    throw new Error(`CJ product/query failed for SKU ${productSku}: ${data.message || data.code}`);
+  if (data.result && data.data) return data.data;
+  if (process.env.DEBUG_CJ) {
+    console.log(`        [debug] productSku=${productSku} → code=${data.code} msg=${data.message}`);
   }
-  return data.data;
+  return null;
+}
+
+/**
+ * CJ /product/query only accepts the parent (master) SKU, never a variant SKU.
+ * If the user passes a variant SKU like CJJT138697601AZ we walk back, dropping
+ * one trailing character at a time, until we hit the parent (CJJT1386976) — or
+ * give up after 8 attempts. Returns { detail, resolvedParentSku, originalSku }.
+ */
+async function fetchCjProductBySku(productSku) {
+  const direct = await tryProductQuery(productSku);
+  if (direct) return { detail: direct, resolvedParentSku: productSku, originalSku: productSku };
+
+  for (let drop = 1; drop <= 8; drop++) {
+    const candidate = productSku.slice(0, productSku.length - drop);
+    if (candidate.length < 6) break; // sanity floor
+    await new Promise((r) => setTimeout(r, 300)); // stay under CJ 4 QPS
+    const hit = await tryProductQuery(candidate);
+    if (hit) {
+      console.log(`      ↪ resolved parent SKU "${candidate}" (input "${productSku}" was a variant)`);
+      return { detail: hit, resolvedParentSku: candidate, originalSku: productSku };
+    }
+  }
+  throw new Error(
+    `CJ product/query failed for SKU ${productSku} (no parent SKU found by trimming up to 8 chars). ` +
+      `Verify the SKU on cjdropshipping.com.`,
+  );
 }
 
 // =============================================================================
@@ -317,10 +350,12 @@ async function main() {
   // Step 1: Fetch CJ detail
   // ---------------------------------------------------------------------------
   console.log("\n[1/7] Fetching CJ product detail...");
-  const cjDetail = await fetchCjProductBySku(args.cjSku);
+  const { detail: cjDetail, resolvedParentSku } = await fetchCjProductBySku(args.cjSku);
   const upsertArgs = buildCjUpsertArgs(cjDetail);
+  // Use the parent SKU for all downstream lookups (variant prices, normalize, etc.)
+  const parentSku = resolvedParentSku;
   console.log(`      ✓ CJ pid=${upsertArgs.cjProductId} "${upsertArgs.nameEn}"`);
-  console.log(`        priceUsd=${upsertArgs.price}  variants=${(cjDetail.variants || []).length}`);
+  console.log(`        parentSku=${parentSku}  priceUsd=${upsertArgs.price}  variants=${(cjDetail.variants || []).length}`);
 
   // ---------------------------------------------------------------------------
   // Step 2: Upsert into Convex cjMyProducts
@@ -399,7 +434,7 @@ async function main() {
     console.log("\n[6/7] Fetching per-variant CJ prices into Medusa...");
     const priceRes = runNode(
       "scripts/pricing/fetch-cj-variant-prices.mjs",
-      ["--sku", args.cjSku, "--apply"],
+      ["--sku", parentSku],
       { dryRun: args.dryRun },
     );
     if (!args.dryRun && priceRes.status !== 0) {
@@ -416,7 +451,7 @@ async function main() {
     console.log("\n[7/7] Normalizing variant SKUs to ELV format...");
     const normRes = runNode(
       "scripts/catalog/normalize-elv-skus.mjs",
-      [args.cjSku, "--apply"],
+      [parentSku, "--apply"],
       { dryRun: args.dryRun },
     );
     if (!args.dryRun && normRes.status !== 0) {
@@ -432,10 +467,10 @@ async function main() {
   console.log(banner);
   console.log("\nRemaining manual / human-review steps:\n");
   console.log(`  1. Expand variants (review option labels):`);
-  console.log(`       node scripts/catalog/expand-cj-variants.mjs ${args.cjSku}`);
-  console.log(`       node scripts/catalog/expand-cj-variants.mjs ${args.cjSku} --apply\n`);
+  console.log(`       node scripts/catalog/expand-cj-variants.mjs ${parentSku}`);
+  console.log(`       node scripts/catalog/expand-cj-variants.mjs ${parentSku} --apply\n`);
   console.log(`  2. Backfill expedited shipping surcharges per variant:`);
-  console.log(`       (parameterize scripts/pricing/backfill-shipping-CJJT1386169.mjs for ${args.cjSku})\n`);
+  console.log(`       (parameterize scripts/pricing/backfill-shipping-CJJT1386169.mjs for ${parentSku})\n`);
   console.log(`  3. Assign category + collection:`);
   console.log(`       node scripts/catalog/assign-product-categories.mjs`);
   console.log(`       node admin/scripts/map-products-to-collections.cjs\n`);

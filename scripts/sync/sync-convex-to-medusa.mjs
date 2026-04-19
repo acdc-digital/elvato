@@ -22,7 +22,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { ConvexHttpClient } from "convex/browser";
-import { api } from "../convex/_generated/api.js";
+import { api } from "../../convex/_generated/api.js";
 
 // =============================================================================
 // CONFIG & CONSTANTS
