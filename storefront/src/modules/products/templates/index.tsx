@@ -5,6 +5,7 @@ import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
 import RelatedProducts from "@modules/products/components/related-products"
 import CustomerReviews from "@modules/products/components/customer-reviews"
+import CustomerQuestions from "@modules/products/components/customer-questions"
 import FamilyShowcase from "@modules/products/components/family-showcase"
 import CategoryBadges from "@modules/products/components/category-badges"
 import ProductInfo from "@modules/products/templates/product-info"
@@ -75,15 +76,18 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       </div>
 
       {/*
-        Three-column row: customer reviews (left), family showcase (middle),
-        and a reserved slot on the right for future content. Stacks
-        vertically on mobile, splits into 3 equal columns at `small`.
+        Three-column row: customer reviews (left), customer Q&A (middle),
+        family showcase (right). Stacks vertically on mobile, splits into
+        3 equal columns at `small`.
       */}
       <div
         className="content-container my-16 small:my-24 grid grid-cols-1 small:grid-cols-3 gap-y-12 small:gap-x-12 medium:gap-x-16 items-start"
       >
         <div className="small:col-span-1">
           <CustomerReviews />
+        </div>
+        <div className="small:col-span-1">
+          <CustomerQuestions />
         </div>
         <div className="small:col-span-1">
           <Suspense
@@ -98,9 +102,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
             <FamilyShowcase product={product} countryCode={countryCode} />
           </Suspense>
         </div>
-        {/* Reserved right column — placeholder for future content (e.g.
-            Q&A, shipping calculator, brand story). Intentionally empty. */}
-        <div className="hidden small:block small:col-span-1" aria-hidden />
       </div>
 
       {/* Related products grid — broader discovery surface */}
