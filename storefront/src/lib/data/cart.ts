@@ -439,9 +439,22 @@ export async function updateRegion(countryCode: string, currentPath: string) {
   }
 
   if (cartId) {
-    await updateCart({ region_id: region.id })
-    const cartCacheTag = await getCacheTag("carts")
-    revalidateTag(cartCacheTag)
+    try {
+      await updateCart({ region_id: region.id })
+      const cartCacheTag = await getCacheTag("carts")
+      revalidateTag(cartCacheTag)
+    } catch (e) {
+      // Cart can't be transitioned to the new region (e.g. different
+      // currency or stale cart). Drop it so the next request creates a
+      // fresh cart in the selected region instead of 500-ing.
+      console.warn(
+        `[updateRegion] failed to switch cart ${cartId} to region ${region.id}, clearing cart`,
+        e
+      )
+      await removeCartId()
+      const cartCacheTag = await getCacheTag("carts")
+      revalidateTag(cartCacheTag)
+    }
   }
 
   const regionCacheTag = await getCacheTag("regions")
