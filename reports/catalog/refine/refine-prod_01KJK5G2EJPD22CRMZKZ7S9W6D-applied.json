@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-06-02T20:11:15.991Z",
+  "productId": "prod_01KJK5G2EJPD22CRMZKZ7S9W6D",
+  "title": "Modern Flush Mount Ceiling Light for Hallways",
+  "refinedBy": "matthewsimon",
+  "variantsExpandedTo": 16,
+  "comparisonTableRows": 5,
+  "packageSize": "Ø85 × H75 mm",
+  "variantImages": 16,
+  "audit": [
+    {
+      "label": "Title 30–60 chars",
+      "pass": true,
+      "detail": "45 chars"
+    },
+    {
+      "label": "Description clean (no <img>)",
+      "pass": true,
+      "detail": "1162 chars"
+    },
+    {
+      "label": "Options named (no Default/Option N)",
+      "pass": true,
+      "detail": "Color, Light Mode"
+    },
+    {
+      "label": "All variants have ELV SKU",
+      "pass": true,
+      "detail": "16/16"
+    },
+    {
+      "label": "All variants priced",
+      "pass": true,
+      "detail": "16/16"
+    },
+    {
+      "label": "Shipping baked in",
+      "pass": true,
+      "detail": "true"
+    },
+    {
+      "label": "Thumbnail is single URL",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "label": "≥3 gallery images",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "label": "≥1 category",
+      "pass": true,
+      "detail": "Ceiling, Flush Mount"
+    },
+    {
+      "label": "packageSize present",
+      "pass": true,
+      "detail": "Ø85 × H75 mm"
+    },
+    {
+      "label": "comparisonTable present",
+      "pass": true,
+      "detail": "5 rows"
+    },
+    {
+      "label": "Variant count vs CJ",
+      "pass": true,
+      "detail": "Medusa 16 vs CJ 16"
+    }
+  ]
+}

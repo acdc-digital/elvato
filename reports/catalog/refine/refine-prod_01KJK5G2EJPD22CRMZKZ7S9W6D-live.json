@@ -1,0 +1,266 @@
+{
+  "timestamp": "2026-06-02T20:10:33.640Z",
+  "mode": "LIVE",
+  "productId": "prod_01KJK5G2EJPD22CRMZKZ7S9W6D",
+  "title": "Modern Flush Mount Ceiling Light for Hallways",
+  "audit": [
+    {
+      "label": "Title 30–60 chars",
+      "pass": true,
+      "detail": "45 chars"
+    },
+    {
+      "label": "Description clean (no <img>)",
+      "pass": true,
+      "detail": "1162 chars"
+    },
+    {
+      "label": "Options named (no Default/Option N)",
+      "pass": false,
+      "detail": "Default"
+    },
+    {
+      "label": "All variants have ELV SKU",
+      "pass": false,
+      "detail": "0/1"
+    },
+    {
+      "label": "All variants priced",
+      "pass": true,
+      "detail": "1/1"
+    },
+    {
+      "label": "Shipping baked in",
+      "pass": true,
+      "detail": "true"
+    },
+    {
+      "label": "Thumbnail is single URL",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "label": "≥3 gallery images",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "label": "≥1 category",
+      "pass": true,
+      "detail": "Ceiling, Flush Mount"
+    },
+    {
+      "label": "packageSize present",
+      "pass": false,
+      "detail": "(missing)"
+    },
+    {
+      "label": "comparisonTable present",
+      "pass": false,
+      "detail": "(missing)"
+    },
+    {
+      "label": "Variant count vs CJ",
+      "pass": false,
+      "detail": "Medusa 1 vs CJ 16"
+    }
+  ],
+  "expansion": {
+    "optionTitles": [
+      "Color",
+      "Light Mode"
+    ],
+    "optionValues": [
+      [
+        "Black",
+        "White"
+      ],
+      [
+        "7W Warm Light",
+        "9W Warm Light",
+        "7W Natural Light",
+        "9W Natural Light",
+        "9W Dimmable Warm Light",
+        "9W Dimmable Natural Light",
+        "7W Recessed Warm Light",
+        "7W Recessed Natural Light"
+      ]
+    ],
+    "variantCount": 16,
+    "reuseSku": "ELV105178201",
+    "pricing": {
+      "ratio": 2.894773039889959,
+      "baseCost": 14.54,
+      "baseSku": "CJSN105178201AZ",
+      "basePriceCents": 4209
+    },
+    "variants": [
+      {
+        "sku": "ELV105178201",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "7W Warm Light"
+        },
+        "priceCents": 4209,
+        "reuse": true,
+        "image": "https://cf.cjdropshipping.com/1616469458974.jpg"
+      },
+      {
+        "sku": "ELV105178202",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "9W Warm Light"
+        },
+        "priceCents": 5161,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458974.jpg"
+      },
+      {
+        "sku": "ELV105178203",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "7W Natural Light"
+        },
+        "priceCents": 4209,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458974.jpg"
+      },
+      {
+        "sku": "ELV105178204",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "9W Natural Light"
+        },
+        "priceCents": 5161,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458974.jpg"
+      },
+      {
+        "sku": "ELV105178205",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "9W Dimmable Warm Light"
+        },
+        "priceCents": 5642,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458974.jpg"
+      },
+      {
+        "sku": "ELV105178206",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "9W Dimmable Natural Light"
+        },
+        "priceCents": 5642,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458974.jpg"
+      },
+      {
+        "sku": "ELV105178207",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "7W Recessed Warm Light"
+        },
+        "priceCents": 5376,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458965.jpg"
+      },
+      {
+        "sku": "ELV105178208",
+        "options": {
+          "Color": "Black",
+          "Light Mode": "7W Recessed Natural Light"
+        },
+        "priceCents": 4779,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458965.jpg"
+      },
+      {
+        "sku": "ELV105178209",
+        "options": {
+          "Color": "White",
+          "Light Mode": "7W Warm Light"
+        },
+        "priceCents": 4209,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458971.jpg"
+      },
+      {
+        "sku": "ELV105178210",
+        "options": {
+          "Color": "White",
+          "Light Mode": "9W Warm Light"
+        },
+        "priceCents": 5161,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458971.jpg"
+      },
+      {
+        "sku": "ELV105178211",
+        "options": {
+          "Color": "White",
+          "Light Mode": "7W Natural Light"
+        },
+        "priceCents": 4209,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458971.jpg"
+      },
+      {
+        "sku": "ELV105178212",
+        "options": {
+          "Color": "White",
+          "Light Mode": "9W Natural Light"
+        },
+        "priceCents": 5161,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458971.jpg"
+      },
+      {
+        "sku": "ELV105178213",
+        "options": {
+          "Color": "White",
+          "Light Mode": "9W Dimmable Warm Light"
+        },
+        "priceCents": 5642,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458971.jpg"
+      },
+      {
+        "sku": "ELV105178214",
+        "options": {
+          "Color": "White",
+          "Light Mode": "9W Dimmable Natural Light"
+        },
+        "priceCents": 5642,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458971.jpg"
+      },
+      {
+        "sku": "ELV105178215",
+        "options": {
+          "Color": "White",
+          "Light Mode": "7W Recessed Warm Light"
+        },
+        "priceCents": 5376,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458973.jpg"
+      },
+      {
+        "sku": "ELV105178216",
+        "options": {
+          "Color": "White",
+          "Light Mode": "7W Recessed Natural Light"
+        },
+        "priceCents": 4779,
+        "reuse": false,
+        "image": "https://cf.cjdropshipping.com/1616469458973.jpg"
+      }
+    ]
+  },
+  "productPatch": {},
+  "metadataChanges": {
+    "packageSize": "Ø85 × H75 mm",
+    "comparisonTableRows": 5
+  },
+  "variantPatches": []
+}

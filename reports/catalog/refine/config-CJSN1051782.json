@@ -1,0 +1,16 @@
+{
+  "optionTitles": ["Color", "Light Mode"],
+  "optionValues": [
+    ["Black", "White"],
+    [
+      "7W Warm Light",
+      "9W Warm Light",
+      "7W Natural Light",
+      "9W Natural Light",
+      "9W Dimmable Warm Light",
+      "9W Dimmable Natural Light",
+      "7W Recessed Warm Light",
+      "7W Recessed Natural Light"
+    ]
+  ]
+}

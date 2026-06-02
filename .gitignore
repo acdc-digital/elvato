@@ -8,5 +8,6 @@
 .env.local
 node_modules
 scripts/.cj-browser-profile/
+.cj-token-cache.json
 scripts/.cj-token-cache.json
 scripts/pricing/.cj-token-cache.json

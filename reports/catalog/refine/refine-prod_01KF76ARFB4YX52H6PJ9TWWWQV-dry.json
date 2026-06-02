@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-06-02T19:03:02.145Z",
+  "mode": "DRY-RUN",
+  "productId": "prod_01KF76ARFB4YX52H6PJ9TWWWQV",
+  "title": "Crystal Glass LED Pendant Light - Post-Modern Design",
+  "audit": [
+    {
+      "label": "Title 30–60 chars",
+      "pass": true,
+      "detail": "52 chars"
+    },
+    {
+      "label": "Description clean (no <img>)",
+      "pass": true,
+      "detail": "1030 chars"
+    },
+    {
+      "label": "Options named (no Default/Option N)",
+      "pass": true,
+      "detail": "Finish, Number of Lights, Voltage"
+    },
+    {
+      "label": "All variants have ELV SKU",
+      "pass": true,
+      "detail": "12/12"
+    },
+    {
+      "label": "All variants priced",
+      "pass": true,
+      "detail": "12/12"
+    },
+    {
+      "label": "Shipping baked in",
+      "pass": true,
+      "detail": "true"
+    },
+    {
+      "label": "Thumbnail is single URL",
+      "pass": true,
+      "detail": "ok"
+    },
+    {
+      "label": "≥3 gallery images",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "label": "≥1 category",
+      "pass": true,
+      "detail": "Pendants, Contemporary"
+    },
+    {
+      "label": "packageSize present",
+      "pass": false,
+      "detail": "(missing)"
+    },
+    {
+      "label": "comparisonTable present",
+      "pass": false,
+      "detail": "(missing)"
+    },
+    {
+      "label": "Variant count vs CJ",
+      "pass": true,
+      "detail": "Medusa 12 vs CJ 12"
+    }
+  ],
+  "productPatch": {
+    "description": "Crystal Glass LED Pendant Light - Post-Modern Design brings a considered, modern silhouette to your space. Crafted from Glass, it delivers clean ambient light without overpowering the room.\n\nChoose between Gold or Bronze finishes to suit your space. Easy to install with the included hardware, it's a natural fit for living rooms, bedrooms, dining areas, and hallways."
+  },
+  "metadataChanges": {
+    "packageSize": "400 × 200 × 150 mm",
+    "comparisonTableRows": 8
+  },
+  "variantPatches": [
+    {
+      "sku": "ELV569288",
+      "image": "https://cf.cjdropshipping.com/1618802802147.png"
+    },
+    {
+      "sku": "ELV983490",
+      "image": "https://cf.cjdropshipping.com/1618802802147.png"
+    },
+    {
+      "sku": "ELV448063",
+      "image": "https://cf.cjdropshipping.com/1618802802147.png"
+    },
+    {
+      "sku": "ELV139721",
+      "image": "https://cf.cjdropshipping.com/1618802802147.png"
+    }
+  ]
+}
