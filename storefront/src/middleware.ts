@@ -126,6 +126,10 @@ const USER_REGION_COOKIE_MAX_AGE = 60 * 60 * 24 * 365 // 1 year
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
+  if (request.nextUrl.pathname === "/callback") {
+    return NextResponse.next()
+  }
+
   const cacheIdCookie = request.cookies.get("_medusa_cache_id")
   const cacheId = cacheIdCookie?.value || crypto.randomUUID()
 
