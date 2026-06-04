@@ -48,6 +48,18 @@ yarn etsy:check
 
 That verifies Etsy API access, resolves the shop, and writes a `reports/etsy/check-shop-*.json` report.
 
+Search Etsy seller taxonomy nodes:
+
+```bash
+yarn etsy:taxonomy chandelier
+```
+
+Save a selected taxonomy ID as the default for draft listings:
+
+```bash
+yarn etsy:taxonomy --set-default taxonomy-id
+```
+
 Generate a dry-run listing plan without touching Etsy:
 
 ```bash

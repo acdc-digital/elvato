@@ -24,7 +24,7 @@
  *   ETSY_API_KEY, ETSY_ACCESS_TOKEN
  *
  * Required env for Etsy draft creation:
- *   ETSY_SHOP_ID, ETSY_DEFAULT_TAXONOMY_ID, ETSY_SHIPPING_PROFILE_ID
+ *   ETSY_SHOP_ID, ETSY_DEFAULT_TAXONOMY_ID, ETSY_SHIPPING_PROFILE_ID, ETSY_READINESS_STATE_ID
  *
  * Recommended env:
  *   ETSY_RETURN_POLICY_ID, ETSY_SHOP_SECTION_ID, ETSY_PRODUCTION_PARTNER_IDS
@@ -82,8 +82,10 @@ function parseArgs(argv) {
     quantity: Number(process.env.ETSY_DEFAULT_QUANTITY || 999),
     taxonomyId: process.env.ETSY_DEFAULT_TAXONOMY_ID || null,
     shippingProfileId: process.env.ETSY_SHIPPING_PROFILE_ID || null,
+    readinessStateId: process.env.ETSY_READINESS_STATE_ID || null,
     returnPolicyId: process.env.ETSY_RETURN_POLICY_ID || null,
     shopSectionId: process.env.ETSY_SHOP_SECTION_ID || null,
+    productionPartnerIds: process.env.ETSY_PRODUCTION_PARTNER_IDS || "",
     shopId: process.env.ETSY_SHOP_ID || null,
     whoMade: process.env.ETSY_WHO_MADE || "someone_else",
     whenMade: process.env.ETSY_WHEN_MADE || "made_to_order",
@@ -105,8 +107,10 @@ function parseArgs(argv) {
     if (arg === "--quantity") { args.quantity = Number(argv[++i]); continue; }
     if (arg === "--taxonomy-id") { args.taxonomyId = argv[++i]; continue; }
     if (arg === "--shipping-profile-id") { args.shippingProfileId = argv[++i]; continue; }
+    if (arg === "--readiness-state-id") { args.readinessStateId = argv[++i]; continue; }
     if (arg === "--return-policy-id") { args.returnPolicyId = argv[++i]; continue; }
     if (arg === "--shop-section-id") { args.shopSectionId = argv[++i]; continue; }
+    if (arg === "--production-partner-ids") { args.productionPartnerIds = argv[++i]; continue; }
     if (arg === "--shop-id") { args.shopId = argv[++i]; continue; }
     if (arg === "--help" || arg === "-h") { printUsage(); process.exit(0); }
     throw new Error(`Unknown argument: ${arg}`);
@@ -133,8 +137,10 @@ function printUsage() {
     "  --no-images             Skip image upload in live mode.",
     "  --taxonomy-id ID        Override ETSY_DEFAULT_TAXONOMY_ID.",
     "  --shipping-profile-id ID Override ETSY_SHIPPING_PROFILE_ID.",
+    "  --readiness-state-id ID Override ETSY_READINESS_STATE_ID.",
     "  --return-policy-id ID   Override ETSY_RETURN_POLICY_ID.",
     "  --shop-section-id ID    Override ETSY_SHOP_SECTION_ID.",
+    "  --production-partner-ids CSV Override ETSY_PRODUCTION_PARTNER_IDS.",
     "  --quantity N            Listing quantity fallback (default 999).",
   ].join("\n"));
 }
@@ -371,6 +377,7 @@ function buildListingPlan(product, args) {
     when_made: args.whenMade,
     taxonomy_id: numberOrNull(args.taxonomyId),
     shipping_profile_id: numberOrNull(args.shippingProfileId),
+    readiness_state_id: numberOrNull(args.readinessStateId),
     return_policy_id: numberOrNull(args.returnPolicyId),
     materials,
     shop_section_id: numberOrNull(args.shopSectionId),
@@ -381,18 +388,22 @@ function buildListingPlan(product, args) {
     item_width: product.width || null,
     item_height: product.height || null,
     item_dimensions_unit: product.length || product.width || product.height ? "mm" : null,
-    production_partner_ids: parseCsvNumbers(process.env.ETSY_PRODUCTION_PARTNER_IDS),
+    production_partner_ids: parseCsvNumbers(args.productionPartnerIds),
     is_supply: args.isSupply,
     should_auto_renew: args.shouldAutoRenew,
     is_taxable: true,
     type: "physical",
   };
 
-  const inventory = buildInventory(product, args.quantity);
+  const inventory = buildInventory(product, args.quantity, args.readinessStateId);
   const missing = [];
   if (!args.shopId) missing.push("ETSY_SHOP_ID");
   if (!createDraft.taxonomy_id) missing.push("ETSY_DEFAULT_TAXONOMY_ID or --taxonomy-id");
   if (!createDraft.shipping_profile_id) missing.push("ETSY_SHIPPING_PROFILE_ID or --shipping-profile-id");
+  if (!createDraft.readiness_state_id) missing.push("ETSY_READINESS_STATE_ID or --readiness-state-id");
+  if (createDraft.who_made === "someone_else" && !createDraft.production_partner_ids?.length) {
+    missing.push("ETSY_PRODUCTION_PARTNER_IDS or --production-partner-ids");
+  }
   if (!images.length) missing.push("at least one product image");
 
   return {
@@ -430,7 +441,7 @@ function pruneNulls(value) {
   return out;
 }
 
-function buildInventory(product, fallbackQuantity) {
+function buildInventory(product, fallbackQuantity, readinessStateId) {
   const optionMappings = parseOptionMappings(process.env.ETSY_VARIATION_PROPERTY_MAP);
   const options = (product.options || []).filter((option) => !/^(default|option \d+)$/i.test(option.title || ""));
   const variants = product.variants || [];
@@ -456,7 +467,12 @@ function buildInventory(product, fallbackQuantity) {
           } : null;
         })
         .filter(Boolean),
-      offerings: [{ price, quantity: fallbackQuantity, is_enabled: true }],
+      offerings: [pruneNulls({
+        price,
+        quantity: fallbackQuantity,
+        is_enabled: true,
+        readiness_state_id: numberOrNull(readinessStateId),
+      })],
     };
   });
 
@@ -552,10 +568,12 @@ async function checkShop(args) {
   }
   if (!shopId) throw new Error("Could not resolve shop ID. Set ETSY_SHOP_ID.");
 
-  const [shippingProfiles, returnPolicies, sections] = await Promise.all([
+  const [shippingProfiles, returnPolicies, sections, readinessStateDefinitions, productionPartners] = await Promise.all([
     etsyRequest(`/v3/application/shops/${shopId}/shipping-profiles`),
     etsyRequest(`/v3/application/shops/${shopId}/policies/return`),
     etsyRequest(`/v3/application/shops/${shopId}/sections`),
+    etsyRequest(`/v3/application/shops/${shopId}/readiness-state-definitions`),
+    etsyRequest(`/v3/application/shops/${shopId}/production-partners`),
   ]);
 
   return {
@@ -563,6 +581,8 @@ async function checkShop(args) {
     shopId,
     shop,
     shippingProfiles: summarizeResults(shippingProfiles, ["shipping_profile_id", "title", "origin_country_iso", "profile_type"]),
+    readinessStateDefinitions: summarizeResults(readinessStateDefinitions, ["readiness_state_id", "readiness_state", "min_processing_days", "max_processing_days", "processing_days_display_label"]),
+    productionPartners: summarizeResults(productionPartners, ["production_partner_id", "partner_name", "location", "about_production_partner"]),
     returnPolicies: summarizeResults(returnPolicies, ["return_policy_id", "accepts_returns", "accepts_exchanges", "return_deadline"]),
     sections: summarizeResults(sections, ["shop_section_id", "title", "active_listing_count"]),
   };
@@ -593,7 +613,7 @@ function toUrlEncoded(data) {
 
 async function createDraftListing(plan) {
   const { shopId, createDraft } = plan.etsy;
-  return etsyRequest(`/v3/application/shops/${shopId}/listings`, {
+  return etsyRequest(`/v3/application/shops/${shopId}/listings?legacy=false`, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: toUrlEncoded(createDraft),
@@ -632,7 +652,7 @@ function imageFileName(imageUrl, index) {
 }
 
 async function updateInventory(listingId, inventory) {
-  return etsyRequest(`/v3/application/listings/${listingId}/inventory`, {
+  return etsyRequest(`/v3/application/listings/${listingId}/inventory?legacy=false`, {
     method: "PUT",
     json: true,
     body: JSON.stringify(inventory.request),
