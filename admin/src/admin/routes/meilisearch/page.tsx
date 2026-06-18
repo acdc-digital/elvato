@@ -82,6 +82,7 @@ const MeilisearchPage = () => {
 export const config = defineRouteConfig({
   label: "MeiliSearch",
   icon: MagnifyingGlass,
+  rank: 10,
 })
 
 export default MeilisearchPage

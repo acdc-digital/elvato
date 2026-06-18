@@ -29,6 +29,7 @@
     "@medusajs/cli": "2.12.3",
     "@medusajs/framework": "2.12.3",
     "@medusajs/medusa": "2.12.3",
+    "@xyflow/react": "^12.10.2",
     "meilisearch": "^0.55.0"
   },
   "devDependencies": {
