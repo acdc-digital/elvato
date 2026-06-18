@@ -11,6 +11,7 @@ import {
 import {
   Button,
   Container,
+  DropdownMenu,
   Heading,
   IconButton,
   Input,
@@ -19,6 +20,7 @@ import {
   StatusBadge,
   Text,
   Tooltip,
+  toast,
 } from "@medusajs/ui"
 import { useEffect, useMemo, useState } from "react"
 import { Link } from "react-router-dom"
@@ -58,6 +60,13 @@ const statusLabels: Record<ProductStatus, string> = {
   published: "Published",
   rejected: "Rejected",
 }
+
+const statusOptions: ProductStatus[] = [
+  "draft",
+  "proposed",
+  "published",
+  "rejected",
+]
 
 const statusColors: Record<ProductStatus, "green" | "orange" | "red" | "grey"> = {
   draft: "grey",
@@ -126,6 +135,7 @@ const ProductCardsPage = () => {
   const [debouncedSearch, setDebouncedSearch] = useState("")
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [updatingProductId, setUpdatingProductId] = useState<string | null>(null)
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -198,6 +208,58 @@ const ProductCardsPage = () => {
     return `${pageStart}-${pageEnd} of ${count}`
   }, [count, pageEnd, pageStart])
 
+  const handleStatusChange = async (
+    product: ProductCard,
+    nextStatus: ProductStatus
+  ) => {
+    if (product.status === nextStatus || updatingProductId) {
+      return
+    }
+
+    const previousProducts = products
+    const previousCount = count
+    const nextProducts = products
+      .map((item) =>
+        item.id === product.id ? { ...item, status: nextStatus } : item
+      )
+      .filter((item) => status === "all" || item.status === status)
+
+    setUpdatingProductId(product.id)
+    setProducts(nextProducts)
+
+    if (status !== "all" && product.status === status && nextStatus !== status) {
+      setCount(Math.max(0, count - 1))
+    }
+
+    try {
+      const response = (await sdk.admin.product.update(
+        product.id,
+        { status: nextStatus },
+        { fields: productFields }
+      )) as { product: ProductCard }
+
+      setProducts((currentProducts) => {
+        const updatedProduct = response.product ?? {
+          ...product,
+          status: nextStatus,
+        }
+
+        return currentProducts.map((item) =>
+          item.id === product.id ? { ...item, ...updatedProduct } : item
+        )
+      })
+    } catch (err) {
+      setProducts(previousProducts)
+      setCount(previousCount)
+      toast.error("Product status was not updated", {
+        description:
+          err instanceof Error ? err.message : "Please try again from the card view.",
+      })
+    } finally {
+      setUpdatingProductId(null)
+    }
+  }
+
   return (
     <Container className="divide-y p-0">
       <div className="flex flex-col gap-4 px-6 py-4 lg:flex-row lg:items-center lg:justify-between">
@@ -257,39 +319,78 @@ const ProductCardsPage = () => {
           </div>
         ) : products.length ? (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-            {products.map((product) => (
-              <Link
-                key={product.id}
-                to={`/products/${product.id}`}
-                className="group overflow-hidden rounded-lg border border-ui-border-base bg-ui-bg-base shadow-elevation-card-rest outline-none transition-shadow hover:shadow-elevation-card-hover focus-visible:shadow-elevation-card-hover"
-              >
-                <div className="aspect-4/3 overflow-hidden bg-ui-bg-subtle">
-                  <ProductImage product={product} />
-                </div>
-                <div className="space-y-3 p-4">
-                  <div className="min-w-0 space-y-1">
-                    <Text
-                      size="small"
-                      weight="plus"
-                      className="line-clamp-2 min-h-10 text-ui-fg-base"
-                    >
-                      {product.title}
-                    </Text>
-                    <Text size="xsmall" className="truncate text-ui-fg-subtle">
-                      {getPrimaryCategory(product)}
-                    </Text>
+            {products.map((product) => {
+              const isUpdating = updatingProductId === product.id
+
+              return (
+                <article
+                  key={product.id}
+                  className="group overflow-hidden rounded-lg border border-ui-border-base bg-ui-bg-base shadow-elevation-card-rest outline-none transition-shadow hover:shadow-elevation-card-hover focus-visible:shadow-elevation-card-hover"
+                >
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="block aspect-4/3 overflow-hidden bg-ui-bg-subtle outline-none"
+                  >
+                    <ProductImage product={product} />
+                  </Link>
+                  <div className="space-y-3 p-4">
+                    <div className="min-w-0 space-y-1">
+                      <Link
+                        to={`/products/${product.id}`}
+                        className="block rounded-sm outline-none focus-visible:shadow-borders-interactive-with-active"
+                      >
+                        <Text
+                          size="small"
+                          weight="plus"
+                          className="line-clamp-2 min-h-10 text-ui-fg-base"
+                        >
+                          {product.title}
+                        </Text>
+                      </Link>
+                      <Text size="xsmall" className="truncate text-ui-fg-subtle">
+                        {getPrimaryCategory(product)}
+                      </Text>
+                    </div>
+                    <div className="flex items-center justify-between gap-3">
+                      <DropdownMenu>
+                        <DropdownMenu.Trigger asChild>
+                          <button
+                            type="button"
+                            disabled={isUpdating}
+                            aria-label={`Change ${product.title} status`}
+                            className="rounded-full outline-none transition-opacity focus-visible:shadow-borders-interactive-with-active disabled:cursor-not-allowed disabled:opacity-60"
+                          >
+                            <StatusBadge color={statusColors[product.status]}>
+                              {isUpdating ? "Updating" : statusLabels[product.status]}
+                            </StatusBadge>
+                          </button>
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Content align="start">
+                          <DropdownMenu.Label>Status</DropdownMenu.Label>
+                          <DropdownMenu.Separator />
+                          {statusOptions.map((statusOption) => (
+                            <DropdownMenu.Item
+                              key={statusOption}
+                              disabled={product.status === statusOption || isUpdating}
+                              onSelect={() => handleStatusChange(product, statusOption)}
+                            >
+                              <span className="flex items-center gap-2">
+                                <StatusBadge color={statusColors[statusOption]}>
+                                  {statusLabels[statusOption]}
+                                </StatusBadge>
+                              </span>
+                            </DropdownMenu.Item>
+                          ))}
+                        </DropdownMenu.Content>
+                      </DropdownMenu>
+                      <Text size="xsmall" className="shrink-0 text-ui-fg-muted">
+                        {product.variants?.length ?? 0} variants
+                      </Text>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between gap-3">
-                    <StatusBadge color={statusColors[product.status]}>
-                      {statusLabels[product.status]}
-                    </StatusBadge>
-                    <Text size="xsmall" className="shrink-0 text-ui-fg-muted">
-                      {product.variants?.length ?? 0} variants
-                    </Text>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </article>
+              )
+            })}
           </div>
         ) : (
           <div className="flex min-h-[360px] flex-col items-center justify-center gap-3 rounded-lg border border-dashed border-ui-border-base bg-ui-bg-base px-6 text-center">
