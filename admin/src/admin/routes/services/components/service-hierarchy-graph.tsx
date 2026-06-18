@@ -2,7 +2,6 @@ import { useMemo } from "react"
 import {
   Background,
   BackgroundVariant,
-  Controls,
   Handle,
   Position,
   ReactFlow,
@@ -87,7 +86,6 @@ const ServiceFlowNode = ({ data }: NodeProps<ServiceNodeType>) => {
             </div>
           ) : null}
         </div>
-        <span className="h-2 w-2 shrink-0 rounded-full bg-ui-tag-green-icon shadow-[0_0_0_3px] shadow-ui-tag-green-bg" />
       </div>
       <Handle
         type="source"
@@ -263,7 +261,6 @@ export const ServiceHierarchyGraph = ({
             size={1}
             color="#e4e4e7"
           />
-          <Controls showInteractive={false} className="shadow-borders-base!" />
         </ReactFlow>
       </div>
     </div>

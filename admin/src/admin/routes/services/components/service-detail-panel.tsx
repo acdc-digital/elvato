@@ -45,9 +45,9 @@ const ServiceDetail = ({ service }: { service: ServiceMeta }) => {
           </Text>
         </div>
         <span className="mt-1 flex items-center gap-x-1.5">
-          <span className="h-2 w-2 rounded-full bg-ui-tag-green-icon" />
+          <span className="h-2 w-2 rounded-full bg-ui-fg-muted" />
           <Text size="xsmall" className="text-ui-fg-muted">
-            Operational
+            Documented
           </Text>
         </span>
       </div>
@@ -172,9 +172,9 @@ const ServiceOverview = () => {
       </div>
 
       <div className="mt-auto flex items-center gap-x-2 rounded-lg border border-dashed border-ui-border-base px-3 py-2.5">
-        <span className="h-2 w-2 rounded-full bg-ui-tag-green-icon" />
+        <span className="h-2 w-2 rounded-full bg-ui-fg-muted" />
         <Text size="xsmall" className="text-ui-fg-muted">
-          All {SERVICES.length} services reported operational.
+          Static service map. Live health checks are not wired yet.
         </Text>
       </div>
     </div>
