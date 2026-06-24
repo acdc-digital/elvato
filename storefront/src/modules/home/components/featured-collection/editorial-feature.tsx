@@ -93,7 +93,7 @@ export default function EditorialFeature({
   const [hero, t1, t2, t3, t4] = features
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white to-[#F5F5F5] py-20 small:py-28">
+    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white to-[#F5F5F5] pt-6 pb-20 small:pt-10 small:pb-28">
       {/* Soft overhead light bloom — a quiet "illumination" cue */}
       <div
         aria-hidden

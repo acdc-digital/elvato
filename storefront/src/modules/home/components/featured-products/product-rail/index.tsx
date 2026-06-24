@@ -26,6 +26,7 @@ export default async function ProductRail({
       response: { products },
     } = await listProducts({
       regionId: region.id,
+      cacheScope: "public",
       queryParams: {
         collection_id: collection.id,
         fields:

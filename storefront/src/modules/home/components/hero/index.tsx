@@ -148,7 +148,7 @@ const Hero = () => {
           {/* Editor's picks — top, just below the header */}
           <div className="px-6 pt-6 pb-4 lg:px-8 lg:pt-7 lg:pb-4">
             <div className="mb-3 flex items-center gap-3">
-              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-grey-50">
+              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-black">
                 Editor&apos;s Picks
               </p>
               <span className="h-px flex-1 bg-grey-20" />
@@ -157,31 +157,31 @@ const Hero = () => {
               {[
                 {
                   href: "/products/modern-retro-wall-sconce-vintage-industrial-design-01ce7684?v_id=variant_01KJK3N8TXJM2TJ05JQZJ0HP0S",
-                  img: "/hero/H-feature-2.svg",
+                  img: "/homepage/v1/hero-feature-2.webp",
                   label: "Modern Retro Wall Sconce",
                   imgClass: "",
                 },
                 {
                   href: "/products/modern-hollow-staircase-chandelier-duplex-design-55298816",
-                  img: "/hero/H-feature-3.svg",
+                  img: "/homepage/v1/hero-feature-3.webp",
                   label: "Hollow Staircase Chandelier",
                   imgClass: "scale-125 -translate-y-1",
                 },
                 {
                   href: "/products/modern-luxury-glass-bubble-chandelier-55049984",
-                  img: "/hero/H-feature-4.svg",
+                  img: "/homepage/v1/hero-feature-4.webp",
                   label: "Luxury Glass Bubble Chandelier",
                   imgClass: "scale-125 translate-y-0.5",
                 },
                 {
                   href: "/products/nordic-flying-saucer-chandelier-postmodern-art-design-93837056?v_id=variant_01KK4BYCY4JCSQQTTY7FNEYK56",
-                  img: "/hero/H-feature-5.svg",
+                  img: "/homepage/v1/hero-feature-5.webp",
                   label: "Flying Saucer Chandelier",
                   imgClass: "scale-125 -translate-y-1",
                 },
                 {
                   href: "/products/postmodern-creative-chandelier-for-living-rooms-06790656",
-                  img: "/hero/H-feature-6.svg",
+                  img: "/homepage/v1/hero-feature-6.webp",
                   label: "Postmodern Creative Chandelier",
                   imgClass: "scale-110",
                 },
@@ -204,7 +204,7 @@ const Hero = () => {
 
           {/* Main fixture image — rounded card floating below the picks */}
           <div className="flex-1 min-h-[40vh] lg:min-h-0 px-6 pb-6 lg:px-8 lg:pb-8">
-            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-grey-90 shadow-sm ring-1 ring-black/5">
+            <div className="relative h-full w-full overflow-hidden rounded-lg bg-grey-90 shadow-sm ring-1 ring-black/5">
               <LocalizedClientLink
                 href="/products/nordic-minimalist-resin-art-chandelier"
                 aria-label="Shop the Nordic Minimalist Resin Art Chandelier"
@@ -219,26 +219,24 @@ const Hero = () => {
                   className="object-cover transition-transform duration-[900ms] ease-out group-hover/hero:scale-[1.04]"
                   style={{ objectPosition: "30% center" }}
                 />
-                {/* Legibility wash */}
+                {/* Legibility wash — darkened top and bottom so text reads on either end */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/30"
+                  className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/10 to-black/80"
                 />
               </LocalizedClientLink>
 
-              {/* Top row — welcome eyebrow + new-in marker */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between p-5 lg:p-7">
-                <p className="font-sans text-[11px] uppercase tracking-[0.32em] text-[#e7c98a]">
-                  The Featured Fixture
-                </p>
-                <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.22em] text-white backdrop-blur-sm">
-                  New In
-                </span>
-              </div>
-
-              {/* Bottom caption — on the fixture image (visual only; the full-bleed link handles the click) */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-5 lg:p-7">
-                <div className="max-w-md">
+              {/* Top block — eyebrow, new-in marker, and the headline/description in the dark space */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 z-10 p-5 lg:p-7">
+                <div className="flex items-center justify-between">
+                  <p className="font-sans text-[11px] uppercase tracking-[0.32em] text-[#e7c98a]">
+                    The Featured Fixture
+                  </p>
+                  <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.22em] text-white backdrop-blur-sm">
+                    New In
+                  </span>
+                </div>
+                <div className="mt-5 max-w-md lg:mt-6">
                   <h2 className="font-sans text-2xl font-semibold leading-tight text-white lg:text-3xl">
                     Nordic Minimalist Resin Art Chandelier
                   </h2>
@@ -247,7 +245,13 @@ const Hero = () => {
                     diffused glow — a quiet centerpiece for the room you&apos;re
                     imagining.
                   </p>
-                  <span className="mt-3 inline-flex items-center gap-2 font-sans text-[13px] tracking-wide text-white transition-colors group-hover/hero:text-[#e7c98a]">
+                </div>
+              </div>
+
+              {/* Bottom caption — keep the shop link anchored at the bottom */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-5 lg:p-7">
+                <div className="max-w-md">
+                  <span className="inline-flex items-center gap-2 font-sans text-[13px] tracking-wide text-white transition-colors group-hover/hero:text-[#e7c98a]">
                     Shop the fixture
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

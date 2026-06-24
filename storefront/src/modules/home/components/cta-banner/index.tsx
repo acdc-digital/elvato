@@ -1,7 +1,7 @@
 "use client"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { Headphones, Star } from "lucide-react"
+import { Headphones, ShieldCheck, Truck, Star } from "lucide-react"
 
 const CtaBanner = () => {
   return (
@@ -17,6 +17,18 @@ const CtaBanner = () => {
             >
               Expert Lighting Support
             </LocalizedClientLink>
+          </div>
+
+          {/* 365-Day Warranty */}
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-5 h-5" />
+            <p className="text-lg font-sans text-black">365-Day Warranty</p>
+          </div>
+
+          {/* Free Shipping */}
+          <div className="flex items-center gap-2">
+            <Truck className="w-5 h-5" />
+            <p className="text-lg font-sans text-black">Free Shipping</p>
           </div>
 
           {/* Rating */}

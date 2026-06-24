@@ -4,13 +4,14 @@ import { NextRequest, NextResponse } from "next/server"
 const BACKEND_URL = process.env.MEDUSA_BACKEND_URL
 const PUBLISHABLE_API_KEY = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 const DEFAULT_REGION = process.env.NEXT_PUBLIC_DEFAULT_REGION || "us"
+const REGION_CACHE_TAG = "regions-public"
 
 const regionMapCache = {
   regionMap: new Map<string, HttpTypes.StoreRegion>(),
   regionMapUpdated: Date.now(),
 }
 
-async function getRegionMap(cacheId: string) {
+async function getRegionMap() {
   const { regionMap, regionMapUpdated } = regionMapCache
 
   if (!BACKEND_URL) {
@@ -30,7 +31,7 @@ async function getRegionMap(cacheId: string) {
       },
       next: {
         revalidate: 3600,
-        tags: [`regions-${cacheId}`],
+        tags: [REGION_CACHE_TAG],
       },
       cache: "force-cache",
     }).then(async (response) => {
@@ -130,15 +131,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  const cacheIdCookie = request.cookies.get("_medusa_cache_id")
-  const cacheId = cacheIdCookie?.value || crypto.randomUUID()
-
   // Attempt to load the region map from Medusa.  If the backend is
   // unreachable we fall back gracefully instead of returning 500 to every
   // request (which tanks Google's crawl of the whole site).
   let regionMap: Map<string, HttpTypes.StoreRegion> | undefined
   try {
-    regionMap = await getRegionMap(cacheId)
+    regionMap = await getRegionMap()
   } catch (error) {
     console.error("Middleware: region map fetch failed, passing through", error)
     // Let the request continue — pages can still render from cache / ISR.
@@ -150,31 +148,11 @@ export async function middleware(request: NextRequest) {
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)
 
-  // URL already has a valid country code — pass through.
-  // If the cache-id cookie is missing, set it on the *passthrough* response
-  // instead of issuing a redirect (redirecting just to set a cookie wastes
-  // Googlebot's crawl budget and creates spurious 302/307 entries).
+  // URL already has a valid country code — pass through without mutating
+  // cookies. The country prefix is already deterministic, and setting cookies
+  // here makes anonymous public pages harder for the CDN/browser to cache.
   if (urlHasCountryCode) {
-    const response = NextResponse.next()
-    if (!cacheIdCookie) {
-      response.cookies.set("_medusa_cache_id", cacheId, {
-        maxAge: 60 * 60 * 24,
-      })
-    }
-    // Persist the visitor's region preference so bare-URL visits
-    // (e.g. someone navigating to "/products/foo" later) come back to
-    // the same country instead of falling through to DEFAULT_REGION.
-    if (
-      countryCode &&
-      request.cookies.get("_user_region")?.value?.toLowerCase() !== countryCode
-    ) {
-      response.cookies.set("_user_region", countryCode, {
-        maxAge: USER_REGION_COOKIE_MAX_AGE,
-        sameSite: "lax",
-        path: "/",
-      })
-    }
-    return response
+    return NextResponse.next()
   }
 
   // check if the url is a static asset

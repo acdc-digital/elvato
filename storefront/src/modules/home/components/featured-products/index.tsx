@@ -19,6 +19,7 @@ export default async function FeaturedProducts({
         response: { products },
       } = await listProducts({
         regionId: region.id,
+        cacheScope: "public",
         queryParams: {
           collection_id: collection.id,
           fields:

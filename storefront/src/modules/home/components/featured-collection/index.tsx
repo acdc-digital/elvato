@@ -53,6 +53,7 @@ export default async function FeaturedCollection({
     response: { products, count },
   } = await listProducts({
     regionId: region.id,
+    cacheScope: "public",
     queryParams: {
       limit: 12,
       order: "-created_at",
