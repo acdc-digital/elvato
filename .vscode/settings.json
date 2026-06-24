@@ -23,11 +23,12 @@
     "admin-frontdoor": "admin",
   },
   "chat.tools.terminal.autoApprove": {
-    "npx medusa": true
+    "npx medusa": true,
+    "railway": true
   },
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
-    "*.md": "markdownEditorOptimized.editor",
+    "*.md": "markdown-preview-enhanced",
     "*.markdown": "markdownEditorOptimized.editor",
     "*.mdx": "markdownEditorOptimized.editor",
     "*.mdc": "markdownEditorOptimized.editor",

@@ -1,0 +1,20 @@
+# Deploy the existing Vercel storefront project from this monorepo while
+# excluding large non-storefront workspaces and local-only artifacts.
+/.agents/
+/.docs/
+/.git/
+/.vscode/
+/.vercel/
+/admin/
+/admin-frontdoor/
+/convex/
+/marketplace/
+/node_modules/
+/Operations/
+/public/
+/reports/
+/scripts/
+
+storefront/.next/
+storefront/node_modules/
+storefront/.vercel/

@@ -679,4 +679,121 @@ export default defineSchema({
     .index("by_handle",         ["medusaProductHandle"])
     .index("by_product_status", ["medusaProductId", "status"])
     .index("by_parent",         ["parentId"]),
+
+  // ===========================================================================
+  // MARKETPLACE IMAGE INTELLIGENCE
+  // Etsy draft image ingestion, discovery candidates, embeddings, validation,
+  // provenance, and local asset-library sync state.
+  // ===========================================================================
+
+  marketplaceProducts: defineTable({
+    etsyListingId: v.string(),
+    title: v.string(),
+    slug: v.string(),
+    status: v.union(
+      v.literal("draft"),
+      v.literal("processing"),
+      v.literal("enriched"),
+      v.literal("needs_review")
+    ),
+    etsyState: v.optional(v.string()),
+    etsyUrl: v.optional(v.string()),
+    sourceImageUrls: v.array(v.string()),
+    metadata: v.optional(v.any()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_etsyListingId", ["etsyListingId"])
+    .index("by_slug", ["slug"])
+    .index("by_status", ["status"]),
+
+  marketplaceProductImages: defineTable({
+    productId: v.id("marketplaceProducts"),
+    imageUrl: v.string(),
+    type: v.union(v.literal("original"), v.literal("discovered")),
+    sourceUrl: v.optional(v.string()),
+    sourceDomain: v.optional(v.string()),
+    localPath: v.optional(v.string()),
+    rank: v.number(),
+    width: v.optional(v.number()),
+    height: v.optional(v.number()),
+    contentType: v.optional(v.string()),
+    sizeBytes: v.optional(v.number()),
+    embedding: v.optional(v.array(v.float64())),
+    embeddingModel: v.optional(v.string()),
+    textEmbedding: v.optional(v.array(v.float64())),
+    textEmbeddingModel: v.optional(v.string()),
+    phash: v.optional(v.string()),
+    clusterId: v.optional(v.string()),
+    validationStatus: v.union(
+      v.literal("pending"),
+      v.literal("approved"),
+      v.literal("rejected"),
+      v.literal("duplicate")
+    ),
+    confidence: v.optional(v.number()),
+    provenance: v.optional(v.any()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_product", ["productId"])
+    .index("by_product_type", ["productId", "type"])
+    .index("by_localPath", ["localPath"])
+    .index("by_validationStatus", ["validationStatus"])
+    .index("by_cluster", ["clusterId"])
+    .vectorIndex("by_embedding", {
+      vectorField: "embedding",
+      dimensions: 768,
+      filterFields: ["productId", "type", "validationStatus"],
+    }),
+
+  marketplaceProductCandidates: defineTable({
+    productId: v.id("marketplaceProducts"),
+    sourceUrl: v.string(),
+    sourceDomain: v.optional(v.string()),
+    imageUrl: v.string(),
+    productTitle: v.optional(v.string()),
+    description: v.optional(v.string()),
+    sku: v.optional(v.string()),
+    dimensions: v.optional(v.string()),
+    discoveryMethod: v.union(
+      v.literal("reverse_image"),
+      v.literal("search_api"),
+      v.literal("manual"),
+      v.literal("internal_similarity")
+    ),
+    imageSimilarity: v.optional(v.number()),
+    titleSimilarity: v.optional(v.number()),
+    metadataMatchScore: v.optional(v.number()),
+    domainConfidence: v.optional(v.number()),
+    score: v.optional(v.number()),
+    approved: v.boolean(),
+    reason: v.optional(v.string()),
+    embedding: v.optional(v.array(v.float64())),
+    embeddingModel: v.optional(v.string()),
+    provenance: v.optional(v.any()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_product", ["productId"])
+    .index("by_product_approved", ["productId", "approved"])
+    .index("by_sourceDomain", ["sourceDomain"])
+    .index("by_score", ["score"])
+    .vectorIndex("by_embedding", {
+      vectorField: "embedding",
+      dimensions: 768,
+      filterFields: ["productId", "approved"],
+    }),
+
+  marketplaceSourceDomains: defineTable({
+    domain: v.string(),
+    confidence: v.number(),
+    acceptedCount: v.number(),
+    rejectedCount: v.number(),
+    notes: v.optional(v.string()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_domain", ["domain"])
+    .index("by_confidence", ["confidence"]),
 });

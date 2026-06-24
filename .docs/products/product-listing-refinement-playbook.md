@@ -6,10 +6,10 @@
 > **polishing** it into a unified, fully-specified product page — matching the
 > six reference listings we've already completed.
 >
-> **Status:** Planning / runbook. Last updated 2026-05-31.
+> **Status:** Active runbook. Last updated 2026-06-02.
 > **Goal of this document:** Define exactly what must be **checked, verified, and
-> updated** on every listing so the catalogue is uniform, and lay the groundwork
-> for an interactive "walk-through" script that does it one product at a time.
+> updated** on every listing so the catalogue is uniform, and document the
+> interactive "walk-through" script that does it one product at a time.
 
 ---
 
@@ -96,6 +96,7 @@ it lives, and how the storefront consumes it.
 | 11 | `prices` | ≥1 price (USD/CAD), shipping baked in. Cost preserved at `metadata.costPriceInCents`. | `ProductPrice` |
 | 12 | `metadata.image` / `metadata.color_image` | Per-variant hero image URL so the gallery swaps when an option is selected. **The other big gap.** | `ImageGallery` (`meta.image \|\| meta.color_image`) |
 | 13 | Inventory | `manage_inventory=false` **or** a valid `inventory_level` (the analyst agent's `fix_inventory`). | stock badge / Add-to-Cart |
+| 14 | Shared shipping metadata | Every variant carries the expedited shipping tiers (`expeditedTier1Surcharge`/`DisplayName`/`Days`/`Method`, Tier2…) — **all** variants, not just the first. Expansion inherits these from the base variant. | `shipping-selector/index.tsx` (per-variant) |
 
 ### 2.3 `comparisonTable` schema (exact)
 
@@ -253,7 +254,7 @@ For each product, the walk-through must **check → verify → update → confir
 | --- | --- | --- |
 | Onboard orchestrator | [`scripts/catalog/onboard-cj-product.mjs`](../../scripts/catalog/onboard-cj-product.mjs) | CJ auth/resolve helpers, `pickFirstImage()` |
 | Per-product revise (template) | [`scripts/catalog/revise-CJJT1494811.mjs`](../../scripts/catalog/revise-CJJT1494811.mjs) | **Canonical example** of writing `packageSize` + `comparisonTable` + variant matrix + per-variant images. Pattern the script after this. |
-| Variant expansion | [`scripts/catalog/expand-cj-variants.mjs`](../../scripts/catalog/expand-cj-variants.mjs) | Build/verify the option matrix from CJ |
+| Variant expansion | [`scripts/catalog/expand-cj-variants.mjs`](../../scripts/catalog/expand-cj-variants.mjs) | Build/verify the option matrix from CJ. **Now built into `refine-listing.mjs`** (§9.2) — use the standalone only for one-off/bulk runs. |
 | Variant image swap examples | [`expand-variants-ELV38609.mjs`](../../scripts/catalog/expand-variants-ELV38609.mjs) | `metadata.image`/`color_image` convention |
 | SKU normalize | [`scripts/catalog/normalize-elv-skus.mjs`](../../scripts/catalog/normalize-elv-skus.mjs) | Ensure `ELV…` SKUs |
 | Shipping bake / surcharge | [`scripts/pricing/`](../../scripts/pricing/) | Verify baked-in shipping |
@@ -351,27 +352,70 @@ node scripts/catalog/refine-listing.mjs --product-id prod_... --dry-run
 
 # non-interactive (accept all proposals) — for later batch runs
 node scripts/catalog/refine-listing.mjs --product-id prod_... --yes
+
+# non-interactive but POLISHED — supply axis names / tidied values / overrides
+node scripts/catalog/refine-listing.mjs --cj-sku CJSN1051782 --yes \
+  --config reports/catalog/refine/config-CJSN1051782.json
 ```
+
+### 9.1 Flags
+
+| Flag | Effect |
+| --- | --- |
+| `--product-id ID` / `--cj-sku SKU` / `--next` | Select the product to refine. |
+| `--dry-run` | Build + save the plan, write nothing to Medusa. |
+| `--yes` / `-y` | Accept all proposals (non-interactive). |
+| `--no-cj` | Use Medusa data only (skip CJ). |
+| `--no-flat-price` | Disable flat pricing across cosmetic (color/finish) axes. |
+| `--config FILE` | JSON `{optionTitles, optionValues, skus?, prices?}` applied non-interactively (see §9.3). |
+| `--refined-by NAME` | Stamp `metadata.refinedBy` (default `$USER`). |
 
 **What it writes:** `title`, `description` (2-para), `metadata.packageSize`,
 `metadata.comparisonTable` (single-column spec sheet), per-variant
 `metadata.image`/`color_image`, and the `metadata.refinedAt` + `refinedBy`
-"done" marker.
+"done" marker. When it expands variants it also writes the option matrix,
+ELV SKUs, prices, and inherited shared variant metadata.
 
-**Variant expansion + SKU normalization are built in.** When Medusa has ≤1
-variant but CJ exposes a full matrix, the refiner runs the expansion engine
-(ported from `expand-cj-variants.mjs`) as a first-class step: it splits CJ
-variant keys into axes (e.g. `Black-7W warm light` → `Color` × `Light Mode`),
-applies markup-ratio pricing (existing price ÷ base CJ cost), reuses the
-existing variant and creates the rest, and assigns **ELV SKUs** directly
-(`CJ**<digits><letters>` → `ELV<digits>`, original stashed at
-`variant.metadata.cj_sku`). One pass = expand + normalize SKUs + polish. The
-standalone `expand-cj-variants.mjs` / `normalize-elv-skus.mjs` remain for
-one-off/bulk use, but the refiner no longer delegates this work.
+### 9.2 Variant expansion + SKU normalization (built in)
+
+When Medusa has ≤1 variant but CJ exposes a full matrix, the refiner runs the
+expansion engine (ported from `expand-cj-variants.mjs`) as a first-class step:
+
+- **Axis detection** splits CJ variant keys into option axes, including on a
+  bare `-` (e.g. `Black-7W warm light` → `Color` × `Light Mode`).
+- **ELV SKUs** are assigned directly (`CJ**<digits><letters>` → `ELV<digits>`),
+  with the original CJ SKU stashed at `variant.metadata.cj_sku`.
+- **Reuse + create:** the existing variant is reused (price preserved) and the
+  rest are created.
+- **Shared metadata inheritance:** every NEW variant inherits the base variant's
+  non-variant-specific metadata (e.g. expedited shipping tiers
+  `expeditedTier1Surcharge`/`DisplayName`/`Days`/`Method`, `shippingBakedIn`).
+  Per-variant keys (`image`, `color_image`, `cj_sku`, `cj_variant_sku`) are
+  **not** inherited. ⚠️ This was a real bug: without it, the storefront shipping
+  selector (which reads per-variant metadata) only showed on the original
+  variant. Any new per-variant feature must be added to the inherited set.
+
+One pass = expand + normalize SKUs + polish. The standalone
+`expand-cj-variants.mjs` / `normalize-elv-skus.mjs` remain for one-off/bulk use,
+but the refiner no longer delegates this work.
+
+**Flat pricing (default on).** A purely cosmetic axis (Color/Finish) must not
+change price. The engine groups variants by their non-cosmetic option indices
+and aligns each group to one price (the human-anchored base price when the base
+variant is in the group, otherwise the group's max). Only NEW variants are
+adjusted — the reused variant keeps its price. A **spec-axis guard** runs first:
+any axis whose values carry digits or unit/spec keywords (`7W`, `3000K`,
+`Dimming`, `60cm`…) is never treated as cosmetic. Disable with
+`--no-flat-price`.
+
+**Description keep-by-default.** The 2-paragraph scaffold is a generic fallback.
+When the current description is already clean (no `<img>`) and substantial
+(≥300 chars), the description step recommends **keep** — Enter keeps it, `--yes`
+auto-keeps. Accept only to replace good marketing copy with the scaffold.
 
 **What it only reports on:** option naming (you rename `Option 1/2` → e.g.
-`Color` / `Light Mode` interactively during the expansion review),
-pricing/shipping sanity, category, thumbnail integrity.
+`Color` / `Light Mode` interactively or via `--config`), pricing/shipping
+sanity, category, thumbnail integrity.
 
 **Per-section review:** each proposal shows current vs proposed and prompts
 `[a]ccept / [e]dit / [k]eep / [s]kip`. `[e]dit` opens `$EDITOR` seeded with the
@@ -379,12 +423,48 @@ value (JSON for the table). CJ is the source of truth but optional — if CJ is
 unavailable, the spec sheet/package size are built from existing Medusa
 `extractedSpecs` + dimensions + options.
 
+### 9.3 The `--config` file (non-interactive polished runs)
+
+Because the interactive axis-rename and spelling cleanup happen in `$EDITOR`,
+a `--config` JSON lets you pre-apply them so a `--yes` run still produces a
+polished result. Saved per product at `reports/catalog/refine/config-<cjSku>.json`.
+
+```jsonc
+{
+  // Rename axes + tidy value spellings. Counts/order MUST match the
+  // auto-detected matrix (index-stable) — do not add/remove/reorder values.
+  "optionTitles": ["Color", "Light Mode"],
+  "optionValues": [
+    ["Black", "White"],
+    ["7W Warm Light", "9W Warm Light", "7W Natural Light", "..."]
+  ],
+  "skus":   { "CJSN105178201AZ": "ELV105178201" },  // optional cjSku → ELV override
+  "prices": { "Black / 7W Warm Light": 4209 }        // optional "Val / Val" → cents
+}
+```
+
 **Outputs:** plan JSON + applied report under `reports/catalog/refine/`.
+
+### 9.4 Worked example — first live polish (2026-06-02)
+
+`Modern Flush Mount Ceiling Light for Hallways`
+(`prod_01KJK5G2EJPD22CRMZKZ7S9W6D`, CJ parent `CJSN1051782`) was taken from a
+single placeholder variant to a full, polished listing in one automated pass:
+
+- **1 → 16 variants** across `Color` (Black/White) × `Light Mode` (8 wattage/
+  temperature/dimming modes), SKUs `ELV105178201`–`216`.
+- **Flat pricing** across colors, scaling by mode
+  ($42.09 / $51.61 / $56.42 / $53.76 / $47.79).
+- **Description kept** (existing copy was clean & substantial).
+- `packageSize` `Ø85 × H75 mm`, `comparisonTable` 5 rows, 16/16 variant images,
+  `refinedAt` stamped.
+- Shipping tiers (USPS Priority +$7, DHL Express +$22) inherited by all 16
+  variants so the storefront shipping selector shows on every combination.
 
 ### Remaining steps
 
 1. ✅ Gap analysis doc (this file).
 2. ✅ `refine-listing.mjs` built.
-3. ⏭️ Pilot on a chosen product (`--dry-run` first), compare to the reference six, iterate.
+3. ✅ Piloted live on `CJSN1051782` (1 → 16 variants); engine proven end-to-end.
 4. ⏭️ (Optional) extend `audit_listing` with the 3 polish checks (§6.1) for batch reporting.
-5. ⏭️ Roll through the ~733 remaining listings, tracking `metadata.refinedAt`.
+5. ⏭️ Roll through the remaining ~732 listings, tracking `metadata.refinedAt`.

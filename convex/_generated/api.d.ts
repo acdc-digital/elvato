@@ -10,9 +10,11 @@
 
 import type * as cj_certifications from "../cj/certifications.js";
 import type * as cj_myProducts from "../cj/myProducts.js";
+import type * as customerComments from "../customerComments.js";
 import type * as files from "../files.js";
 import type * as fs from "../fs.js";
 import type * as http from "../http.js";
+import type * as marketplace_imagePipeline from "../marketplace/imagePipeline.js";
 import type * as medusa_staging from "../medusa/staging.js";
 import type * as medusa_variantMapping from "../medusa/variantMapping.js";
 import type * as products_actionHistory from "../products/actionHistory.js";
@@ -30,9 +32,11 @@ import type {
 declare const fullApi: ApiFromModules<{
   "cj/certifications": typeof cj_certifications;
   "cj/myProducts": typeof cj_myProducts;
+  customerComments: typeof customerComments;
   files: typeof files;
   fs: typeof fs;
   http: typeof http;
+  "marketplace/imagePipeline": typeof marketplace_imagePipeline;
   "medusa/staging": typeof medusa_staging;
   "medusa/variantMapping": typeof medusa_variantMapping;
   "products/actionHistory": typeof products_actionHistory;
