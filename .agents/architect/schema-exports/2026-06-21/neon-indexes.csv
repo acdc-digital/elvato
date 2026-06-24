@@ -1,0 +1,542 @@
+schemaname,tablename,indexname,indexdef
+public,account_holder,IDX_account_holder_deleted_at,"CREATE INDEX ""IDX_account_holder_deleted_at"" ON public.account_holder USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,account_holder,IDX_account_holder_provider_id_external_id_unique,"CREATE UNIQUE INDEX ""IDX_account_holder_provider_id_external_id_unique"" ON public.account_holder USING btree (provider_id, external_id) WHERE (deleted_at IS NULL)"
+public,account_holder,account_holder_pkey,CREATE UNIQUE INDEX account_holder_pkey ON public.account_holder USING btree (id)
+public,api_key,IDX_api_key_deleted_at,"CREATE INDEX ""IDX_api_key_deleted_at"" ON public.api_key USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,api_key,IDX_api_key_redacted,"CREATE INDEX ""IDX_api_key_redacted"" ON public.api_key USING btree (redacted) WHERE (deleted_at IS NULL)"
+public,api_key,IDX_api_key_revoked_at,"CREATE INDEX ""IDX_api_key_revoked_at"" ON public.api_key USING btree (revoked_at) WHERE (deleted_at IS NULL)"
+public,api_key,IDX_api_key_token_unique,"CREATE UNIQUE INDEX ""IDX_api_key_token_unique"" ON public.api_key USING btree (token)"
+public,api_key,IDX_api_key_type,"CREATE INDEX ""IDX_api_key_type"" ON public.api_key USING btree (type)"
+public,api_key,api_key_pkey,CREATE UNIQUE INDEX api_key_pkey ON public.api_key USING btree (id)
+public,application_method_buy_rules,application_method_buy_rules_pkey,"CREATE UNIQUE INDEX application_method_buy_rules_pkey ON public.application_method_buy_rules USING btree (application_method_id, promotion_rule_id)"
+public,application_method_target_rules,application_method_target_rules_pkey,"CREATE UNIQUE INDEX application_method_target_rules_pkey ON public.application_method_target_rules USING btree (application_method_id, promotion_rule_id)"
+public,auth_identity,IDX_auth_identity_deleted_at,"CREATE INDEX ""IDX_auth_identity_deleted_at"" ON public.auth_identity USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,auth_identity,auth_identity_pkey,CREATE UNIQUE INDEX auth_identity_pkey ON public.auth_identity USING btree (id)
+public,capture,IDX_capture_deleted_at,"CREATE INDEX ""IDX_capture_deleted_at"" ON public.capture USING btree (deleted_at)"
+public,capture,IDX_capture_payment_id,"CREATE INDEX ""IDX_capture_payment_id"" ON public.capture USING btree (payment_id) WHERE (deleted_at IS NULL)"
+public,capture,capture_pkey,CREATE UNIQUE INDEX capture_pkey ON public.capture USING btree (id)
+public,cart,IDX_cart_billing_address_id,"CREATE INDEX ""IDX_cart_billing_address_id"" ON public.cart USING btree (billing_address_id) WHERE ((deleted_at IS NULL) AND (billing_address_id IS NOT NULL))"
+public,cart,IDX_cart_currency_code,"CREATE INDEX ""IDX_cart_currency_code"" ON public.cart USING btree (currency_code)"
+public,cart,IDX_cart_customer_id,"CREATE INDEX ""IDX_cart_customer_id"" ON public.cart USING btree (customer_id) WHERE ((deleted_at IS NULL) AND (customer_id IS NOT NULL))"
+public,cart,IDX_cart_deleted_at,"CREATE INDEX ""IDX_cart_deleted_at"" ON public.cart USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart,IDX_cart_region_id,"CREATE INDEX ""IDX_cart_region_id"" ON public.cart USING btree (region_id) WHERE ((deleted_at IS NULL) AND (region_id IS NOT NULL))"
+public,cart,IDX_cart_sales_channel_id,"CREATE INDEX ""IDX_cart_sales_channel_id"" ON public.cart USING btree (sales_channel_id) WHERE ((deleted_at IS NULL) AND (sales_channel_id IS NOT NULL))"
+public,cart,IDX_cart_shipping_address_id,"CREATE INDEX ""IDX_cart_shipping_address_id"" ON public.cart USING btree (shipping_address_id) WHERE ((deleted_at IS NULL) AND (shipping_address_id IS NOT NULL))"
+public,cart,cart_pkey,CREATE UNIQUE INDEX cart_pkey ON public.cart USING btree (id)
+public,cart_address,IDX_cart_address_deleted_at,"CREATE INDEX ""IDX_cart_address_deleted_at"" ON public.cart_address USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart_address,cart_address_pkey,CREATE UNIQUE INDEX cart_address_pkey ON public.cart_address USING btree (id)
+public,cart_line_item,IDX_cart_line_item_cart_id,"CREATE INDEX ""IDX_cart_line_item_cart_id"" ON public.cart_line_item USING btree (cart_id) WHERE (deleted_at IS NULL)"
+public,cart_line_item,IDX_cart_line_item_deleted_at,"CREATE INDEX ""IDX_cart_line_item_deleted_at"" ON public.cart_line_item USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart_line_item,IDX_line_item_product_id,"CREATE INDEX ""IDX_line_item_product_id"" ON public.cart_line_item USING btree (product_id) WHERE ((deleted_at IS NULL) AND (product_id IS NOT NULL))"
+public,cart_line_item,IDX_line_item_variant_id,"CREATE INDEX ""IDX_line_item_variant_id"" ON public.cart_line_item USING btree (variant_id) WHERE ((deleted_at IS NULL) AND (variant_id IS NOT NULL))"
+public,cart_line_item,cart_line_item_pkey,CREATE UNIQUE INDEX cart_line_item_pkey ON public.cart_line_item USING btree (id)
+public,cart_line_item_adjustment,IDX_cart_line_item_adjustment_deleted_at,"CREATE INDEX ""IDX_cart_line_item_adjustment_deleted_at"" ON public.cart_line_item_adjustment USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart_line_item_adjustment,IDX_cart_line_item_adjustment_item_id,"CREATE INDEX ""IDX_cart_line_item_adjustment_item_id"" ON public.cart_line_item_adjustment USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,cart_line_item_adjustment,IDX_line_item_adjustment_promotion_id,"CREATE INDEX ""IDX_line_item_adjustment_promotion_id"" ON public.cart_line_item_adjustment USING btree (promotion_id) WHERE ((deleted_at IS NULL) AND (promotion_id IS NOT NULL))"
+public,cart_line_item_adjustment,cart_line_item_adjustment_pkey,CREATE UNIQUE INDEX cart_line_item_adjustment_pkey ON public.cart_line_item_adjustment USING btree (id)
+public,cart_line_item_tax_line,IDX_cart_line_item_tax_line_deleted_at,"CREATE INDEX ""IDX_cart_line_item_tax_line_deleted_at"" ON public.cart_line_item_tax_line USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart_line_item_tax_line,IDX_cart_line_item_tax_line_item_id,"CREATE INDEX ""IDX_cart_line_item_tax_line_item_id"" ON public.cart_line_item_tax_line USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,cart_line_item_tax_line,IDX_line_item_tax_line_tax_rate_id,"CREATE INDEX ""IDX_line_item_tax_line_tax_rate_id"" ON public.cart_line_item_tax_line USING btree (tax_rate_id) WHERE ((deleted_at IS NULL) AND (tax_rate_id IS NOT NULL))"
+public,cart_line_item_tax_line,cart_line_item_tax_line_pkey,CREATE UNIQUE INDEX cart_line_item_tax_line_pkey ON public.cart_line_item_tax_line USING btree (id)
+public,cart_payment_collection,IDX_cart_id_-4a39f6c9,"CREATE INDEX ""IDX_cart_id_-4a39f6c9"" ON public.cart_payment_collection USING btree (cart_id) WHERE (deleted_at IS NULL)"
+public,cart_payment_collection,IDX_deleted_at_-4a39f6c9,"CREATE INDEX ""IDX_deleted_at_-4a39f6c9"" ON public.cart_payment_collection USING btree (deleted_at)"
+public,cart_payment_collection,IDX_id_-4a39f6c9,"CREATE INDEX ""IDX_id_-4a39f6c9"" ON public.cart_payment_collection USING btree (id)"
+public,cart_payment_collection,IDX_payment_collection_id_-4a39f6c9,"CREATE INDEX ""IDX_payment_collection_id_-4a39f6c9"" ON public.cart_payment_collection USING btree (payment_collection_id) WHERE (deleted_at IS NULL)"
+public,cart_payment_collection,cart_payment_collection_pkey,"CREATE UNIQUE INDEX cart_payment_collection_pkey ON public.cart_payment_collection USING btree (cart_id, payment_collection_id)"
+public,cart_promotion,IDX_cart_id_-a9d4a70b,"CREATE INDEX ""IDX_cart_id_-a9d4a70b"" ON public.cart_promotion USING btree (cart_id) WHERE (deleted_at IS NULL)"
+public,cart_promotion,IDX_deleted_at_-a9d4a70b,"CREATE INDEX ""IDX_deleted_at_-a9d4a70b"" ON public.cart_promotion USING btree (deleted_at)"
+public,cart_promotion,IDX_id_-a9d4a70b,"CREATE INDEX ""IDX_id_-a9d4a70b"" ON public.cart_promotion USING btree (id)"
+public,cart_promotion,IDX_promotion_id_-a9d4a70b,"CREATE INDEX ""IDX_promotion_id_-a9d4a70b"" ON public.cart_promotion USING btree (promotion_id) WHERE (deleted_at IS NULL)"
+public,cart_promotion,cart_promotion_pkey,"CREATE UNIQUE INDEX cart_promotion_pkey ON public.cart_promotion USING btree (cart_id, promotion_id)"
+public,cart_shipping_method,IDX_cart_shipping_method_cart_id,"CREATE INDEX ""IDX_cart_shipping_method_cart_id"" ON public.cart_shipping_method USING btree (cart_id) WHERE (deleted_at IS NULL)"
+public,cart_shipping_method,IDX_cart_shipping_method_deleted_at,"CREATE INDEX ""IDX_cart_shipping_method_deleted_at"" ON public.cart_shipping_method USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart_shipping_method,IDX_shipping_method_option_id,"CREATE INDEX ""IDX_shipping_method_option_id"" ON public.cart_shipping_method USING btree (shipping_option_id) WHERE ((deleted_at IS NULL) AND (shipping_option_id IS NOT NULL))"
+public,cart_shipping_method,cart_shipping_method_pkey,CREATE UNIQUE INDEX cart_shipping_method_pkey ON public.cart_shipping_method USING btree (id)
+public,cart_shipping_method_adjustment,IDX_cart_shipping_method_adjustment_deleted_at,"CREATE INDEX ""IDX_cart_shipping_method_adjustment_deleted_at"" ON public.cart_shipping_method_adjustment USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart_shipping_method_adjustment,IDX_cart_shipping_method_adjustment_shipping_method_id,"CREATE INDEX ""IDX_cart_shipping_method_adjustment_shipping_method_id"" ON public.cart_shipping_method_adjustment USING btree (shipping_method_id) WHERE (deleted_at IS NULL)"
+public,cart_shipping_method_adjustment,IDX_shipping_method_adjustment_promotion_id,"CREATE INDEX ""IDX_shipping_method_adjustment_promotion_id"" ON public.cart_shipping_method_adjustment USING btree (promotion_id) WHERE ((deleted_at IS NULL) AND (promotion_id IS NOT NULL))"
+public,cart_shipping_method_adjustment,cart_shipping_method_adjustment_pkey,CREATE UNIQUE INDEX cart_shipping_method_adjustment_pkey ON public.cart_shipping_method_adjustment USING btree (id)
+public,cart_shipping_method_tax_line,IDX_cart_shipping_method_tax_line_deleted_at,"CREATE INDEX ""IDX_cart_shipping_method_tax_line_deleted_at"" ON public.cart_shipping_method_tax_line USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,cart_shipping_method_tax_line,IDX_cart_shipping_method_tax_line_shipping_method_id,"CREATE INDEX ""IDX_cart_shipping_method_tax_line_shipping_method_id"" ON public.cart_shipping_method_tax_line USING btree (shipping_method_id) WHERE (deleted_at IS NULL)"
+public,cart_shipping_method_tax_line,IDX_shipping_method_tax_line_tax_rate_id,"CREATE INDEX ""IDX_shipping_method_tax_line_tax_rate_id"" ON public.cart_shipping_method_tax_line USING btree (tax_rate_id) WHERE ((deleted_at IS NULL) AND (tax_rate_id IS NOT NULL))"
+public,cart_shipping_method_tax_line,cart_shipping_method_tax_line_pkey,CREATE UNIQUE INDEX cart_shipping_method_tax_line_pkey ON public.cart_shipping_method_tax_line USING btree (id)
+public,credit_line,IDX_cart_credit_line_reference_reference_id,"CREATE INDEX ""IDX_cart_credit_line_reference_reference_id"" ON public.credit_line USING btree (reference, reference_id) WHERE (deleted_at IS NOT NULL)"
+public,credit_line,IDX_credit_line_cart_id,"CREATE INDEX ""IDX_credit_line_cart_id"" ON public.credit_line USING btree (cart_id) WHERE (deleted_at IS NULL)"
+public,credit_line,IDX_credit_line_deleted_at,"CREATE INDEX ""IDX_credit_line_deleted_at"" ON public.credit_line USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,credit_line,credit_line_pkey,CREATE UNIQUE INDEX credit_line_pkey ON public.credit_line USING btree (id)
+public,currency,currency_pkey,CREATE UNIQUE INDEX currency_pkey ON public.currency USING btree (code)
+public,customer,IDX_customer_deleted_at,"CREATE INDEX ""IDX_customer_deleted_at"" ON public.customer USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,customer,IDX_customer_email_has_account_unique,"CREATE UNIQUE INDEX ""IDX_customer_email_has_account_unique"" ON public.customer USING btree (email, has_account) WHERE (deleted_at IS NULL)"
+public,customer,customer_pkey,CREATE UNIQUE INDEX customer_pkey ON public.customer USING btree (id)
+public,customer_account_holder,IDX_account_holder_id_5cb3a0c0,"CREATE INDEX ""IDX_account_holder_id_5cb3a0c0"" ON public.customer_account_holder USING btree (account_holder_id) WHERE (deleted_at IS NULL)"
+public,customer_account_holder,IDX_customer_id_5cb3a0c0,"CREATE INDEX ""IDX_customer_id_5cb3a0c0"" ON public.customer_account_holder USING btree (customer_id) WHERE (deleted_at IS NULL)"
+public,customer_account_holder,IDX_deleted_at_5cb3a0c0,"CREATE INDEX ""IDX_deleted_at_5cb3a0c0"" ON public.customer_account_holder USING btree (deleted_at)"
+public,customer_account_holder,IDX_id_5cb3a0c0,"CREATE INDEX ""IDX_id_5cb3a0c0"" ON public.customer_account_holder USING btree (id)"
+public,customer_account_holder,customer_account_holder_pkey,"CREATE UNIQUE INDEX customer_account_holder_pkey ON public.customer_account_holder USING btree (customer_id, account_holder_id)"
+public,customer_address,IDX_customer_address_customer_id,"CREATE INDEX ""IDX_customer_address_customer_id"" ON public.customer_address USING btree (customer_id)"
+public,customer_address,IDX_customer_address_deleted_at,"CREATE INDEX ""IDX_customer_address_deleted_at"" ON public.customer_address USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,customer_address,IDX_customer_address_unique_customer_billing,"CREATE UNIQUE INDEX ""IDX_customer_address_unique_customer_billing"" ON public.customer_address USING btree (customer_id) WHERE (is_default_billing = true)"
+public,customer_address,IDX_customer_address_unique_customer_shipping,"CREATE UNIQUE INDEX ""IDX_customer_address_unique_customer_shipping"" ON public.customer_address USING btree (customer_id) WHERE (is_default_shipping = true)"
+public,customer_address,customer_address_pkey,CREATE UNIQUE INDEX customer_address_pkey ON public.customer_address USING btree (id)
+public,customer_group,IDX_customer_group_deleted_at,"CREATE INDEX ""IDX_customer_group_deleted_at"" ON public.customer_group USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,customer_group,IDX_customer_group_name_unique,"CREATE UNIQUE INDEX ""IDX_customer_group_name_unique"" ON public.customer_group USING btree (name) WHERE (deleted_at IS NULL)"
+public,customer_group,customer_group_pkey,CREATE UNIQUE INDEX customer_group_pkey ON public.customer_group USING btree (id)
+public,customer_group_customer,IDX_customer_group_customer_customer_group_id,"CREATE INDEX ""IDX_customer_group_customer_customer_group_id"" ON public.customer_group_customer USING btree (customer_group_id) WHERE (deleted_at IS NULL)"
+public,customer_group_customer,IDX_customer_group_customer_customer_id,"CREATE INDEX ""IDX_customer_group_customer_customer_id"" ON public.customer_group_customer USING btree (customer_id)"
+public,customer_group_customer,IDX_customer_group_customer_deleted_at,"CREATE INDEX ""IDX_customer_group_customer_deleted_at"" ON public.customer_group_customer USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,customer_group_customer,customer_group_customer_pkey,CREATE UNIQUE INDEX customer_group_customer_pkey ON public.customer_group_customer USING btree (id)
+public,fulfillment,IDX_fulfillment_deleted_at,"CREATE INDEX ""IDX_fulfillment_deleted_at"" ON public.fulfillment USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,fulfillment,IDX_fulfillment_location_id,"CREATE INDEX ""IDX_fulfillment_location_id"" ON public.fulfillment USING btree (location_id) WHERE (deleted_at IS NULL)"
+public,fulfillment,IDX_fulfillment_shipping_option_id,"CREATE INDEX ""IDX_fulfillment_shipping_option_id"" ON public.fulfillment USING btree (shipping_option_id) WHERE (deleted_at IS NULL)"
+public,fulfillment,fulfillment_pkey,CREATE UNIQUE INDEX fulfillment_pkey ON public.fulfillment USING btree (id)
+public,fulfillment_address,IDX_fulfillment_address_deleted_at,"CREATE INDEX ""IDX_fulfillment_address_deleted_at"" ON public.fulfillment_address USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,fulfillment_address,fulfillment_address_pkey,CREATE UNIQUE INDEX fulfillment_address_pkey ON public.fulfillment_address USING btree (id)
+public,fulfillment_item,IDX_fulfillment_item_deleted_at,"CREATE INDEX ""IDX_fulfillment_item_deleted_at"" ON public.fulfillment_item USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,fulfillment_item,IDX_fulfillment_item_fulfillment_id,"CREATE INDEX ""IDX_fulfillment_item_fulfillment_id"" ON public.fulfillment_item USING btree (fulfillment_id) WHERE (deleted_at IS NULL)"
+public,fulfillment_item,IDX_fulfillment_item_inventory_item_id,"CREATE INDEX ""IDX_fulfillment_item_inventory_item_id"" ON public.fulfillment_item USING btree (inventory_item_id) WHERE (deleted_at IS NULL)"
+public,fulfillment_item,IDX_fulfillment_item_line_item_id,"CREATE INDEX ""IDX_fulfillment_item_line_item_id"" ON public.fulfillment_item USING btree (line_item_id) WHERE (deleted_at IS NULL)"
+public,fulfillment_item,fulfillment_item_pkey,CREATE UNIQUE INDEX fulfillment_item_pkey ON public.fulfillment_item USING btree (id)
+public,fulfillment_label,IDX_fulfillment_label_deleted_at,"CREATE INDEX ""IDX_fulfillment_label_deleted_at"" ON public.fulfillment_label USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,fulfillment_label,IDX_fulfillment_label_fulfillment_id,"CREATE INDEX ""IDX_fulfillment_label_fulfillment_id"" ON public.fulfillment_label USING btree (fulfillment_id) WHERE (deleted_at IS NULL)"
+public,fulfillment_label,fulfillment_label_pkey,CREATE UNIQUE INDEX fulfillment_label_pkey ON public.fulfillment_label USING btree (id)
+public,fulfillment_provider,IDX_fulfillment_provider_deleted_at,"CREATE INDEX ""IDX_fulfillment_provider_deleted_at"" ON public.fulfillment_provider USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,fulfillment_provider,fulfillment_provider_pkey,CREATE UNIQUE INDEX fulfillment_provider_pkey ON public.fulfillment_provider USING btree (id)
+public,fulfillment_set,IDX_fulfillment_set_deleted_at,"CREATE INDEX ""IDX_fulfillment_set_deleted_at"" ON public.fulfillment_set USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,fulfillment_set,IDX_fulfillment_set_name_unique,"CREATE UNIQUE INDEX ""IDX_fulfillment_set_name_unique"" ON public.fulfillment_set USING btree (name) WHERE (deleted_at IS NULL)"
+public,fulfillment_set,fulfillment_set_pkey,CREATE UNIQUE INDEX fulfillment_set_pkey ON public.fulfillment_set USING btree (id)
+public,geo_zone,IDX_geo_zone_city,"CREATE INDEX ""IDX_geo_zone_city"" ON public.geo_zone USING btree (city) WHERE ((deleted_at IS NULL) AND (city IS NOT NULL))"
+public,geo_zone,IDX_geo_zone_country_code,"CREATE INDEX ""IDX_geo_zone_country_code"" ON public.geo_zone USING btree (country_code) WHERE (deleted_at IS NULL)"
+public,geo_zone,IDX_geo_zone_deleted_at,"CREATE INDEX ""IDX_geo_zone_deleted_at"" ON public.geo_zone USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,geo_zone,IDX_geo_zone_province_code,"CREATE INDEX ""IDX_geo_zone_province_code"" ON public.geo_zone USING btree (province_code) WHERE ((deleted_at IS NULL) AND (province_code IS NOT NULL))"
+public,geo_zone,IDX_geo_zone_service_zone_id,"CREATE INDEX ""IDX_geo_zone_service_zone_id"" ON public.geo_zone USING btree (service_zone_id) WHERE (deleted_at IS NULL)"
+public,geo_zone,geo_zone_pkey,CREATE UNIQUE INDEX geo_zone_pkey ON public.geo_zone USING btree (id)
+public,image,IDX_image_deleted_at,"CREATE INDEX ""IDX_image_deleted_at"" ON public.image USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,image,IDX_image_product_id,"CREATE INDEX ""IDX_image_product_id"" ON public.image USING btree (product_id) WHERE (deleted_at IS NULL)"
+public,image,IDX_product_image_rank,"CREATE INDEX ""IDX_product_image_rank"" ON public.image USING btree (rank) WHERE (deleted_at IS NULL)"
+public,image,IDX_product_image_rank_product_id,"CREATE INDEX ""IDX_product_image_rank_product_id"" ON public.image USING btree (rank, product_id) WHERE (deleted_at IS NULL)"
+public,image,IDX_product_image_url,"CREATE INDEX ""IDX_product_image_url"" ON public.image USING btree (url) WHERE (deleted_at IS NULL)"
+public,image,IDX_product_image_url_rank_product_id,"CREATE INDEX ""IDX_product_image_url_rank_product_id"" ON public.image USING btree (url, rank, product_id) WHERE (deleted_at IS NULL)"
+public,image,image_pkey,CREATE UNIQUE INDEX image_pkey ON public.image USING btree (id)
+public,inventory_item,IDX_inventory_item_deleted_at,"CREATE INDEX ""IDX_inventory_item_deleted_at"" ON public.inventory_item USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,inventory_item,IDX_inventory_item_sku,"CREATE UNIQUE INDEX ""IDX_inventory_item_sku"" ON public.inventory_item USING btree (sku) WHERE (deleted_at IS NULL)"
+public,inventory_item,inventory_item_pkey,CREATE UNIQUE INDEX inventory_item_pkey ON public.inventory_item USING btree (id)
+public,inventory_level,IDX_inventory_level_deleted_at,"CREATE INDEX ""IDX_inventory_level_deleted_at"" ON public.inventory_level USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,inventory_level,IDX_inventory_level_inventory_item_id,"CREATE INDEX ""IDX_inventory_level_inventory_item_id"" ON public.inventory_level USING btree (inventory_item_id) WHERE (deleted_at IS NULL)"
+public,inventory_level,IDX_inventory_level_location_id,"CREATE INDEX ""IDX_inventory_level_location_id"" ON public.inventory_level USING btree (location_id) WHERE (deleted_at IS NULL)"
+public,inventory_level,IDX_inventory_level_location_id_inventory_item_id,"CREATE UNIQUE INDEX ""IDX_inventory_level_location_id_inventory_item_id"" ON public.inventory_level USING btree (inventory_item_id, location_id) WHERE (deleted_at IS NULL)"
+public,inventory_level,inventory_level_pkey,CREATE UNIQUE INDEX inventory_level_pkey ON public.inventory_level USING btree (id)
+public,invite,IDX_invite_deleted_at,"CREATE INDEX ""IDX_invite_deleted_at"" ON public.invite USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,invite,IDX_invite_email_unique,"CREATE UNIQUE INDEX ""IDX_invite_email_unique"" ON public.invite USING btree (email) WHERE (deleted_at IS NULL)"
+public,invite,IDX_invite_token,"CREATE INDEX ""IDX_invite_token"" ON public.invite USING btree (token) WHERE (deleted_at IS NULL)"
+public,invite,invite_pkey,CREATE UNIQUE INDEX invite_pkey ON public.invite USING btree (id)
+public,link_module_migrations,link_module_migrations_pkey,CREATE UNIQUE INDEX link_module_migrations_pkey ON public.link_module_migrations USING btree (id)
+public,link_module_migrations,link_module_migrations_table_name_key,CREATE UNIQUE INDEX link_module_migrations_table_name_key ON public.link_module_migrations USING btree (table_name)
+public,location_fulfillment_provider,IDX_deleted_at_-1e5992737,"CREATE INDEX ""IDX_deleted_at_-1e5992737"" ON public.location_fulfillment_provider USING btree (deleted_at)"
+public,location_fulfillment_provider,IDX_fulfillment_provider_id_-1e5992737,"CREATE INDEX ""IDX_fulfillment_provider_id_-1e5992737"" ON public.location_fulfillment_provider USING btree (fulfillment_provider_id) WHERE (deleted_at IS NULL)"
+public,location_fulfillment_provider,IDX_id_-1e5992737,"CREATE INDEX ""IDX_id_-1e5992737"" ON public.location_fulfillment_provider USING btree (id)"
+public,location_fulfillment_provider,IDX_stock_location_id_-1e5992737,"CREATE INDEX ""IDX_stock_location_id_-1e5992737"" ON public.location_fulfillment_provider USING btree (stock_location_id) WHERE (deleted_at IS NULL)"
+public,location_fulfillment_provider,location_fulfillment_provider_pkey,"CREATE UNIQUE INDEX location_fulfillment_provider_pkey ON public.location_fulfillment_provider USING btree (stock_location_id, fulfillment_provider_id)"
+public,location_fulfillment_set,IDX_deleted_at_-e88adb96,"CREATE INDEX ""IDX_deleted_at_-e88adb96"" ON public.location_fulfillment_set USING btree (deleted_at)"
+public,location_fulfillment_set,IDX_fulfillment_set_id_-e88adb96,"CREATE INDEX ""IDX_fulfillment_set_id_-e88adb96"" ON public.location_fulfillment_set USING btree (fulfillment_set_id) WHERE (deleted_at IS NULL)"
+public,location_fulfillment_set,IDX_id_-e88adb96,"CREATE INDEX ""IDX_id_-e88adb96"" ON public.location_fulfillment_set USING btree (id)"
+public,location_fulfillment_set,IDX_stock_location_id_-e88adb96,"CREATE INDEX ""IDX_stock_location_id_-e88adb96"" ON public.location_fulfillment_set USING btree (stock_location_id) WHERE (deleted_at IS NULL)"
+public,location_fulfillment_set,location_fulfillment_set_pkey,"CREATE UNIQUE INDEX location_fulfillment_set_pkey ON public.location_fulfillment_set USING btree (stock_location_id, fulfillment_set_id)"
+public,mikro_orm_migrations,mikro_orm_migrations_pkey,CREATE UNIQUE INDEX mikro_orm_migrations_pkey ON public.mikro_orm_migrations USING btree (id)
+public,notification,IDX_notification_deleted_at,"CREATE INDEX ""IDX_notification_deleted_at"" ON public.notification USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,notification,IDX_notification_idempotency_key_unique,"CREATE UNIQUE INDEX ""IDX_notification_idempotency_key_unique"" ON public.notification USING btree (idempotency_key) WHERE (deleted_at IS NULL)"
+public,notification,IDX_notification_provider_id,"CREATE INDEX ""IDX_notification_provider_id"" ON public.notification USING btree (provider_id)"
+public,notification,IDX_notification_receiver_id,"CREATE INDEX ""IDX_notification_receiver_id"" ON public.notification USING btree (receiver_id)"
+public,notification,notification_pkey,CREATE UNIQUE INDEX notification_pkey ON public.notification USING btree (id)
+public,notification_provider,IDX_notification_provider_deleted_at,"CREATE INDEX ""IDX_notification_provider_deleted_at"" ON public.notification_provider USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,notification_provider,notification_provider_pkey,CREATE UNIQUE INDEX notification_provider_pkey ON public.notification_provider USING btree (id)
+public,order,IDX_order_billing_address_id,"CREATE INDEX ""IDX_order_billing_address_id"" ON public.""order"" USING btree (billing_address_id) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_currency_code,"CREATE INDEX ""IDX_order_currency_code"" ON public.""order"" USING btree (currency_code) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_custom_display_id,"CREATE UNIQUE INDEX ""IDX_order_custom_display_id"" ON public.""order"" USING btree (custom_display_id) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_customer_id,"CREATE INDEX ""IDX_order_customer_id"" ON public.""order"" USING btree (customer_id) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_deleted_at,"CREATE INDEX ""IDX_order_deleted_at"" ON public.""order"" USING btree (deleted_at)"
+public,order,IDX_order_display_id,"CREATE INDEX ""IDX_order_display_id"" ON public.""order"" USING btree (display_id) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_is_draft_order,"CREATE INDEX ""IDX_order_is_draft_order"" ON public.""order"" USING btree (is_draft_order) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_region_id,"CREATE INDEX ""IDX_order_region_id"" ON public.""order"" USING btree (region_id) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_sales_channel_id,"CREATE INDEX ""IDX_order_sales_channel_id"" ON public.""order"" USING btree (sales_channel_id) WHERE (deleted_at IS NULL)"
+public,order,IDX_order_shipping_address_id,"CREATE INDEX ""IDX_order_shipping_address_id"" ON public.""order"" USING btree (shipping_address_id) WHERE (deleted_at IS NULL)"
+public,order,order_pkey,"CREATE UNIQUE INDEX order_pkey ON public.""order"" USING btree (id)"
+public,order_address,IDX_order_address_customer_id,"CREATE INDEX ""IDX_order_address_customer_id"" ON public.order_address USING btree (customer_id)"
+public,order_address,IDX_order_address_deleted_at,"CREATE INDEX ""IDX_order_address_deleted_at"" ON public.order_address USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,order_address,order_address_pkey,CREATE UNIQUE INDEX order_address_pkey ON public.order_address USING btree (id)
+public,order_cart,IDX_cart_id_-71069c16,"CREATE INDEX ""IDX_cart_id_-71069c16"" ON public.order_cart USING btree (cart_id) WHERE (deleted_at IS NULL)"
+public,order_cart,IDX_deleted_at_-71069c16,"CREATE INDEX ""IDX_deleted_at_-71069c16"" ON public.order_cart USING btree (deleted_at)"
+public,order_cart,IDX_id_-71069c16,"CREATE INDEX ""IDX_id_-71069c16"" ON public.order_cart USING btree (id)"
+public,order_cart,IDX_order_id_-71069c16,"CREATE INDEX ""IDX_order_id_-71069c16"" ON public.order_cart USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_cart,order_cart_pkey,"CREATE UNIQUE INDEX order_cart_pkey ON public.order_cart USING btree (order_id, cart_id)"
+public,order_change,IDX_order_change_change_type,"CREATE INDEX ""IDX_order_change_change_type"" ON public.order_change USING btree (change_type)"
+public,order_change,IDX_order_change_claim_id,"CREATE INDEX ""IDX_order_change_claim_id"" ON public.order_change USING btree (claim_id) WHERE ((claim_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_change,IDX_order_change_deleted_at,"CREATE INDEX ""IDX_order_change_deleted_at"" ON public.order_change USING btree (deleted_at)"
+public,order_change,IDX_order_change_exchange_id,"CREATE INDEX ""IDX_order_change_exchange_id"" ON public.order_change USING btree (exchange_id) WHERE ((exchange_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_change,IDX_order_change_order_id,"CREATE INDEX ""IDX_order_change_order_id"" ON public.order_change USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_change,IDX_order_change_order_id_version,"CREATE INDEX ""IDX_order_change_order_id_version"" ON public.order_change USING btree (order_id, version)"
+public,order_change,IDX_order_change_return_id,"CREATE INDEX ""IDX_order_change_return_id"" ON public.order_change USING btree (return_id) WHERE ((return_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_change,IDX_order_change_status,"CREATE INDEX ""IDX_order_change_status"" ON public.order_change USING btree (status) WHERE (deleted_at IS NULL)"
+public,order_change,IDX_order_change_version,"CREATE INDEX ""IDX_order_change_version"" ON public.order_change USING btree (order_id, version) WHERE (deleted_at IS NULL)"
+public,order_change,order_change_pkey,CREATE UNIQUE INDEX order_change_pkey ON public.order_change USING btree (id)
+public,order_change_action,IDX_order_change_action_claim_id,"CREATE INDEX ""IDX_order_change_action_claim_id"" ON public.order_change_action USING btree (claim_id) WHERE ((claim_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_change_action,IDX_order_change_action_deleted_at,"CREATE INDEX ""IDX_order_change_action_deleted_at"" ON public.order_change_action USING btree (deleted_at)"
+public,order_change_action,IDX_order_change_action_exchange_id,"CREATE INDEX ""IDX_order_change_action_exchange_id"" ON public.order_change_action USING btree (exchange_id) WHERE ((exchange_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_change_action,IDX_order_change_action_order_change_id,"CREATE INDEX ""IDX_order_change_action_order_change_id"" ON public.order_change_action USING btree (order_change_id) WHERE (deleted_at IS NULL)"
+public,order_change_action,IDX_order_change_action_order_id,"CREATE INDEX ""IDX_order_change_action_order_id"" ON public.order_change_action USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_change_action,IDX_order_change_action_ordering,"CREATE INDEX ""IDX_order_change_action_ordering"" ON public.order_change_action USING btree (ordering) WHERE (deleted_at IS NULL)"
+public,order_change_action,IDX_order_change_action_return_id,"CREATE INDEX ""IDX_order_change_action_return_id"" ON public.order_change_action USING btree (return_id) WHERE ((return_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_change_action,order_change_action_pkey,CREATE UNIQUE INDEX order_change_action_pkey ON public.order_change_action USING btree (id)
+public,order_claim,IDX_order_claim_deleted_at,"CREATE INDEX ""IDX_order_claim_deleted_at"" ON public.order_claim USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,order_claim,IDX_order_claim_display_id,"CREATE INDEX ""IDX_order_claim_display_id"" ON public.order_claim USING btree (display_id) WHERE (deleted_at IS NULL)"
+public,order_claim,IDX_order_claim_order_id,"CREATE INDEX ""IDX_order_claim_order_id"" ON public.order_claim USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_claim,IDX_order_claim_return_id,"CREATE INDEX ""IDX_order_claim_return_id"" ON public.order_claim USING btree (return_id) WHERE ((return_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_claim,order_claim_pkey,CREATE UNIQUE INDEX order_claim_pkey ON public.order_claim USING btree (id)
+public,order_claim_item,IDX_order_claim_item_claim_id,"CREATE INDEX ""IDX_order_claim_item_claim_id"" ON public.order_claim_item USING btree (claim_id) WHERE (deleted_at IS NULL)"
+public,order_claim_item,IDX_order_claim_item_deleted_at,"CREATE INDEX ""IDX_order_claim_item_deleted_at"" ON public.order_claim_item USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,order_claim_item,IDX_order_claim_item_item_id,"CREATE INDEX ""IDX_order_claim_item_item_id"" ON public.order_claim_item USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,order_claim_item,order_claim_item_pkey,CREATE UNIQUE INDEX order_claim_item_pkey ON public.order_claim_item USING btree (id)
+public,order_claim_item_image,IDX_order_claim_item_image_claim_item_id,"CREATE INDEX ""IDX_order_claim_item_image_claim_item_id"" ON public.order_claim_item_image USING btree (claim_item_id) WHERE (deleted_at IS NULL)"
+public,order_claim_item_image,IDX_order_claim_item_image_deleted_at,"CREATE INDEX ""IDX_order_claim_item_image_deleted_at"" ON public.order_claim_item_image USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,order_claim_item_image,order_claim_item_image_pkey,CREATE UNIQUE INDEX order_claim_item_image_pkey ON public.order_claim_item_image USING btree (id)
+public,order_credit_line,IDX_order_credit_line_deleted_at,"CREATE INDEX ""IDX_order_credit_line_deleted_at"" ON public.order_credit_line USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,order_credit_line,IDX_order_credit_line_order_id,"CREATE INDEX ""IDX_order_credit_line_order_id"" ON public.order_credit_line USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_credit_line,IDX_order_credit_line_order_id_version,"CREATE INDEX ""IDX_order_credit_line_order_id_version"" ON public.order_credit_line USING btree (order_id, version) WHERE (deleted_at IS NULL)"
+public,order_credit_line,order_credit_line_pkey,CREATE UNIQUE INDEX order_credit_line_pkey ON public.order_credit_line USING btree (id)
+public,order_exchange,IDX_order_exchange_deleted_at,"CREATE INDEX ""IDX_order_exchange_deleted_at"" ON public.order_exchange USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,order_exchange,IDX_order_exchange_display_id,"CREATE INDEX ""IDX_order_exchange_display_id"" ON public.order_exchange USING btree (display_id) WHERE (deleted_at IS NULL)"
+public,order_exchange,IDX_order_exchange_order_id,"CREATE INDEX ""IDX_order_exchange_order_id"" ON public.order_exchange USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_exchange,IDX_order_exchange_return_id,"CREATE INDEX ""IDX_order_exchange_return_id"" ON public.order_exchange USING btree (return_id) WHERE ((return_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_exchange,order_exchange_pkey,CREATE UNIQUE INDEX order_exchange_pkey ON public.order_exchange USING btree (id)
+public,order_exchange_item,IDX_order_exchange_item_deleted_at,"CREATE INDEX ""IDX_order_exchange_item_deleted_at"" ON public.order_exchange_item USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,order_exchange_item,IDX_order_exchange_item_exchange_id,"CREATE INDEX ""IDX_order_exchange_item_exchange_id"" ON public.order_exchange_item USING btree (exchange_id) WHERE (deleted_at IS NULL)"
+public,order_exchange_item,IDX_order_exchange_item_item_id,"CREATE INDEX ""IDX_order_exchange_item_item_id"" ON public.order_exchange_item USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,order_exchange_item,order_exchange_item_pkey,CREATE UNIQUE INDEX order_exchange_item_pkey ON public.order_exchange_item USING btree (id)
+public,order_fulfillment,IDX_deleted_at_-e8d2543e,"CREATE INDEX ""IDX_deleted_at_-e8d2543e"" ON public.order_fulfillment USING btree (deleted_at)"
+public,order_fulfillment,IDX_fulfillment_id_-e8d2543e,"CREATE INDEX ""IDX_fulfillment_id_-e8d2543e"" ON public.order_fulfillment USING btree (fulfillment_id) WHERE (deleted_at IS NULL)"
+public,order_fulfillment,IDX_id_-e8d2543e,"CREATE INDEX ""IDX_id_-e8d2543e"" ON public.order_fulfillment USING btree (id)"
+public,order_fulfillment,IDX_order_id_-e8d2543e,"CREATE INDEX ""IDX_order_id_-e8d2543e"" ON public.order_fulfillment USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_fulfillment,order_fulfillment_pkey,"CREATE UNIQUE INDEX order_fulfillment_pkey ON public.order_fulfillment USING btree (order_id, fulfillment_id)"
+public,order_item,IDX_order_item_deleted_at,"CREATE INDEX ""IDX_order_item_deleted_at"" ON public.order_item USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,order_item,IDX_order_item_item_id,"CREATE INDEX ""IDX_order_item_item_id"" ON public.order_item USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,order_item,IDX_order_item_order_id,"CREATE INDEX ""IDX_order_item_order_id"" ON public.order_item USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_item,IDX_order_item_order_id_version,"CREATE INDEX ""IDX_order_item_order_id_version"" ON public.order_item USING btree (order_id, version) WHERE (deleted_at IS NULL)"
+public,order_item,order_item_pkey,CREATE UNIQUE INDEX order_item_pkey ON public.order_item USING btree (id)
+public,order_line_item,IDX_line_item_product_type_id,"CREATE INDEX ""IDX_line_item_product_type_id"" ON public.order_line_item USING btree (product_type_id) WHERE ((deleted_at IS NULL) AND (product_type_id IS NOT NULL))"
+public,order_line_item,IDX_order_line_item_product_id,"CREATE INDEX ""IDX_order_line_item_product_id"" ON public.order_line_item USING btree (product_id) WHERE (deleted_at IS NULL)"
+public,order_line_item,IDX_order_line_item_variant_id,"CREATE INDEX ""IDX_order_line_item_variant_id"" ON public.order_line_item USING btree (variant_id) WHERE (deleted_at IS NULL)"
+public,order_line_item,order_line_item_pkey,CREATE UNIQUE INDEX order_line_item_pkey ON public.order_line_item USING btree (id)
+public,order_line_item_adjustment,IDX_order_line_item_adjustment_item_id,"CREATE INDEX ""IDX_order_line_item_adjustment_item_id"" ON public.order_line_item_adjustment USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,order_line_item_adjustment,order_line_item_adjustment_pkey,CREATE UNIQUE INDEX order_line_item_adjustment_pkey ON public.order_line_item_adjustment USING btree (id)
+public,order_line_item_tax_line,IDX_order_line_item_tax_line_item_id,"CREATE INDEX ""IDX_order_line_item_tax_line_item_id"" ON public.order_line_item_tax_line USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,order_line_item_tax_line,order_line_item_tax_line_pkey,CREATE UNIQUE INDEX order_line_item_tax_line_pkey ON public.order_line_item_tax_line USING btree (id)
+public,order_payment_collection,IDX_deleted_at_f42b9949,"CREATE INDEX ""IDX_deleted_at_f42b9949"" ON public.order_payment_collection USING btree (deleted_at)"
+public,order_payment_collection,IDX_id_f42b9949,"CREATE INDEX ""IDX_id_f42b9949"" ON public.order_payment_collection USING btree (id)"
+public,order_payment_collection,IDX_order_id_f42b9949,"CREATE INDEX ""IDX_order_id_f42b9949"" ON public.order_payment_collection USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_payment_collection,IDX_payment_collection_id_f42b9949,"CREATE INDEX ""IDX_payment_collection_id_f42b9949"" ON public.order_payment_collection USING btree (payment_collection_id) WHERE (deleted_at IS NULL)"
+public,order_payment_collection,order_payment_collection_pkey,"CREATE UNIQUE INDEX order_payment_collection_pkey ON public.order_payment_collection USING btree (order_id, payment_collection_id)"
+public,order_promotion,IDX_deleted_at_-71518339,"CREATE INDEX ""IDX_deleted_at_-71518339"" ON public.order_promotion USING btree (deleted_at)"
+public,order_promotion,IDX_id_-71518339,"CREATE INDEX ""IDX_id_-71518339"" ON public.order_promotion USING btree (id)"
+public,order_promotion,IDX_order_id_-71518339,"CREATE INDEX ""IDX_order_id_-71518339"" ON public.order_promotion USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_promotion,IDX_promotion_id_-71518339,"CREATE INDEX ""IDX_promotion_id_-71518339"" ON public.order_promotion USING btree (promotion_id) WHERE (deleted_at IS NULL)"
+public,order_promotion,order_promotion_pkey,"CREATE UNIQUE INDEX order_promotion_pkey ON public.order_promotion USING btree (order_id, promotion_id)"
+public,order_shipping,IDX_order_shipping_claim_id,"CREATE INDEX ""IDX_order_shipping_claim_id"" ON public.order_shipping USING btree (claim_id) WHERE ((claim_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_shipping,IDX_order_shipping_deleted_at,"CREATE INDEX ""IDX_order_shipping_deleted_at"" ON public.order_shipping USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,order_shipping,IDX_order_shipping_exchange_id,"CREATE INDEX ""IDX_order_shipping_exchange_id"" ON public.order_shipping USING btree (exchange_id) WHERE ((exchange_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_shipping,IDX_order_shipping_item_id,"CREATE INDEX ""IDX_order_shipping_item_id"" ON public.order_shipping USING btree (shipping_method_id) WHERE (deleted_at IS NULL)"
+public,order_shipping,IDX_order_shipping_order_id,"CREATE INDEX ""IDX_order_shipping_order_id"" ON public.order_shipping USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_shipping,IDX_order_shipping_order_id_version,"CREATE INDEX ""IDX_order_shipping_order_id_version"" ON public.order_shipping USING btree (order_id, version) WHERE (deleted_at IS NULL)"
+public,order_shipping,IDX_order_shipping_return_id,"CREATE INDEX ""IDX_order_shipping_return_id"" ON public.order_shipping USING btree (return_id) WHERE ((return_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_shipping,IDX_order_shipping_shipping_method_id,"CREATE INDEX ""IDX_order_shipping_shipping_method_id"" ON public.order_shipping USING btree (shipping_method_id) WHERE (deleted_at IS NULL)"
+public,order_shipping,order_shipping_pkey,CREATE UNIQUE INDEX order_shipping_pkey ON public.order_shipping USING btree (id)
+public,order_shipping_method,IDX_order_shipping_method_shipping_option_id,"CREATE INDEX ""IDX_order_shipping_method_shipping_option_id"" ON public.order_shipping_method USING btree (shipping_option_id) WHERE (deleted_at IS NULL)"
+public,order_shipping_method,order_shipping_method_pkey,CREATE UNIQUE INDEX order_shipping_method_pkey ON public.order_shipping_method USING btree (id)
+public,order_shipping_method_adjustment,IDX_order_shipping_method_adjustment_shipping_method_id,"CREATE INDEX ""IDX_order_shipping_method_adjustment_shipping_method_id"" ON public.order_shipping_method_adjustment USING btree (shipping_method_id) WHERE (deleted_at IS NULL)"
+public,order_shipping_method_adjustment,order_shipping_method_adjustment_pkey,CREATE UNIQUE INDEX order_shipping_method_adjustment_pkey ON public.order_shipping_method_adjustment USING btree (id)
+public,order_shipping_method_tax_line,IDX_order_shipping_method_tax_line_shipping_method_id,"CREATE INDEX ""IDX_order_shipping_method_tax_line_shipping_method_id"" ON public.order_shipping_method_tax_line USING btree (shipping_method_id) WHERE (deleted_at IS NULL)"
+public,order_shipping_method_tax_line,order_shipping_method_tax_line_pkey,CREATE UNIQUE INDEX order_shipping_method_tax_line_pkey ON public.order_shipping_method_tax_line USING btree (id)
+public,order_summary,IDX_order_summary_deleted_at,"CREATE INDEX ""IDX_order_summary_deleted_at"" ON public.order_summary USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,order_summary,IDX_order_summary_order_id_version,"CREATE INDEX ""IDX_order_summary_order_id_version"" ON public.order_summary USING btree (order_id, version) WHERE (deleted_at IS NULL)"
+public,order_summary,order_summary_pkey,CREATE UNIQUE INDEX order_summary_pkey ON public.order_summary USING btree (id)
+public,order_transaction,IDX_order_transaction_claim_id,"CREATE INDEX ""IDX_order_transaction_claim_id"" ON public.order_transaction USING btree (claim_id) WHERE ((claim_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_transaction,IDX_order_transaction_currency_code,"CREATE INDEX ""IDX_order_transaction_currency_code"" ON public.order_transaction USING btree (currency_code) WHERE (deleted_at IS NULL)"
+public,order_transaction,IDX_order_transaction_exchange_id,"CREATE INDEX ""IDX_order_transaction_exchange_id"" ON public.order_transaction USING btree (exchange_id) WHERE ((exchange_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_transaction,IDX_order_transaction_order_id,"CREATE INDEX ""IDX_order_transaction_order_id"" ON public.order_transaction USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,order_transaction,IDX_order_transaction_order_id_version,"CREATE INDEX ""IDX_order_transaction_order_id_version"" ON public.order_transaction USING btree (order_id, version) WHERE (deleted_at IS NULL)"
+public,order_transaction,IDX_order_transaction_reference_id,"CREATE INDEX ""IDX_order_transaction_reference_id"" ON public.order_transaction USING btree (reference_id) WHERE (deleted_at IS NULL)"
+public,order_transaction,IDX_order_transaction_return_id,"CREATE INDEX ""IDX_order_transaction_return_id"" ON public.order_transaction USING btree (return_id) WHERE ((return_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,order_transaction,order_transaction_pkey,CREATE UNIQUE INDEX order_transaction_pkey ON public.order_transaction USING btree (id)
+public,payment,IDX_payment_deleted_at,"CREATE INDEX ""IDX_payment_deleted_at"" ON public.payment USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,payment,IDX_payment_payment_collection_id,"CREATE INDEX ""IDX_payment_payment_collection_id"" ON public.payment USING btree (payment_collection_id) WHERE (deleted_at IS NULL)"
+public,payment,IDX_payment_payment_session_id,"CREATE INDEX ""IDX_payment_payment_session_id"" ON public.payment USING btree (payment_session_id)"
+public,payment,IDX_payment_payment_session_id_unique,"CREATE UNIQUE INDEX ""IDX_payment_payment_session_id_unique"" ON public.payment USING btree (payment_session_id) WHERE (deleted_at IS NULL)"
+public,payment,IDX_payment_provider_id,"CREATE INDEX ""IDX_payment_provider_id"" ON public.payment USING btree (provider_id) WHERE (deleted_at IS NULL)"
+public,payment,payment_pkey,CREATE UNIQUE INDEX payment_pkey ON public.payment USING btree (id)
+public,payment_collection,IDX_payment_collection_deleted_at,"CREATE INDEX ""IDX_payment_collection_deleted_at"" ON public.payment_collection USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,payment_collection,payment_collection_pkey,CREATE UNIQUE INDEX payment_collection_pkey ON public.payment_collection USING btree (id)
+public,payment_collection_payment_providers,payment_collection_payment_providers_pkey,"CREATE UNIQUE INDEX payment_collection_payment_providers_pkey ON public.payment_collection_payment_providers USING btree (payment_collection_id, payment_provider_id)"
+public,payment_provider,IDX_payment_provider_deleted_at,"CREATE INDEX ""IDX_payment_provider_deleted_at"" ON public.payment_provider USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,payment_provider,payment_provider_pkey,CREATE UNIQUE INDEX payment_provider_pkey ON public.payment_provider USING btree (id)
+public,payment_session,IDX_payment_session_deleted_at,"CREATE INDEX ""IDX_payment_session_deleted_at"" ON public.payment_session USING btree (deleted_at)"
+public,payment_session,IDX_payment_session_payment_collection_id,"CREATE INDEX ""IDX_payment_session_payment_collection_id"" ON public.payment_session USING btree (payment_collection_id) WHERE (deleted_at IS NULL)"
+public,payment_session,payment_session_pkey,CREATE UNIQUE INDEX payment_session_pkey ON public.payment_session USING btree (id)
+public,price,IDX_price_currency_code,"CREATE INDEX ""IDX_price_currency_code"" ON public.price USING btree (currency_code) WHERE (deleted_at IS NULL)"
+public,price,IDX_price_deleted_at,"CREATE INDEX ""IDX_price_deleted_at"" ON public.price USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,price,IDX_price_price_list_id,"CREATE INDEX ""IDX_price_price_list_id"" ON public.price USING btree (price_list_id) WHERE (deleted_at IS NULL)"
+public,price,IDX_price_price_set_id,"CREATE INDEX ""IDX_price_price_set_id"" ON public.price USING btree (price_set_id) WHERE (deleted_at IS NULL)"
+public,price,price_pkey,CREATE UNIQUE INDEX price_pkey ON public.price USING btree (id)
+public,price_list,IDX_price_list_deleted_at,"CREATE INDEX ""IDX_price_list_deleted_at"" ON public.price_list USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,price_list,IDX_price_list_id_status_starts_at_ends_at,"CREATE INDEX ""IDX_price_list_id_status_starts_at_ends_at"" ON public.price_list USING btree (id, status, starts_at, ends_at) WHERE ((deleted_at IS NULL) AND (status = 'active'::text))"
+public,price_list,price_list_pkey,CREATE UNIQUE INDEX price_list_pkey ON public.price_list USING btree (id)
+public,price_list_rule,IDX_price_list_rule_attribute,"CREATE INDEX ""IDX_price_list_rule_attribute"" ON public.price_list_rule USING btree (attribute) WHERE (deleted_at IS NULL)"
+public,price_list_rule,IDX_price_list_rule_deleted_at,"CREATE INDEX ""IDX_price_list_rule_deleted_at"" ON public.price_list_rule USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,price_list_rule,IDX_price_list_rule_price_list_id,"CREATE INDEX ""IDX_price_list_rule_price_list_id"" ON public.price_list_rule USING btree (price_list_id) WHERE (deleted_at IS NOT NULL)"
+public,price_list_rule,IDX_price_list_rule_value,"CREATE INDEX ""IDX_price_list_rule_value"" ON public.price_list_rule USING gin (value) WHERE (deleted_at IS NULL)"
+public,price_list_rule,price_list_rule_pkey,CREATE UNIQUE INDEX price_list_rule_pkey ON public.price_list_rule USING btree (id)
+public,price_preference,IDX_price_preference_attribute_value,"CREATE UNIQUE INDEX ""IDX_price_preference_attribute_value"" ON public.price_preference USING btree (attribute, value) WHERE (deleted_at IS NULL)"
+public,price_preference,IDX_price_preference_deleted_at,"CREATE INDEX ""IDX_price_preference_deleted_at"" ON public.price_preference USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,price_preference,price_preference_pkey,CREATE UNIQUE INDEX price_preference_pkey ON public.price_preference USING btree (id)
+public,price_rule,IDX_price_rule_attribute,"CREATE INDEX ""IDX_price_rule_attribute"" ON public.price_rule USING btree (attribute) WHERE (deleted_at IS NULL)"
+public,price_rule,IDX_price_rule_attribute_value,"CREATE INDEX ""IDX_price_rule_attribute_value"" ON public.price_rule USING btree (attribute, value) WHERE (deleted_at IS NULL)"
+public,price_rule,IDX_price_rule_attribute_value_price_id,"CREATE INDEX ""IDX_price_rule_attribute_value_price_id"" ON public.price_rule USING btree (attribute, value, price_id) WHERE (deleted_at IS NULL)"
+public,price_rule,IDX_price_rule_deleted_at,"CREATE INDEX ""IDX_price_rule_deleted_at"" ON public.price_rule USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,price_rule,IDX_price_rule_operator,"CREATE INDEX ""IDX_price_rule_operator"" ON public.price_rule USING btree (operator)"
+public,price_rule,IDX_price_rule_operator_value,"CREATE INDEX ""IDX_price_rule_operator_value"" ON public.price_rule USING btree (operator, value) WHERE (deleted_at IS NULL)"
+public,price_rule,IDX_price_rule_price_id,"CREATE INDEX ""IDX_price_rule_price_id"" ON public.price_rule USING btree (price_id) WHERE (deleted_at IS NULL)"
+public,price_rule,IDX_price_rule_price_id_attribute_operator_unique,"CREATE UNIQUE INDEX ""IDX_price_rule_price_id_attribute_operator_unique"" ON public.price_rule USING btree (price_id, attribute, operator) WHERE (deleted_at IS NULL)"
+public,price_rule,price_rule_pkey,CREATE UNIQUE INDEX price_rule_pkey ON public.price_rule USING btree (id)
+public,price_set,IDX_price_set_deleted_at,"CREATE INDEX ""IDX_price_set_deleted_at"" ON public.price_set USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,price_set,price_set_pkey,CREATE UNIQUE INDEX price_set_pkey ON public.price_set USING btree (id)
+public,product,IDX_product_collection_id,"CREATE INDEX ""IDX_product_collection_id"" ON public.product USING btree (collection_id) WHERE (deleted_at IS NULL)"
+public,product,IDX_product_deleted_at,"CREATE INDEX ""IDX_product_deleted_at"" ON public.product USING btree (deleted_at)"
+public,product,IDX_product_handle_unique,"CREATE UNIQUE INDEX ""IDX_product_handle_unique"" ON public.product USING btree (handle) WHERE (deleted_at IS NULL)"
+public,product,IDX_product_status,"CREATE INDEX ""IDX_product_status"" ON public.product USING btree (status) WHERE (deleted_at IS NULL)"
+public,product,IDX_product_type_id,"CREATE INDEX ""IDX_product_type_id"" ON public.product USING btree (type_id) WHERE (deleted_at IS NULL)"
+public,product,product_pkey,CREATE UNIQUE INDEX product_pkey ON public.product USING btree (id)
+public,product_category,IDX_category_handle_unique,"CREATE UNIQUE INDEX ""IDX_category_handle_unique"" ON public.product_category USING btree (handle) WHERE (deleted_at IS NULL)"
+public,product_category,IDX_product_category_parent_category_id,"CREATE INDEX ""IDX_product_category_parent_category_id"" ON public.product_category USING btree (parent_category_id) WHERE (deleted_at IS NULL)"
+public,product_category,IDX_product_category_path,"CREATE INDEX ""IDX_product_category_path"" ON public.product_category USING btree (mpath) WHERE (deleted_at IS NULL)"
+public,product_category,product_category_pkey,CREATE UNIQUE INDEX product_category_pkey ON public.product_category USING btree (id)
+public,product_category_product,product_category_product_pkey,"CREATE UNIQUE INDEX product_category_product_pkey ON public.product_category_product USING btree (product_id, product_category_id)"
+public,product_collection,IDX_collection_handle_unique,"CREATE UNIQUE INDEX ""IDX_collection_handle_unique"" ON public.product_collection USING btree (handle) WHERE (deleted_at IS NULL)"
+public,product_collection,IDX_product_collection_deleted_at,"CREATE INDEX ""IDX_product_collection_deleted_at"" ON public.product_collection USING btree (deleted_at)"
+public,product_collection,product_collection_pkey,CREATE UNIQUE INDEX product_collection_pkey ON public.product_collection USING btree (id)
+public,product_option,IDX_option_product_id_title_unique,"CREATE UNIQUE INDEX ""IDX_option_product_id_title_unique"" ON public.product_option USING btree (product_id, title) WHERE (deleted_at IS NULL)"
+public,product_option,IDX_product_option_deleted_at,"CREATE INDEX ""IDX_product_option_deleted_at"" ON public.product_option USING btree (deleted_at)"
+public,product_option,IDX_product_option_product_id,"CREATE INDEX ""IDX_product_option_product_id"" ON public.product_option USING btree (product_id) WHERE (deleted_at IS NULL)"
+public,product_option,product_option_pkey,CREATE UNIQUE INDEX product_option_pkey ON public.product_option USING btree (id)
+public,product_option_value,IDX_option_value_option_id_unique,"CREATE UNIQUE INDEX ""IDX_option_value_option_id_unique"" ON public.product_option_value USING btree (option_id, value) WHERE (deleted_at IS NULL)"
+public,product_option_value,IDX_product_option_value_deleted_at,"CREATE INDEX ""IDX_product_option_value_deleted_at"" ON public.product_option_value USING btree (deleted_at)"
+public,product_option_value,IDX_product_option_value_option_id,"CREATE INDEX ""IDX_product_option_value_option_id"" ON public.product_option_value USING btree (option_id) WHERE (deleted_at IS NULL)"
+public,product_option_value,product_option_value_pkey,CREATE UNIQUE INDEX product_option_value_pkey ON public.product_option_value USING btree (id)
+public,product_sales_channel,IDX_deleted_at_20b454295,"CREATE INDEX ""IDX_deleted_at_20b454295"" ON public.product_sales_channel USING btree (deleted_at)"
+public,product_sales_channel,IDX_id_20b454295,"CREATE INDEX ""IDX_id_20b454295"" ON public.product_sales_channel USING btree (id)"
+public,product_sales_channel,IDX_product_id_20b454295,"CREATE INDEX ""IDX_product_id_20b454295"" ON public.product_sales_channel USING btree (product_id) WHERE (deleted_at IS NULL)"
+public,product_sales_channel,IDX_sales_channel_id_20b454295,"CREATE INDEX ""IDX_sales_channel_id_20b454295"" ON public.product_sales_channel USING btree (sales_channel_id) WHERE (deleted_at IS NULL)"
+public,product_sales_channel,product_sales_channel_pkey,"CREATE UNIQUE INDEX product_sales_channel_pkey ON public.product_sales_channel USING btree (product_id, sales_channel_id)"
+public,product_shipping_profile,IDX_deleted_at_17a262437,"CREATE INDEX ""IDX_deleted_at_17a262437"" ON public.product_shipping_profile USING btree (deleted_at)"
+public,product_shipping_profile,IDX_id_17a262437,"CREATE INDEX ""IDX_id_17a262437"" ON public.product_shipping_profile USING btree (id)"
+public,product_shipping_profile,IDX_product_id_17a262437,"CREATE INDEX ""IDX_product_id_17a262437"" ON public.product_shipping_profile USING btree (product_id) WHERE (deleted_at IS NULL)"
+public,product_shipping_profile,IDX_shipping_profile_id_17a262437,"CREATE INDEX ""IDX_shipping_profile_id_17a262437"" ON public.product_shipping_profile USING btree (shipping_profile_id) WHERE (deleted_at IS NULL)"
+public,product_shipping_profile,product_shipping_profile_pkey,"CREATE UNIQUE INDEX product_shipping_profile_pkey ON public.product_shipping_profile USING btree (product_id, shipping_profile_id)"
+public,product_tag,IDX_product_tag_deleted_at,"CREATE INDEX ""IDX_product_tag_deleted_at"" ON public.product_tag USING btree (deleted_at)"
+public,product_tag,IDX_tag_value_unique,"CREATE UNIQUE INDEX ""IDX_tag_value_unique"" ON public.product_tag USING btree (value) WHERE (deleted_at IS NULL)"
+public,product_tag,product_tag_pkey,CREATE UNIQUE INDEX product_tag_pkey ON public.product_tag USING btree (id)
+public,product_tags,product_tags_pkey,"CREATE UNIQUE INDEX product_tags_pkey ON public.product_tags USING btree (product_id, product_tag_id)"
+public,product_type,IDX_product_type_deleted_at,"CREATE INDEX ""IDX_product_type_deleted_at"" ON public.product_type USING btree (deleted_at)"
+public,product_type,IDX_type_value_unique,"CREATE UNIQUE INDEX ""IDX_type_value_unique"" ON public.product_type USING btree (value) WHERE (deleted_at IS NULL)"
+public,product_type,product_type_pkey,CREATE UNIQUE INDEX product_type_pkey ON public.product_type USING btree (id)
+public,product_variant,IDX_product_variant_barcode_unique,"CREATE UNIQUE INDEX ""IDX_product_variant_barcode_unique"" ON public.product_variant USING btree (barcode) WHERE (deleted_at IS NULL)"
+public,product_variant,IDX_product_variant_deleted_at,"CREATE INDEX ""IDX_product_variant_deleted_at"" ON public.product_variant USING btree (deleted_at)"
+public,product_variant,IDX_product_variant_ean_unique,"CREATE UNIQUE INDEX ""IDX_product_variant_ean_unique"" ON public.product_variant USING btree (ean) WHERE (deleted_at IS NULL)"
+public,product_variant,IDX_product_variant_id_product_id,"CREATE INDEX ""IDX_product_variant_id_product_id"" ON public.product_variant USING btree (id, product_id) WHERE (deleted_at IS NULL)"
+public,product_variant,IDX_product_variant_product_id,"CREATE INDEX ""IDX_product_variant_product_id"" ON public.product_variant USING btree (product_id) WHERE (deleted_at IS NULL)"
+public,product_variant,IDX_product_variant_sku_unique,"CREATE UNIQUE INDEX ""IDX_product_variant_sku_unique"" ON public.product_variant USING btree (sku) WHERE (deleted_at IS NULL)"
+public,product_variant,IDX_product_variant_upc_unique,"CREATE UNIQUE INDEX ""IDX_product_variant_upc_unique"" ON public.product_variant USING btree (upc) WHERE (deleted_at IS NULL)"
+public,product_variant,product_variant_pkey,CREATE UNIQUE INDEX product_variant_pkey ON public.product_variant USING btree (id)
+public,product_variant_inventory_item,IDX_deleted_at_17b4c4e35,"CREATE INDEX ""IDX_deleted_at_17b4c4e35"" ON public.product_variant_inventory_item USING btree (deleted_at)"
+public,product_variant_inventory_item,IDX_id_17b4c4e35,"CREATE INDEX ""IDX_id_17b4c4e35"" ON public.product_variant_inventory_item USING btree (id)"
+public,product_variant_inventory_item,IDX_inventory_item_id_17b4c4e35,"CREATE INDEX ""IDX_inventory_item_id_17b4c4e35"" ON public.product_variant_inventory_item USING btree (inventory_item_id) WHERE (deleted_at IS NULL)"
+public,product_variant_inventory_item,IDX_variant_id_17b4c4e35,"CREATE INDEX ""IDX_variant_id_17b4c4e35"" ON public.product_variant_inventory_item USING btree (variant_id) WHERE (deleted_at IS NULL)"
+public,product_variant_inventory_item,product_variant_inventory_item_pkey,"CREATE UNIQUE INDEX product_variant_inventory_item_pkey ON public.product_variant_inventory_item USING btree (variant_id, inventory_item_id)"
+public,product_variant_option,product_variant_option_pkey,"CREATE UNIQUE INDEX product_variant_option_pkey ON public.product_variant_option USING btree (variant_id, option_value_id)"
+public,product_variant_price_set,IDX_deleted_at_52b23597,"CREATE INDEX ""IDX_deleted_at_52b23597"" ON public.product_variant_price_set USING btree (deleted_at)"
+public,product_variant_price_set,IDX_id_52b23597,"CREATE INDEX ""IDX_id_52b23597"" ON public.product_variant_price_set USING btree (id)"
+public,product_variant_price_set,IDX_price_set_id_52b23597,"CREATE INDEX ""IDX_price_set_id_52b23597"" ON public.product_variant_price_set USING btree (price_set_id) WHERE (deleted_at IS NULL)"
+public,product_variant_price_set,IDX_variant_id_52b23597,"CREATE INDEX ""IDX_variant_id_52b23597"" ON public.product_variant_price_set USING btree (variant_id) WHERE (deleted_at IS NULL)"
+public,product_variant_price_set,product_variant_price_set_pkey,"CREATE UNIQUE INDEX product_variant_price_set_pkey ON public.product_variant_price_set USING btree (variant_id, price_set_id)"
+public,product_variant_product_image,IDX_product_variant_product_image_deleted_at,"CREATE INDEX ""IDX_product_variant_product_image_deleted_at"" ON public.product_variant_product_image USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,product_variant_product_image,IDX_product_variant_product_image_image_id,"CREATE INDEX ""IDX_product_variant_product_image_image_id"" ON public.product_variant_product_image USING btree (image_id) WHERE (deleted_at IS NULL)"
+public,product_variant_product_image,IDX_product_variant_product_image_variant_id,"CREATE INDEX ""IDX_product_variant_product_image_variant_id"" ON public.product_variant_product_image USING btree (variant_id) WHERE (deleted_at IS NULL)"
+public,product_variant_product_image,product_variant_product_image_pkey,CREATE UNIQUE INDEX product_variant_product_image_pkey ON public.product_variant_product_image USING btree (id)
+public,promotion,IDX_promotion_campaign_id,"CREATE INDEX ""IDX_promotion_campaign_id"" ON public.promotion USING btree (campaign_id) WHERE (deleted_at IS NULL)"
+public,promotion,IDX_promotion_deleted_at,"CREATE INDEX ""IDX_promotion_deleted_at"" ON public.promotion USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,promotion,IDX_promotion_is_automatic,"CREATE INDEX ""IDX_promotion_is_automatic"" ON public.promotion USING btree (is_automatic) WHERE (deleted_at IS NULL)"
+public,promotion,IDX_promotion_status,"CREATE INDEX ""IDX_promotion_status"" ON public.promotion USING btree (status) WHERE (deleted_at IS NULL)"
+public,promotion,IDX_promotion_type,"CREATE INDEX ""IDX_promotion_type"" ON public.promotion USING btree (type)"
+public,promotion,IDX_unique_promotion_code,"CREATE UNIQUE INDEX ""IDX_unique_promotion_code"" ON public.promotion USING btree (code) WHERE (deleted_at IS NULL)"
+public,promotion,promotion_pkey,CREATE UNIQUE INDEX promotion_pkey ON public.promotion USING btree (id)
+public,promotion_application_method,IDX_application_method_allocation,"CREATE INDEX ""IDX_application_method_allocation"" ON public.promotion_application_method USING btree (allocation)"
+public,promotion_application_method,IDX_application_method_target_type,"CREATE INDEX ""IDX_application_method_target_type"" ON public.promotion_application_method USING btree (target_type)"
+public,promotion_application_method,IDX_application_method_type,"CREATE INDEX ""IDX_application_method_type"" ON public.promotion_application_method USING btree (type)"
+public,promotion_application_method,IDX_promotion_application_method_currency_code,"CREATE INDEX ""IDX_promotion_application_method_currency_code"" ON public.promotion_application_method USING btree (currency_code) WHERE (deleted_at IS NOT NULL)"
+public,promotion_application_method,IDX_promotion_application_method_deleted_at,"CREATE INDEX ""IDX_promotion_application_method_deleted_at"" ON public.promotion_application_method USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,promotion_application_method,IDX_promotion_application_method_promotion_id_unique,"CREATE UNIQUE INDEX ""IDX_promotion_application_method_promotion_id_unique"" ON public.promotion_application_method USING btree (promotion_id) WHERE (deleted_at IS NULL)"
+public,promotion_application_method,promotion_application_method_pkey,CREATE UNIQUE INDEX promotion_application_method_pkey ON public.promotion_application_method USING btree (id)
+public,promotion_campaign,IDX_promotion_campaign_campaign_identifier_unique,"CREATE UNIQUE INDEX ""IDX_promotion_campaign_campaign_identifier_unique"" ON public.promotion_campaign USING btree (campaign_identifier) WHERE (deleted_at IS NULL)"
+public,promotion_campaign,IDX_promotion_campaign_deleted_at,"CREATE INDEX ""IDX_promotion_campaign_deleted_at"" ON public.promotion_campaign USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,promotion_campaign,promotion_campaign_pkey,CREATE UNIQUE INDEX promotion_campaign_pkey ON public.promotion_campaign USING btree (id)
+public,promotion_campaign_budget,IDX_campaign_budget_type,"CREATE INDEX ""IDX_campaign_budget_type"" ON public.promotion_campaign_budget USING btree (type)"
+public,promotion_campaign_budget,IDX_promotion_campaign_budget_campaign_id_unique,"CREATE UNIQUE INDEX ""IDX_promotion_campaign_budget_campaign_id_unique"" ON public.promotion_campaign_budget USING btree (campaign_id) WHERE (deleted_at IS NULL)"
+public,promotion_campaign_budget,IDX_promotion_campaign_budget_deleted_at,"CREATE INDEX ""IDX_promotion_campaign_budget_deleted_at"" ON public.promotion_campaign_budget USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,promotion_campaign_budget,promotion_campaign_budget_pkey,CREATE UNIQUE INDEX promotion_campaign_budget_pkey ON public.promotion_campaign_budget USING btree (id)
+public,promotion_campaign_budget_usage,IDX_promotion_campaign_budget_usage_attribute_value_budget_id_u,"CREATE UNIQUE INDEX ""IDX_promotion_campaign_budget_usage_attribute_value_budget_id_u"" ON public.promotion_campaign_budget_usage USING btree (attribute_value, budget_id) WHERE (deleted_at IS NULL)"
+public,promotion_campaign_budget_usage,IDX_promotion_campaign_budget_usage_budget_id,"CREATE INDEX ""IDX_promotion_campaign_budget_usage_budget_id"" ON public.promotion_campaign_budget_usage USING btree (budget_id) WHERE (deleted_at IS NULL)"
+public,promotion_campaign_budget_usage,IDX_promotion_campaign_budget_usage_deleted_at,"CREATE INDEX ""IDX_promotion_campaign_budget_usage_deleted_at"" ON public.promotion_campaign_budget_usage USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,promotion_campaign_budget_usage,promotion_campaign_budget_usage_pkey,CREATE UNIQUE INDEX promotion_campaign_budget_usage_pkey ON public.promotion_campaign_budget_usage USING btree (id)
+public,promotion_promotion_rule,promotion_promotion_rule_pkey,"CREATE UNIQUE INDEX promotion_promotion_rule_pkey ON public.promotion_promotion_rule USING btree (promotion_id, promotion_rule_id)"
+public,promotion_rule,IDX_promotion_rule_attribute,"CREATE INDEX ""IDX_promotion_rule_attribute"" ON public.promotion_rule USING btree (attribute)"
+public,promotion_rule,IDX_promotion_rule_attribute_operator,"CREATE INDEX ""IDX_promotion_rule_attribute_operator"" ON public.promotion_rule USING btree (attribute, operator) WHERE (deleted_at IS NULL)"
+public,promotion_rule,IDX_promotion_rule_attribute_operator_id,"CREATE INDEX ""IDX_promotion_rule_attribute_operator_id"" ON public.promotion_rule USING btree (operator, attribute, id) WHERE (deleted_at IS NULL)"
+public,promotion_rule,IDX_promotion_rule_deleted_at,"CREATE INDEX ""IDX_promotion_rule_deleted_at"" ON public.promotion_rule USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,promotion_rule,IDX_promotion_rule_operator,"CREATE INDEX ""IDX_promotion_rule_operator"" ON public.promotion_rule USING btree (operator)"
+public,promotion_rule,promotion_rule_pkey,CREATE UNIQUE INDEX promotion_rule_pkey ON public.promotion_rule USING btree (id)
+public,promotion_rule_value,IDX_promotion_rule_value_deleted_at,"CREATE INDEX ""IDX_promotion_rule_value_deleted_at"" ON public.promotion_rule_value USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,promotion_rule_value,IDX_promotion_rule_value_promotion_rule_id,"CREATE INDEX ""IDX_promotion_rule_value_promotion_rule_id"" ON public.promotion_rule_value USING btree (promotion_rule_id) WHERE (deleted_at IS NULL)"
+public,promotion_rule_value,IDX_promotion_rule_value_rule_id_value,"CREATE INDEX ""IDX_promotion_rule_value_rule_id_value"" ON public.promotion_rule_value USING btree (promotion_rule_id, value) WHERE (deleted_at IS NULL)"
+public,promotion_rule_value,IDX_promotion_rule_value_value,"CREATE INDEX ""IDX_promotion_rule_value_value"" ON public.promotion_rule_value USING btree (value) WHERE (deleted_at IS NULL)"
+public,promotion_rule_value,promotion_rule_value_pkey,CREATE UNIQUE INDEX promotion_rule_value_pkey ON public.promotion_rule_value USING btree (id)
+public,provider_identity,IDX_provider_identity_auth_identity_id,"CREATE INDEX ""IDX_provider_identity_auth_identity_id"" ON public.provider_identity USING btree (auth_identity_id)"
+public,provider_identity,IDX_provider_identity_deleted_at,"CREATE INDEX ""IDX_provider_identity_deleted_at"" ON public.provider_identity USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,provider_identity,IDX_provider_identity_provider_entity_id,"CREATE UNIQUE INDEX ""IDX_provider_identity_provider_entity_id"" ON public.provider_identity USING btree (entity_id, provider)"
+public,provider_identity,provider_identity_pkey,CREATE UNIQUE INDEX provider_identity_pkey ON public.provider_identity USING btree (id)
+public,publishable_api_key_sales_channel,IDX_deleted_at_-1d67bae40,"CREATE INDEX ""IDX_deleted_at_-1d67bae40"" ON public.publishable_api_key_sales_channel USING btree (deleted_at)"
+public,publishable_api_key_sales_channel,IDX_id_-1d67bae40,"CREATE INDEX ""IDX_id_-1d67bae40"" ON public.publishable_api_key_sales_channel USING btree (id)"
+public,publishable_api_key_sales_channel,IDX_publishable_key_id_-1d67bae40,"CREATE INDEX ""IDX_publishable_key_id_-1d67bae40"" ON public.publishable_api_key_sales_channel USING btree (publishable_key_id) WHERE (deleted_at IS NULL)"
+public,publishable_api_key_sales_channel,IDX_sales_channel_id_-1d67bae40,"CREATE INDEX ""IDX_sales_channel_id_-1d67bae40"" ON public.publishable_api_key_sales_channel USING btree (sales_channel_id) WHERE (deleted_at IS NULL)"
+public,publishable_api_key_sales_channel,publishable_api_key_sales_channel_pkey,"CREATE UNIQUE INDEX publishable_api_key_sales_channel_pkey ON public.publishable_api_key_sales_channel USING btree (publishable_key_id, sales_channel_id)"
+public,refund,IDX_refund_deleted_at,"CREATE INDEX ""IDX_refund_deleted_at"" ON public.refund USING btree (deleted_at)"
+public,refund,IDX_refund_payment_id,"CREATE INDEX ""IDX_refund_payment_id"" ON public.refund USING btree (payment_id) WHERE (deleted_at IS NULL)"
+public,refund,IDX_refund_refund_reason_id,"CREATE INDEX ""IDX_refund_refund_reason_id"" ON public.refund USING btree (refund_reason_id) WHERE (deleted_at IS NULL)"
+public,refund,refund_pkey,CREATE UNIQUE INDEX refund_pkey ON public.refund USING btree (id)
+public,refund_reason,IDX_refund_reason_deleted_at,"CREATE INDEX ""IDX_refund_reason_deleted_at"" ON public.refund_reason USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,refund_reason,refund_reason_pkey,CREATE UNIQUE INDEX refund_reason_pkey ON public.refund_reason USING btree (id)
+public,region,IDX_region_deleted_at,"CREATE INDEX ""IDX_region_deleted_at"" ON public.region USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,region,region_pkey,CREATE UNIQUE INDEX region_pkey ON public.region USING btree (id)
+public,region_country,IDX_region_country_deleted_at,"CREATE INDEX ""IDX_region_country_deleted_at"" ON public.region_country USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,region_country,IDX_region_country_region_id,"CREATE INDEX ""IDX_region_country_region_id"" ON public.region_country USING btree (region_id) WHERE (deleted_at IS NULL)"
+public,region_country,IDX_region_country_region_id_iso_2_unique,"CREATE UNIQUE INDEX ""IDX_region_country_region_id_iso_2_unique"" ON public.region_country USING btree (region_id, iso_2)"
+public,region_country,region_country_pkey,CREATE UNIQUE INDEX region_country_pkey ON public.region_country USING btree (iso_2)
+public,region_payment_provider,IDX_deleted_at_1c934dab0,"CREATE INDEX ""IDX_deleted_at_1c934dab0"" ON public.region_payment_provider USING btree (deleted_at)"
+public,region_payment_provider,IDX_id_1c934dab0,"CREATE INDEX ""IDX_id_1c934dab0"" ON public.region_payment_provider USING btree (id)"
+public,region_payment_provider,IDX_payment_provider_id_1c934dab0,"CREATE INDEX ""IDX_payment_provider_id_1c934dab0"" ON public.region_payment_provider USING btree (payment_provider_id) WHERE (deleted_at IS NULL)"
+public,region_payment_provider,IDX_region_id_1c934dab0,"CREATE INDEX ""IDX_region_id_1c934dab0"" ON public.region_payment_provider USING btree (region_id) WHERE (deleted_at IS NULL)"
+public,region_payment_provider,region_payment_provider_pkey,"CREATE UNIQUE INDEX region_payment_provider_pkey ON public.region_payment_provider USING btree (region_id, payment_provider_id)"
+public,reservation_item,IDX_reservation_item_deleted_at,"CREATE INDEX ""IDX_reservation_item_deleted_at"" ON public.reservation_item USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,reservation_item,IDX_reservation_item_inventory_item_id,"CREATE INDEX ""IDX_reservation_item_inventory_item_id"" ON public.reservation_item USING btree (inventory_item_id) WHERE (deleted_at IS NULL)"
+public,reservation_item,IDX_reservation_item_line_item_id,"CREATE INDEX ""IDX_reservation_item_line_item_id"" ON public.reservation_item USING btree (line_item_id) WHERE (deleted_at IS NULL)"
+public,reservation_item,IDX_reservation_item_location_id,"CREATE INDEX ""IDX_reservation_item_location_id"" ON public.reservation_item USING btree (location_id) WHERE (deleted_at IS NULL)"
+public,reservation_item,reservation_item_pkey,CREATE UNIQUE INDEX reservation_item_pkey ON public.reservation_item USING btree (id)
+public,return,IDX_return_claim_id,"CREATE INDEX ""IDX_return_claim_id"" ON public.return USING btree (claim_id) WHERE ((claim_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,return,IDX_return_display_id,"CREATE INDEX ""IDX_return_display_id"" ON public.return USING btree (display_id) WHERE (deleted_at IS NULL)"
+public,return,IDX_return_exchange_id,"CREATE INDEX ""IDX_return_exchange_id"" ON public.return USING btree (exchange_id) WHERE ((exchange_id IS NOT NULL) AND (deleted_at IS NULL))"
+public,return,IDX_return_order_id,"CREATE INDEX ""IDX_return_order_id"" ON public.return USING btree (order_id) WHERE (deleted_at IS NULL)"
+public,return,return_pkey,CREATE UNIQUE INDEX return_pkey ON public.return USING btree (id)
+public,return_fulfillment,IDX_deleted_at_-31ea43a,"CREATE INDEX ""IDX_deleted_at_-31ea43a"" ON public.return_fulfillment USING btree (deleted_at)"
+public,return_fulfillment,IDX_fulfillment_id_-31ea43a,"CREATE INDEX ""IDX_fulfillment_id_-31ea43a"" ON public.return_fulfillment USING btree (fulfillment_id) WHERE (deleted_at IS NULL)"
+public,return_fulfillment,IDX_id_-31ea43a,"CREATE INDEX ""IDX_id_-31ea43a"" ON public.return_fulfillment USING btree (id)"
+public,return_fulfillment,IDX_return_id_-31ea43a,"CREATE INDEX ""IDX_return_id_-31ea43a"" ON public.return_fulfillment USING btree (return_id) WHERE (deleted_at IS NULL)"
+public,return_fulfillment,return_fulfillment_pkey,"CREATE UNIQUE INDEX return_fulfillment_pkey ON public.return_fulfillment USING btree (return_id, fulfillment_id)"
+public,return_item,IDX_return_item_deleted_at,"CREATE INDEX ""IDX_return_item_deleted_at"" ON public.return_item USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,return_item,IDX_return_item_item_id,"CREATE INDEX ""IDX_return_item_item_id"" ON public.return_item USING btree (item_id) WHERE (deleted_at IS NULL)"
+public,return_item,IDX_return_item_reason_id,"CREATE INDEX ""IDX_return_item_reason_id"" ON public.return_item USING btree (reason_id) WHERE (deleted_at IS NULL)"
+public,return_item,IDX_return_item_return_id,"CREATE INDEX ""IDX_return_item_return_id"" ON public.return_item USING btree (return_id) WHERE (deleted_at IS NULL)"
+public,return_item,return_item_pkey,CREATE UNIQUE INDEX return_item_pkey ON public.return_item USING btree (id)
+public,return_reason,IDX_return_reason_parent_return_reason_id,"CREATE INDEX ""IDX_return_reason_parent_return_reason_id"" ON public.return_reason USING btree (parent_return_reason_id) WHERE (deleted_at IS NULL)"
+public,return_reason,IDX_return_reason_value,"CREATE INDEX ""IDX_return_reason_value"" ON public.return_reason USING btree (value) WHERE (deleted_at IS NULL)"
+public,return_reason,return_reason_pkey,CREATE UNIQUE INDEX return_reason_pkey ON public.return_reason USING btree (id)
+public,sales_channel,IDX_sales_channel_deleted_at,"CREATE INDEX ""IDX_sales_channel_deleted_at"" ON public.sales_channel USING btree (deleted_at)"
+public,sales_channel,sales_channel_pkey,CREATE UNIQUE INDEX sales_channel_pkey ON public.sales_channel USING btree (id)
+public,sales_channel_stock_location,IDX_deleted_at_26d06f470,"CREATE INDEX ""IDX_deleted_at_26d06f470"" ON public.sales_channel_stock_location USING btree (deleted_at)"
+public,sales_channel_stock_location,IDX_id_26d06f470,"CREATE INDEX ""IDX_id_26d06f470"" ON public.sales_channel_stock_location USING btree (id)"
+public,sales_channel_stock_location,IDX_sales_channel_id_26d06f470,"CREATE INDEX ""IDX_sales_channel_id_26d06f470"" ON public.sales_channel_stock_location USING btree (sales_channel_id) WHERE (deleted_at IS NULL)"
+public,sales_channel_stock_location,IDX_stock_location_id_26d06f470,"CREATE INDEX ""IDX_stock_location_id_26d06f470"" ON public.sales_channel_stock_location USING btree (stock_location_id) WHERE (deleted_at IS NULL)"
+public,sales_channel_stock_location,sales_channel_stock_location_pkey,"CREATE UNIQUE INDEX sales_channel_stock_location_pkey ON public.sales_channel_stock_location USING btree (sales_channel_id, stock_location_id)"
+public,script_migrations,idx_script_name_unique,CREATE UNIQUE INDEX idx_script_name_unique ON public.script_migrations USING btree (script_name)
+public,script_migrations,script_migrations_pkey,CREATE UNIQUE INDEX script_migrations_pkey ON public.script_migrations USING btree (id)
+public,service_zone,IDX_service_zone_deleted_at,"CREATE INDEX ""IDX_service_zone_deleted_at"" ON public.service_zone USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,service_zone,IDX_service_zone_fulfillment_set_id,"CREATE INDEX ""IDX_service_zone_fulfillment_set_id"" ON public.service_zone USING btree (fulfillment_set_id) WHERE (deleted_at IS NULL)"
+public,service_zone,IDX_service_zone_name_unique,"CREATE UNIQUE INDEX ""IDX_service_zone_name_unique"" ON public.service_zone USING btree (name) WHERE (deleted_at IS NULL)"
+public,service_zone,service_zone_pkey,CREATE UNIQUE INDEX service_zone_pkey ON public.service_zone USING btree (id)
+public,shipping_option,IDX_shipping_option_deleted_at,"CREATE INDEX ""IDX_shipping_option_deleted_at"" ON public.shipping_option USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,shipping_option,IDX_shipping_option_provider_id,"CREATE INDEX ""IDX_shipping_option_provider_id"" ON public.shipping_option USING btree (provider_id) WHERE (deleted_at IS NULL)"
+public,shipping_option,IDX_shipping_option_service_zone_id,"CREATE INDEX ""IDX_shipping_option_service_zone_id"" ON public.shipping_option USING btree (service_zone_id) WHERE (deleted_at IS NULL)"
+public,shipping_option,IDX_shipping_option_shipping_option_type_id,"CREATE INDEX ""IDX_shipping_option_shipping_option_type_id"" ON public.shipping_option USING btree (shipping_option_type_id) WHERE (deleted_at IS NULL)"
+public,shipping_option,IDX_shipping_option_shipping_profile_id,"CREATE INDEX ""IDX_shipping_option_shipping_profile_id"" ON public.shipping_option USING btree (shipping_profile_id) WHERE (deleted_at IS NULL)"
+public,shipping_option,shipping_option_pkey,CREATE UNIQUE INDEX shipping_option_pkey ON public.shipping_option USING btree (id)
+public,shipping_option_price_set,IDX_deleted_at_ba32fa9c,"CREATE INDEX ""IDX_deleted_at_ba32fa9c"" ON public.shipping_option_price_set USING btree (deleted_at)"
+public,shipping_option_price_set,IDX_id_ba32fa9c,"CREATE INDEX ""IDX_id_ba32fa9c"" ON public.shipping_option_price_set USING btree (id)"
+public,shipping_option_price_set,IDX_price_set_id_ba32fa9c,"CREATE INDEX ""IDX_price_set_id_ba32fa9c"" ON public.shipping_option_price_set USING btree (price_set_id) WHERE (deleted_at IS NULL)"
+public,shipping_option_price_set,IDX_shipping_option_id_ba32fa9c,"CREATE INDEX ""IDX_shipping_option_id_ba32fa9c"" ON public.shipping_option_price_set USING btree (shipping_option_id) WHERE (deleted_at IS NULL)"
+public,shipping_option_price_set,shipping_option_price_set_pkey,"CREATE UNIQUE INDEX shipping_option_price_set_pkey ON public.shipping_option_price_set USING btree (shipping_option_id, price_set_id)"
+public,shipping_option_rule,IDX_shipping_option_rule_deleted_at,"CREATE INDEX ""IDX_shipping_option_rule_deleted_at"" ON public.shipping_option_rule USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,shipping_option_rule,IDX_shipping_option_rule_shipping_option_id,"CREATE INDEX ""IDX_shipping_option_rule_shipping_option_id"" ON public.shipping_option_rule USING btree (shipping_option_id) WHERE (deleted_at IS NULL)"
+public,shipping_option_rule,shipping_option_rule_pkey,CREATE UNIQUE INDEX shipping_option_rule_pkey ON public.shipping_option_rule USING btree (id)
+public,shipping_option_type,IDX_shipping_option_type_deleted_at,"CREATE INDEX ""IDX_shipping_option_type_deleted_at"" ON public.shipping_option_type USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,shipping_option_type,shipping_option_type_pkey,CREATE UNIQUE INDEX shipping_option_type_pkey ON public.shipping_option_type USING btree (id)
+public,shipping_profile,IDX_shipping_profile_deleted_at,"CREATE INDEX ""IDX_shipping_profile_deleted_at"" ON public.shipping_profile USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,shipping_profile,IDX_shipping_profile_name_unique,"CREATE UNIQUE INDEX ""IDX_shipping_profile_name_unique"" ON public.shipping_profile USING btree (name) WHERE (deleted_at IS NULL)"
+public,shipping_profile,shipping_profile_pkey,CREATE UNIQUE INDEX shipping_profile_pkey ON public.shipping_profile USING btree (id)
+public,stock_location,IDX_stock_location_address_id_unique,"CREATE UNIQUE INDEX ""IDX_stock_location_address_id_unique"" ON public.stock_location USING btree (address_id) WHERE (deleted_at IS NULL)"
+public,stock_location,IDX_stock_location_deleted_at,"CREATE INDEX ""IDX_stock_location_deleted_at"" ON public.stock_location USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,stock_location,stock_location_pkey,CREATE UNIQUE INDEX stock_location_pkey ON public.stock_location USING btree (id)
+public,stock_location_address,IDX_stock_location_address_deleted_at,"CREATE INDEX ""IDX_stock_location_address_deleted_at"" ON public.stock_location_address USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,stock_location_address,stock_location_address_pkey,CREATE UNIQUE INDEX stock_location_address_pkey ON public.stock_location_address USING btree (id)
+public,store,IDX_store_deleted_at,"CREATE INDEX ""IDX_store_deleted_at"" ON public.store USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,store,store_pkey,CREATE UNIQUE INDEX store_pkey ON public.store USING btree (id)
+public,store_currency,IDX_store_currency_deleted_at,"CREATE INDEX ""IDX_store_currency_deleted_at"" ON public.store_currency USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,store_currency,IDX_store_currency_store_id,"CREATE INDEX ""IDX_store_currency_store_id"" ON public.store_currency USING btree (store_id) WHERE (deleted_at IS NULL)"
+public,store_currency,store_currency_pkey,CREATE UNIQUE INDEX store_currency_pkey ON public.store_currency USING btree (id)
+public,store_locale,IDX_store_locale_deleted_at,"CREATE INDEX ""IDX_store_locale_deleted_at"" ON public.store_locale USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,store_locale,IDX_store_locale_store_id,"CREATE INDEX ""IDX_store_locale_store_id"" ON public.store_locale USING btree (store_id) WHERE (deleted_at IS NULL)"
+public,store_locale,store_locale_pkey,CREATE UNIQUE INDEX store_locale_pkey ON public.store_locale USING btree (id)
+public,tax_provider,IDX_tax_provider_deleted_at,"CREATE INDEX ""IDX_tax_provider_deleted_at"" ON public.tax_provider USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,tax_provider,tax_provider_pkey,CREATE UNIQUE INDEX tax_provider_pkey ON public.tax_provider USING btree (id)
+public,tax_rate,IDX_single_default_region,"CREATE UNIQUE INDEX ""IDX_single_default_region"" ON public.tax_rate USING btree (tax_region_id) WHERE ((is_default = true) AND (deleted_at IS NULL))"
+public,tax_rate,IDX_tax_rate_deleted_at,"CREATE INDEX ""IDX_tax_rate_deleted_at"" ON public.tax_rate USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,tax_rate,IDX_tax_rate_tax_region_id,"CREATE INDEX ""IDX_tax_rate_tax_region_id"" ON public.tax_rate USING btree (tax_region_id) WHERE (deleted_at IS NULL)"
+public,tax_rate,tax_rate_pkey,CREATE UNIQUE INDEX tax_rate_pkey ON public.tax_rate USING btree (id)
+public,tax_rate_rule,IDX_tax_rate_rule_deleted_at,"CREATE INDEX ""IDX_tax_rate_rule_deleted_at"" ON public.tax_rate_rule USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,tax_rate_rule,IDX_tax_rate_rule_reference_id,"CREATE INDEX ""IDX_tax_rate_rule_reference_id"" ON public.tax_rate_rule USING btree (reference_id) WHERE (deleted_at IS NULL)"
+public,tax_rate_rule,IDX_tax_rate_rule_tax_rate_id,"CREATE INDEX ""IDX_tax_rate_rule_tax_rate_id"" ON public.tax_rate_rule USING btree (tax_rate_id) WHERE (deleted_at IS NULL)"
+public,tax_rate_rule,IDX_tax_rate_rule_unique_rate_reference,"CREATE UNIQUE INDEX ""IDX_tax_rate_rule_unique_rate_reference"" ON public.tax_rate_rule USING btree (tax_rate_id, reference_id) WHERE (deleted_at IS NULL)"
+public,tax_rate_rule,tax_rate_rule_pkey,CREATE UNIQUE INDEX tax_rate_rule_pkey ON public.tax_rate_rule USING btree (id)
+public,tax_region,IDX_tax_region_deleted_at,"CREATE INDEX ""IDX_tax_region_deleted_at"" ON public.tax_region USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,tax_region,IDX_tax_region_parent_id,"CREATE INDEX ""IDX_tax_region_parent_id"" ON public.tax_region USING btree (parent_id)"
+public,tax_region,IDX_tax_region_provider_id,"CREATE INDEX ""IDX_tax_region_provider_id"" ON public.tax_region USING btree (provider_id) WHERE (deleted_at IS NULL)"
+public,tax_region,IDX_tax_region_unique_country_nullable_province,"CREATE UNIQUE INDEX ""IDX_tax_region_unique_country_nullable_province"" ON public.tax_region USING btree (country_code) WHERE ((province_code IS NULL) AND (deleted_at IS NULL))"
+public,tax_region,IDX_tax_region_unique_country_province,"CREATE UNIQUE INDEX ""IDX_tax_region_unique_country_province"" ON public.tax_region USING btree (country_code, province_code) WHERE (deleted_at IS NULL)"
+public,tax_region,tax_region_pkey,CREATE UNIQUE INDEX tax_region_pkey ON public.tax_region USING btree (id)
+public,user,IDX_user_deleted_at,"CREATE INDEX ""IDX_user_deleted_at"" ON public.""user"" USING btree (deleted_at) WHERE (deleted_at IS NOT NULL)"
+public,user,IDX_user_email_unique,"CREATE UNIQUE INDEX ""IDX_user_email_unique"" ON public.""user"" USING btree (email) WHERE (deleted_at IS NULL)"
+public,user,user_pkey,"CREATE UNIQUE INDEX user_pkey ON public.""user"" USING btree (id)"
+public,user_preference,IDX_user_preference_deleted_at,"CREATE INDEX ""IDX_user_preference_deleted_at"" ON public.user_preference USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,user_preference,IDX_user_preference_user_id,"CREATE INDEX ""IDX_user_preference_user_id"" ON public.user_preference USING btree (user_id) WHERE (deleted_at IS NULL)"
+public,user_preference,IDX_user_preference_user_id_key_unique,"CREATE UNIQUE INDEX ""IDX_user_preference_user_id_key_unique"" ON public.user_preference USING btree (user_id, key) WHERE (deleted_at IS NULL)"
+public,user_preference,user_preference_pkey,CREATE UNIQUE INDEX user_preference_pkey ON public.user_preference USING btree (id)
+public,view_configuration,IDX_view_configuration_deleted_at,"CREATE INDEX ""IDX_view_configuration_deleted_at"" ON public.view_configuration USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,view_configuration,IDX_view_configuration_entity_is_system_default,"CREATE INDEX ""IDX_view_configuration_entity_is_system_default"" ON public.view_configuration USING btree (entity, is_system_default) WHERE (deleted_at IS NULL)"
+public,view_configuration,IDX_view_configuration_entity_user_id,"CREATE INDEX ""IDX_view_configuration_entity_user_id"" ON public.view_configuration USING btree (entity, user_id) WHERE (deleted_at IS NULL)"
+public,view_configuration,IDX_view_configuration_user_id,"CREATE INDEX ""IDX_view_configuration_user_id"" ON public.view_configuration USING btree (user_id) WHERE (deleted_at IS NULL)"
+public,view_configuration,view_configuration_pkey,CREATE UNIQUE INDEX view_configuration_pkey ON public.view_configuration USING btree (id)
+public,workflow_execution,IDX_workflow_execution_deleted_at,"CREATE INDEX ""IDX_workflow_execution_deleted_at"" ON public.workflow_execution USING btree (deleted_at) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_id,"CREATE INDEX ""IDX_workflow_execution_id"" ON public.workflow_execution USING btree (id) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_retention_time_updated_at_state,"CREATE INDEX ""IDX_workflow_execution_retention_time_updated_at_state"" ON public.workflow_execution USING btree (retention_time, updated_at, state) WHERE ((deleted_at IS NULL) AND (retention_time IS NOT NULL))"
+public,workflow_execution,IDX_workflow_execution_run_id,"CREATE INDEX ""IDX_workflow_execution_run_id"" ON public.workflow_execution USING btree (run_id) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_state,"CREATE INDEX ""IDX_workflow_execution_state"" ON public.workflow_execution USING btree (state) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_state_updated_at,"CREATE INDEX ""IDX_workflow_execution_state_updated_at"" ON public.workflow_execution USING btree (state, updated_at) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_transaction_id,"CREATE INDEX ""IDX_workflow_execution_transaction_id"" ON public.workflow_execution USING btree (transaction_id) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_updated_at_retention_time,"CREATE INDEX ""IDX_workflow_execution_updated_at_retention_time"" ON public.workflow_execution USING btree (updated_at, retention_time) WHERE ((deleted_at IS NULL) AND (retention_time IS NOT NULL) AND ((state)::text = ANY (ARRAY[('done'::character varying)::text, ('failed'::character varying)::text, ('reverted'::character varying)::text])))"
+public,workflow_execution,IDX_workflow_execution_workflow_id,"CREATE INDEX ""IDX_workflow_execution_workflow_id"" ON public.workflow_execution USING btree (workflow_id) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_workflow_id_transaction_id,"CREATE INDEX ""IDX_workflow_execution_workflow_id_transaction_id"" ON public.workflow_execution USING btree (workflow_id, transaction_id) WHERE (deleted_at IS NULL)"
+public,workflow_execution,IDX_workflow_execution_workflow_id_transaction_id_run_id_unique,"CREATE UNIQUE INDEX ""IDX_workflow_execution_workflow_id_transaction_id_run_id_unique"" ON public.workflow_execution USING btree (workflow_id, transaction_id, run_id) WHERE (deleted_at IS NULL)"
+public,workflow_execution,workflow_execution_pkey,"CREATE UNIQUE INDEX workflow_execution_pkey ON public.workflow_execution USING btree (workflow_id, transaction_id, run_id)"

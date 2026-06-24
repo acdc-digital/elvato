@@ -1,0 +1,92 @@
+# Convex Schema Summary
+
+Generated: 2026-06-21T13:34:50Z
+
+## Tables
+- copilotUsage
+- projects
+- products
+- actionHistory
+- cjMyProducts
+- removedFromShelves
+- medusaCategories
+- medusaProducts
+- medusaProductVariants
+- medusaImages
+- medusaPrices
+- medusaProductOptions
+- variantMapping
+- lightingOptionDefinitions
+- cjCertifications
+- shippingTracking
+- customerComments
+- marketplaceProducts
+- marketplaceProductImages
+- marketplaceProductCandidates
+- marketplaceSourceDomains
+
+## Indexes
+    .index("by_sku", ["sku"])
+    .index("by_name", ["name"])
+    .index("by_createdAt", ["createdAt"])
+    .index("by_deletedAt", ["deletedAt"]),
+    .index("by_timestamp", ["timestamp"]),
+    .index("by_cjProductId", ["cjProductId"])
+    .index("by_sku", ["sku"])
+    .index("by_syncedAt", ["syncedAt"])
+    .index("by_stagedToMedusa", ["stagedToMedusa"]),
+    .index("by_cjProductId", ["cjProductId"])
+    .index("by_sku", ["sku"])
+    .index("by_removedAt", ["removedAt"]),
+    .index("by_handle", ["handle"])
+    .index("by_cjCategoryId", ["cjCategoryId"])
+    .index("by_syncStatus", ["syncStatus"])
+    .index("by_parentCategoryId", ["parentCategoryId"]),
+    .index("by_cjMyProductId", ["cjMyProductId"])
+    .index("by_handle", ["handle"])
+    .index("by_status", ["status"])
+    .index("by_isReadyToSync", ["isReadyToSync"])
+    .index("by_syncStatus", ["syncStatus"])
+    .index("by_externalId", ["externalId"])
+    .index("by_medusaCategoryId", ["medusaCategoryId"]),
+    .index("by_medusaProductId", ["medusaProductId"])
+    .index("by_sku", ["sku"]),
+    .index("by_medusaProductId", ["medusaProductId"])
+    .index("by_rank", ["rank"]),
+    .index("by_medusaVariantId", ["medusaVariantId"])
+    .index("by_currencyCode", ["currencyCode"]),
+    .index("by_medusaProductId", ["medusaProductId"])
+    .index("by_title", ["title"]),
+    .index("by_productId", ["productId"])
+    .index("by_status", ["status"])
+    .index("by_missingImages", ["missingImages"])
+    .index("by_imageCoverage", ["imageCoverage"]),
+    .index("by_optionType", ["optionType"])
+    .index("by_displayOrder", ["displayOrder"]),
+    .index("by_sku",               ["sku"])
+    .index("by_cjProductId",       ["cjProductId"])
+    .index("by_lastScannedAt",     ["lastScannedAt"])
+    .index("by_scanStatus",        ["scanStatus"])
+    .index("by_questionSubmitted", ["questionSubmitted"]),
+    .index("by_customerId", ["customerId"])
+    .index("by_medusaOrderId", ["medusaOrderId"])
+    .index("by_trackingNumber", ["trackingNumber"])
+    .index("by_currentStatus", ["currentStatus"]),
+    .index("by_product",        ["medusaProductId"])
+    .index("by_handle",         ["medusaProductHandle"])
+    .index("by_product_status", ["medusaProductId", "status"])
+    .index("by_parent",         ["parentId"]),
+    .index("by_etsyListingId", ["etsyListingId"])
+    .index("by_slug", ["slug"])
+    .index("by_status", ["status"]),
+    .index("by_product", ["productId"])
+    .index("by_product_type", ["productId", "type"])
+    .index("by_localPath", ["localPath"])
+    .index("by_validationStatus", ["validationStatus"])
+    .index("by_cluster", ["clusterId"])
+    .index("by_product", ["productId"])
+    .index("by_product_approved", ["productId", "approved"])
+    .index("by_sourceDomain", ["sourceDomain"])
+    .index("by_score", ["score"])
+    .index("by_domain", ["domain"])
+    .index("by_confidence", ["confidence"]),

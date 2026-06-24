@@ -1,0 +1,1096 @@
+table_schema,table_name,constraint_name,constraint_type,column_name,foreign_table_schema,foreign_table_name,foreign_column_name
+public,account_holder,2200_24617_1_not_null,CHECK,,,,
+public,account_holder,2200_24617_2_not_null,CHECK,,,,
+public,account_holder,2200_24617_3_not_null,CHECK,,,,
+public,account_holder,2200_24617_5_not_null,CHECK,,,,
+public,account_holder,2200_24617_7_not_null,CHECK,,,,
+public,account_holder,2200_24617_8_not_null,CHECK,,,,
+public,account_holder,account_holder_pkey,PRIMARY KEY,id,public,account_holder,id
+public,api_key,2200_24625_12_not_null,CHECK,,,,
+public,api_key,2200_24625_1_not_null,CHECK,,,,
+public,api_key,2200_24625_2_not_null,CHECK,,,,
+public,api_key,2200_24625_3_not_null,CHECK,,,,
+public,api_key,2200_24625_4_not_null,CHECK,,,,
+public,api_key,2200_24625_5_not_null,CHECK,,,,
+public,api_key,2200_24625_6_not_null,CHECK,,,,
+public,api_key,2200_24625_8_not_null,CHECK,,,,
+public,api_key,2200_24625_9_not_null,CHECK,,,,
+public,api_key,api_key_pkey,PRIMARY KEY,id,public,api_key,id
+public,api_key,api_key_type_check,CHECK,,public,api_key,type
+public,application_method_buy_rules,2200_24633_1_not_null,CHECK,,,,
+public,application_method_buy_rules,2200_24633_2_not_null,CHECK,,,,
+public,application_method_buy_rules,application_method_buy_rules_application_method_id_foreign,FOREIGN KEY,application_method_id,public,promotion_application_method,id
+public,application_method_buy_rules,application_method_buy_rules_pkey,PRIMARY KEY,promotion_rule_id,public,application_method_buy_rules,promotion_rule_id
+public,application_method_buy_rules,application_method_buy_rules_pkey,PRIMARY KEY,promotion_rule_id,public,application_method_buy_rules,application_method_id
+public,application_method_buy_rules,application_method_buy_rules_pkey,PRIMARY KEY,application_method_id,public,application_method_buy_rules,application_method_id
+public,application_method_buy_rules,application_method_buy_rules_pkey,PRIMARY KEY,application_method_id,public,application_method_buy_rules,promotion_rule_id
+public,application_method_buy_rules,application_method_buy_rules_promotion_rule_id_foreign,FOREIGN KEY,promotion_rule_id,public,promotion_rule,id
+public,application_method_target_rules,2200_24638_1_not_null,CHECK,,,,
+public,application_method_target_rules,2200_24638_2_not_null,CHECK,,,,
+public,application_method_target_rules,application_method_target_rules_application_method_id_foreign,FOREIGN KEY,application_method_id,public,promotion_application_method,id
+public,application_method_target_rules,application_method_target_rules_pkey,PRIMARY KEY,application_method_id,public,application_method_target_rules,application_method_id
+public,application_method_target_rules,application_method_target_rules_pkey,PRIMARY KEY,promotion_rule_id,public,application_method_target_rules,promotion_rule_id
+public,application_method_target_rules,application_method_target_rules_pkey,PRIMARY KEY,application_method_id,public,application_method_target_rules,promotion_rule_id
+public,application_method_target_rules,application_method_target_rules_pkey,PRIMARY KEY,promotion_rule_id,public,application_method_target_rules,application_method_id
+public,application_method_target_rules,application_method_target_rules_promotion_rule_id_foreign,FOREIGN KEY,promotion_rule_id,public,promotion_rule,id
+public,auth_identity,2200_24643_1_not_null,CHECK,,,,
+public,auth_identity,2200_24643_3_not_null,CHECK,,,,
+public,auth_identity,2200_24643_4_not_null,CHECK,,,,
+public,auth_identity,auth_identity_pkey,PRIMARY KEY,id,public,auth_identity,id
+public,capture,2200_24650_1_not_null,CHECK,,,,
+public,capture,2200_24650_2_not_null,CHECK,,,,
+public,capture,2200_24650_3_not_null,CHECK,,,,
+public,capture,2200_24650_4_not_null,CHECK,,,,
+public,capture,2200_24650_5_not_null,CHECK,,,,
+public,capture,2200_24650_6_not_null,CHECK,,,,
+public,capture,capture_payment_id_foreign,FOREIGN KEY,payment_id,public,payment,id
+public,capture,capture_pkey,PRIMARY KEY,id,public,capture,id
+public,cart,2200_24657_10_not_null,CHECK,,,,
+public,cart,2200_24657_11_not_null,CHECK,,,,
+public,cart,2200_24657_1_not_null,CHECK,,,,
+public,cart,2200_24657_6_not_null,CHECK,,,,
+public,cart,cart_billing_address_id_foreign,FOREIGN KEY,billing_address_id,public,cart_address,id
+public,cart,cart_pkey,PRIMARY KEY,id,public,cart,id
+public,cart,cart_shipping_address_id_foreign,FOREIGN KEY,shipping_address_id,public,cart_address,id
+public,cart_address,2200_24664_14_not_null,CHECK,,,,
+public,cart_address,2200_24664_15_not_null,CHECK,,,,
+public,cart_address,2200_24664_1_not_null,CHECK,,,,
+public,cart_address,cart_address_pkey,PRIMARY KEY,id,public,cart_address,id
+public,cart_line_item,2200_24671_19_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_1_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_20_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_21_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_24_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_25_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_27_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_28_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_2_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_31_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_32_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_3_not_null,CHECK,,,,
+public,cart_line_item,2200_24671_6_not_null,CHECK,,,,
+public,cart_line_item,cart_line_item_cart_id_foreign,FOREIGN KEY,cart_id,public,cart,id
+public,cart_line_item,cart_line_item_pkey,PRIMARY KEY,id,public,cart_line_item,id
+public,cart_line_item,cart_line_item_unit_price_check,CHECK,,public,cart_line_item,unit_price
+public,cart_line_item_adjustment,2200_24684_10_not_null,CHECK,,,,
+public,cart_line_item_adjustment,2200_24684_13_not_null,CHECK,,,,
+public,cart_line_item_adjustment,2200_24684_1_not_null,CHECK,,,,
+public,cart_line_item_adjustment,2200_24684_5_not_null,CHECK,,,,
+public,cart_line_item_adjustment,2200_24684_6_not_null,CHECK,,,,
+public,cart_line_item_adjustment,2200_24684_9_not_null,CHECK,,,,
+public,cart_line_item_adjustment,cart_line_item_adjustment_check,CHECK,,public,cart_line_item_adjustment,amount
+public,cart_line_item_adjustment,cart_line_item_adjustment_item_id_foreign,FOREIGN KEY,item_id,public,cart_line_item,id
+public,cart_line_item_adjustment,cart_line_item_adjustment_pkey,PRIMARY KEY,id,public,cart_line_item_adjustment,id
+public,cart_line_item_tax_line,2200_24693_1_not_null,CHECK,,,,
+public,cart_line_item_tax_line,2200_24693_4_not_null,CHECK,,,,
+public,cart_line_item_tax_line,2200_24693_5_not_null,CHECK,,,,
+public,cart_line_item_tax_line,2200_24693_8_not_null,CHECK,,,,
+public,cart_line_item_tax_line,2200_24693_9_not_null,CHECK,,,,
+public,cart_line_item_tax_line,cart_line_item_tax_line_item_id_foreign,FOREIGN KEY,item_id,public,cart_line_item,id
+public,cart_line_item_tax_line,cart_line_item_tax_line_pkey,PRIMARY KEY,id,public,cart_line_item_tax_line,id
+public,cart_payment_collection,2200_24700_1_not_null,CHECK,,,,
+public,cart_payment_collection,2200_24700_2_not_null,CHECK,,,,
+public,cart_payment_collection,2200_24700_3_not_null,CHECK,,,,
+public,cart_payment_collection,2200_24700_4_not_null,CHECK,,,,
+public,cart_payment_collection,2200_24700_5_not_null,CHECK,,,,
+public,cart_payment_collection,cart_payment_collection_pkey,PRIMARY KEY,cart_id,public,cart_payment_collection,cart_id
+public,cart_payment_collection,cart_payment_collection_pkey,PRIMARY KEY,payment_collection_id,public,cart_payment_collection,payment_collection_id
+public,cart_payment_collection,cart_payment_collection_pkey,PRIMARY KEY,cart_id,public,cart_payment_collection,payment_collection_id
+public,cart_payment_collection,cart_payment_collection_pkey,PRIMARY KEY,payment_collection_id,public,cart_payment_collection,cart_id
+public,cart_promotion,2200_24707_1_not_null,CHECK,,,,
+public,cart_promotion,2200_24707_2_not_null,CHECK,,,,
+public,cart_promotion,2200_24707_3_not_null,CHECK,,,,
+public,cart_promotion,2200_24707_4_not_null,CHECK,,,,
+public,cart_promotion,2200_24707_5_not_null,CHECK,,,,
+public,cart_promotion,cart_promotion_pkey,PRIMARY KEY,cart_id,public,cart_promotion,promotion_id
+public,cart_promotion,cart_promotion_pkey,PRIMARY KEY,promotion_id,public,cart_promotion,promotion_id
+public,cart_promotion,cart_promotion_pkey,PRIMARY KEY,cart_id,public,cart_promotion,cart_id
+public,cart_promotion,cart_promotion_pkey,PRIMARY KEY,promotion_id,public,cart_promotion,cart_id
+public,cart_shipping_method,2200_24714_11_not_null,CHECK,,,,
+public,cart_shipping_method,2200_24714_12_not_null,CHECK,,,,
+public,cart_shipping_method,2200_24714_1_not_null,CHECK,,,,
+public,cart_shipping_method,2200_24714_2_not_null,CHECK,,,,
+public,cart_shipping_method,2200_24714_3_not_null,CHECK,,,,
+public,cart_shipping_method,2200_24714_5_not_null,CHECK,,,,
+public,cart_shipping_method,2200_24714_6_not_null,CHECK,,,,
+public,cart_shipping_method,2200_24714_7_not_null,CHECK,,,,
+public,cart_shipping_method,cart_shipping_method_cart_id_foreign,FOREIGN KEY,cart_id,public,cart,id
+public,cart_shipping_method,cart_shipping_method_check,CHECK,,public,cart_shipping_method,amount
+public,cart_shipping_method,cart_shipping_method_pkey,PRIMARY KEY,id,public,cart_shipping_method,id
+public,cart_shipping_method_adjustment,2200_24723_10_not_null,CHECK,,,,
+public,cart_shipping_method_adjustment,2200_24723_1_not_null,CHECK,,,,
+public,cart_shipping_method_adjustment,2200_24723_5_not_null,CHECK,,,,
+public,cart_shipping_method_adjustment,2200_24723_6_not_null,CHECK,,,,
+public,cart_shipping_method_adjustment,2200_24723_9_not_null,CHECK,,,,
+public,cart_shipping_method_adjustment,cart_shipping_method_adjustment_pkey,PRIMARY KEY,id,public,cart_shipping_method_adjustment,id
+public,cart_shipping_method_adjustment,cart_shipping_method_adjustment_shipping_method_id_foreign,FOREIGN KEY,shipping_method_id,public,cart_shipping_method,id
+public,cart_shipping_method_tax_line,2200_24730_1_not_null,CHECK,,,,
+public,cart_shipping_method_tax_line,2200_24730_4_not_null,CHECK,,,,
+public,cart_shipping_method_tax_line,2200_24730_5_not_null,CHECK,,,,
+public,cart_shipping_method_tax_line,2200_24730_8_not_null,CHECK,,,,
+public,cart_shipping_method_tax_line,2200_24730_9_not_null,CHECK,,,,
+public,cart_shipping_method_tax_line,cart_shipping_method_tax_line_pkey,PRIMARY KEY,id,public,cart_shipping_method_tax_line,id
+public,cart_shipping_method_tax_line,cart_shipping_method_tax_line_shipping_method_id_foreign,FOREIGN KEY,shipping_method_id,public,cart_shipping_method,id
+public,credit_line,2200_24737_1_not_null,CHECK,,,,
+public,credit_line,2200_24737_2_not_null,CHECK,,,,
+public,credit_line,2200_24737_5_not_null,CHECK,,,,
+public,credit_line,2200_24737_6_not_null,CHECK,,,,
+public,credit_line,2200_24737_8_not_null,CHECK,,,,
+public,credit_line,2200_24737_9_not_null,CHECK,,,,
+public,credit_line,credit_line_cart_id_foreign,FOREIGN KEY,cart_id,public,cart,id
+public,credit_line,credit_line_pkey,PRIMARY KEY,id,public,credit_line,id
+public,currency,2200_24744_1_not_null,CHECK,,,,
+public,currency,2200_24744_2_not_null,CHECK,,,,
+public,currency,2200_24744_3_not_null,CHECK,,,,
+public,currency,2200_24744_4_not_null,CHECK,,,,
+public,currency,2200_24744_5_not_null,CHECK,,,,
+public,currency,2200_24744_6_not_null,CHECK,,,,
+public,currency,2200_24744_7_not_null,CHECK,,,,
+public,currency,2200_24744_8_not_null,CHECK,,,,
+public,currency,2200_24744_9_not_null,CHECK,,,,
+public,currency,currency_pkey,PRIMARY KEY,code,public,currency,code
+public,customer,2200_24753_10_not_null,CHECK,,,,
+public,customer,2200_24753_1_not_null,CHECK,,,,
+public,customer,2200_24753_7_not_null,CHECK,,,,
+public,customer,2200_24753_9_not_null,CHECK,,,,
+public,customer,customer_pkey,PRIMARY KEY,id,public,customer,id
+public,customer_account_holder,2200_24761_1_not_null,CHECK,,,,
+public,customer_account_holder,2200_24761_2_not_null,CHECK,,,,
+public,customer_account_holder,2200_24761_3_not_null,CHECK,,,,
+public,customer_account_holder,2200_24761_4_not_null,CHECK,,,,
+public,customer_account_holder,2200_24761_5_not_null,CHECK,,,,
+public,customer_account_holder,customer_account_holder_pkey,PRIMARY KEY,account_holder_id,public,customer_account_holder,customer_id
+public,customer_account_holder,customer_account_holder_pkey,PRIMARY KEY,customer_id,public,customer_account_holder,customer_id
+public,customer_account_holder,customer_account_holder_pkey,PRIMARY KEY,account_holder_id,public,customer_account_holder,account_holder_id
+public,customer_account_holder,customer_account_holder_pkey,PRIMARY KEY,customer_id,public,customer_account_holder,account_holder_id
+public,customer_address,2200_24768_17_not_null,CHECK,,,,
+public,customer_address,2200_24768_18_not_null,CHECK,,,,
+public,customer_address,2200_24768_1_not_null,CHECK,,,,
+public,customer_address,2200_24768_2_not_null,CHECK,,,,
+public,customer_address,2200_24768_4_not_null,CHECK,,,,
+public,customer_address,2200_24768_5_not_null,CHECK,,,,
+public,customer_address,customer_address_customer_id_foreign,FOREIGN KEY,customer_id,public,customer,id
+public,customer_address,customer_address_pkey,PRIMARY KEY,id,public,customer_address,id
+public,customer_group,2200_24777_1_not_null,CHECK,,,,
+public,customer_group,2200_24777_2_not_null,CHECK,,,,
+public,customer_group,2200_24777_5_not_null,CHECK,,,,
+public,customer_group,2200_24777_6_not_null,CHECK,,,,
+public,customer_group,customer_group_pkey,PRIMARY KEY,id,public,customer_group,id
+public,customer_group_customer,2200_24784_1_not_null,CHECK,,,,
+public,customer_group_customer,2200_24784_2_not_null,CHECK,,,,
+public,customer_group_customer,2200_24784_3_not_null,CHECK,,,,
+public,customer_group_customer,2200_24784_5_not_null,CHECK,,,,
+public,customer_group_customer,2200_24784_6_not_null,CHECK,,,,
+public,customer_group_customer,customer_group_customer_customer_group_id_foreign,FOREIGN KEY,customer_group_id,public,customer_group,id
+public,customer_group_customer,customer_group_customer_customer_id_foreign,FOREIGN KEY,customer_id,public,customer,id
+public,customer_group_customer,customer_group_customer_pkey,PRIMARY KEY,id,public,customer_group_customer,id
+public,fulfillment,2200_24791_12_not_null,CHECK,,,,
+public,fulfillment,2200_24791_13_not_null,CHECK,,,,
+public,fulfillment,2200_24791_17_not_null,CHECK,,,,
+public,fulfillment,2200_24791_1_not_null,CHECK,,,,
+public,fulfillment,2200_24791_2_not_null,CHECK,,,,
+public,fulfillment,fulfillment_delivery_address_id_foreign,FOREIGN KEY,delivery_address_id,public,fulfillment_address,id
+public,fulfillment,fulfillment_pkey,PRIMARY KEY,id,public,fulfillment,id
+public,fulfillment,fulfillment_provider_id_foreign,FOREIGN KEY,provider_id,public,fulfillment_provider,id
+public,fulfillment,fulfillment_shipping_option_id_foreign,FOREIGN KEY,shipping_option_id,public,shipping_option,id
+public,fulfillment_address,2200_24799_13_not_null,CHECK,,,,
+public,fulfillment_address,2200_24799_14_not_null,CHECK,,,,
+public,fulfillment_address,2200_24799_1_not_null,CHECK,,,,
+public,fulfillment_address,fulfillment_address_pkey,PRIMARY KEY,id,public,fulfillment_address,id
+public,fulfillment_item,2200_24806_10_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_11_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_1_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_2_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_3_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_4_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_5_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_6_not_null,CHECK,,,,
+public,fulfillment_item,2200_24806_9_not_null,CHECK,,,,
+public,fulfillment_item,fulfillment_item_fulfillment_id_foreign,FOREIGN KEY,fulfillment_id,public,fulfillment,id
+public,fulfillment_item,fulfillment_item_pkey,PRIMARY KEY,id,public,fulfillment_item,id
+public,fulfillment_label,2200_24813_1_not_null,CHECK,,,,
+public,fulfillment_label,2200_24813_2_not_null,CHECK,,,,
+public,fulfillment_label,2200_24813_3_not_null,CHECK,,,,
+public,fulfillment_label,2200_24813_4_not_null,CHECK,,,,
+public,fulfillment_label,2200_24813_5_not_null,CHECK,,,,
+public,fulfillment_label,2200_24813_6_not_null,CHECK,,,,
+public,fulfillment_label,2200_24813_7_not_null,CHECK,,,,
+public,fulfillment_label,fulfillment_label_fulfillment_id_foreign,FOREIGN KEY,fulfillment_id,public,fulfillment,id
+public,fulfillment_label,fulfillment_label_pkey,PRIMARY KEY,id,public,fulfillment_label,id
+public,fulfillment_provider,2200_24820_1_not_null,CHECK,,,,
+public,fulfillment_provider,2200_24820_2_not_null,CHECK,,,,
+public,fulfillment_provider,2200_24820_3_not_null,CHECK,,,,
+public,fulfillment_provider,2200_24820_4_not_null,CHECK,,,,
+public,fulfillment_provider,fulfillment_provider_pkey,PRIMARY KEY,id,public,fulfillment_provider,id
+public,fulfillment_set,2200_24828_1_not_null,CHECK,,,,
+public,fulfillment_set,2200_24828_2_not_null,CHECK,,,,
+public,fulfillment_set,2200_24828_3_not_null,CHECK,,,,
+public,fulfillment_set,2200_24828_5_not_null,CHECK,,,,
+public,fulfillment_set,2200_24828_6_not_null,CHECK,,,,
+public,fulfillment_set,fulfillment_set_pkey,PRIMARY KEY,id,public,fulfillment_set,id
+public,geo_zone,2200_24835_10_not_null,CHECK,,,,
+public,geo_zone,2200_24835_1_not_null,CHECK,,,,
+public,geo_zone,2200_24835_2_not_null,CHECK,,,,
+public,geo_zone,2200_24835_3_not_null,CHECK,,,,
+public,geo_zone,2200_24835_6_not_null,CHECK,,,,
+public,geo_zone,2200_24835_9_not_null,CHECK,,,,
+public,geo_zone,geo_zone_pkey,PRIMARY KEY,id,public,geo_zone,id
+public,geo_zone,geo_zone_service_zone_id_foreign,FOREIGN KEY,service_zone_id,public,service_zone,id
+public,geo_zone,geo_zone_type_check,CHECK,,public,geo_zone,type
+public,image,2200_24844_1_not_null,CHECK,,,,
+public,image,2200_24844_2_not_null,CHECK,,,,
+public,image,2200_24844_4_not_null,CHECK,,,,
+public,image,2200_24844_5_not_null,CHECK,,,,
+public,image,2200_24844_7_not_null,CHECK,,,,
+public,image,2200_24844_8_not_null,CHECK,,,,
+public,image,image_pkey,PRIMARY KEY,id,public,image,id
+public,image,image_product_id_foreign,FOREIGN KEY,product_id,public,product,id
+public,inventory_item,2200_24852_14_not_null,CHECK,,,,
+public,inventory_item,2200_24852_1_not_null,CHECK,,,,
+public,inventory_item,2200_24852_2_not_null,CHECK,,,,
+public,inventory_item,2200_24852_3_not_null,CHECK,,,,
+public,inventory_item,inventory_item_pkey,PRIMARY KEY,id,public,inventory_item,id
+public,inventory_level,2200_24860_1_not_null,CHECK,,,,
+public,inventory_level,2200_24860_2_not_null,CHECK,,,,
+public,inventory_level,2200_24860_3_not_null,CHECK,,,,
+public,inventory_level,2200_24860_5_not_null,CHECK,,,,
+public,inventory_level,2200_24860_6_not_null,CHECK,,,,
+public,inventory_level,2200_24860_7_not_null,CHECK,,,,
+public,inventory_level,2200_24860_8_not_null,CHECK,,,,
+public,inventory_level,2200_24860_9_not_null,CHECK,,,,
+public,inventory_level,inventory_level_inventory_item_id_foreign,FOREIGN KEY,inventory_item_id,public,inventory_item,id
+public,inventory_level,inventory_level_pkey,PRIMARY KEY,id,public,inventory_level,id
+public,invite,2200_24870_1_not_null,CHECK,,,,
+public,invite,2200_24870_2_not_null,CHECK,,,,
+public,invite,2200_24870_3_not_null,CHECK,,,,
+public,invite,2200_24870_4_not_null,CHECK,,,,
+public,invite,2200_24870_5_not_null,CHECK,,,,
+public,invite,2200_24870_7_not_null,CHECK,,,,
+public,invite,2200_24870_8_not_null,CHECK,,,,
+public,invite,invite_pkey,PRIMARY KEY,id,public,invite,id
+public,link_module_migrations,2200_24878_1_not_null,CHECK,,,,
+public,link_module_migrations,2200_24878_2_not_null,CHECK,,,,
+public,link_module_migrations,2200_24878_3_not_null,CHECK,,,,
+public,link_module_migrations,link_module_migrations_pkey,PRIMARY KEY,id,public,link_module_migrations,id
+public,link_module_migrations,link_module_migrations_table_name_key,UNIQUE,table_name,public,link_module_migrations,table_name
+public,location_fulfillment_provider,2200_24886_1_not_null,CHECK,,,,
+public,location_fulfillment_provider,2200_24886_2_not_null,CHECK,,,,
+public,location_fulfillment_provider,2200_24886_3_not_null,CHECK,,,,
+public,location_fulfillment_provider,2200_24886_4_not_null,CHECK,,,,
+public,location_fulfillment_provider,2200_24886_5_not_null,CHECK,,,,
+public,location_fulfillment_provider,location_fulfillment_provider_pkey,PRIMARY KEY,stock_location_id,public,location_fulfillment_provider,fulfillment_provider_id
+public,location_fulfillment_provider,location_fulfillment_provider_pkey,PRIMARY KEY,stock_location_id,public,location_fulfillment_provider,stock_location_id
+public,location_fulfillment_provider,location_fulfillment_provider_pkey,PRIMARY KEY,fulfillment_provider_id,public,location_fulfillment_provider,fulfillment_provider_id
+public,location_fulfillment_provider,location_fulfillment_provider_pkey,PRIMARY KEY,fulfillment_provider_id,public,location_fulfillment_provider,stock_location_id
+public,location_fulfillment_set,2200_24893_1_not_null,CHECK,,,,
+public,location_fulfillment_set,2200_24893_2_not_null,CHECK,,,,
+public,location_fulfillment_set,2200_24893_3_not_null,CHECK,,,,
+public,location_fulfillment_set,2200_24893_4_not_null,CHECK,,,,
+public,location_fulfillment_set,2200_24893_5_not_null,CHECK,,,,
+public,location_fulfillment_set,location_fulfillment_set_pkey,PRIMARY KEY,stock_location_id,public,location_fulfillment_set,stock_location_id
+public,location_fulfillment_set,location_fulfillment_set_pkey,PRIMARY KEY,fulfillment_set_id,public,location_fulfillment_set,fulfillment_set_id
+public,location_fulfillment_set,location_fulfillment_set_pkey,PRIMARY KEY,stock_location_id,public,location_fulfillment_set,fulfillment_set_id
+public,location_fulfillment_set,location_fulfillment_set_pkey,PRIMARY KEY,fulfillment_set_id,public,location_fulfillment_set,stock_location_id
+public,mikro_orm_migrations,2200_24900_1_not_null,CHECK,,,,
+public,mikro_orm_migrations,mikro_orm_migrations_pkey,PRIMARY KEY,id,public,mikro_orm_migrations,id
+public,notification,2200_24905_14_not_null,CHECK,,,,
+public,notification,2200_24905_15_not_null,CHECK,,,,
+public,notification,2200_24905_17_not_null,CHECK,,,,
+public,notification,2200_24905_1_not_null,CHECK,,,,
+public,notification,2200_24905_2_not_null,CHECK,,,,
+public,notification,2200_24905_3_not_null,CHECK,,,,
+public,notification,notification_pkey,PRIMARY KEY,id,public,notification,id
+public,notification,notification_provider_id_foreign,FOREIGN KEY,provider_id,public,notification_provider,id
+public,notification,notification_status_check,CHECK,,public,notification,status
+public,notification_provider,2200_24914_1_not_null,CHECK,,,,
+public,notification_provider,2200_24914_2_not_null,CHECK,,,,
+public,notification_provider,2200_24914_3_not_null,CHECK,,,,
+public,notification_provider,2200_24914_4_not_null,CHECK,,,,
+public,notification_provider,2200_24914_5_not_null,CHECK,,,,
+public,notification_provider,2200_24914_6_not_null,CHECK,,,,
+public,notification_provider,2200_24914_7_not_null,CHECK,,,,
+public,notification_provider,notification_provider_pkey,PRIMARY KEY,id,public,notification_provider,id
+public,order,2200_24923_10_not_null,CHECK,,,,
+public,order,2200_24923_15_not_null,CHECK,,,,
+public,order,2200_24923_16_not_null,CHECK,,,,
+public,order,2200_24923_1_not_null,CHECK,,,,
+public,order,2200_24923_5_not_null,CHECK,,,,
+public,order,2200_24923_7_not_null,CHECK,,,,
+public,order,2200_24923_8_not_null,CHECK,,,,
+public,order,order_billing_address_id_foreign,FOREIGN KEY,billing_address_id,public,order_address,id
+public,order,order_pkey,PRIMARY KEY,id,public,order,id
+public,order,order_shipping_address_id_foreign,FOREIGN KEY,shipping_address_id,public,order_address,id
+public,order_address,2200_24933_14_not_null,CHECK,,,,
+public,order_address,2200_24933_15_not_null,CHECK,,,,
+public,order_address,2200_24933_1_not_null,CHECK,,,,
+public,order_address,order_address_pkey,PRIMARY KEY,id,public,order_address,id
+public,order_cart,2200_24940_1_not_null,CHECK,,,,
+public,order_cart,2200_24940_2_not_null,CHECK,,,,
+public,order_cart,2200_24940_3_not_null,CHECK,,,,
+public,order_cart,2200_24940_4_not_null,CHECK,,,,
+public,order_cart,2200_24940_5_not_null,CHECK,,,,
+public,order_cart,order_cart_pkey,PRIMARY KEY,cart_id,public,order_cart,cart_id
+public,order_cart,order_cart_pkey,PRIMARY KEY,order_id,public,order_cart,cart_id
+public,order_cart,order_cart_pkey,PRIMARY KEY,cart_id,public,order_cart,order_id
+public,order_cart,order_cart_pkey,PRIMARY KEY,order_id,public,order_cart,order_id
+public,order_change,2200_24947_18_not_null,CHECK,,,,
+public,order_change,2200_24947_19_not_null,CHECK,,,,
+public,order_change,2200_24947_1_not_null,CHECK,,,,
+public,order_change,2200_24947_2_not_null,CHECK,,,,
+public,order_change,2200_24947_3_not_null,CHECK,,,,
+public,order_change,2200_24947_5_not_null,CHECK,,,,
+public,order_change,order_change_order_id_foreign,FOREIGN KEY,order_id,public,order,id
+public,order_change,order_change_pkey,PRIMARY KEY,id,public,order_change,id
+public,order_change,order_change_status_check,CHECK,,public,order_change,status
+public,order_change_action,2200_24956_13_not_null,CHECK,,,,
+public,order_change_action,2200_24956_14_not_null,CHECK,,,,
+public,order_change_action,2200_24956_15_not_null,CHECK,,,,
+public,order_change_action,2200_24956_1_not_null,CHECK,,,,
+public,order_change_action,2200_24956_4_not_null,CHECK,,,,
+public,order_change_action,2200_24956_8_not_null,CHECK,,,,
+public,order_change_action,order_change_action_order_change_id_foreign,FOREIGN KEY,order_change_id,public,order_change,id
+public,order_change_action,order_change_action_pkey,PRIMARY KEY,id,public,order_change_action,id
+public,order_claim,2200_24965_11_not_null,CHECK,,,,
+public,order_claim,2200_24965_12_not_null,CHECK,,,,
+public,order_claim,2200_24965_1_not_null,CHECK,,,,
+public,order_claim,2200_24965_2_not_null,CHECK,,,,
+public,order_claim,2200_24965_4_not_null,CHECK,,,,
+public,order_claim,2200_24965_5_not_null,CHECK,,,,
+public,order_claim,2200_24965_6_not_null,CHECK,,,,
+public,order_claim,order_claim_pkey,PRIMARY KEY,id,public,order_claim,id
+public,order_claim_item,2200_24973_10_not_null,CHECK,,,,
+public,order_claim_item,2200_24973_11_not_null,CHECK,,,,
+public,order_claim_item,2200_24973_1_not_null,CHECK,,,,
+public,order_claim_item,2200_24973_2_not_null,CHECK,,,,
+public,order_claim_item,2200_24973_3_not_null,CHECK,,,,
+public,order_claim_item,2200_24973_4_not_null,CHECK,,,,
+public,order_claim_item,2200_24973_6_not_null,CHECK,,,,
+public,order_claim_item,2200_24973_7_not_null,CHECK,,,,
+public,order_claim_item,order_claim_item_pkey,PRIMARY KEY,id,public,order_claim_item,id
+public,order_claim_item_image,2200_24981_1_not_null,CHECK,,,,
+public,order_claim_item_image,2200_24981_2_not_null,CHECK,,,,
+public,order_claim_item_image,2200_24981_3_not_null,CHECK,,,,
+public,order_claim_item_image,2200_24981_5_not_null,CHECK,,,,
+public,order_claim_item_image,2200_24981_6_not_null,CHECK,,,,
+public,order_claim_item_image,order_claim_item_image_pkey,PRIMARY KEY,id,public,order_claim_item_image,id
+public,order_credit_line,2200_24988_11_not_null,CHECK,,,,
+public,order_credit_line,2200_24988_1_not_null,CHECK,,,,
+public,order_credit_line,2200_24988_2_not_null,CHECK,,,,
+public,order_credit_line,2200_24988_5_not_null,CHECK,,,,
+public,order_credit_line,2200_24988_6_not_null,CHECK,,,,
+public,order_credit_line,2200_24988_8_not_null,CHECK,,,,
+public,order_credit_line,2200_24988_9_not_null,CHECK,,,,
+public,order_credit_line,order_credit_line_order_id_foreign,FOREIGN KEY,order_id,public,order,id
+public,order_credit_line,order_credit_line_pkey,PRIMARY KEY,id,public,order_credit_line,id
+public,order_exchange,2200_24997_11_not_null,CHECK,,,,
+public,order_exchange,2200_24997_12_not_null,CHECK,,,,
+public,order_exchange,2200_24997_1_not_null,CHECK,,,,
+public,order_exchange,2200_24997_2_not_null,CHECK,,,,
+public,order_exchange,2200_24997_4_not_null,CHECK,,,,
+public,order_exchange,2200_24997_5_not_null,CHECK,,,,
+public,order_exchange,2200_24997_7_not_null,CHECK,,,,
+public,order_exchange,order_exchange_pkey,PRIMARY KEY,id,public,order_exchange,id
+public,order_exchange_item,2200_25006_1_not_null,CHECK,,,,
+public,order_exchange_item,2200_25006_2_not_null,CHECK,,,,
+public,order_exchange_item,2200_25006_3_not_null,CHECK,,,,
+public,order_exchange_item,2200_25006_4_not_null,CHECK,,,,
+public,order_exchange_item,2200_25006_5_not_null,CHECK,,,,
+public,order_exchange_item,2200_25006_8_not_null,CHECK,,,,
+public,order_exchange_item,2200_25006_9_not_null,CHECK,,,,
+public,order_exchange_item,order_exchange_item_pkey,PRIMARY KEY,id,public,order_exchange_item,id
+public,order_fulfillment,2200_25013_1_not_null,CHECK,,,,
+public,order_fulfillment,2200_25013_2_not_null,CHECK,,,,
+public,order_fulfillment,2200_25013_3_not_null,CHECK,,,,
+public,order_fulfillment,2200_25013_4_not_null,CHECK,,,,
+public,order_fulfillment,2200_25013_5_not_null,CHECK,,,,
+public,order_fulfillment,order_fulfillment_pkey,PRIMARY KEY,order_id,public,order_fulfillment,order_id
+public,order_fulfillment,order_fulfillment_pkey,PRIMARY KEY,order_id,public,order_fulfillment,fulfillment_id
+public,order_fulfillment,order_fulfillment_pkey,PRIMARY KEY,fulfillment_id,public,order_fulfillment,fulfillment_id
+public,order_fulfillment,order_fulfillment_pkey,PRIMARY KEY,fulfillment_id,public,order_fulfillment,order_id
+public,order_item,2200_25020_10_not_null,CHECK,,,,
+public,order_item,2200_25020_11_not_null,CHECK,,,,
+public,order_item,2200_25020_12_not_null,CHECK,,,,
+public,order_item,2200_25020_13_not_null,CHECK,,,,
+public,order_item,2200_25020_14_not_null,CHECK,,,,
+public,order_item,2200_25020_15_not_null,CHECK,,,,
+public,order_item,2200_25020_16_not_null,CHECK,,,,
+public,order_item,2200_25020_17_not_null,CHECK,,,,
+public,order_item,2200_25020_18_not_null,CHECK,,,,
+public,order_item,2200_25020_1_not_null,CHECK,,,,
+public,order_item,2200_25020_20_not_null,CHECK,,,,
+public,order_item,2200_25020_21_not_null,CHECK,,,,
+public,order_item,2200_25020_23_not_null,CHECK,,,,
+public,order_item,2200_25020_24_not_null,CHECK,,,,
+public,order_item,2200_25020_2_not_null,CHECK,,,,
+public,order_item,2200_25020_3_not_null,CHECK,,,,
+public,order_item,2200_25020_4_not_null,CHECK,,,,
+public,order_item,2200_25020_5_not_null,CHECK,,,,
+public,order_item,2200_25020_6_not_null,CHECK,,,,
+public,order_item,2200_25020_7_not_null,CHECK,,,,
+public,order_item,2200_25020_8_not_null,CHECK,,,,
+public,order_item,2200_25020_9_not_null,CHECK,,,,
+public,order_item,order_item_item_id_foreign,FOREIGN KEY,item_id,public,order_line_item,id
+public,order_item,order_item_order_id_foreign,FOREIGN KEY,order_id,public,order,id
+public,order_item,order_item_pkey,PRIMARY KEY,id,public,order_item,id
+public,order_line_item,2200_25035_18_not_null,CHECK,,,,
+public,order_line_item,2200_25035_19_not_null,CHECK,,,,
+public,order_line_item,2200_25035_1_not_null,CHECK,,,,
+public,order_line_item,2200_25035_20_not_null,CHECK,,,,
+public,order_line_item,2200_25035_23_not_null,CHECK,,,,
+public,order_line_item,2200_25035_24_not_null,CHECK,,,,
+public,order_line_item,2200_25035_26_not_null,CHECK,,,,
+public,order_line_item,2200_25035_27_not_null,CHECK,,,,
+public,order_line_item,2200_25035_29_not_null,CHECK,,,,
+public,order_line_item,2200_25035_31_not_null,CHECK,,,,
+public,order_line_item,2200_25035_3_not_null,CHECK,,,,
+public,order_line_item,order_line_item_pkey,PRIMARY KEY,id,public,order_line_item,id
+public,order_line_item,order_line_item_totals_id_foreign,FOREIGN KEY,totals_id,public,order_item,id
+public,order_line_item_adjustment,2200_25047_10_not_null,CHECK,,,,
+public,order_line_item_adjustment,2200_25047_12_not_null,CHECK,,,,
+public,order_line_item_adjustment,2200_25047_13_not_null,CHECK,,,,
+public,order_line_item_adjustment,2200_25047_1_not_null,CHECK,,,,
+public,order_line_item_adjustment,2200_25047_5_not_null,CHECK,,,,
+public,order_line_item_adjustment,2200_25047_6_not_null,CHECK,,,,
+public,order_line_item_adjustment,2200_25047_8_not_null,CHECK,,,,
+public,order_line_item_adjustment,2200_25047_9_not_null,CHECK,,,,
+public,order_line_item_adjustment,order_line_item_adjustment_item_id_foreign,FOREIGN KEY,item_id,public,order_line_item,id
+public,order_line_item_adjustment,order_line_item_adjustment_pkey,PRIMARY KEY,id,public,order_line_item_adjustment,id
+public,order_line_item_tax_line,2200_25056_10_not_null,CHECK,,,,
+public,order_line_item_tax_line,2200_25056_1_not_null,CHECK,,,,
+public,order_line_item_tax_line,2200_25056_4_not_null,CHECK,,,,
+public,order_line_item_tax_line,2200_25056_5_not_null,CHECK,,,,
+public,order_line_item_tax_line,2200_25056_6_not_null,CHECK,,,,
+public,order_line_item_tax_line,2200_25056_8_not_null,CHECK,,,,
+public,order_line_item_tax_line,2200_25056_9_not_null,CHECK,,,,
+public,order_line_item_tax_line,order_line_item_tax_line_item_id_foreign,FOREIGN KEY,item_id,public,order_line_item,id
+public,order_line_item_tax_line,order_line_item_tax_line_pkey,PRIMARY KEY,id,public,order_line_item_tax_line,id
+public,order_payment_collection,2200_25063_1_not_null,CHECK,,,,
+public,order_payment_collection,2200_25063_2_not_null,CHECK,,,,
+public,order_payment_collection,2200_25063_3_not_null,CHECK,,,,
+public,order_payment_collection,2200_25063_4_not_null,CHECK,,,,
+public,order_payment_collection,2200_25063_5_not_null,CHECK,,,,
+public,order_payment_collection,order_payment_collection_pkey,PRIMARY KEY,order_id,public,order_payment_collection,payment_collection_id
+public,order_payment_collection,order_payment_collection_pkey,PRIMARY KEY,payment_collection_id,public,order_payment_collection,order_id
+public,order_payment_collection,order_payment_collection_pkey,PRIMARY KEY,order_id,public,order_payment_collection,order_id
+public,order_payment_collection,order_payment_collection_pkey,PRIMARY KEY,payment_collection_id,public,order_payment_collection,payment_collection_id
+public,order_promotion,2200_25070_1_not_null,CHECK,,,,
+public,order_promotion,2200_25070_2_not_null,CHECK,,,,
+public,order_promotion,2200_25070_3_not_null,CHECK,,,,
+public,order_promotion,2200_25070_4_not_null,CHECK,,,,
+public,order_promotion,2200_25070_5_not_null,CHECK,,,,
+public,order_promotion,order_promotion_pkey,PRIMARY KEY,order_id,public,order_promotion,order_id
+public,order_promotion,order_promotion_pkey,PRIMARY KEY,promotion_id,public,order_promotion,order_id
+public,order_promotion,order_promotion_pkey,PRIMARY KEY,order_id,public,order_promotion,promotion_id
+public,order_promotion,order_promotion_pkey,PRIMARY KEY,promotion_id,public,order_promotion,promotion_id
+public,order_shipping,2200_25077_1_not_null,CHECK,,,,
+public,order_shipping,2200_25077_2_not_null,CHECK,,,,
+public,order_shipping,2200_25077_3_not_null,CHECK,,,,
+public,order_shipping,2200_25077_4_not_null,CHECK,,,,
+public,order_shipping,2200_25077_5_not_null,CHECK,,,,
+public,order_shipping,2200_25077_6_not_null,CHECK,,,,
+public,order_shipping,order_shipping_order_id_foreign,FOREIGN KEY,order_id,public,order,id
+public,order_shipping,order_shipping_pkey,PRIMARY KEY,id,public,order_shipping,id
+public,order_shipping_method,2200_25084_10_not_null,CHECK,,,,
+public,order_shipping_method,2200_25084_11_not_null,CHECK,,,,
+public,order_shipping_method,2200_25084_13_not_null,CHECK,,,,
+public,order_shipping_method,2200_25084_1_not_null,CHECK,,,,
+public,order_shipping_method,2200_25084_2_not_null,CHECK,,,,
+public,order_shipping_method,2200_25084_4_not_null,CHECK,,,,
+public,order_shipping_method,2200_25084_5_not_null,CHECK,,,,
+public,order_shipping_method,2200_25084_6_not_null,CHECK,,,,
+public,order_shipping_method,order_shipping_method_pkey,PRIMARY KEY,id,public,order_shipping_method,id
+public,order_shipping_method_adjustment,2200_25093_10_not_null,CHECK,,,,
+public,order_shipping_method_adjustment,2200_25093_1_not_null,CHECK,,,,
+public,order_shipping_method_adjustment,2200_25093_5_not_null,CHECK,,,,
+public,order_shipping_method_adjustment,2200_25093_6_not_null,CHECK,,,,
+public,order_shipping_method_adjustment,2200_25093_8_not_null,CHECK,,,,
+public,order_shipping_method_adjustment,2200_25093_9_not_null,CHECK,,,,
+public,order_shipping_method_adjustment,order_shipping_method_adjustment_pkey,PRIMARY KEY,id,public,order_shipping_method_adjustment,id
+public,order_shipping_method_adjustment,order_shipping_method_adjustment_shipping_method_id_foreign,FOREIGN KEY,shipping_method_id,public,order_shipping_method,id
+public,order_shipping_method_tax_line,2200_25100_10_not_null,CHECK,,,,
+public,order_shipping_method_tax_line,2200_25100_1_not_null,CHECK,,,,
+public,order_shipping_method_tax_line,2200_25100_4_not_null,CHECK,,,,
+public,order_shipping_method_tax_line,2200_25100_5_not_null,CHECK,,,,
+public,order_shipping_method_tax_line,2200_25100_6_not_null,CHECK,,,,
+public,order_shipping_method_tax_line,2200_25100_8_not_null,CHECK,,,,
+public,order_shipping_method_tax_line,2200_25100_9_not_null,CHECK,,,,
+public,order_shipping_method_tax_line,order_shipping_method_tax_line_pkey,PRIMARY KEY,id,public,order_shipping_method_tax_line,id
+public,order_shipping_method_tax_line,order_shipping_method_tax_line_shipping_method_id_foreign,FOREIGN KEY,shipping_method_id,public,order_shipping_method,id
+public,order_summary,2200_25107_1_not_null,CHECK,,,,
+public,order_summary,2200_25107_2_not_null,CHECK,,,,
+public,order_summary,2200_25107_3_not_null,CHECK,,,,
+public,order_summary,2200_25107_5_not_null,CHECK,,,,
+public,order_summary,2200_25107_6_not_null,CHECK,,,,
+public,order_summary,order_summary_order_id_foreign,FOREIGN KEY,order_id,public,order,id
+public,order_summary,order_summary_pkey,PRIMARY KEY,id,public,order_summary,id
+public,order_transaction,2200_25115_10_not_null,CHECK,,,,
+public,order_transaction,2200_25115_1_not_null,CHECK,,,,
+public,order_transaction,2200_25115_2_not_null,CHECK,,,,
+public,order_transaction,2200_25115_3_not_null,CHECK,,,,
+public,order_transaction,2200_25115_4_not_null,CHECK,,,,
+public,order_transaction,2200_25115_5_not_null,CHECK,,,,
+public,order_transaction,2200_25115_6_not_null,CHECK,,,,
+public,order_transaction,2200_25115_9_not_null,CHECK,,,,
+public,order_transaction,order_transaction_order_id_foreign,FOREIGN KEY,order_id,public,order,id
+public,order_transaction,order_transaction_pkey,PRIMARY KEY,id,public,order_transaction,id
+public,payment,2200_25123_12_not_null,CHECK,,,,
+public,payment,2200_25123_13_not_null,CHECK,,,,
+public,payment,2200_25123_1_not_null,CHECK,,,,
+public,payment,2200_25123_2_not_null,CHECK,,,,
+public,payment,2200_25123_3_not_null,CHECK,,,,
+public,payment,2200_25123_4_not_null,CHECK,,,,
+public,payment,2200_25123_5_not_null,CHECK,,,,
+public,payment,2200_25123_7_not_null,CHECK,,,,
+public,payment,2200_25123_8_not_null,CHECK,,,,
+public,payment,payment_payment_collection_id_foreign,FOREIGN KEY,payment_collection_id,public,payment_collection,id
+public,payment,payment_pkey,PRIMARY KEY,id,public,payment,id
+public,payment_collection,2200_25130_11_not_null,CHECK,,,,
+public,payment_collection,2200_25130_12_not_null,CHECK,,,,
+public,payment_collection,2200_25130_15_not_null,CHECK,,,,
+public,payment_collection,2200_25130_1_not_null,CHECK,,,,
+public,payment_collection,2200_25130_2_not_null,CHECK,,,,
+public,payment_collection,2200_25130_3_not_null,CHECK,,,,
+public,payment_collection,2200_25130_4_not_null,CHECK,,,,
+public,payment_collection,payment_collection_pkey,PRIMARY KEY,id,public,payment_collection,id
+public,payment_collection,payment_collection_status_check,CHECK,,public,payment_collection,status
+public,payment_collection_payment_providers,2200_25139_1_not_null,CHECK,,,,
+public,payment_collection_payment_providers,2200_25139_2_not_null,CHECK,,,,
+public,payment_collection_payment_providers,payment_collection_payment_providers_payment_col_aa276_foreign,FOREIGN KEY,payment_collection_id,public,payment_collection,id
+public,payment_collection_payment_providers,payment_collection_payment_providers_payment_pro_2d555_foreign,FOREIGN KEY,payment_provider_id,public,payment_provider,id
+public,payment_collection_payment_providers,payment_collection_payment_providers_pkey,PRIMARY KEY,payment_provider_id,public,payment_collection_payment_providers,payment_collection_id
+public,payment_collection_payment_providers,payment_collection_payment_providers_pkey,PRIMARY KEY,payment_collection_id,public,payment_collection_payment_providers,payment_collection_id
+public,payment_collection_payment_providers,payment_collection_payment_providers_pkey,PRIMARY KEY,payment_provider_id,public,payment_collection_payment_providers,payment_provider_id
+public,payment_collection_payment_providers,payment_collection_payment_providers_pkey,PRIMARY KEY,payment_collection_id,public,payment_collection_payment_providers,payment_provider_id
+public,payment_provider,2200_25144_1_not_null,CHECK,,,,
+public,payment_provider,2200_25144_2_not_null,CHECK,,,,
+public,payment_provider,2200_25144_3_not_null,CHECK,,,,
+public,payment_provider,2200_25144_4_not_null,CHECK,,,,
+public,payment_provider,payment_provider_pkey,PRIMARY KEY,id,public,payment_provider,id
+public,payment_session,2200_25152_10_not_null,CHECK,,,,
+public,payment_session,2200_25152_12_not_null,CHECK,,,,
+public,payment_session,2200_25152_13_not_null,CHECK,,,,
+public,payment_session,2200_25152_1_not_null,CHECK,,,,
+public,payment_session,2200_25152_2_not_null,CHECK,,,,
+public,payment_session,2200_25152_3_not_null,CHECK,,,,
+public,payment_session,2200_25152_4_not_null,CHECK,,,,
+public,payment_session,2200_25152_5_not_null,CHECK,,,,
+public,payment_session,2200_25152_6_not_null,CHECK,,,,
+public,payment_session,2200_25152_8_not_null,CHECK,,,,
+public,payment_session,payment_session_payment_collection_id_foreign,FOREIGN KEY,payment_collection_id,public,payment_collection,id
+public,payment_session,payment_session_pkey,PRIMARY KEY,id,public,payment_session,id
+public,payment_session,payment_session_status_check,CHECK,,public,payment_session,status
+public,price,2200_25162_11_not_null,CHECK,,,,
+public,price,2200_25162_1_not_null,CHECK,,,,
+public,price,2200_25162_3_not_null,CHECK,,,,
+public,price,2200_25162_4_not_null,CHECK,,,,
+public,price,2200_25162_5_not_null,CHECK,,,,
+public,price,2200_25162_7_not_null,CHECK,,,,
+public,price,2200_25162_8_not_null,CHECK,,,,
+public,price,price_pkey,PRIMARY KEY,id,public,price,id
+public,price,price_price_list_id_foreign,FOREIGN KEY,price_list_id,public,price_list,id
+public,price,price_price_set_id_foreign,FOREIGN KEY,price_set_id,public,price_set,id
+public,price_list,2200_25170_10_not_null,CHECK,,,,
+public,price_list,2200_25170_1_not_null,CHECK,,,,
+public,price_list,2200_25170_2_not_null,CHECK,,,,
+public,price_list,2200_25170_6_not_null,CHECK,,,,
+public,price_list,2200_25170_7_not_null,CHECK,,,,
+public,price_list,2200_25170_8_not_null,CHECK,,,,
+public,price_list,2200_25170_9_not_null,CHECK,,,,
+public,price_list,price_list_pkey,PRIMARY KEY,id,public,price_list,id
+public,price_list,price_list_status_check,CHECK,,public,price_list,status
+public,price_list,price_list_type_check,CHECK,,public,price_list,type
+public,price_list_rule,2200_25182_1_not_null,CHECK,,,,
+public,price_list_rule,2200_25182_2_not_null,CHECK,,,,
+public,price_list_rule,2200_25182_3_not_null,CHECK,,,,
+public,price_list_rule,2200_25182_4_not_null,CHECK,,,,
+public,price_list_rule,2200_25182_7_not_null,CHECK,,,,
+public,price_list_rule,price_list_rule_pkey,PRIMARY KEY,id,public,price_list_rule,id
+public,price_list_rule,price_list_rule_price_list_id_foreign,FOREIGN KEY,price_list_id,public,price_list,id
+public,price_preference,2200_25190_1_not_null,CHECK,,,,
+public,price_preference,2200_25190_2_not_null,CHECK,,,,
+public,price_preference,2200_25190_4_not_null,CHECK,,,,
+public,price_preference,2200_25190_5_not_null,CHECK,,,,
+public,price_preference,2200_25190_6_not_null,CHECK,,,,
+public,price_preference,price_preference_pkey,PRIMARY KEY,id,public,price_preference,id
+public,price_rule,2200_25198_1_not_null,CHECK,,,,
+public,price_rule,2200_25198_2_not_null,CHECK,,,,
+public,price_rule,2200_25198_3_not_null,CHECK,,,,
+public,price_rule,2200_25198_4_not_null,CHECK,,,,
+public,price_rule,2200_25198_5_not_null,CHECK,,,,
+public,price_rule,2200_25198_6_not_null,CHECK,,,,
+public,price_rule,2200_25198_8_not_null,CHECK,,,,
+public,price_rule,2200_25198_9_not_null,CHECK,,,,
+public,price_rule,price_rule_operator_check,CHECK,,public,price_rule,operator
+public,price_rule,price_rule_pkey,PRIMARY KEY,id,public,price_rule,id
+public,price_rule,price_rule_price_id_foreign,FOREIGN KEY,price_id,public,price,id
+public,price_set,2200_25209_1_not_null,CHECK,,,,
+public,price_set,2200_25209_2_not_null,CHECK,,,,
+public,price_set,2200_25209_3_not_null,CHECK,,,,
+public,price_set,price_set_pkey,PRIMARY KEY,id,public,price_set,id
+public,product,2200_25216_19_not_null,CHECK,,,,
+public,product,2200_25216_1_not_null,CHECK,,,,
+public,product,2200_25216_21_not_null,CHECK,,,,
+public,product,2200_25216_22_not_null,CHECK,,,,
+public,product,2200_25216_2_not_null,CHECK,,,,
+public,product,2200_25216_3_not_null,CHECK,,,,
+public,product,2200_25216_6_not_null,CHECK,,,,
+public,product,2200_25216_7_not_null,CHECK,,,,
+public,product,product_collection_id_foreign,FOREIGN KEY,collection_id,public,product_collection,id
+public,product,product_pkey,PRIMARY KEY,id,public,product,id
+public,product,product_status_check,CHECK,,public,product,status
+public,product,product_type_id_foreign,FOREIGN KEY,type_id,public,product_type,id
+public,product_category,2200_25227_10_not_null,CHECK,,,,
+public,product_category,2200_25227_11_not_null,CHECK,,,,
+public,product_category,2200_25227_1_not_null,CHECK,,,,
+public,product_category,2200_25227_2_not_null,CHECK,,,,
+public,product_category,2200_25227_3_not_null,CHECK,,,,
+public,product_category,2200_25227_4_not_null,CHECK,,,,
+public,product_category,2200_25227_5_not_null,CHECK,,,,
+public,product_category,2200_25227_6_not_null,CHECK,,,,
+public,product_category,2200_25227_7_not_null,CHECK,,,,
+public,product_category,2200_25227_8_not_null,CHECK,,,,
+public,product_category,product_category_parent_category_id_foreign,FOREIGN KEY,parent_category_id,public,product_category,id
+public,product_category,product_category_pkey,PRIMARY KEY,id,public,product_category,id
+public,product_category_product,2200_25238_1_not_null,CHECK,,,,
+public,product_category_product,2200_25238_2_not_null,CHECK,,,,
+public,product_category_product,product_category_product_pkey,PRIMARY KEY,product_category_id,public,product_category_product,product_category_id
+public,product_category_product,product_category_product_pkey,PRIMARY KEY,product_id,public,product_category_product,product_category_id
+public,product_category_product,product_category_product_pkey,PRIMARY KEY,product_id,public,product_category_product,product_id
+public,product_category_product,product_category_product_pkey,PRIMARY KEY,product_category_id,public,product_category_product,product_id
+public,product_category_product,product_category_product_product_category_id_foreign,FOREIGN KEY,product_category_id,public,product_category,id
+public,product_category_product,product_category_product_product_id_foreign,FOREIGN KEY,product_id,public,product,id
+public,product_collection,2200_25243_1_not_null,CHECK,,,,
+public,product_collection,2200_25243_2_not_null,CHECK,,,,
+public,product_collection,2200_25243_3_not_null,CHECK,,,,
+public,product_collection,2200_25243_5_not_null,CHECK,,,,
+public,product_collection,2200_25243_6_not_null,CHECK,,,,
+public,product_collection,product_collection_pkey,PRIMARY KEY,id,public,product_collection,id
+public,product_option,2200_25250_1_not_null,CHECK,,,,
+public,product_option,2200_25250_2_not_null,CHECK,,,,
+public,product_option,2200_25250_3_not_null,CHECK,,,,
+public,product_option,2200_25250_5_not_null,CHECK,,,,
+public,product_option,2200_25250_6_not_null,CHECK,,,,
+public,product_option,product_option_pkey,PRIMARY KEY,id,public,product_option,id
+public,product_option,product_option_product_id_foreign,FOREIGN KEY,product_id,public,product,id
+public,product_option_value,2200_25257_1_not_null,CHECK,,,,
+public,product_option_value,2200_25257_2_not_null,CHECK,,,,
+public,product_option_value,2200_25257_5_not_null,CHECK,,,,
+public,product_option_value,2200_25257_6_not_null,CHECK,,,,
+public,product_option_value,product_option_value_option_id_foreign,FOREIGN KEY,option_id,public,product_option,id
+public,product_option_value,product_option_value_pkey,PRIMARY KEY,id,public,product_option_value,id
+public,product_sales_channel,2200_25264_1_not_null,CHECK,,,,
+public,product_sales_channel,2200_25264_2_not_null,CHECK,,,,
+public,product_sales_channel,2200_25264_3_not_null,CHECK,,,,
+public,product_sales_channel,2200_25264_4_not_null,CHECK,,,,
+public,product_sales_channel,2200_25264_5_not_null,CHECK,,,,
+public,product_sales_channel,product_sales_channel_pkey,PRIMARY KEY,sales_channel_id,public,product_sales_channel,sales_channel_id
+public,product_sales_channel,product_sales_channel_pkey,PRIMARY KEY,sales_channel_id,public,product_sales_channel,product_id
+public,product_sales_channel,product_sales_channel_pkey,PRIMARY KEY,product_id,public,product_sales_channel,product_id
+public,product_sales_channel,product_sales_channel_pkey,PRIMARY KEY,product_id,public,product_sales_channel,sales_channel_id
+public,product_shipping_profile,2200_25271_1_not_null,CHECK,,,,
+public,product_shipping_profile,2200_25271_2_not_null,CHECK,,,,
+public,product_shipping_profile,2200_25271_3_not_null,CHECK,,,,
+public,product_shipping_profile,2200_25271_4_not_null,CHECK,,,,
+public,product_shipping_profile,2200_25271_5_not_null,CHECK,,,,
+public,product_shipping_profile,product_shipping_profile_pkey,PRIMARY KEY,product_id,public,product_shipping_profile,product_id
+public,product_shipping_profile,product_shipping_profile_pkey,PRIMARY KEY,shipping_profile_id,public,product_shipping_profile,product_id
+public,product_shipping_profile,product_shipping_profile_pkey,PRIMARY KEY,product_id,public,product_shipping_profile,shipping_profile_id
+public,product_shipping_profile,product_shipping_profile_pkey,PRIMARY KEY,shipping_profile_id,public,product_shipping_profile,shipping_profile_id
+public,product_tag,2200_25278_1_not_null,CHECK,,,,
+public,product_tag,2200_25278_2_not_null,CHECK,,,,
+public,product_tag,2200_25278_4_not_null,CHECK,,,,
+public,product_tag,2200_25278_5_not_null,CHECK,,,,
+public,product_tag,product_tag_pkey,PRIMARY KEY,id,public,product_tag,id
+public,product_tags,2200_25285_1_not_null,CHECK,,,,
+public,product_tags,2200_25285_2_not_null,CHECK,,,,
+public,product_tags,product_tags_pkey,PRIMARY KEY,product_tag_id,public,product_tags,product_tag_id
+public,product_tags,product_tags_pkey,PRIMARY KEY,product_id,public,product_tags,product_tag_id
+public,product_tags,product_tags_pkey,PRIMARY KEY,product_id,public,product_tags,product_id
+public,product_tags,product_tags_pkey,PRIMARY KEY,product_tag_id,public,product_tags,product_id
+public,product_tags,product_tags_product_id_foreign,FOREIGN KEY,product_id,public,product,id
+public,product_tags,product_tags_product_tag_id_foreign,FOREIGN KEY,product_tag_id,public,product_tag,id
+public,product_type,2200_25290_1_not_null,CHECK,,,,
+public,product_type,2200_25290_2_not_null,CHECK,,,,
+public,product_type,2200_25290_4_not_null,CHECK,,,,
+public,product_type,2200_25290_5_not_null,CHECK,,,,
+public,product_type,product_type_pkey,PRIMARY KEY,id,public,product_type,id
+public,product_variant,2200_25297_1_not_null,CHECK,,,,
+public,product_variant,2200_25297_20_not_null,CHECK,,,,
+public,product_variant,2200_25297_21_not_null,CHECK,,,,
+public,product_variant,2200_25297_2_not_null,CHECK,,,,
+public,product_variant,2200_25297_7_not_null,CHECK,,,,
+public,product_variant,2200_25297_8_not_null,CHECK,,,,
+public,product_variant,product_variant_pkey,PRIMARY KEY,id,public,product_variant,id
+public,product_variant,product_variant_product_id_foreign,FOREIGN KEY,product_id,public,product,id
+public,product_variant_inventory_item,2200_25307_1_not_null,CHECK,,,,
+public,product_variant_inventory_item,2200_25307_2_not_null,CHECK,,,,
+public,product_variant_inventory_item,2200_25307_3_not_null,CHECK,,,,
+public,product_variant_inventory_item,2200_25307_4_not_null,CHECK,,,,
+public,product_variant_inventory_item,2200_25307_5_not_null,CHECK,,,,
+public,product_variant_inventory_item,2200_25307_6_not_null,CHECK,,,,
+public,product_variant_inventory_item,product_variant_inventory_item_pkey,PRIMARY KEY,inventory_item_id,public,product_variant_inventory_item,inventory_item_id
+public,product_variant_inventory_item,product_variant_inventory_item_pkey,PRIMARY KEY,variant_id,public,product_variant_inventory_item,variant_id
+public,product_variant_inventory_item,product_variant_inventory_item_pkey,PRIMARY KEY,inventory_item_id,public,product_variant_inventory_item,variant_id
+public,product_variant_inventory_item,product_variant_inventory_item_pkey,PRIMARY KEY,variant_id,public,product_variant_inventory_item,inventory_item_id
+public,product_variant_option,2200_25315_1_not_null,CHECK,,,,
+public,product_variant_option,2200_25315_2_not_null,CHECK,,,,
+public,product_variant_option,product_variant_option_option_value_id_foreign,FOREIGN KEY,option_value_id,public,product_option_value,id
+public,product_variant_option,product_variant_option_pkey,PRIMARY KEY,variant_id,public,product_variant_option,variant_id
+public,product_variant_option,product_variant_option_pkey,PRIMARY KEY,option_value_id,public,product_variant_option,variant_id
+public,product_variant_option,product_variant_option_pkey,PRIMARY KEY,variant_id,public,product_variant_option,option_value_id
+public,product_variant_option,product_variant_option_pkey,PRIMARY KEY,option_value_id,public,product_variant_option,option_value_id
+public,product_variant_option,product_variant_option_variant_id_foreign,FOREIGN KEY,variant_id,public,product_variant,id
+public,product_variant_price_set,2200_25320_1_not_null,CHECK,,,,
+public,product_variant_price_set,2200_25320_2_not_null,CHECK,,,,
+public,product_variant_price_set,2200_25320_3_not_null,CHECK,,,,
+public,product_variant_price_set,2200_25320_4_not_null,CHECK,,,,
+public,product_variant_price_set,2200_25320_5_not_null,CHECK,,,,
+public,product_variant_price_set,product_variant_price_set_pkey,PRIMARY KEY,variant_id,public,product_variant_price_set,variant_id
+public,product_variant_price_set,product_variant_price_set_pkey,PRIMARY KEY,price_set_id,public,product_variant_price_set,price_set_id
+public,product_variant_price_set,product_variant_price_set_pkey,PRIMARY KEY,variant_id,public,product_variant_price_set,price_set_id
+public,product_variant_price_set,product_variant_price_set_pkey,PRIMARY KEY,price_set_id,public,product_variant_price_set,variant_id
+public,product_variant_product_image,2200_25327_1_not_null,CHECK,,,,
+public,product_variant_product_image,2200_25327_2_not_null,CHECK,,,,
+public,product_variant_product_image,2200_25327_3_not_null,CHECK,,,,
+public,product_variant_product_image,2200_25327_4_not_null,CHECK,,,,
+public,product_variant_product_image,2200_25327_5_not_null,CHECK,,,,
+public,product_variant_product_image,product_variant_product_image_image_id_foreign,FOREIGN KEY,image_id,public,image,id
+public,product_variant_product_image,product_variant_product_image_pkey,PRIMARY KEY,id,public,product_variant_product_image,id
+public,promotion,2200_25334_10_not_null,CHECK,,,,
+public,promotion,2200_25334_12_not_null,CHECK,,,,
+public,promotion,2200_25334_1_not_null,CHECK,,,,
+public,promotion,2200_25334_2_not_null,CHECK,,,,
+public,promotion,2200_25334_4_not_null,CHECK,,,,
+public,promotion,2200_25334_5_not_null,CHECK,,,,
+public,promotion,2200_25334_6_not_null,CHECK,,,,
+public,promotion,2200_25334_7_not_null,CHECK,,,,
+public,promotion,2200_25334_9_not_null,CHECK,,,,
+public,promotion,promotion_campaign_id_foreign,FOREIGN KEY,campaign_id,public,promotion_campaign,id
+public,promotion,promotion_pkey,PRIMARY KEY,id,public,promotion,id
+public,promotion,promotion_status_check,CHECK,,public,promotion,status
+public,promotion,promotion_type_check,CHECK,,public,promotion,type
+public,promotion_application_method,2200_25347_10_not_null,CHECK,,,,
+public,promotion_application_method,2200_25347_11_not_null,CHECK,,,,
+public,promotion_application_method,2200_25347_12_not_null,CHECK,,,,
+public,promotion_application_method,2200_25347_1_not_null,CHECK,,,,
+public,promotion_application_method,2200_25347_7_not_null,CHECK,,,,
+public,promotion_application_method,2200_25347_8_not_null,CHECK,,,,
+public,promotion_application_method,promotion_application_method_allocation_check,CHECK,,public,promotion_application_method,allocation
+public,promotion_application_method,promotion_application_method_pkey,PRIMARY KEY,id,public,promotion_application_method,id
+public,promotion_application_method,promotion_application_method_promotion_id_foreign,FOREIGN KEY,promotion_id,public,promotion,id
+public,promotion_application_method,promotion_application_method_target_type_check,CHECK,,public,promotion_application_method,target_type
+public,promotion_application_method,promotion_application_method_type_check,CHECK,,public,promotion_application_method,type
+public,promotion_campaign,2200_25357_1_not_null,CHECK,,,,
+public,promotion_campaign,2200_25357_2_not_null,CHECK,,,,
+public,promotion_campaign,2200_25357_4_not_null,CHECK,,,,
+public,promotion_campaign,2200_25357_7_not_null,CHECK,,,,
+public,promotion_campaign,2200_25357_8_not_null,CHECK,,,,
+public,promotion_campaign,promotion_campaign_pkey,PRIMARY KEY,id,public,promotion_campaign,id
+public,promotion_campaign_budget,2200_25364_1_not_null,CHECK,,,,
+public,promotion_campaign_budget,2200_25364_2_not_null,CHECK,,,,
+public,promotion_campaign_budget,2200_25364_3_not_null,CHECK,,,,
+public,promotion_campaign_budget,2200_25364_6_not_null,CHECK,,,,
+public,promotion_campaign_budget,2200_25364_7_not_null,CHECK,,,,
+public,promotion_campaign_budget,2200_25364_8_not_null,CHECK,,,,
+public,promotion_campaign_budget,2200_25364_9_not_null,CHECK,,,,
+public,promotion_campaign_budget,promotion_campaign_budget_campaign_id_foreign,FOREIGN KEY,campaign_id,public,promotion_campaign,id
+public,promotion_campaign_budget,promotion_campaign_budget_pkey,PRIMARY KEY,id,public,promotion_campaign_budget,id
+public,promotion_campaign_budget,promotion_campaign_budget_type_check,CHECK,,public,promotion_campaign_budget,type
+public,promotion_campaign_budget_usage,2200_25373_1_not_null,CHECK,,,,
+public,promotion_campaign_budget_usage,2200_25373_2_not_null,CHECK,,,,
+public,promotion_campaign_budget_usage,2200_25373_3_not_null,CHECK,,,,
+public,promotion_campaign_budget_usage,2200_25373_4_not_null,CHECK,,,,
+public,promotion_campaign_budget_usage,2200_25373_5_not_null,CHECK,,,,
+public,promotion_campaign_budget_usage,2200_25373_6_not_null,CHECK,,,,
+public,promotion_campaign_budget_usage,2200_25373_7_not_null,CHECK,,,,
+public,promotion_campaign_budget_usage,promotion_campaign_budget_usage_budget_id_foreign,FOREIGN KEY,budget_id,public,promotion_campaign_budget,id
+public,promotion_campaign_budget_usage,promotion_campaign_budget_usage_pkey,PRIMARY KEY,id,public,promotion_campaign_budget_usage,id
+public,promotion_promotion_rule,2200_25381_1_not_null,CHECK,,,,
+public,promotion_promotion_rule,2200_25381_2_not_null,CHECK,,,,
+public,promotion_promotion_rule,promotion_promotion_rule_pkey,PRIMARY KEY,promotion_rule_id,public,promotion_promotion_rule,promotion_rule_id
+public,promotion_promotion_rule,promotion_promotion_rule_pkey,PRIMARY KEY,promotion_id,public,promotion_promotion_rule,promotion_rule_id
+public,promotion_promotion_rule,promotion_promotion_rule_pkey,PRIMARY KEY,promotion_rule_id,public,promotion_promotion_rule,promotion_id
+public,promotion_promotion_rule,promotion_promotion_rule_pkey,PRIMARY KEY,promotion_id,public,promotion_promotion_rule,promotion_id
+public,promotion_promotion_rule,promotion_promotion_rule_promotion_id_foreign,FOREIGN KEY,promotion_id,public,promotion,id
+public,promotion_promotion_rule,promotion_promotion_rule_promotion_rule_id_foreign,FOREIGN KEY,promotion_rule_id,public,promotion_rule,id
+public,promotion_rule,2200_25386_1_not_null,CHECK,,,,
+public,promotion_rule,2200_25386_3_not_null,CHECK,,,,
+public,promotion_rule,2200_25386_4_not_null,CHECK,,,,
+public,promotion_rule,2200_25386_5_not_null,CHECK,,,,
+public,promotion_rule,2200_25386_6_not_null,CHECK,,,,
+public,promotion_rule,promotion_rule_operator_check,CHECK,,public,promotion_rule,operator
+public,promotion_rule,promotion_rule_pkey,PRIMARY KEY,id,public,promotion_rule,id
+public,promotion_rule_value,2200_25394_1_not_null,CHECK,,,,
+public,promotion_rule_value,2200_25394_2_not_null,CHECK,,,,
+public,promotion_rule_value,2200_25394_3_not_null,CHECK,,,,
+public,promotion_rule_value,2200_25394_4_not_null,CHECK,,,,
+public,promotion_rule_value,2200_25394_5_not_null,CHECK,,,,
+public,promotion_rule_value,promotion_rule_value_pkey,PRIMARY KEY,id,public,promotion_rule_value,id
+public,promotion_rule_value,promotion_rule_value_promotion_rule_id_foreign,FOREIGN KEY,promotion_rule_id,public,promotion_rule,id
+public,provider_identity,2200_25401_1_not_null,CHECK,,,,
+public,provider_identity,2200_25401_2_not_null,CHECK,,,,
+public,provider_identity,2200_25401_3_not_null,CHECK,,,,
+public,provider_identity,2200_25401_4_not_null,CHECK,,,,
+public,provider_identity,2200_25401_7_not_null,CHECK,,,,
+public,provider_identity,2200_25401_8_not_null,CHECK,,,,
+public,provider_identity,provider_identity_auth_identity_id_foreign,FOREIGN KEY,auth_identity_id,public,auth_identity,id
+public,provider_identity,provider_identity_pkey,PRIMARY KEY,id,public,provider_identity,id
+public,publishable_api_key_sales_channel,2200_25408_1_not_null,CHECK,,,,
+public,publishable_api_key_sales_channel,2200_25408_2_not_null,CHECK,,,,
+public,publishable_api_key_sales_channel,2200_25408_3_not_null,CHECK,,,,
+public,publishable_api_key_sales_channel,2200_25408_4_not_null,CHECK,,,,
+public,publishable_api_key_sales_channel,2200_25408_5_not_null,CHECK,,,,
+public,publishable_api_key_sales_channel,publishable_api_key_sales_channel_pkey,PRIMARY KEY,sales_channel_id,public,publishable_api_key_sales_channel,publishable_key_id
+public,publishable_api_key_sales_channel,publishable_api_key_sales_channel_pkey,PRIMARY KEY,publishable_key_id,public,publishable_api_key_sales_channel,publishable_key_id
+public,publishable_api_key_sales_channel,publishable_api_key_sales_channel_pkey,PRIMARY KEY,sales_channel_id,public,publishable_api_key_sales_channel,sales_channel_id
+public,publishable_api_key_sales_channel,publishable_api_key_sales_channel_pkey,PRIMARY KEY,publishable_key_id,public,publishable_api_key_sales_channel,sales_channel_id
+public,refund,2200_25415_1_not_null,CHECK,,,,
+public,refund,2200_25415_2_not_null,CHECK,,,,
+public,refund,2200_25415_3_not_null,CHECK,,,,
+public,refund,2200_25415_4_not_null,CHECK,,,,
+public,refund,2200_25415_5_not_null,CHECK,,,,
+public,refund,2200_25415_6_not_null,CHECK,,,,
+public,refund,refund_payment_id_foreign,FOREIGN KEY,payment_id,public,payment,id
+public,refund,refund_pkey,PRIMARY KEY,id,public,refund,id
+public,refund_reason,2200_25422_1_not_null,CHECK,,,,
+public,refund_reason,2200_25422_2_not_null,CHECK,,,,
+public,refund_reason,2200_25422_5_not_null,CHECK,,,,
+public,refund_reason,2200_25422_6_not_null,CHECK,,,,
+public,refund_reason,2200_25422_8_not_null,CHECK,,,,
+public,refund_reason,refund_reason_pkey,PRIMARY KEY,id,public,refund_reason,id
+public,region,2200_25429_1_not_null,CHECK,,,,
+public,region,2200_25429_2_not_null,CHECK,,,,
+public,region,2200_25429_3_not_null,CHECK,,,,
+public,region,2200_25429_5_not_null,CHECK,,,,
+public,region,2200_25429_6_not_null,CHECK,,,,
+public,region,2200_25429_8_not_null,CHECK,,,,
+public,region,region_pkey,PRIMARY KEY,id,public,region,id
+public,region_country,2200_25437_1_not_null,CHECK,,,,
+public,region_country,2200_25437_2_not_null,CHECK,,,,
+public,region_country,2200_25437_3_not_null,CHECK,,,,
+public,region_country,2200_25437_4_not_null,CHECK,,,,
+public,region_country,2200_25437_5_not_null,CHECK,,,,
+public,region_country,2200_25437_8_not_null,CHECK,,,,
+public,region_country,2200_25437_9_not_null,CHECK,,,,
+public,region_country,region_country_pkey,PRIMARY KEY,iso_2,public,region_country,iso_2
+public,region_country,region_country_region_id_foreign,FOREIGN KEY,region_id,public,region,id
+public,region_payment_provider,2200_25444_1_not_null,CHECK,,,,
+public,region_payment_provider,2200_25444_2_not_null,CHECK,,,,
+public,region_payment_provider,2200_25444_3_not_null,CHECK,,,,
+public,region_payment_provider,2200_25444_4_not_null,CHECK,,,,
+public,region_payment_provider,2200_25444_5_not_null,CHECK,,,,
+public,region_payment_provider,region_payment_provider_pkey,PRIMARY KEY,payment_provider_id,public,region_payment_provider,payment_provider_id
+public,region_payment_provider,region_payment_provider_pkey,PRIMARY KEY,payment_provider_id,public,region_payment_provider,region_id
+public,region_payment_provider,region_payment_provider_pkey,PRIMARY KEY,region_id,public,region_payment_provider,payment_provider_id
+public,region_payment_provider,region_payment_provider_pkey,PRIMARY KEY,region_id,public,region_payment_provider,region_id
+public,reservation_item,2200_25451_12_not_null,CHECK,,,,
+public,reservation_item,2200_25451_1_not_null,CHECK,,,,
+public,reservation_item,2200_25451_2_not_null,CHECK,,,,
+public,reservation_item,2200_25451_3_not_null,CHECK,,,,
+public,reservation_item,2200_25451_6_not_null,CHECK,,,,
+public,reservation_item,2200_25451_7_not_null,CHECK,,,,
+public,reservation_item,reservation_item_inventory_item_id_foreign,FOREIGN KEY,inventory_item_id,public,inventory_item,id
+public,reservation_item,reservation_item_pkey,PRIMARY KEY,id,public,reservation_item,id
+public,return,2200_25459_12_not_null,CHECK,,,,
+public,return,2200_25459_13_not_null,CHECK,,,,
+public,return,2200_25459_1_not_null,CHECK,,,,
+public,return,2200_25459_2_not_null,CHECK,,,,
+public,return,2200_25459_5_not_null,CHECK,,,,
+public,return,2200_25459_6_not_null,CHECK,,,,
+public,return,2200_25459_7_not_null,CHECK,,,,
+public,return,return_pkey,PRIMARY KEY,id,public,return,id
+public,return_fulfillment,2200_25468_1_not_null,CHECK,,,,
+public,return_fulfillment,2200_25468_2_not_null,CHECK,,,,
+public,return_fulfillment,2200_25468_3_not_null,CHECK,,,,
+public,return_fulfillment,2200_25468_4_not_null,CHECK,,,,
+public,return_fulfillment,2200_25468_5_not_null,CHECK,,,,
+public,return_fulfillment,return_fulfillment_pkey,PRIMARY KEY,return_id,public,return_fulfillment,return_id
+public,return_fulfillment,return_fulfillment_pkey,PRIMARY KEY,return_id,public,return_fulfillment,fulfillment_id
+public,return_fulfillment,return_fulfillment_pkey,PRIMARY KEY,fulfillment_id,public,return_fulfillment,fulfillment_id
+public,return_fulfillment,return_fulfillment_pkey,PRIMARY KEY,fulfillment_id,public,return_fulfillment,return_id
+public,return_item,2200_25475_11_not_null,CHECK,,,,
+public,return_item,2200_25475_12_not_null,CHECK,,,,
+public,return_item,2200_25475_14_not_null,CHECK,,,,
+public,return_item,2200_25475_15_not_null,CHECK,,,,
+public,return_item,2200_25475_1_not_null,CHECK,,,,
+public,return_item,2200_25475_2_not_null,CHECK,,,,
+public,return_item,2200_25475_4_not_null,CHECK,,,,
+public,return_item,2200_25475_5_not_null,CHECK,,,,
+public,return_item,2200_25475_6_not_null,CHECK,,,,
+public,return_item,2200_25475_7_not_null,CHECK,,,,
+public,return_item,2200_25475_8_not_null,CHECK,,,,
+public,return_item,return_item_pkey,PRIMARY KEY,id,public,return_item,id
+public,return_reason,2200_25486_1_not_null,CHECK,,,,
+public,return_reason,2200_25486_2_not_null,CHECK,,,,
+public,return_reason,2200_25486_3_not_null,CHECK,,,,
+public,return_reason,2200_25486_7_not_null,CHECK,,,,
+public,return_reason,2200_25486_8_not_null,CHECK,,,,
+public,return_reason,return_reason_parent_return_reason_id_foreign,FOREIGN KEY,parent_return_reason_id,public,return_reason,id
+public,return_reason,return_reason_pkey,PRIMARY KEY,id,public,return_reason,id
+public,sales_channel,2200_25493_1_not_null,CHECK,,,,
+public,sales_channel,2200_25493_2_not_null,CHECK,,,,
+public,sales_channel,2200_25493_4_not_null,CHECK,,,,
+public,sales_channel,2200_25493_6_not_null,CHECK,,,,
+public,sales_channel,2200_25493_7_not_null,CHECK,,,,
+public,sales_channel,sales_channel_pkey,PRIMARY KEY,id,public,sales_channel,id
+public,sales_channel_stock_location,2200_25501_1_not_null,CHECK,,,,
+public,sales_channel_stock_location,2200_25501_2_not_null,CHECK,,,,
+public,sales_channel_stock_location,2200_25501_3_not_null,CHECK,,,,
+public,sales_channel_stock_location,2200_25501_4_not_null,CHECK,,,,
+public,sales_channel_stock_location,2200_25501_5_not_null,CHECK,,,,
+public,sales_channel_stock_location,sales_channel_stock_location_pkey,PRIMARY KEY,stock_location_id,public,sales_channel_stock_location,stock_location_id
+public,sales_channel_stock_location,sales_channel_stock_location_pkey,PRIMARY KEY,sales_channel_id,public,sales_channel_stock_location,stock_location_id
+public,sales_channel_stock_location,sales_channel_stock_location_pkey,PRIMARY KEY,sales_channel_id,public,sales_channel_stock_location,sales_channel_id
+public,sales_channel_stock_location,sales_channel_stock_location_pkey,PRIMARY KEY,stock_location_id,public,sales_channel_stock_location,sales_channel_id
+public,script_migrations,2200_25508_1_not_null,CHECK,,,,
+public,script_migrations,2200_25508_2_not_null,CHECK,,,,
+public,script_migrations,script_migrations_pkey,PRIMARY KEY,id,public,script_migrations,id
+public,service_zone,2200_25513_1_not_null,CHECK,,,,
+public,service_zone,2200_25513_2_not_null,CHECK,,,,
+public,service_zone,2200_25513_4_not_null,CHECK,,,,
+public,service_zone,2200_25513_5_not_null,CHECK,,,,
+public,service_zone,2200_25513_6_not_null,CHECK,,,,
+public,service_zone,service_zone_fulfillment_set_id_foreign,FOREIGN KEY,fulfillment_set_id,public,fulfillment_set,id
+public,service_zone,service_zone_pkey,PRIMARY KEY,id,public,service_zone,id
+public,shipping_option,2200_25520_10_not_null,CHECK,,,,
+public,shipping_option,2200_25520_11_not_null,CHECK,,,,
+public,shipping_option,2200_25520_1_not_null,CHECK,,,,
+public,shipping_option,2200_25520_2_not_null,CHECK,,,,
+public,shipping_option,2200_25520_3_not_null,CHECK,,,,
+public,shipping_option,2200_25520_4_not_null,CHECK,,,,
+public,shipping_option,2200_25520_9_not_null,CHECK,,,,
+public,shipping_option,shipping_option_pkey,PRIMARY KEY,id,public,shipping_option,id
+public,shipping_option,shipping_option_price_type_check,CHECK,,public,shipping_option,price_type
+public,shipping_option,shipping_option_provider_id_foreign,FOREIGN KEY,provider_id,public,fulfillment_provider,id
+public,shipping_option,shipping_option_service_zone_id_foreign,FOREIGN KEY,service_zone_id,public,service_zone,id
+public,shipping_option,shipping_option_shipping_option_type_id_foreign,FOREIGN KEY,shipping_option_type_id,public,shipping_option_type,id
+public,shipping_option,shipping_option_shipping_profile_id_foreign,FOREIGN KEY,shipping_profile_id,public,shipping_profile,id
+public,shipping_option_price_set,2200_25529_1_not_null,CHECK,,,,
+public,shipping_option_price_set,2200_25529_2_not_null,CHECK,,,,
+public,shipping_option_price_set,2200_25529_3_not_null,CHECK,,,,
+public,shipping_option_price_set,2200_25529_4_not_null,CHECK,,,,
+public,shipping_option_price_set,2200_25529_5_not_null,CHECK,,,,
+public,shipping_option_price_set,shipping_option_price_set_pkey,PRIMARY KEY,shipping_option_id,public,shipping_option_price_set,shipping_option_id
+public,shipping_option_price_set,shipping_option_price_set_pkey,PRIMARY KEY,shipping_option_id,public,shipping_option_price_set,price_set_id
+public,shipping_option_price_set,shipping_option_price_set_pkey,PRIMARY KEY,price_set_id,public,shipping_option_price_set,shipping_option_id
+public,shipping_option_price_set,shipping_option_price_set_pkey,PRIMARY KEY,price_set_id,public,shipping_option_price_set,price_set_id
+public,shipping_option_rule,2200_25536_1_not_null,CHECK,,,,
+public,shipping_option_rule,2200_25536_2_not_null,CHECK,,,,
+public,shipping_option_rule,2200_25536_3_not_null,CHECK,,,,
+public,shipping_option_rule,2200_25536_5_not_null,CHECK,,,,
+public,shipping_option_rule,2200_25536_6_not_null,CHECK,,,,
+public,shipping_option_rule,2200_25536_7_not_null,CHECK,,,,
+public,shipping_option_rule,shipping_option_rule_operator_check,CHECK,,public,shipping_option_rule,operator
+public,shipping_option_rule,shipping_option_rule_pkey,PRIMARY KEY,id,public,shipping_option_rule,id
+public,shipping_option_rule,shipping_option_rule_shipping_option_id_foreign,FOREIGN KEY,shipping_option_id,public,shipping_option,id
+public,shipping_option_type,2200_25544_1_not_null,CHECK,,,,
+public,shipping_option_type,2200_25544_2_not_null,CHECK,,,,
+public,shipping_option_type,2200_25544_4_not_null,CHECK,,,,
+public,shipping_option_type,2200_25544_5_not_null,CHECK,,,,
+public,shipping_option_type,2200_25544_6_not_null,CHECK,,,,
+public,shipping_option_type,shipping_option_type_pkey,PRIMARY KEY,id,public,shipping_option_type,id
+public,shipping_profile,2200_25551_1_not_null,CHECK,,,,
+public,shipping_profile,2200_25551_2_not_null,CHECK,,,,
+public,shipping_profile,2200_25551_3_not_null,CHECK,,,,
+public,shipping_profile,2200_25551_5_not_null,CHECK,,,,
+public,shipping_profile,2200_25551_6_not_null,CHECK,,,,
+public,shipping_profile,shipping_profile_pkey,PRIMARY KEY,id,public,shipping_profile,id
+public,stock_location,2200_25558_1_not_null,CHECK,,,,
+public,stock_location,2200_25558_2_not_null,CHECK,,,,
+public,stock_location,2200_25558_3_not_null,CHECK,,,,
+public,stock_location,2200_25558_5_not_null,CHECK,,,,
+public,stock_location,stock_location_address_id_foreign,FOREIGN KEY,address_id,public,stock_location_address,id
+public,stock_location,stock_location_pkey,PRIMARY KEY,id,public,stock_location,id
+public,stock_location_address,2200_25565_1_not_null,CHECK,,,,
+public,stock_location_address,2200_25565_2_not_null,CHECK,,,,
+public,stock_location_address,2200_25565_3_not_null,CHECK,,,,
+public,stock_location_address,2200_25565_5_not_null,CHECK,,,,
+public,stock_location_address,2200_25565_9_not_null,CHECK,,,,
+public,stock_location_address,stock_location_address_pkey,PRIMARY KEY,id,public,stock_location_address,id
+public,store,2200_25572_1_not_null,CHECK,,,,
+public,store,2200_25572_2_not_null,CHECK,,,,
+public,store,2200_25572_7_not_null,CHECK,,,,
+public,store,2200_25572_8_not_null,CHECK,,,,
+public,store,store_pkey,PRIMARY KEY,id,public,store,id
+public,store_currency,2200_25580_1_not_null,CHECK,,,,
+public,store_currency,2200_25580_2_not_null,CHECK,,,,
+public,store_currency,2200_25580_3_not_null,CHECK,,,,
+public,store_currency,2200_25580_5_not_null,CHECK,,,,
+public,store_currency,2200_25580_6_not_null,CHECK,,,,
+public,store_currency,store_currency_pkey,PRIMARY KEY,id,public,store_currency,id
+public,store_currency,store_currency_store_id_foreign,FOREIGN KEY,store_id,public,store,id
+public,store_locale,2200_25588_1_not_null,CHECK,,,,
+public,store_locale,2200_25588_2_not_null,CHECK,,,,
+public,store_locale,2200_25588_4_not_null,CHECK,,,,
+public,store_locale,2200_25588_5_not_null,CHECK,,,,
+public,store_locale,store_locale_pkey,PRIMARY KEY,id,public,store_locale,id
+public,store_locale,store_locale_store_id_foreign,FOREIGN KEY,store_id,public,store,id
+public,tax_provider,2200_25595_1_not_null,CHECK,,,,
+public,tax_provider,2200_25595_2_not_null,CHECK,,,,
+public,tax_provider,2200_25595_3_not_null,CHECK,,,,
+public,tax_provider,2200_25595_4_not_null,CHECK,,,,
+public,tax_provider,tax_provider_pkey,PRIMARY KEY,id,public,tax_provider,id
+public,tax_rate,2200_25603_10_not_null,CHECK,,,,
+public,tax_rate,2200_25603_1_not_null,CHECK,,,,
+public,tax_rate,2200_25603_3_not_null,CHECK,,,,
+public,tax_rate,2200_25603_4_not_null,CHECK,,,,
+public,tax_rate,2200_25603_5_not_null,CHECK,,,,
+public,tax_rate,2200_25603_6_not_null,CHECK,,,,
+public,tax_rate,2200_25603_7_not_null,CHECK,,,,
+public,tax_rate,2200_25603_9_not_null,CHECK,,,,
+public,tax_rate,FK_tax_rate_tax_region_id,FOREIGN KEY,tax_region_id,public,tax_region,id
+public,tax_rate,tax_rate_pkey,PRIMARY KEY,id,public,tax_rate,id
+public,tax_rate_rule,2200_25612_1_not_null,CHECK,,,,
+public,tax_rate_rule,2200_25612_2_not_null,CHECK,,,,
+public,tax_rate_rule,2200_25612_3_not_null,CHECK,,,,
+public,tax_rate_rule,2200_25612_4_not_null,CHECK,,,,
+public,tax_rate_rule,2200_25612_6_not_null,CHECK,,,,
+public,tax_rate_rule,2200_25612_7_not_null,CHECK,,,,
+public,tax_rate_rule,FK_tax_rate_rule_tax_rate_id,FOREIGN KEY,tax_rate_id,public,tax_rate,id
+public,tax_rate_rule,tax_rate_rule_pkey,PRIMARY KEY,id,public,tax_rate_rule,id
+public,tax_region,2200_25619_1_not_null,CHECK,,,,
+public,tax_region,2200_25619_3_not_null,CHECK,,,,
+public,tax_region,2200_25619_7_not_null,CHECK,,,,
+public,tax_region,2200_25619_8_not_null,CHECK,,,,
+public,tax_region,CK_tax_region_country_top_level,CHECK,,public,tax_region,parent_id
+public,tax_region,CK_tax_region_country_top_level,CHECK,,public,tax_region,province_code
+public,tax_region,CK_tax_region_provider_top_level,CHECK,,public,tax_region,provider_id
+public,tax_region,CK_tax_region_provider_top_level,CHECK,,public,tax_region,parent_id
+public,tax_region,FK_tax_region_parent_id,FOREIGN KEY,parent_id,public,tax_region,id
+public,tax_region,FK_tax_region_provider_id,FOREIGN KEY,provider_id,public,tax_provider,id
+public,tax_region,tax_region_pkey,PRIMARY KEY,id,public,tax_region,id
+public,user,2200_25628_1_not_null,CHECK,,,,
+public,user,2200_25628_4_not_null,CHECK,,,,
+public,user,2200_25628_7_not_null,CHECK,,,,
+public,user,2200_25628_8_not_null,CHECK,,,,
+public,user,user_pkey,PRIMARY KEY,id,public,user,id
+public,user_preference,2200_25635_1_not_null,CHECK,,,,
+public,user_preference,2200_25635_2_not_null,CHECK,,,,
+public,user_preference,2200_25635_3_not_null,CHECK,,,,
+public,user_preference,2200_25635_4_not_null,CHECK,,,,
+public,user_preference,2200_25635_5_not_null,CHECK,,,,
+public,user_preference,2200_25635_6_not_null,CHECK,,,,
+public,user_preference,user_preference_pkey,PRIMARY KEY,id,public,user_preference,id
+public,view_configuration,2200_25642_1_not_null,CHECK,,,,
+public,view_configuration,2200_25642_2_not_null,CHECK,,,,
+public,view_configuration,2200_25642_5_not_null,CHECK,,,,
+public,view_configuration,2200_25642_6_not_null,CHECK,,,,
+public,view_configuration,2200_25642_7_not_null,CHECK,,,,
+public,view_configuration,2200_25642_8_not_null,CHECK,,,,
+public,view_configuration,view_configuration_pkey,PRIMARY KEY,id,public,view_configuration,id
+public,workflow_execution,2200_25650_11_not_null,CHECK,,,,
+public,workflow_execution,2200_25650_1_not_null,CHECK,,,,
+public,workflow_execution,2200_25650_2_not_null,CHECK,,,,
+public,workflow_execution,2200_25650_3_not_null,CHECK,,,,
+public,workflow_execution,2200_25650_6_not_null,CHECK,,,,
+public,workflow_execution,2200_25650_7_not_null,CHECK,,,,
+public,workflow_execution,2200_25650_8_not_null,CHECK,,,,
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,transaction_id,public,workflow_execution,transaction_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,run_id,public,workflow_execution,transaction_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,transaction_id,public,workflow_execution,workflow_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,workflow_id,public,workflow_execution,workflow_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,run_id,public,workflow_execution,workflow_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,workflow_id,public,workflow_execution,run_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,transaction_id,public,workflow_execution,run_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,run_id,public,workflow_execution,run_id
+public,workflow_execution,workflow_execution_pkey,PRIMARY KEY,workflow_id,public,workflow_execution,transaction_id
