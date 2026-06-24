@@ -11,3 +11,14 @@ scripts/.cj-browser-profile/
 .cj-token-cache.json
 scripts/.cj-token-cache.json
 scripts/pricing/.cj-token-cache.json
+.vercel
+
+# Generated automation reports & marketplace image assets
+reports/ebay/
+reports/etsy/
+reports/sync/
+reports/pricing/
+reports/catalog/marketplace-publish-*.json
+marketplace/images/
+scripts/debug/_tmp_*
+
