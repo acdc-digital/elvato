@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Elvato eBay Listing Plan",
+  "type": "object",
+  "required": ["source", "ebay", "launchGate"],
+  "properties": {
+    "source": {
+      "type": "object",
+      "required": ["medusaProductId", "handle", "title"],
+      "properties": {
+        "medusaProductId": { "type": "string" },
+        "handle": { "type": "string" },
+        "title": { "type": "string" },
+        "sourceReport": { "type": "string" },
+        "cjSku": { "type": ["string", "null"] }
+      }
+    },
+    "ebay": {
+      "type": "object",
+      "required": ["marketplaceId", "title", "price", "currency", "condition", "quantity", "category", "description", "imageUrls"],
+      "properties": {
+        "marketplaceId": { "type": "string", "default": "EBAY_US" },
+        "title": { "type": "string", "maxLength": 80 },
+        "subtitle": { "type": ["string", "null"], "maxLength": 55 },
+        "price": { "type": "number", "exclusiveMinimum": 0 },
+        "currency": { "type": "string", "default": "USD" },
+        "condition": { "type": "string", "default": "NEW" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "category": {
+          "type": "object",
+          "required": ["id", "name"],
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" }
+          }
+        },
+        "itemSpecifics": {
+          "type": "object",
+          "additionalProperties": { "type": ["string", "number", "boolean", "array", "null"] }
+        },
+        "description": { "type": "string" },
+        "imageUrls": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "sku": { "type": ["string", "null"] },
+        "businessPolicies": {
+          "type": "object",
+          "properties": {
+            "paymentPolicyId": { "type": ["string", "null"] },
+            "fulfillmentPolicyId": { "type": ["string", "null"] },
+            "returnPolicyId": { "type": ["string", "null"] }
+          }
+        }
+      }
+    },
+    "launchGate": {
+      "type": "object",
+      "required": ["status", "checks"],
+      "properties": {
+        "status": { "type": "string", "enum": ["ready", "needs-review", "reject"] },
+        "checks": {
+          "type": "object",
+          "properties": {
+            "images": { "type": "string" },
+            "specs": { "type": "string" },
+            "margin": { "type": "string" },
+            "shipping": { "type": "string" },
+            "compliance": { "type": "string" },
+            "variants": { "type": "string" }
+          }
+        },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

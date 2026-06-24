@@ -33,6 +33,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildSeoTags } from "./lib/seo-tags.mjs";
 
 const __dir = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dir, "..", "..");
@@ -79,6 +80,7 @@ function parseArgs(argv) {
     uploadImages: true,
     updateInventory: false,
     maxImages: 10,
+    priceOverride: null,
     quantity: Number(process.env.ETSY_DEFAULT_QUANTITY || 999),
     taxonomyId: process.env.ETSY_DEFAULT_TAXONOMY_ID || null,
     shippingProfileId: process.env.ETSY_SHIPPING_PROFILE_ID || null,
@@ -104,6 +106,7 @@ function parseArgs(argv) {
     if (arg === "--no-images") { args.uploadImages = false; continue; }
     if (arg === "--update-inventory") { args.updateInventory = true; continue; }
     if (arg === "--max-images") { args.maxImages = Number(argv[++i]); continue; }
+    if (arg === "--price-override") { args.priceOverride = Number(argv[++i]); continue; }
     if (arg === "--quantity") { args.quantity = Number(argv[++i]); continue; }
     if (arg === "--taxonomy-id") { args.taxonomyId = argv[++i]; continue; }
     if (arg === "--shipping-profile-id") { args.shippingProfileId = argv[++i]; continue; }
@@ -121,6 +124,9 @@ function parseArgs(argv) {
     throw new Error("Provide --product-id, --handle, --cj-sku, or --check-shop.");
   }
   if (!Number.isFinite(args.quantity) || args.quantity <= 0) throw new Error("--quantity must be a positive number.");
+  if (args.priceOverride != null && (!Number.isFinite(args.priceOverride) || args.priceOverride <= 0)) {
+    throw new Error("--price-override must be a positive number.");
+  }
   if (!Number.isFinite(args.maxImages) || args.maxImages < 1 || args.maxImages > 20) {
     throw new Error("--max-images must be between 1 and 20.");
   }
@@ -141,6 +147,7 @@ function printUsage() {
     "  --return-policy-id ID   Override ETSY_RETURN_POLICY_ID.",
     "  --shop-section-id ID    Override ETSY_SHOP_SECTION_ID.",
     "  --production-partner-ids CSV Override ETSY_PRODUCTION_PARTNER_IDS.",
+    "  --price-override USD    Override the listing and fallback variant price.",
     "  --quantity N            Listing quantity fallback (default 999).",
   ].join("\n"));
 }
@@ -240,6 +247,93 @@ function cleanTitle(title) {
     .slice(0, 140);
 }
 
+/**
+ * Detect ALVATTA-aesthetic attributes from a product's searchable text. Shared
+ * by the SEO title builder and tag builder so both stay consistent with the
+ * current top performers (glass globe, smoke glass, sculptural minimalist forms).
+ */
+function detectAttributes(product) {
+  const text = [
+    product.title,
+    product.description,
+    product.material,
+    product.type?.value,
+    ...(product.categories || []).map((category) => category.name),
+    ...(product.tags || []).map((tag) => tag.value || tag.name),
+    ...(product.options || []).flatMap((option) => [option.title, ...(option.values || []).map((value) => value.value)]),
+  ].filter(Boolean).join(" ").toLowerCase();
+
+  const pick = (pairs) => pairs.filter(([, re]) => re.test(text)).map(([label]) => label);
+
+  let fixture = null;
+  if (/wall\s+(light|lamp|sconce)|sconce/.test(text)) fixture = "Wall Sconce";
+  else if (/chandelier|linear light|island light/.test(text)) fixture = "Chandelier";
+  else if (/pendant|single drop|hanging light|suspension/.test(text)) fixture = "Pendant Light";
+  else if (/floor lamp|arc lamp|standing lamp/.test(text)) fixture = "Floor Lamp";
+  else if (/table lamp|desk lamp|bedside lamp|nightstand lamp/.test(text)) fixture = "Table Lamp";
+
+  return {
+    fixture,
+    styles: pick([
+      ["Modern", /modern|contemporary/],
+      ["Minimalist", /minimalist|minimal/],
+      ["Nordic", /nordic/],
+      ["Scandinavian", /scandinavian/],
+      ["Mid-Century", /mid.?century/],
+    ]),
+    materials: pick([
+      ["Glass Globe", /globe|sphere|orb|ball|round glass/],
+      ["Opal Glass", /opal|milk glass|white glass|frosted/],
+      ["Smoke Glass", /smok[ey]|smoke glass|grey glass|gray glass|tinted/],
+      ["Clear Glass", /clear glass|transparent/],
+      ["Brass", /brass|gold|copper|bronze/],
+      ["Black Metal", /\bblack\b|matte black/],
+      ["Marble", /marble|stone/],
+    ]),
+    rooms: pick([
+      ["Dining Room", /dining/],
+      ["Kitchen Island", /kitchen island|kitchen/],
+      ["Bedroom", /bedroom|bedside|nightstand/],
+      ["Living Room", /living room/],
+      ["Hallway", /hallway|corridor|entryway/],
+      ["Study", /study|office|reading/],
+    ]),
+  };
+}
+
+/**
+ * Build a keyword-stacked Etsy title in the proven ALVATTA winner format:
+ *   "<Base Title> - <Room/Use Light>, <Fixture Use>, <Style Descriptor>"
+ * Never exceeds Etsy's 140-character limit and avoids duplicating phrases that
+ * already appear in the base title.
+ */
+function buildOptimizedTitle(product) {
+  const base = cleanTitle(product.title);
+  const attrs = detectAttributes(product);
+  const present = base.toLowerCase();
+  const boosters = [];
+  const pushUnique = (phrase) => {
+    const key = phrase.toLowerCase();
+    if (!phrase || present.includes(key) || boosters.some((b) => b.toLowerCase() === key)) return;
+    boosters.push(phrase);
+  };
+
+  if (attrs.rooms[0] && attrs.fixture) pushUnique(`${attrs.rooms[0]} ${attrs.fixture === "Chandelier" ? "Light" : attrs.fixture}`);
+  if (attrs.rooms[1]) pushUnique(`${attrs.rooms[1]} Light`);
+  if (attrs.materials[0]) pushUnique(`${attrs.materials[0]} ${attrs.fixture || "Light"}`);
+  const styleDescriptor = [attrs.styles[0], attrs.styles[1]].filter(Boolean).join(" ");
+  if (styleDescriptor) pushUnique(`${styleDescriptor} Lighting`);
+
+  let title = base;
+  for (const booster of boosters) {
+    const next = `${title} - ${booster}`;
+    if (next.length > 140) break;
+    title = title.includes(" - ") ? `${title}, ${booster}` : next;
+    if (title.length > 130) break;
+  }
+  return title.slice(0, 140);
+}
+
 function cleanDescription(product) {
   const description = stripHtmlImages(product.description || "").trim();
   const specs = [];
@@ -282,7 +376,8 @@ function cleanMaterial(value) {
   return material.replace(/[^\p{L}\p{Nd}\p{Zs}]/gu, "").trim() || null;
 }
 
-function productPrice(product) {
+function productPrice(product, priceOverride = null) {
+  if (priceOverride != null) return Number(priceOverride.toFixed(2));
   const candidates = [];
   for (const variant of product.variants || []) {
     for (const price of variant.prices || []) {
@@ -331,28 +426,22 @@ function firstImageUrl(value) {
 }
 
 function buildTags(product) {
-  const raw = [
+  // Use the shared SEO tag builder so drafts get the same proven, search-tuned
+  // 13-tag sets as the active-listing optimizer.
+  const extraText = [
     ...(product.categories || []).map((category) => category.name),
     ...(product.tags || []).map((tag) => tag.value || tag.name),
     product.type?.value,
-    "modern lighting",
-    "home decor",
-  ];
-  const tags = [];
-  const seen = new Set();
-  for (const item of raw) {
-    const tag = String(item || "")
-      .toLowerCase()
-      .replace(/[^\p{L}\p{Nd}\p{Zs}\-']/gu, "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .slice(0, 20);
-    if (!tag || seen.has(tag)) continue;
-    seen.add(tag);
-    tags.push(tag);
-    if (tags.length === 13) break;
-  }
-  return tags;
+    ...(product.options || []).flatMap((option) => [option.title, ...(option.values || []).map((value) => value.value)]),
+  ].filter(Boolean).join(" ");
+
+  return buildSeoTags({
+    title: product.title,
+    description: product.description,
+    extraText,
+    materials: [product.material].filter(Boolean),
+    existingTags: (product.tags || []).map((tag) => tag.value || tag.name).filter(Boolean),
+  });
 }
 
 function parseCsvNumbers(value) {
@@ -367,10 +456,10 @@ function parseCsvNumbers(value) {
 function buildListingPlan(product, args) {
   const materials = [cleanMaterial(product.material)].filter(Boolean);
   const images = collectImages(product, args.maxImages);
-  const price = productPrice(product);
+  const price = productPrice(product, args.priceOverride);
   const createDraft = {
     quantity: args.quantity,
-    title: cleanTitle(product.title),
+    title: buildOptimizedTitle(product),
     description: cleanDescription(product),
     price,
     who_made: args.whoMade,
@@ -395,7 +484,7 @@ function buildListingPlan(product, args) {
     type: "physical",
   };
 
-  const inventory = buildInventory(product, args.quantity, args.readinessStateId);
+  const inventory = buildInventory(product, args.quantity, args.readinessStateId, args.priceOverride);
   const missing = [];
   if (!args.shopId) missing.push("ETSY_SHOP_ID");
   if (!createDraft.taxonomy_id) missing.push("ETSY_DEFAULT_TAXONOMY_ID or --taxonomy-id");
@@ -441,7 +530,7 @@ function pruneNulls(value) {
   return out;
 }
 
-function buildInventory(product, fallbackQuantity, readinessStateId) {
+function buildInventory(product, fallbackQuantity, readinessStateId, priceOverride = null) {
   const optionMappings = parseOptionMappings(process.env.ETSY_VARIATION_PROPERTY_MAP);
   const options = (product.options || []).filter((option) => !/^(default|option \d+)$/i.test(option.title || ""));
   const variants = product.variants || [];
@@ -452,7 +541,7 @@ function buildInventory(product, fallbackQuantity, readinessStateId) {
     .filter((title) => !optionMappings.has(title.toLowerCase()));
 
   const products = variants.map((variant) => {
-    const price = variantPrice(variant) ?? productPrice({ variants: [variant] });
+    const price = variantPrice(variant) ?? priceOverride ?? productPrice({ variants: [variant] });
     return {
       sku: variant.sku || variant.id,
       property_values: (variant.options || [])
@@ -613,10 +702,15 @@ function toUrlEncoded(data) {
 
 async function createDraftListing(plan) {
   const { shopId, createDraft } = plan.etsy;
+  // Etsy expects `tags` (and `materials`) as a single comma-separated string;
+  // repeated form keys make Etsy keep only the last value (1 tag).
+  const payload = { ...createDraft };
+  if (Array.isArray(payload.tags)) payload.tags = payload.tags.join(",");
+  if (Array.isArray(payload.materials)) payload.materials = payload.materials.join(",");
   return etsyRequest(`/v3/application/shops/${shopId}/listings?legacy=false`, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: toUrlEncoded(createDraft),
+    body: toUrlEncoded(payload),
   });
 }
 

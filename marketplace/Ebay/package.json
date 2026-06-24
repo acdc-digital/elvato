@@ -1,0 +1,16 @@
+{
+  "name": "elvato-ebay-marketplace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ebay:check-setup": "node ../../scripts/ebay/check-setup.mjs",
+    "ebay:create-location": "node ../../scripts/ebay/create-inventory-location.mjs",
+    "ebay:apply-plan": "node ../../scripts/ebay/apply-listing-plan.mjs",
+    "ebay:oauth-url": "node ../../scripts/ebay/oauth-consent-url.mjs",
+    "ebay:oauth-exchange-code": "node ../../scripts/ebay/oauth-exchange-code.mjs",
+    "ebay:suggest-categories": "node ../../scripts/ebay/suggest-categories.mjs",
+    "ebay:generate-plan": "node ../../scripts/ebay/generate-listing-plan.mjs",
+    "ebay:select-candidates": "node ../../scripts/ebay/select-launch-candidates.mjs",
+    "ebay:select-candidates:top20": "node ../../scripts/ebay/select-launch-candidates.mjs --limit 20"
+  }
+}
