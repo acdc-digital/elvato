@@ -143,83 +143,132 @@ const Hero = () => {
           </div>
         </div> */}
 
-        {/* Right: Hero Image */}
-        <div className="order-3 bg-gray-100 relative min-h-[200px] lg:min-h-0 overflow-hidden">
-          {/* Grid of squares at the top */}
-          <div className="absolute top-0 left-0 right-0 z-10 grid grid-cols-5">
-            {[
-              "/products/modern-retro-wall-sconce-vintage-industrial-design-01ce7684?v_id=variant_01KJK3N8TXJM2TJ05JQZJ0HP0S",
-              "/products/modern-hollow-staircase-chandelier-duplex-design-55298816",
-              "/products/modern-luxury-glass-bubble-chandelier-55049984",
-              "/products/nordic-flying-saucer-chandelier-postmodern-art-design-93837056?v_id=variant_01KK4BYCY4JCSQQTTY7FNEYK56",
-              "/products/postmodern-creative-chandelier-for-living-rooms-06790656",
-            ].map((href, i) => (
-              <LocalizedClientLink
-                key={i}
-                href={href}
-                className="aspect-square bg-white border-t lg:border-t-0 border-b border-r border-black overflow-hidden relative block"
-              >
-                <div className="absolute top-0 left-0 bg-black text-white px-2.5 py-1 text-xs font-sans uppercase z-10">
-                  Featured
-                </div>
-                {i === 0 && (
-                  <img 
-                    src="/hero/H-feature-2.svg" 
-                    alt="Featured"
-                    className="w-full h-full object-cover"
+        {/* Right: Featured Fixture — editorial large-format showcase */}
+        <div className="order-3 flex flex-col min-h-[62vh] lg:min-h-0 overflow-hidden bg-white group/hero">
+          {/* Editor's picks — top, just below the header */}
+          <div className="px-6 pt-6 pb-4 lg:px-8 lg:pt-7 lg:pb-4">
+            <div className="mb-3 flex items-center gap-3">
+              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-grey-50">
+                Editor&apos;s Picks
+              </p>
+              <span className="h-px flex-1 bg-grey-20" />
+            </div>
+            <div className="grid grid-cols-5 gap-2.5 lg:gap-3">
+              {[
+                {
+                  href: "/products/modern-retro-wall-sconce-vintage-industrial-design-01ce7684?v_id=variant_01KJK3N8TXJM2TJ05JQZJ0HP0S",
+                  img: "/hero/H-feature-2.svg",
+                  label: "Modern Retro Wall Sconce",
+                  imgClass: "",
+                },
+                {
+                  href: "/products/modern-hollow-staircase-chandelier-duplex-design-55298816",
+                  img: "/hero/H-feature-3.svg",
+                  label: "Hollow Staircase Chandelier",
+                  imgClass: "scale-125 -translate-y-1",
+                },
+                {
+                  href: "/products/modern-luxury-glass-bubble-chandelier-55049984",
+                  img: "/hero/H-feature-4.svg",
+                  label: "Luxury Glass Bubble Chandelier",
+                  imgClass: "scale-125 translate-y-0.5",
+                },
+                {
+                  href: "/products/nordic-flying-saucer-chandelier-postmodern-art-design-93837056?v_id=variant_01KK4BYCY4JCSQQTTY7FNEYK56",
+                  img: "/hero/H-feature-5.svg",
+                  label: "Flying Saucer Chandelier",
+                  imgClass: "scale-125 -translate-y-1",
+                },
+                {
+                  href: "/products/postmodern-creative-chandelier-for-living-rooms-06790656",
+                  img: "/hero/H-feature-6.svg",
+                  label: "Postmodern Creative Chandelier",
+                  imgClass: "scale-110",
+                },
+              ].map((pick) => (
+                <LocalizedClientLink
+                  key={pick.href}
+                  href={pick.href}
+                  aria-label={`Shop the ${pick.label}`}
+                  className="group/pick relative block aspect-square overflow-hidden rounded-xl bg-grey-5 ring-1 ring-black/10 transition-all duration-300 hover:ring-black/30 hover:shadow-md"
+                >
+                  <img
+                    src={pick.img}
+                    alt={pick.label}
+                    className={`h-full w-full object-cover transition-transform duration-500 ease-out group-hover/pick:scale-110 ${pick.imgClass}`}
                   />
-                )}
-                {i === 1 && (
-                  <div className="w-full h-full bg-[#AAAAAA]">
-                    <img 
-                      src="/hero/H-feature-3.svg" 
-                      alt="Featured"
-                      className="w-full h-full object-cover scale-125 -translate-y-5 -translate-x-3"
-                    />
-                  </div>
-                )}
-                {i === 2 && (
-                  <img 
-                    src="/hero/H-feature-4.svg"
-                    alt="Featured"
-                    className="w-full h-full object-cover scale-125 translate-y-1"
-                  />
-                )}
-                {i === 3 && (
-                  <img 
-                    src="/hero/H-feature-5.svg"
-                    alt="Featured"
-                    className="w-full h-full object-cover scale-125 -translate-y-2"
-                  />
-                )}
-                {i === 4 && (
-                  <img 
-                    src="/hero/H-feature-6.svg" 
-                    alt="Featured"
-                    className="w-full h-full object-cover scale-110"
-                  />
-                )}
-              </LocalizedClientLink>
-            ))}
+                </LocalizedClientLink>
+              ))}
+            </div>
           </div>
-          
-          <LocalizedClientLink href="/products/nordic-minimalist-resin-art-chandelier" className="relative block w-full h-full">
-            <Image
-              src="/hero/hero-2.jpg"
-              alt="Elvato"
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-              style={{ objectPosition: '30% center' }}
-            />
-          </LocalizedClientLink>
 
-          {/* Discount text overlay */}
-          {/* <div className="absolute top-24 left-44 font-mono text-white flex flex-col leading-tight">
-            <span className="text-lg lg:text-6xl font-black">75%</span>
-            <span className="text-sm lg:text-6xl font-normal">off</span>
-          </div> */}
+          {/* Main fixture image — rounded card floating below the picks */}
+          <div className="flex-1 min-h-[40vh] lg:min-h-0 px-6 pb-6 lg:px-8 lg:pb-8">
+            <div className="relative h-full w-full overflow-hidden rounded-2xl bg-grey-90 shadow-sm ring-1 ring-black/5">
+              <LocalizedClientLink
+                href="/products/nordic-minimalist-resin-art-chandelier"
+                aria-label="Shop the Nordic Minimalist Resin Art Chandelier"
+                className="absolute inset-0 z-0 block"
+              >
+                <Image
+                  src="/hero/hero-2.jpg"
+                  alt="Nordic Minimalist Resin Art Chandelier illuminating a contemporary room"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-[900ms] ease-out group-hover/hero:scale-[1.04]"
+                  style={{ objectPosition: "30% center" }}
+                />
+                {/* Legibility wash */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/30"
+                />
+              </LocalizedClientLink>
+
+              {/* Top row — welcome eyebrow + new-in marker */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between p-5 lg:p-7">
+                <p className="font-sans text-[11px] uppercase tracking-[0.32em] text-[#e7c98a]">
+                  The Featured Fixture
+                </p>
+                <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.22em] text-white backdrop-blur-sm">
+                  New In
+                </span>
+              </div>
+
+              {/* Bottom caption — on the fixture image (visual only; the full-bleed link handles the click) */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-5 lg:p-7">
+                <div className="max-w-md">
+                  <h2 className="font-sans text-2xl font-semibold leading-tight text-white lg:text-3xl">
+                    Nordic Minimalist Resin Art Chandelier
+                  </h2>
+                  <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
+                    Hand-selected for its sculptural silhouette and warm,
+                    diffused glow — a quiet centerpiece for the room you&apos;re
+                    imagining.
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-2 font-sans text-[13px] tracking-wide text-white transition-colors group-hover/hero:text-[#e7c98a]">
+                    Shop the fixture
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7" />
+                      <path d="M7 7h10v10" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 
 import FeaturedProducts from "@modules/home/components/featured-products"
+import FeaturedCollection from "@modules/home/components/featured-collection"
 import Hero from "@modules/home/components/hero"
 import CtaBanner from "@modules/home/components/cta-banner"
 import SecondaryHero from "@modules/home/components/secondary-hero"
@@ -68,6 +69,9 @@ export default async function Home(props: {
       {/* TODO: PhotoGrid below hero */}
       {/* <PhotoGrid /> */}
       <CtaBanner />
+
+      {/* Featured Collection - The Elvato Edit editorial showcase */}
+      <FeaturedCollection region={region} />
 
       {/* Shop by Room */}
       <ShopByRoom />
