@@ -5,6 +5,7 @@ import { Container } from "@medusajs/ui"
 import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useMemo, useState } from "react"
+import { isCanonicalProductImageUrl } from "@lib/util/canonical-product-image"
 
 type ImageGalleryProps = {
   /**
@@ -59,7 +60,9 @@ const ImageGallery = ({ images: initialImages, variants }: ImageGalleryProps) =>
       | null
       | undefined
     const variantImageUrl = meta?.image || meta?.color_image
-    if (!variantImageUrl) return { displayImages: initialImages, targetIndex: 0 }
+    if (!isCanonicalProductImageUrl(variantImageUrl)) {
+      return { displayImages: initialImages, targetIndex: 0 }
+    }
 
     const existing = initialImages.findIndex((i) => i.url === variantImageUrl)
     if (existing !== -1) {

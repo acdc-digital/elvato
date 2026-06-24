@@ -11,6 +11,7 @@
  */
 
 import { Redis } from "@upstash/redis"
+import { isCanonicalProductImageUrl } from "@lib/util/canonical-product-image"
 
 const CONVEX_URL =
   process.env.NEXT_PUBLIC_CONVEX_URL || "https://superb-dotterel-37.convex.cloud"
@@ -20,6 +21,12 @@ type ConvexImage = {
   url: string
   contentType: string
   size: number
+}
+
+type ProductWithImages = {
+  handle?: string | null
+  thumbnail?: string | null
+  images?: Array<{ url: string; id?: string; [key: string]: any }> | null
 }
 
 /** TTL for cached CDN URLs (24 hours). */
@@ -217,17 +224,34 @@ export async function getCdnGalleryImages(
     .map((i) => ({ url: i.url, id: i.path }))
 }
 
-/**
- * Given a Medusa product, replace its thumbnail and image URLs with
- * CDN equivalents when available. Falls back to original URLs.
- */
-export async function withCdnImages<
-  T extends {
-    handle?: string | null
-    thumbnail?: string | null
-    images?: Array<{ url: string; id?: string; [key: string]: any }> | null
+function toCanonicalProduct<T extends ProductWithImages>(
+  product: T,
+  cdnThumb: string | null,
+  cdnGallery: Array<{ url: string; id: string }> = []
+): T {
+  const canonicalGallery = cdnGallery.filter((image) =>
+    isCanonicalProductImageUrl(image.url)
+  )
+  const canonicalThumb = isCanonicalProductImageUrl(cdnThumb) ? cdnThumb : null
+
+  return {
+    ...product,
+    thumbnail: canonicalThumb,
+    images:
+      canonicalGallery.length > 0
+        ? canonicalGallery
+        : canonicalThumb && product.handle
+          ? [{ id: `cdn-thumb-${product.handle}`, url: canonicalThumb }]
+          : [],
   }
->(product: T): Promise<T> {
+}
+
+/**
+ * Given a Medusa product, replace storefront-visible image fields with
+ * canonical Convex/Bunny CDN equivalents only. No Medusa/CJ fallback is used;
+ * missing CDN assets should render placeholders and expose ingestion gaps.
+ */
+export async function withCdnImages<T extends ProductWithImages>(product: T): Promise<T> {
   if (!product.handle) return product
 
   const [cdnThumb, cdnGallery] = await Promise.all([
@@ -235,12 +259,37 @@ export async function withCdnImages<
     getCdnGalleryImages(product.handle),
   ])
 
-  return {
-    ...product,
-    thumbnail: cdnThumb ?? product.thumbnail,
-    images:
-      cdnGallery.length > 0
-        ? cdnGallery
-        : product.images,
+  return toCanonicalProduct(product, cdnThumb, cdnGallery)
+}
+
+/**
+ * Batch-normalize product cards/lists to canonical Convex/Bunny thumbnails.
+ * Gallery lookups stay opt-in because they require one query per product.
+ */
+export async function withCdnImagesBatch<T extends ProductWithImages>(
+  products: T[],
+  options: { includeGallery?: boolean } = {}
+): Promise<T[]> {
+  const handles = products.map((p) => p.handle).filter(Boolean) as string[]
+  if (handles.length === 0) return products
+
+  const thumbs = await prefetchThumbnails(handles)
+  const galleries = new Map<string, Array<{ url: string; id: string }>>()
+
+  if (options.includeGallery) {
+    await Promise.all(
+      handles.map(async (handle) => {
+        galleries.set(handle, await getCdnGalleryImages(handle))
+      })
+    )
   }
+
+  return products.map((product) => {
+    if (!product.handle) return product
+    return toCanonicalProduct(
+      product,
+      thumbs[product.handle] ?? null,
+      galleries.get(product.handle) ?? []
+    )
+  })
 }

@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { Suspense } from "react"
 
 import FeaturedProducts from "@modules/home/components/featured-products"
 import FeaturedCollection from "@modules/home/components/featured-collection"
@@ -43,6 +44,30 @@ function sortCollectionsByPriority(
   return priorityHandles
     .map((handle) => collections.find((c) => c.handle === handle))
     .filter(Boolean) as typeof collections
+}
+
+function ProductRailsFallback() {
+  return (
+    <div className="px-6 small:px-14 pt-8 pb-10">
+      <div className="mb-8 flex items-baseline justify-between">
+        <div className="h-8 w-40 rounded bg-grey-20" />
+        <div className="h-4 w-16 rounded bg-grey-20" />
+      </div>
+      <ul className="grid grid-cols-2 small:grid-cols-5 gap-x-5 gap-y-8">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <li key={index} className="min-w-0">
+            <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/[0.08]">
+              <div className="aspect-[3/4] animate-pulse bg-grey-20" />
+              <div className="space-y-2 px-4 py-4">
+                <div className="h-3 w-3/4 rounded bg-grey-20" />
+                <div className="h-3 w-1/2 rounded bg-grey-20" />
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 export default async function Home(props: {
@@ -111,19 +136,21 @@ export default async function Home(props: {
             </div>
           </header>
 
-          {/* Primary collection rails — highest ROI categories */}
-          {topCollections.length > 0 && (
-            <ul className="flex flex-col">
-              <FeaturedProducts collections={topCollections} region={region} />
-            </ul>
-          )}
+          <Suspense fallback={<ProductRailsFallback />}>
+            {/* Primary collection rails — highest ROI categories */}
+            {topCollections.length > 0 && (
+              <ul className="flex flex-col">
+                <FeaturedProducts collections={topCollections} region={region} />
+              </ul>
+            )}
 
-          {/* Secondary collection rails — complementary categories */}
-          {bottomCollections.length > 0 && (
-            <ul className="flex flex-col">
-              <FeaturedProducts collections={bottomCollections} region={region} />
-            </ul>
-          )}
+            {/* Secondary collection rails — complementary categories */}
+            {bottomCollections.length > 0 && (
+              <ul className="flex flex-col">
+                <FeaturedProducts collections={bottomCollections} region={region} />
+              </ul>
+            )}
+          </Suspense>
         </section>
       )}
 

@@ -8,6 +8,7 @@ import { HttpTypes, StoreRegion } from "@medusajs/types"
 import { withCdnImages } from "@lib/data/convex-images"
 import { getBaseURL } from "@lib/util/env"
 import { buildAlternates } from "@lib/util/seo"
+import { isCanonicalProductImageUrl } from "@lib/util/canonical-product-image"
 
 // ISR: serve cached HTML and revalidate in the background every 5 minutes.
 // The page is still dynamically rendered per-request (cookies in downstream
@@ -97,6 +98,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     product = await getProduct(countryCode, handle)
     if (!product) notFound()
 
+    product = await withCdnImages(product)
+
     const regions = await listRegions()
     countryCodes = regions
       ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
@@ -171,7 +174,7 @@ export default async function ProductPage(props: Props) {
     const variantImageUrl =
       (selectedVariant?.metadata as { image?: string } | null | undefined)
         ?.image
-    if (variantImageUrl) {
+    if (isCanonicalProductImageUrl(variantImageUrl)) {
       const filtered = baseImages.filter((i) => i.url !== variantImageUrl)
       images = [
         { id: `variant-${selectedVariantId}`, url: variantImageUrl } as

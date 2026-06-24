@@ -76,8 +76,6 @@ export default async function FeaturedCollection({
   const heroImage =
     heroGallery[0]?.url ??
     thumbs[chosen[0].handle as string] ??
-    chosen[0].thumbnail ??
-    chosen[0].images?.[0]?.url ??
     null
 
   const toEyebrow = (p: HttpTypes.StoreProduct): string => {
@@ -94,8 +92,6 @@ export default async function FeaturedCollection({
       i === 0
         ? heroImage
         : thumbs[p.handle as string] ??
-          p.thumbnail ??
-          p.images?.[0]?.url ??
           null,
     price: getFromPrice(p),
     eyebrow: toEyebrow(p),

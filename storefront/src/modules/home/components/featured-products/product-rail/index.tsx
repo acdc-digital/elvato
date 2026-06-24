@@ -1,5 +1,5 @@
 import { listProducts } from "@lib/data/products"
-import { prefetchThumbnails } from "@lib/data/convex-images"
+import { withCdnImagesBatch } from "@lib/data/convex-images"
 import { HttpTypes } from "@medusajs/types"
 import { Text } from "@medusajs/ui"
 
@@ -36,11 +36,7 @@ export default async function ProductRail({
     })
     pricedProducts = products
 
-    // Batch-prefetch CDN thumbnails in one Convex query
-    const handles = pricedProducts
-      .map((p) => p.handle)
-      .filter(Boolean) as string[]
-    await prefetchThumbnails(handles)
+    pricedProducts = await withCdnImagesBatch(pricedProducts)
   }
 
   if (!pricedProducts || pricedProducts.length === 0) {

@@ -1,6 +1,6 @@
 import { HttpTypes } from "@medusajs/types"
 import { listProducts } from "@lib/data/products"
-import { prefetchThumbnails } from "@lib/data/convex-images"
+import { withCdnImagesBatch } from "@lib/data/convex-images"
 import ProductRail from "@modules/home/components/featured-products/product-rail"
 
 const PRODUCTS_PER_RAIL = 5
@@ -31,15 +31,14 @@ export default async function FeaturedProducts({
     })
   )
 
-  // Batch-prefetch all CDN thumbnails in one pass
-  const allHandles = railData
-    .flatMap(({ products }) => products.map((p) => p.handle))
-    .filter(Boolean) as string[]
-  if (allHandles.length > 0) {
-    await prefetchThumbnails(allHandles)
-  }
+  const canonicalRailData = await Promise.all(
+    railData.map(async ({ collection, products }) => ({
+      collection,
+      products: await withCdnImagesBatch(products),
+    }))
+  )
 
-  return railData.map(({ collection, products }, index) => (
+  return canonicalRailData.map(({ collection, products }, index) => (
     <li key={collection.id}>
       {index > 0 && <div className="mx-14 border-t border-grey-10" />}
       <ProductRail

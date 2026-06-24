@@ -1,6 +1,7 @@
 "use client"
 
 import { useShipments } from "@lib/data/shipping"
+import { isCanonicalProductImageUrl } from "@lib/util/canonical-product-image"
 import { convertToLocale } from "@lib/util/money"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import StatusBadge from "@modules/shipping/components/status-badge"
@@ -115,10 +116,10 @@ const ShippingDashboard = ({ customerId }: ShippingDashboardProps) => {
                       className="flex flex-col gap-y-2"
                       data-testid="shipment-item"
                     >
-                      {item.thumbnail ? (
+                      {isCanonicalProductImageUrl(item.thumbnail) ? (
                         <div className="relative w-full aspect-square bg-gray-100 rounded overflow-hidden">
                           <img
-                            src={item.thumbnail}
+                            src={item.thumbnail ?? undefined}
                             alt={item.title}
                             className="object-cover w-full h-full"
                           />

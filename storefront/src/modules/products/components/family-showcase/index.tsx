@@ -1,5 +1,5 @@
 import { getRegion } from "@lib/data/regions"
-import { getCdnThumbnail } from "@lib/data/convex-images"
+import { withCdnImages } from "@lib/data/convex-images"
 import { convertToLocale } from "@lib/util/money"
 import { pickFamilySibling } from "@lib/util/pick-family-sibling"
 import { HttpTypes } from "@medusajs/types"
@@ -36,7 +36,7 @@ export default async function FamilyShowcase({
   })
   if (!result) return null
 
-  const { sibling } = result
+  const sibling = await withCdnImages(result.sibling)
   const pricedVariants = (sibling.variants ?? []).filter(
     (v: any) => v.calculated_price?.calculated_amount != null
   )
@@ -54,9 +54,7 @@ export default async function FamilyShowcase({
     priceDisplay = min === max ? fmt(min) : `${fmt(min)} – ${fmt(max)}`
   }
 
-  const cdnThumb = sibling.handle ? await getCdnThumbnail(sibling.handle) : null
-  const thumbnail =
-    cdnThumb ?? sibling.thumbnail ?? sibling.images?.[0]?.url ?? null
+  const thumbnail = sibling.thumbnail ?? null
 
   const familyLabel =
     sibling.collection?.title ??

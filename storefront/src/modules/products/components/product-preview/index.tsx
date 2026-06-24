@@ -6,7 +6,6 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Image from "next/image"
 import PreviewPrice from "./price"
 import CardActions from "./card-actions"
-import { getCdnThumbnail } from "@lib/data/convex-images"
 import { convertToLocale } from "@lib/util/money"
 
 /**
@@ -79,11 +78,8 @@ export default async function ProductPreview({
     priceDisplay = min === max ? fmt(min) : `${fmt(min)} – ${fmt(max)}`
   }
 
-  // Resolve CDN thumbnail (falls back to original if not ingested)
-  const cdnThumb = product.handle
-    ? await getCdnThumbnail(product.handle)
-    : null
-  const thumbnail = cdnThumb ?? product.thumbnail ?? product.images?.[0]?.url ?? null
+  // Product image fields are canonicalized upstream to Convex/Bunny CDN URLs.
+  const thumbnail = product.thumbnail ?? null
 
   // Resolve default variant for quick-add
   const defaultVariantId =

@@ -1,6 +1,7 @@
 "use client"
 
 import { useShipment } from "@lib/data/shipping"
+import { isCanonicalProductImageUrl } from "@lib/util/canonical-product-image"
 import { convertToLocale } from "@lib/util/money"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ProgressTracker from "@modules/shipping/components/progress-tracker"
@@ -218,10 +219,10 @@ const ShipmentTracker = ({ medusaOrderId }: ShipmentTrackerProps) => {
           <div className="grid grid-cols-2 small:grid-cols-4 gap-4">
             {shipment.orderItems.map((item: OrderItem, idx: number) => (
               <div key={idx} className="flex flex-col gap-y-2">
-                {item.thumbnail ? (
+                {isCanonicalProductImageUrl(item.thumbnail) ? (
                   <div className="relative w-full aspect-square bg-gray-100 rounded overflow-hidden">
                     <img
-                      src={item.thumbnail}
+                      src={item.thumbnail ?? undefined}
                       alt={item.title}
                       className="object-cover w-full h-full"
                     />

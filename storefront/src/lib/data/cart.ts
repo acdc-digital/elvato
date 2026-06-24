@@ -15,6 +15,37 @@ import {
 } from "./cookies"
 import { getRegion } from "./regions"
 import { getLocale } from "@lib/data/locale-actions"
+import { prefetchThumbnails } from "@lib/data/convex-images"
+import { isCanonicalProductImageUrl } from "@lib/util/canonical-product-image"
+
+async function withCanonicalCartImages(
+  cart: HttpTypes.StoreCart
+): Promise<HttpTypes.StoreCart> {
+  const handles = (cart.items ?? [])
+    .map((item) => item.product_handle)
+    .filter(Boolean) as string[]
+
+  if (handles.length === 0) return cart
+
+  const thumbnails = await prefetchThumbnails(handles)
+
+  return {
+    ...cart,
+    items: cart.items?.map((item) => {
+      const cdnThumb = item.product_handle
+        ? thumbnails[item.product_handle] ?? null
+        : null
+      const thumbnail =
+        cdnThumb ??
+        (isCanonicalProductImageUrl(item.thumbnail) ? item.thumbnail : undefined)
+
+      return {
+        ...item,
+        thumbnail,
+      }
+    }),
+  }
+}
 
 /**
  * Retrieves a cart by its ID. If no ID is provided, it will use the cart ID from the cookies.
@@ -48,7 +79,7 @@ export async function retrieveCart(cartId?: string, fields?: string) {
       next,
       cache: "force-cache",
     })
-    .then(({ cart }: { cart: HttpTypes.StoreCart }) => cart)
+    .then(({ cart }: { cart: HttpTypes.StoreCart }) => withCanonicalCartImages(cart))
     .catch(() => null)
 }
 

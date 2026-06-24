@@ -1,6 +1,6 @@
 import { listProductsWithSort } from "@lib/data/products"
 import { searchProducts } from "@lib/data/search"
-import { prefetchThumbnails } from "@lib/data/convex-images"
+import { withCdnImagesBatch } from "@lib/data/convex-images"
 import { getRegion } from "@lib/data/regions"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
@@ -99,10 +99,7 @@ export default async function PaginatedProducts({
       .map((id) => productMap.get(id))
       .filter(Boolean) as typeof products
 
-    const handles = orderedProducts
-      .map((p) => p.handle)
-      .filter(Boolean) as string[]
-    await prefetchThumbnails(handles)
+    const canonicalProducts = await withCdnImagesBatch(orderedProducts)
 
     return (
       <>
@@ -110,7 +107,7 @@ export default async function PaginatedProducts({
           className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8"
           data-testid="products-list"
         >
-          {orderedProducts.map((p) => (
+          {canonicalProducts.map((p) => (
             <li key={p.id}>
               <ProductPreview product={p} region={region} />
             </li>
@@ -166,9 +163,7 @@ export default async function PaginatedProducts({
     countryCode,
   })
 
-  // Batch-prefetch CDN thumbnails in one Convex query
-  const handles = products.map((p) => p.handle).filter(Boolean) as string[]
-  await prefetchThumbnails(handles)
+  products = await withCdnImagesBatch(products)
 
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)
 
