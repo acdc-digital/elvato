@@ -60,24 +60,37 @@ export default async function PaginatedProducts({
         ? [categoryId]
         : []
 
+  const shouldUseSearch = Boolean(
+    query ||
+      resolvedCategoryIds.length > 0 ||
+      materials?.length ||
+      styles?.length ||
+      roomTypes?.length ||
+      subCategories?.length ||
+      sortBy === "price_asc" ||
+      sortBy === "price_desc"
+  )
+
   // Always try MeiliSearch first — it handles search, filtering, sorting, and pagination
   let searchResult: Awaited<ReturnType<typeof searchProducts>> = null
 
-  try {
-    searchResult = await searchProducts({
-      query: query || "",
-      categoryIds: resolvedCategoryIds,
-      sortBy,
-      page: Math.max(page, 1),
-      limit: PRODUCT_LIMIT,
-      materials,
-      styles,
-      roomTypes,
-      subCategories,
-    })
-  } catch (e) {
-    // MeiliSearch unavailable — fall through to Medusa API
-    searchResult = null
+  if (shouldUseSearch) {
+    try {
+      searchResult = await searchProducts({
+        query: query || "",
+        categoryIds: resolvedCategoryIds,
+        sortBy,
+        page: Math.max(page, 1),
+        limit: PRODUCT_LIMIT,
+        materials,
+        styles,
+        roomTypes,
+        subCategories,
+      })
+    } catch (e) {
+      // MeiliSearch unavailable — fall through to Medusa API
+      searchResult = null
+    }
   }
 
   if (searchResult && searchResult.hits.length > 0) {
