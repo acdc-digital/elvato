@@ -3,7 +3,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 const Hero = () => {
   return (
-    <div className="min-h-[75vh] lg:h-[75vh] w-full relative bg-white">
+    <div className="min-h-[75vh] lg:h-[76vh] w-full relative bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
         {/* Left: Content */}
         <div className="flex flex-col order-1" style={{ background: 'linear-gradient(to right, #F5F5F5, #FFFFFF)' }}>
@@ -148,10 +148,10 @@ const Hero = () => {
           {/* Editor's picks — top, just below the header */}
           <div className="px-6 pt-6 pb-4 lg:px-8 lg:pt-7 lg:pb-4">
             <div className="mb-3 flex items-center gap-3">
-              <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-black">
+              <p className="font-sans text-sm font-medium uppercase tracking-wide text-black">
                 Editor&apos;s Picks
               </p>
-              <span className="h-px flex-1 bg-grey-20" />
+              <span className="h-px flex-1 bg-grey-40" />
             </div>
             <div className="grid grid-cols-5 gap-2.5 lg:gap-3">
               {[
@@ -190,7 +190,7 @@ const Hero = () => {
                   key={pick.href}
                   href={pick.href}
                   aria-label={`Shop the ${pick.label}`}
-                  className="group/pick relative block aspect-square overflow-hidden rounded-xl bg-grey-5 ring-1 ring-black/10 transition-all duration-300 hover:ring-black/30 hover:shadow-md"
+                  className="group/pick relative block aspect-square overflow-hidden bg-grey-5 ring-1 ring-black/10 transition-all duration-300 hover:ring-black/30 hover:shadow-md"
                 >
                   <img
                     src={pick.img}
@@ -203,7 +203,7 @@ const Hero = () => {
           </div>
 
           {/* Main fixture image — rounded card floating below the picks */}
-          <div className="flex-1 min-h-[40vh] lg:min-h-0 px-6 pb-6 lg:px-8 lg:pb-8">
+          <div className="flex-1 min-h-[44vh] lg:min-h-0 px-6 pb-6 lg:px-8 lg:pb-8">
             <div className="relative h-full w-full overflow-hidden rounded-lg bg-grey-90 shadow-sm ring-1 ring-black/5">
               <LocalizedClientLink
                 href="/products/nordic-minimalist-resin-art-chandelier"
@@ -240,11 +240,11 @@ const Hero = () => {
                   <h2 className="font-sans text-2xl font-semibold leading-tight text-white lg:text-3xl">
                     Nordic Minimalist Resin Art Chandelier
                   </h2>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
+                  {/* <p className="mt-2 font-sans text-sm leading-relaxed text-white/75">
                     Hand-selected for its sculptural silhouette and warm,
                     diffused glow — a quiet centerpiece for the room you&apos;re
                     imagining.
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
