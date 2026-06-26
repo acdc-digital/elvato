@@ -2,18 +2,23 @@ import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
-type Feature = {
+export type Feature = {
+  /** Editorial sub-line / category name shown as the large caption. */
   title: string
-  handle: string
-  image: string | null
-  price: string | null
+  /** Small uppercase descriptor above the title. */
   eyebrow: string
+  /** Locally-hosted, uniformly-graded interior photograph. */
+  image: string | null
+  /** Where the card routes — a collection page (or /store for the signature). */
+  href: string
+  /** Hover-revealed meta line, e.g. "10 designs". */
+  meta: string
 }
 
 /**
  * A single editorial frame. Large-format photography, a quiet caption that
- * fades up on hover, and a restrained "from" price so the layout sells the
- * piece — never the discount.
+ * fades up on hover, and a restrained meta line so the layout sells the
+ * *room* — never the discount. Each frame routes to its collection.
  */
 function Frame({
   feature,
@@ -30,7 +35,7 @@ function Frame({
 }) {
   return (
     <LocalizedClientLink
-      href={`/products/${feature.handle}`}
+      href={feature.href}
       className={`group relative block overflow-hidden rounded-[18px] bg-grey-10 ring-1 ring-black/10 ${className}`}
     >
       {feature.image ? (
@@ -48,28 +53,32 @@ function Frame({
         </div>
       )}
 
-      {/* Legibility wash — darker at the foot of the frame */}
+      {/* Smoky caption wash — preserves the photo while meeting text contrast. */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-90"
+        className="absolute inset-x-0 bottom-0 h-[72%] bg-[linear-gradient(to_top,rgba(0,0,0,0.82)_0%,rgba(0,0,0,0.66)_18%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.16)_70%,rgba(0,0,0,0)_100%)] transition-opacity duration-500"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-black/22 via-transparent to-transparent"
       />
 
       {/* Index marker — editorial numbering */}
-      <span className="absolute left-5 top-5 font-sans text-[11px] tracking-[0.3em] text-white/60">
+      <span className="absolute left-5 top-5 font-sans text-[11px] tracking-[0.3em] text-white/70">
         {String(index).padStart(2, "0")}
       </span>
 
       {/* Caption */}
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-        <p className="mb-1.5 font-sans text-[10px] uppercase tracking-[0.32em] text-[#e7c98a]">
+        <p className="mb-1.5 font-sans text-[10px] uppercase tracking-[0.32em] text-[#f2d99b]">
           {feature.eyebrow}
         </p>
         <h3 className="font-sans text-lg leading-snug text-white sm:text-xl">
           {feature.title}
         </h3>
-        <div className="mt-3 flex items-center gap-2 text-white/0 transition-colors duration-300 group-hover:text-white/85">
+        <div className="mt-3 flex items-center gap-2 text-white/85 transition-colors duration-300 group-hover:text-white">
           <span className="font-sans text-[12px] tracking-wide">
-            {feature.price ? `From ${feature.price}` : "View piece"}
+            {feature.meta}
           </span>
           <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.75} />
         </div>
@@ -93,18 +102,12 @@ export default function EditorialFeature({
   const [hero, t1, t2, t3, t4] = features
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white to-[#F5F5F5] pt-6 pb-20 small:pt-10 small:pb-28">
-      {/* Soft overhead light bloom — a quiet "illumination" cue */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[460px] w-[820px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.10),_transparent_70%)] blur-2xl"
-      />
-
+    <section className="relative w-full overflow-hidden bg-canvas py-12 small:py-16">
       <div className="relative mx-auto max-w-8xl px-6 small:px-14">
         {/* Editorial header — two columns, plenty of air */}
         <header className="mb-12 grid grid-cols-1 gap-8 small:mb-16 small:grid-cols-12 small:gap-12">
           <div className="small:col-span-7">
-            <p className="mb-5 font-sans text-[11px] uppercase tracking-[0.4em] text-[#8B6914]">
+            <p className="mb-5 font-sans text-[11px] uppercase tracking-[0.4em] text-accent-700">
               The Elvato Edit · Vol. 01
             </p>
             <h2 className="max-w-2xl font-sans text-4xl font-semibold leading-[1.05] tracking-tight text-grey-90 small:text-6xl">
@@ -168,7 +171,7 @@ export default function EditorialFeature({
 
           {/* Editorial copy panel — negative space + point of view */}
           <div className="flex flex-col justify-between rounded-[18px] border border-grey-20 bg-white/60 p-7 small:col-span-3 small:p-8">
-            <p className="font-sans text-[10px] uppercase tracking-[0.32em] text-[#8B6914]">
+            <p className="font-sans text-[10px] uppercase tracking-[0.32em] text-accent-700">
               Curated, not catalogued
             </p>
             <blockquote className="mt-6 font-sans text-xl font-medium leading-snug text-grey-90 small:text-2xl">
@@ -179,7 +182,7 @@ export default function EditorialFeature({
               href="/design-services"
               className="group mt-8 inline-flex w-fit items-center gap-2 font-sans text-sm tracking-wide text-grey-60 transition-colors hover:text-grey-90"
             >
-              Meet the design team
+              Ask about sourcing
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={1.75}

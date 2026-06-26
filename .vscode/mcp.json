@@ -13,6 +13,11 @@
     "etsy": {
       "type": "http",
       "url": "https://mcp.api.etsycloud.com/mcp"
+    },
+    "ebay-api": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/scripts/ebay/start-public-api-mcp.mjs"]
     }
   }
 }

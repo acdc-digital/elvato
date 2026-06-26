@@ -8,6 +8,8 @@
     "ebay:apply-plan": "node ../../scripts/ebay/apply-listing-plan.mjs",
     "ebay:oauth-url": "node ../../scripts/ebay/oauth-consent-url.mjs",
     "ebay:oauth-exchange-code": "node ../../scripts/ebay/oauth-exchange-code.mjs",
+    "ebay:mcp": "node ../../scripts/ebay/start-public-api-mcp.mjs",
+    "ebay:publish-live-products": "node ../../scripts/ebay/publish-live-products.mjs",
     "ebay:suggest-categories": "node ../../scripts/ebay/suggest-categories.mjs",
     "ebay:generate-plan": "node ../../scripts/ebay/generate-listing-plan.mjs",
     "ebay:select-candidates": "node ../../scripts/ebay/select-launch-candidates.mjs",

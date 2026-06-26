@@ -75,7 +75,7 @@ export default async function FamilyShowcase({
 
       <LocalizedClientLink
         href={`/products/${sibling.handle}`}
-        className="group block rounded-2xl overflow-hidden bg-[#FDFCFA] shadow-sm ring-1 ring-black/[0.14] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out"
+        className="group block rounded-2xl overflow-hidden bg-[#FDFCFA] ring-1 ring-black/[0.14] hover:ring-black/[0.22] hover:-translate-y-1 transition-all duration-300 ease-out"
       >
         <div className="relative overflow-hidden bg-grey-5 before:content-[''] before:block before:pt-[100%]">
           <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">

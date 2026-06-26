@@ -117,12 +117,12 @@ export default async function PaginatedProducts({
     return (
       <>
         <ul
-          className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8"
+          className="grid grid-cols-2 w-full gap-x-3 gap-y-6 small:grid-cols-3 small:gap-x-4 small:gap-y-7 medium:grid-cols-4"
           data-testid="products-list"
         >
           {canonicalProducts.map((p) => (
             <li key={p.id}>
-              <ProductPreview product={p} region={region} />
+              <ProductPreview product={p} region={region} isFeatured />
             </li>
           ))}
         </ul>
@@ -183,13 +183,13 @@ export default async function PaginatedProducts({
   return (
     <>
       <ul
-        className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8"
+        className="grid grid-cols-2 w-full gap-x-3 gap-y-6 small:grid-cols-3 small:gap-x-4 small:gap-y-7 medium:grid-cols-4"
         data-testid="products-list"
       >
         {products.map((p) => {
           return (
             <li key={p.id}>
-              <ProductPreview product={p} region={region} />
+              <ProductPreview product={p} region={region} isFeatured />
             </li>
           )
         })}

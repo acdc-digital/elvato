@@ -43,6 +43,9 @@ module.exports = {
           700: "#8B6914",
         },
         warm: "#f0eeea",
+        // Shared homepage canvas — a single warm, bright off-white that ties
+        // every section together for a coherent top-to-bottom flow.
+        canvas: "#FAF9F6",
       },
       borderRadius: {
         none: "0px",

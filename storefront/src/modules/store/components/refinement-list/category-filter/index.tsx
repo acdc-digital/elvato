@@ -80,7 +80,7 @@ const CategoryFilter = ({
           className={clx(
             "flex items-center justify-between py-2.5 px-3 rounded-xl transition-all duration-150 cursor-pointer",
             isSelected
-              ? "bg-grey-90 text-white shadow-sm"
+              ? "bg-grey-90 text-white"
               : "hover:bg-grey-5",
             depth > 0 && "ml-4"
           )}

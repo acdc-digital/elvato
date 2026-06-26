@@ -84,7 +84,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <link rel="preconnect" href="https://cf.cjdropshipping.com" />
         <link rel="dns-prefetch" href="https://cf.cjdropshipping.com" />
       </head>
-      <body className={`${inclusiveSans.variable} ${fraunces.variable} font-sans`}>
+      <body className={`${inclusiveSans.variable} ${fraunces.variable} font-sans bg-canvas`}>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-V929297BMM"
           strategy="afterInteractive"

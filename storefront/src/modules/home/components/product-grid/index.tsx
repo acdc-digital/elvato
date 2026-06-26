@@ -41,7 +41,7 @@ const ProductGrid = () => {
   ]
 
   return (
-    <div className="px-8 small:px-12 py-8">
+    <div className="mx-auto max-w-8xl px-6 py-8 small:px-14">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {products.map((product) => (
           <LocalizedClientLink
@@ -49,7 +49,7 @@ const ProductGrid = () => {
             href={product.href}
             className="block"
           >
-            <div className="flex flex-col sm:flex-row bg-white rounded-2xl border border-gray-200 overflow-hidden h-[415px] hover:shadow-lg transition-shadow duration-200">
+            <div className="flex flex-col sm:flex-row bg-white rounded-2xl border border-gray-200 overflow-hidden h-[415px] transition-colors duration-200 hover:border-gray-300">
               {/* Left: Image */}
               <div className="sm:w-1/2 h-1/2 sm:h-full bg-gray-100 flex items-center justify-center p-6 border-b sm:border-b-0 sm:border-r border-gray-200">
                 <div className="w-full h-full bg-white rounded-lg border border-gray-300 flex items-center justify-center">

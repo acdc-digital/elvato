@@ -9,7 +9,7 @@ export default async function Footer() {
 
   return (
     <footer className="border-t border-black w-full bg-white">
-      <div className="px-8 small:px-12 py-16">
+      <div className="mx-auto max-w-8xl px-6 py-16 small:px-14">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand */}
           <div className="md:col-span-3">

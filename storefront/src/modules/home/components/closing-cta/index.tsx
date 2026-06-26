@@ -8,8 +8,9 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
  */
 export default function ClosingCta() {
   return (
-    <section className="w-full bg-gradient-to-b from-[#F5F5F5] to-white px-6 small:px-14 py-16 small:py-20">
-      <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+    <section className="w-full bg-canvas py-12 small:py-16">
+      <div className="mx-auto flex max-w-8xl flex-col items-center px-6 text-center small:px-14">
+        <div className="flex max-w-4xl flex-col items-center">
         <p className="mb-5 font-sans text-[11px] uppercase tracking-[0.4em] text-accent-700">
           Light, considered
         </p>
@@ -44,6 +45,7 @@ export default function ClosingCta() {
         <p className="mt-7 font-sans text-[12px] uppercase tracking-[0.22em] text-grey-40">
           Free shipping · 365-day warranty · 5.0 rated
         </p>
+        </div>
       </div>
     </section>
   )

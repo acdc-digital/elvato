@@ -3,10 +3,10 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 const Hero = () => {
   return (
-    <div className="min-h-[75vh] lg:h-[76vh] w-full relative bg-white">
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
+    <div className="w-full bg-canvas">
+      <div className="mx-auto grid max-w-8xl grid-cols-1 lg:grid-cols-2">
         {/* Left: Content */}
-        <div className="flex flex-col order-1" style={{ background: 'linear-gradient(to right, #F5F5F5, #FFFFFF)' }}>
+        <div className="flex flex-col order-1 bg-canvas">
           {/* Buttons */}
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
             <div className="flex flex-wrap gap-1">
@@ -35,7 +35,7 @@ const Hero = () => {
               <span className="relative inline-block">
                 <span className="relative z-10">Contemporary</span>
                 <span
-                  className="absolute left-0 bottom-[0.1em] w-full h-[0.35em] bg-yellow-300/60 -z-0 -rotate-[0.5deg]"
+                  className="absolute left-0 bottom-[0.1em] w-full h-[0.35em] bg-accent-400/30 -z-0 -rotate-[0.5deg]"
                   aria-hidden="true"
                 />
               </span>{" "}
@@ -58,7 +58,7 @@ const Hero = () => {
                 href="/design-services"
                 className="inline-flex items-center justify-center gap-2 px-9 py-4 text-black text-sm font-normal rounded-none border border-black transition-all duration-200 hover:bg-grey-70 hover:text-white"
               >
-                DESIGN SERVICES
+                SOURCING HELP
               </LocalizedClientLink>
             </div>
 
@@ -144,40 +144,39 @@ const Hero = () => {
         </div> */}
 
         {/* Right: Featured Fixture — editorial large-format showcase */}
-        <div className="order-3 flex flex-col min-h-[62vh] lg:min-h-0 overflow-hidden bg-white group/hero">
+        <div className="order-3 flex flex-col overflow-hidden bg-canvas group/hero">
           {/* Editor's picks — top, just below the header */}
           <div className="px-6 pt-6 pb-4 lg:px-8 lg:pt-7 lg:pb-4">
             <div className="mb-3 flex items-center gap-3">
               <p className="font-sans text-sm font-medium uppercase tracking-wide text-black">
                 Editor&apos;s Picks
               </p>
-              <span className="h-px flex-1 bg-grey-40" />
             </div>
             <div className="grid grid-cols-5 gap-2.5 lg:gap-3">
               {[
                 {
-                  href: "/products/modern-retro-wall-sconce-vintage-industrial-design-01ce7684?v_id=variant_01KJK3N8TXJM2TJ05JQZJ0HP0S",
+                  href: "/products/half-circle-modern-chandelier-for-bedroom-dining-90112512",
                   img: "/homepage/v1/hero-feature-2.webp",
-                  label: "Modern Retro Wall Sconce",
+                  label: "Sculptural Half-Circle Chandelier",
                   imgClass: "",
                 },
                 {
-                  href: "/products/modern-hollow-staircase-chandelier-duplex-design-55298816",
+                  href: "/products/nordic-led-dining-room-chandelier-modern-minimalist-design-90625024",
                   img: "/homepage/v1/hero-feature-3.webp",
-                  label: "Hollow Staircase Chandelier",
-                  imgClass: "scale-125 -translate-y-1",
+                  label: "Modern Branch Chandelier",
+                  imgClass: "",
                 },
                 {
-                  href: "/products/modern-luxury-glass-bubble-chandelier-55049984",
+                  href: "/products/nordic-glass-orb-chandelier-with-textured-design-76930304",
                   img: "/homepage/v1/hero-feature-4.webp",
-                  label: "Luxury Glass Bubble Chandelier",
-                  imgClass: "scale-125 translate-y-0.5",
+                  label: "Nordic Glass Orb Chandelier",
+                  imgClass: "",
                 },
                 {
-                  href: "/products/nordic-flying-saucer-chandelier-postmodern-art-design-93837056?v_id=variant_01KK4BYCY4JCSQQTTY7FNEYK56",
+                  href: "/products/eclipse-resin-led-asymmetric-chandelier-4513445740",
                   img: "/homepage/v1/hero-feature-5.webp",
-                  label: "Flying Saucer Chandelier",
-                  imgClass: "scale-125 -translate-y-1",
+                  label: "Eclipse Resin Chandelier",
+                  imgClass: "",
                 },
                 {
                   href: "/products/postmodern-creative-chandelier-for-living-rooms-06790656",
@@ -190,7 +189,7 @@ const Hero = () => {
                   key={pick.href}
                   href={pick.href}
                   aria-label={`Shop the ${pick.label}`}
-                  className="group/pick relative block aspect-square overflow-hidden bg-grey-5 ring-1 ring-black/10 transition-all duration-300 hover:ring-black/30 hover:shadow-md"
+                  className="group/pick relative block aspect-square overflow-hidden bg-grey-5 ring-1 ring-black/10 transition-all duration-300 hover:ring-black/30"
                 >
                   <img
                     src={pick.img}
@@ -203,8 +202,9 @@ const Hero = () => {
           </div>
 
           {/* Main fixture image — rounded card floating below the picks */}
-          <div className="flex-1 min-h-[44vh] lg:min-h-0 px-6 pb-6 lg:px-8 lg:pb-8">
-            <div className="relative h-full w-full overflow-hidden rounded-lg bg-grey-90 shadow-sm ring-1 ring-black/5">
+          <div className="px-6 pb-6 lg:px-8 lg:pb-8">
+            <div className="relative h-full w-full overflow-hidden rounded-lg bg-grey-90 ring-1 ring-black/5">
+              <div className="aspect-[4/5] w-full lg:aspect-[16/10]" />
               <LocalizedClientLink
                 href="/products/nordic-minimalist-resin-art-chandelier"
                 aria-label="Shop the Nordic Minimalist Resin Art Chandelier"
@@ -215,7 +215,7 @@ const Hero = () => {
                   alt="Nordic Minimalist Resin Art Chandelier illuminating a contemporary room"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 720px"
                   className="object-cover transition-transform duration-[900ms] ease-out group-hover/hero:scale-[1.04]"
                   style={{ objectPosition: "30% center" }}
                 />

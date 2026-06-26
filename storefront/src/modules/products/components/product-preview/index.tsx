@@ -12,43 +12,43 @@ import { convertToLocale } from "@lib/util/money"
  * Map common finish / colour names to hex values.
  * Falls back to a neutral grey for unknown values.
  */
-const COLOR_MAP: Record<string, string> = {
+const COLOR_CLASS_MAP: Record<string, string> = {
   // Neutrals
-  white: "#FFFFFF",
-  black: "#1A1A1A",
-  gray: "#808080",
-  grey: "#808080",
+  white: "bg-white",
+  black: "bg-[#1A1A1A]",
+  gray: "bg-[#808080]",
+  grey: "bg-[#808080]",
 
   // Metals
-  gold: "#D4AF37",
-  golden: "#DAA520",
-  "rose gold": "#B76E79",
-  silver: "#C0C0C0",
-  chrome: "#CCCCCC",
-  copper: "#B87333",
-  bronze: "#CD7F32",
-  brass: "#B5A642",
-  nickel: "#A9A9A9",
-  "brushed nickel": "#B0B0B0",
-  "satin nickel": "#B8B8B8",
-  "antique brass": "#986F33",
-  "antique gold": "#9E7C0C",
-  "matte black": "#222222",
+  gold: "bg-[#D4AF37]",
+  golden: "bg-[#DAA520]",
+  "rose gold": "bg-[#B76E79]",
+  silver: "bg-[#C0C0C0]",
+  chrome: "bg-[#CCCCCC]",
+  copper: "bg-[#B87333]",
+  bronze: "bg-[#CD7F32]",
+  brass: "bg-[#B5A642]",
+  nickel: "bg-[#A9A9A9]",
+  "brushed nickel": "bg-[#B0B0B0]",
+  "satin nickel": "bg-[#B8B8B8]",
+  "antique brass": "bg-[#986F33]",
+  "antique gold": "bg-[#9E7C0C]",
+  "matte black": "bg-[#222222]",
 
   // Colours
-  red: "#C0392B",
-  blue: "#2980B9",
-  green: "#27AE60",
-  amber: "#F0A30A",
-  clear: "#E8E8E8",
-  transparent: "#E0E0E0",
-  warm: "#F5DEB3",
-  cool: "#B0C4DE",
+  red: "bg-[#C0392B]",
+  blue: "bg-[#2980B9]",
+  green: "bg-[#27AE60]",
+  amber: "bg-[#F0A30A]",
+  clear: "bg-[#E8E8E8]",
+  transparent: "bg-[#E0E0E0]",
+  warm: "bg-[#F5DEB3]",
+  cool: "bg-[#B0C4DE]",
 }
 
-function getSwatchColor(value: string): string {
+function getSwatchClassName(value: string): string {
   const lower = value.toLowerCase().trim()
-  return COLOR_MAP[lower] ?? "#CCCCCC"
+  return COLOR_CLASS_MAP[lower] ?? "bg-[#CCCCCC]"
 }
 
 export default async function ProductPreview({
@@ -93,7 +93,7 @@ export default async function ProductPreview({
   )
   const finishSwatches = (finishOption?.values ?? []).map((v: { value: string }) => ({
     label: v.value,
-    color: getSwatchColor(v.value),
+    className: getSwatchClassName(v.value),
   }))
 
   // Total option count across ALL option types (finish + size + voltage + …)
@@ -102,16 +102,29 @@ export default async function ProductPreview({
     0
   )
 
+  const cardClassName = isFeatured
+    ? "relative overflow-hidden rounded-lg bg-[#FDFCFA] ring-1 ring-black/[0.08] transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:ring-black/[0.16] w-full"
+    : "relative rounded-2xl overflow-hidden bg-[#FDFCFA] ring-1 ring-black/[0.14] group-hover:ring-black/[0.22] group-hover:-translate-y-1 transition-all duration-300 ease-out w-full"
+  const imageRatioClassName = isFeatured
+    ? "relative overflow-hidden bg-grey-5 before:content-[''] before:block before:pt-[105%]"
+    : "relative overflow-hidden bg-grey-5 before:content-[''] before:block before:pt-[133.33%]"
+  const detailClassName = isFeatured
+    ? "flex flex-col gap-1.5 px-3 pt-2.5 pb-2.5"
+    : "flex flex-col px-4 pt-3.5 pb-3 gap-2"
+  const titleClassName = isFeatured
+    ? "line-clamp-2 text-[12px] font-medium leading-snug text-grey-80"
+    : "text-[13px] font-medium leading-snug text-grey-80 line-clamp-2"
+
   return (
     <div className="group w-full">
       <div
         data-testid="product-wrapper"
-        className="relative rounded-2xl overflow-hidden bg-[#FDFCFA] shadow-sm ring-1 ring-black/[0.14] group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300 ease-out w-full"
+        className={cardClassName}
       >
         {/* Clickable area — image + product info */}
         <LocalizedClientLink href={`/products/${product.handle}`}>
           {/* Image container — edge-to-edge, no inner border */}
-          <div className="relative overflow-hidden bg-grey-5 before:content-[''] before:block before:pt-[133.33%]">
+          <div className={imageRatioClassName}>
             <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-105">
               {thumbnail ? (
                 <Image
@@ -131,9 +144,9 @@ export default async function ProductPreview({
           </div>
 
           {/* Product details — clean, warm typography */}
-          <div className="flex flex-col px-4 pt-3.5 pb-3 gap-2">
+          <div className={detailClassName}>
             {/* Product title */}
-            <h3 className="text-[13px] font-medium leading-snug text-grey-80 line-clamp-2">
+            <h3 className={titleClassName}>
               {product.title}
             </h3>
 
@@ -144,8 +157,7 @@ export default async function ProductPreview({
                   <span
                     key={swatch.label}
                     title={swatch.label}
-                    className="w-4 h-4 rounded-full ring-1 ring-black/10 inline-block shadow-sm"
-                    style={{ backgroundColor: swatch.color }}
+                    className={`w-4 h-4 rounded-full ring-1 ring-black/10 inline-block ${swatch.className}`}
                   />
                 ))}
                 {finishSwatches.length > 6 && (

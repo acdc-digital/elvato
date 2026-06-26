@@ -45,7 +45,7 @@ function RoomTile({ room }: { room: Room }) {
   return (
     <LocalizedClientLink
       href={room.href}
-      className="group relative block aspect-[5/4] overflow-hidden rounded-xl bg-warm ring-1 ring-black/[0.07] transition-all duration-300 hover:ring-black/15 hover:shadow-sm"
+      className="group relative block aspect-[5/4] overflow-hidden rounded-xl bg-warm ring-1 ring-black/[0.07] transition-all duration-300 hover:ring-black/15"
     >
       <Image
         src={room.image}
@@ -74,9 +74,10 @@ function RoomTile({ room }: { room: Room }) {
 
 export default function ShopByRoom() {
   return (
-    <section className="w-full bg-white px-6 small:px-14 py-16 small:py-24">
-      {/* Section header — folds the old tagline into a real intro */}
-      <header className="mb-8 grid grid-cols-1 gap-6 small:mb-10 small:grid-cols-12 small:gap-12">
+    <section className="w-full bg-canvas py-12 small:py-16">
+      <div className="mx-auto max-w-8xl px-6 small:px-14">
+        {/* Section header — folds the old tagline into a real intro */}
+        <header className="mb-8 grid grid-cols-1 gap-6 small:mb-10 small:grid-cols-12 small:gap-12">
         <div className="small:col-span-7">
           <p className="mb-4 font-sans text-[11px] uppercase tracking-[0.4em] text-accent-700">
             Start with the space
@@ -104,13 +105,14 @@ export default function ShopByRoom() {
             />
           </LocalizedClientLink>
         </div>
-      </header>
+        </header>
 
-      {/* Compact navigation row — five small, scannable tiles */}
-      <div className="grid grid-cols-2 gap-3 xsmall:grid-cols-3 small:grid-cols-5 small:gap-4">
-        {rooms.map((room) => (
-          <RoomTile key={room.label} room={room} />
-        ))}
+        {/* Compact navigation row — five small, scannable tiles */}
+        <div className="grid grid-cols-2 gap-3 xsmall:grid-cols-3 small:grid-cols-5 small:gap-4">
+          {rooms.map((room) => (
+            <RoomTile key={room.label} room={room} />
+          ))}
+        </div>
       </div>
     </section>
   )

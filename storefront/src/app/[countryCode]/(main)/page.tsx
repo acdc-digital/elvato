@@ -48,7 +48,7 @@ function sortCollectionsByPriority(
 
 function ProductRailsFallback() {
   return (
-    <div className="px-6 small:px-14 pt-8 pb-10">
+    <div className="mx-auto max-w-8xl px-6 small:px-14 pt-8 pb-10">
       <div className="mb-8 flex items-baseline justify-between">
         <div className="h-8 w-40 rounded bg-grey-20" />
         <div className="h-4 w-16 rounded bg-grey-20" />
@@ -56,7 +56,7 @@ function ProductRailsFallback() {
       <ul className="grid grid-cols-2 small:grid-cols-5 gap-x-5 gap-y-8">
         {Array.from({ length: 5 }).map((_, index) => (
           <li key={index} className="min-w-0">
-            <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/[0.08]">
+            <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.08]">
               <div className="aspect-[3/4] animate-pulse bg-grey-20" />
               <div className="space-y-2 px-4 py-4">
                 <div className="h-3 w-3/4 rounded bg-grey-20" />
@@ -103,7 +103,7 @@ export default async function Home(props: {
 
       {/* Shop the collection — a unifying zone for the product rails */}
       {(topCollections.length > 0 || bottomCollections.length > 0) && (
-        <section className="w-full bg-grey-5 py-16 small:py-24">
+        <section className="w-full bg-canvas py-12 small:py-16">
           <header className="mx-auto mb-4 max-w-8xl px-6 small:px-14">
             <div className="grid grid-cols-1 gap-6 small:grid-cols-12 small:gap-12">
               <div className="small:col-span-7">

@@ -5,8 +5,8 @@ import { Headphones, ShieldCheck, Truck, Star } from "lucide-react"
 
 const CtaBanner = () => {
   return (
-    <div className="w-full bg-white">
-      <div className="px-8 small:px-12 pt-8 pb-12">
+    <div className="w-full bg-canvas">
+      <div className="mx-auto max-w-8xl px-6 pb-10 pt-10 small:px-14">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 md:gap-6">
           {/* Expert Support */}
           <div className="flex flex-col gap-2">
@@ -16,7 +16,7 @@ const CtaBanner = () => {
                 href="/design-services"
                 className="text-lg font-sans text-black hover:underline underline-offset-4 transition-all duration-200"
               >
-                Expert Lighting Support
+                Lighting Sourcing Support
               </LocalizedClientLink>
             </div>
             <div className="md:pl-7 font-sans text-sm leading-relaxed text-grey-50">

@@ -79,6 +79,14 @@ Check local setup and non-mutating eBay API readiness:
 yarn ebay:check-setup
 ```
 
+Start the eBay public API MCP server for VS Code/Copilot:
+
+```bash
+yarn ebay:mcp
+```
+
+The workspace MCP configuration registers this as `ebay-api`. The launcher reads `marketplace/Ebay/.env.local`, refreshes an access token from `EBAY_REFRESH_TOKEN`, and starts `@ebay/npm-public-api-mcp`. Keep `EBAY_ENV=production` for live APIs or set `EBAY_ENV=sandbox` for sandbox APIs.
+
 If the refresh token is missing or belongs to another client, set `EBAY_REDIRECT_URI` to the production RuName from eBay Developer Portal, then generate a production consent URL:
 
 ```bash
