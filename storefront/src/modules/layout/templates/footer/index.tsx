@@ -67,6 +67,11 @@ export default async function Footer() {
                 </LocalizedClientLink>
               </li>
               <li>
+                <LocalizedClientLink href="/leditorial" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
+                  LED-itorial
+                </LocalizedClientLink>
+              </li>
+              <li>
                 <LocalizedClientLink href="/store" className="text-sm font-sans text-gray-500 hover:text-black transition-colors">
                   Collections
                 </LocalizedClientLink>
