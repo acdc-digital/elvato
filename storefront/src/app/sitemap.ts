@@ -5,6 +5,7 @@ import { listCategories } from "@lib/data/categories"
 import { listRegions } from "@lib/data/regions"
 import { getBaseURL } from "@lib/util/env"
 import { DEFAULT_SEO_COUNTRY } from "@lib/util/seo"
+import { posts as leditorialPosts } from "./[countryCode]/(main)/leditorial/posts"
 
 // ISR: rebuild the sitemap at most once per hour. Avoids re-fetching the
 // entire catalog on every Googlebot request (which previously caused
@@ -22,6 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/about",
     "/design-services",
     "/how-it-works",
+    "/leditorial",
   ]
 
   const staticEntries: MetadataRoute.Sitemap = staticPages.map((path) => ({
@@ -29,6 +31,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(),
     changeFrequency: path === "" ? "daily" : "weekly",
     priority: path === "" ? 1 : 0.8,
+  }))
+
+  const leditorialEntries: MetadataRoute.Sitemap = leditorialPosts.map((post) => ({
+    url: `${baseUrl}/${country}/leditorial/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: "monthly",
+    priority: 0.6,
   }))
 
   // Per-section fetches isolated so one failure cannot blank the sitemap.
@@ -76,6 +85,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...staticEntries,
+    ...leditorialEntries,
     ...productEntries,
     ...collectionEntries,
     ...categoryEntries,

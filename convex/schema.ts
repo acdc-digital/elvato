@@ -681,6 +681,41 @@ export default defineSchema({
     .index("by_parent",         ["parentId"]),
 
   // ===========================================================================
+  // TABLE: blogPosts (LED-itorial content)
+  // Stores published storefront blog content. The source content lives in
+  // storefront/src/content/leditorial/posts.json and is synced via scripts/blog/sync-leditorial-posts.mjs.
+  // ===========================================================================
+  blogPosts: defineTable({
+    slug: v.string(),
+    category: v.string(),
+    title: v.string(),
+    excerpt: v.string(),
+    image: v.string(),
+    alt: v.string(),
+    readTime: v.string(),
+    publishedAt: v.string(),
+    dek: v.string(),
+    sections: v.array(
+      v.object({
+        heading: v.string(),
+        body: v.array(v.string()),
+      })
+    ),
+    relatedHref: v.string(),
+    relatedLabel: v.string(),
+    status: v.union(
+      v.literal("draft"),
+      v.literal("published"),
+      v.literal("archived")
+    ),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_status", ["status"])
+    .index("by_publishedAt", ["publishedAt"]),
+
+  // ===========================================================================
   // MARKETPLACE IMAGE INTELLIGENCE
   // Etsy draft image ingestion, discovery candidates, embeddings, validation,
   // provenance, and local asset-library sync state.

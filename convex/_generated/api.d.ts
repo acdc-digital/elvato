@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as blog from "../blog.js";
 import type * as cj_certifications from "../cj/certifications.js";
 import type * as cj_myProducts from "../cj/myProducts.js";
 import type * as customerComments from "../customerComments.js";
@@ -30,6 +31,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  blog: typeof blog;
   "cj/certifications": typeof cj_certifications;
   "cj/myProducts": typeof cj_myProducts;
   customerComments: typeof customerComments;

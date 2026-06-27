@@ -7,6 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "convex:deploy": "npx convex deploy",
     "convex:dev": "npx convex dev",
+    "blog:sync": "node scripts/blog/sync-leditorial-posts.mjs",
+    "blog:sync:dry": "node scripts/blog/sync-leditorial-posts.mjs --dry-run",
     "collections:map": "node admin/scripts/map-products-to-collections.cjs",
     "collections:map:dry": "DRY_RUN=1 node admin/scripts/map-products-to-collections.cjs"
   },
