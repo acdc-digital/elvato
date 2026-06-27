@@ -1,18 +1,35 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import { listRegions } from "@lib/data/regions"
+import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "../../../../../modules/common/components/localized-client-link"
 
 import { getPostBySlug, posts } from "../posts"
 
 type Props = {
   params: Promise<{
+    countryCode: string
     slug: string
   }>
 }
 
 export async function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }))
+  try {
+    const countryCodes = await listRegions().then((regions: StoreRegion[]) =>
+      regions
+        ?.flatMap((region) => region.countries?.map((country) => country.iso_2))
+        .filter(Boolean) as string[]
+    )
+
+    return countryCodes.flatMap((countryCode) =>
+      posts.map((post) => ({ countryCode, slug: post.slug }))
+    )
+  } catch {
+    return ["ca", "us"].flatMap((countryCode) =>
+      posts.map((post) => ({ countryCode, slug: post.slug }))
+    )
+  }
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
