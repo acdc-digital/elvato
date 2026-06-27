@@ -1,5 +1,252 @@
 [
   {
+    "slug": "2026-lighting-trends-canadian-homes",
+    "category": "Trend Report",
+    "title": "2026 lighting trends for Canadian homes: warm, layered, and dimmable.",
+    "excerpt": "A homeowner-first trend report on sculptural fixtures, warm LEDs, layered rooms, smart dimming, and the renovation choices that make lighting feel intentional.",
+    "image": "/homepage/v1/lighting-sourcing.webp",
+    "alt": "Layered contemporary residential lighting with warm illumination and sculptural fixtures",
+    "readTime": "9 min read",
+    "publishedAt": "2026-06-27",
+    "dek": "The strongest lighting trend for 2026 is not one shape or finish. It is the move away from single overhead brightness toward warmer, layered, controllable rooms.",
+    "relatedHref": "/store",
+    "relatedLabel": "Shop the trend edit",
+    "editorial": {
+      "date": "2026-06-27",
+      "topic": "2026 residential lighting trends for Canadian homeowners",
+      "objective": "Rank for valuable trend and renovation searches, educate homeowners planning lighting upgrades, build trust through practical design guidance, support internal links to room and fixture collections, and create natural shopping paths for warm, dimmable, sculptural lighting.",
+      "primaryKeyword": "2026 lighting trends",
+      "secondaryKeywords": [
+        "lighting trends 2026",
+        "home lighting trends",
+        "warm LED lighting",
+        "layered lighting",
+        "kitchen lighting trends",
+        "bathroom lighting trends",
+        "smart dimmable lighting",
+        "Canadian home lighting"
+      ],
+      "searchIntent": "Homeowners want to understand which lighting styles and technologies are worth considering before renovating, replacing fixtures, or shopping online.",
+      "targetAudience": "Canadian homeowners, renovators, design-conscious shoppers, condo owners, and families upgrading kitchens, bathrooms, dining rooms, entries, and outdoor-adjacent living spaces.",
+      "funnelStage": "Upper-to-mid funnel inspiration with clear mid-funnel product discovery",
+      "articleType": "Trend Report / Room Guide / Interior Design Inspiration",
+      "estimatedReadingTime": "9 minutes",
+      "confidenceScore": "9.2/10"
+    },
+    "seo": {
+      "metaTitle": "2026 Lighting Trends for Canadian Homes | Elvato",
+      "metaDescription": "Explore 2026 lighting trends for Canadian homes: warm LEDs, layered rooms, sculptural fixtures, smart dimming, and renovation-ready ideas.",
+      "ogTitle": "2026 Lighting Trends for Canadian Homes",
+      "ogDescription": "Elvato's homeowner-first trend report on warm, layered, dimmable, and sculptural residential lighting for 2026 renovations.",
+      "canonicalPath": "/leditorial/2026-lighting-trends-canadian-homes"
+    },
+    "hero": {
+      "headline": "2026 lighting trends for Canadian homes: warm, layered, and dimmable.",
+      "subtitle": "The trend worth acting on is not a single pendant shape. It is the shift toward rooms that change from practical in the morning to calm, flattering, and atmospheric at night.",
+      "featuredImagePrompt": "Editorial Canadian residential interior with layered warm LED lighting, sculptural pendant over dining table, wall sconces, soft table lamp glow, natural stone, wood, warm brass accents, calm luxury renovation atmosphere, premium architectural photography."
+    },
+    "images": [
+      {
+        "src": "/homepage/v1/lighting-sourcing.webp",
+        "serpapiSearchQuery": "2026 lighting trends warm layered residential lighting sculptural pendant Canadian home",
+        "alt": "Layered warm residential lighting with sculptural fixtures and soft evening ambience",
+        "caption": "The 2026 direction is warmer, softer, and more controlled: fewer harsh overhead moments, more layers that support how the room is used.",
+        "placement": "Hero"
+      },
+      {
+        "src": "/homepage/v1/room-kitchen.webp",
+        "serpapiSearchQuery": "2026 kitchen lighting trends warm pendants under cabinet LED dimmable island",
+        "alt": "Warm kitchen pendant lighting above an island with layered task light",
+        "caption": "Kitchens are becoming lighting systems: pendants for presence, under-cabinet light for work, and dimmers for the evening shift.",
+        "placement": "After section: Trend one"
+      },
+      {
+        "src": "/homepage/v1/category-v2-chandeliers.webp",
+        "serpapiSearchQuery": "sculptural chandelier trend 2026 warm brass glass dining room lighting",
+        "alt": "A sculptural chandelier used as a warm focal point in a refined room",
+        "caption": "Statement fixtures still matter, but the best ones earn their place by improving scale, glow, and atmosphere.",
+        "placement": "After section: Trend two"
+      },
+      {
+        "src": "/homepage/v1/category-v2-wall.webp",
+        "serpapiSearchQuery": "wall sconces layered lighting trend hallway bathroom bedroom 2026",
+        "alt": "Contemporary wall lights used to create human-scale layered illumination",
+        "caption": "Wall lights bring brightness down to eye level, which is why sconces are moving from accent detail to core renovation tool.",
+        "placement": "After section: Trend three"
+      }
+    ],
+    "internalLinks": [
+      {
+        "label": "Warm vs. cool light",
+        "href": "/leditorial/warm-vs-cool-light-colour-temperature",
+        "reason": "Supports the article's colour temperature guidance and keeps readers inside Elvato's lighting education cluster."
+      },
+      {
+        "label": "Kitchen pendant spacing",
+        "href": "/leditorial/kitchen-pendants-spacing-height-and-count",
+        "reason": "Moves trend readers into a practical kitchen planning article with high purchase intent."
+      },
+      {
+        "label": "Chandeliers",
+        "href": "/collections/chandeliers",
+        "reason": "Natural product path for sculptural and statement lighting shoppers."
+      },
+      {
+        "label": "Wall lighting",
+        "href": "/collections/wall",
+        "reason": "Supports the layered lighting section and helps homeowners browse sconces."
+      },
+      {
+        "label": "Design services",
+        "href": "/design-services",
+        "reason": "Converts readers who need help applying trends to their own rooms, measurements, finishes, and ceiling conditions."
+      }
+    ],
+    "productPlacements": [
+      {
+        "title": "Sculptural chandeliers",
+        "href": "/collections/chandeliers",
+        "context": "Feature as the statement layer for dining rooms, stairwells, living rooms, and open-plan spaces where one fixture can define the room."
+      },
+      {
+        "title": "Warm kitchen pendants",
+        "href": "/collections/pendants",
+        "context": "Position for island, dining, and threshold lighting where homeowners want both task light and evening atmosphere."
+      },
+      {
+        "title": "Wall sconces",
+        "href": "/collections/wall",
+        "context": "Recommend for bathrooms, hallways, bedrooms, entries, and reading zones where overhead lighting feels flat."
+      },
+      {
+        "title": "Table and floor lamps",
+        "href": "/collections/table-floor",
+        "context": "Use as the flexible final layer for living rooms, bedrooms, offices, and rental-friendly upgrades."
+      }
+    ],
+    "ctas": {
+      "newsletter": {
+        "label": "Join the newsletter",
+        "href": "mailto:hello@elvato.ca?subject=Newsletter signup",
+        "copy": "Get trend reports, fixture edits, and practical room-by-room lighting advice for Canadian homes."
+      },
+      "shopping": {
+        "label": "Shop the trend edit",
+        "href": "/store",
+        "copy": "Browse warm pendants, chandeliers, sconces, table lamps, and floor lamps for layered residential lighting."
+      },
+      "consultation": {
+        "label": "Plan a room with Elvato",
+        "href": "/design-services",
+        "copy": "Send room photos, measurements, finishes, and ceiling details before choosing fixtures."
+      }
+    },
+    "faq": [
+      {
+        "question": "What is the biggest lighting trend for 2026?",
+        "answer": "The biggest trend is layered, controllable lighting: warm ambient light, focused task light, and softer accent light working together instead of one bright overhead source."
+      },
+      {
+        "question": "What colour temperature is best for homes in 2026?",
+        "answer": "Most residential rooms feel better with warm white light between 2700K and 3000K. Kitchens, bathrooms, and offices can use slightly clearer task light, but harsh cool light is becoming less common in living spaces."
+      },
+      {
+        "question": "Are sculptural light fixtures still in style?",
+        "answer": "Yes, especially when the fixture improves the room rather than simply attracting attention. Sculptural chandeliers, pendants, and glass forms work best when scale, dimming, and surrounding layers are planned together."
+      },
+      {
+        "question": "Do I need smart lighting for a renovation?",
+        "answer": "Smart lighting is useful when it solves a real routine, such as dimming scenes, evening schedules, or tunable white light. At minimum, prioritize dimmers and compatible LED fixtures."
+      },
+      {
+        "question": "How can I update lighting without a full renovation?",
+        "answer": "Start with bulbs, dimmers, plug-in table or floor lamps, and one high-impact fixture in a visible zone. Kitchens can often improve with better pendants and under-cabinet lighting, while bedrooms and hallways benefit from sconces or portable lamps."
+      }
+    ],
+    "editorialNotes": {
+      "whyChosenToday": "Late June is when Canadian homeowners are actively planning summer projects while also looking ahead to fall renovations. Search and design interest is converging around 2026 trends, warm LEDs, smart dimming, layered rooms, sculptural fixtures, and renovation-ready kitchen and bathroom lighting.",
+      "expectedSeoValue": "The article targets broad trend queries such as 2026 lighting trends and lighting trends 2026 while supporting long-tail searches around warm LED lighting, layered lighting, kitchen lighting trends, bathroom lighting trends, and smart dimmable lighting. It strengthens Elvato's topical authority and links naturally into buying guides, room guides, collections, and design services.",
+      "futureFollowUps": [
+        "The 2700K vs 3000K room-by-room guide",
+        "Bathroom lighting trends that actually help at the mirror",
+        "Smart dimmers vs smart bulbs: what homeowners should choose",
+        "How to layer lighting in an open-concept Canadian home"
+      ]
+    },
+    "sections": [
+      {
+        "heading": "What deserves to be published today.",
+        "body": [
+          "The best article today is a trend report, not another product roundup. Homeowners are not only asking what looks current; they are asking which lighting decisions are worth making before a renovation, what will still feel good next year, and how to avoid rooms that look beautiful online but feel harsh at night.",
+          "For Elvato, the strongest opportunity is 2026 lighting trends for Canadian homes because it connects search demand, renovation planning, product discovery, and editorial authority. It also gives readers something useful: a filter for choosing fixtures with confidence."
+        ]
+      },
+      {
+        "heading": "The short version: lighting is becoming more residential again.",
+        "body": [
+          "The last few years pushed many homes toward bright recessed grids, cool LEDs, and fixtures chosen mainly for silhouette. In 2026, the better direction is softer and more human. Rooms are moving toward warm colour temperatures, dimming, layered sources, and fixtures that feel like part of the architecture rather than isolated objects.",
+          "That does not mean every home needs ornate lighting. Minimal rooms still work. Modern fixtures still work. The change is that homeowners are thinking less about how a fixture photographs by itself and more about how the room feels at 7 a.m., 4 p.m., and 9 p.m."
+        ]
+      },
+      {
+        "heading": "Trend one: warm LEDs are becoming the default.",
+        "body": [
+          "For most Canadian homes, warm white light between 2700K and 3000K is the safest starting point. It flatters skin tones, makes wood and stone feel richer, softens black and brass finishes, and helps living spaces feel calmer after sunset.",
+          "The practical shift is away from asking whether LED lighting is acceptable. It is. The better question is whether the LED source is warm enough, dimmable enough, and consistent with the other sources in the same sightline.",
+          "If a kitchen pendant, recessed ceiling light, under-cabinet strip, and dining chandelier are all visible together, they should feel related. A mix of warm, cool, blue-white, and amber sources can make an expensive renovation feel accidental."
+        ]
+      },
+      {
+        "heading": "Trend two: sculptural fixtures are becoming more disciplined.",
+        "body": [
+          "Statement lighting is not going away. Sculptural chandeliers, organic pendants, textured glass, warm metals, and softened geometric forms are still important in 2026. The difference is that the best statement fixture is no longer chosen only because it is dramatic.",
+          "A good sculptural fixture should solve scale, create a focal point, and improve the glow of the room. Over a dining table, it should bring the ceiling down emotionally without blocking faces. In a stairwell, it should fill vertical space without feeling heavy. In a living room, it should relate to the furniture plan below, not just the centre of the ceiling.",
+          "This is where homeowners should be careful with trends. A fixture can be current and still wrong for the room. Measure the ceiling height, table width, island length, sightlines, and surrounding finishes before choosing the most expressive piece."
+        ]
+      },
+      {
+        "heading": "Trend three: wall lights are moving from decorative to essential.",
+        "body": [
+          "Sconces are one of the most useful ways to make a home feel designed. They bring light down from the ceiling, soften hallways, improve bedside function, support mirrors, and add rhythm to entries and transitional spaces.",
+          "In bathrooms, wall lighting around the mirror is often more flattering than relying only on ceiling light. In bedrooms, sconces can free nightstand space and create a quieter evening layer. In hallways, a sequence of wall lights can make a narrow path feel intentional instead of forgotten.",
+          "For 2026 renovations, wall lights deserve to be planned early. Electrical locations, mirror widths, bed heights, door swings, and fixture projection all affect whether a sconce feels elegant or annoying."
+        ]
+      },
+      {
+        "heading": "Trend four: smart lighting is useful when it is invisible.",
+        "body": [
+          "Smart lighting is moving from novelty to infrastructure. The best version is not a room changing colours for attention. It is a kitchen that brightens for prep, softens for dinner, and turns down naturally once the house moves into evening.",
+          "Dimmers are the foundation. Before investing in complex smart systems, confirm that the fixtures, bulbs, drivers, and controls are compatible. A beautiful integrated LED pendant with poor dimming behaviour will frustrate you more than a simpler fixture with reliable control.",
+          "Tunable white lighting can be useful in offices, kitchens, bathrooms, and multi-use rooms, especially when the same room supports focus during the day and relaxation at night. Use it with restraint. The goal is comfort, not constant adjustment."
+        ]
+      },
+      {
+        "heading": "Trend five: kitchens and bathrooms are being lit in layers.",
+        "body": [
+          "Kitchen lighting in 2026 is less about a row of pendants and more about zones. Pendants define the island, under-cabinet lighting supports prep, recessed or ceiling fixtures fill the room, and nearby dining or living lights help the whole space settle in the evening.",
+          "Bathrooms are moving the same way. One overhead fixture rarely does the job well. A better plan combines mirror-level light for faces, soft ambient light for the room, and dimming for late-night use. Warm, diffused light makes the bathroom feel more residential and less clinical.",
+          "The renovation lesson is simple: choose fixtures after deciding what each layer is supposed to do. If every light is trying to be the main light, the room will feel busy and flat at the same time."
+        ]
+      },
+      {
+        "heading": "How to apply the trend without over-renovating.",
+        "body": [
+          "Start with the rooms you use after sunset. Living rooms, kitchens, dining rooms, bedrooms, bathrooms, and entries show lighting mistakes quickly because people move through them every day.",
+          "Replace mismatched bulbs with consistent warm LEDs. Add dimmers where compatible. Use a table or floor lamp to soften one dark corner. Upgrade one visible fixture that anchors the room. If you are renovating, plan sconces, under-cabinet lighting, and switched zones before walls close.",
+          "The goal is not to chase every 2026 trend. The goal is to make each room more comfortable, more useful, and more intentional."
+        ]
+      },
+      {
+        "heading": "The Elvato recommendation.",
+        "body": [
+          "If you are choosing lighting this year, prioritize warmth, control, and layers before chasing a specific shape. Choose sculptural fixtures where they improve scale. Use wall lights where overhead lighting feels harsh. Add dimming anywhere the room changes function from day to night.",
+          "For shopping, build a short list by room: pendants for kitchens and dining zones, chandeliers for larger focal points, sconces for human-scale light, and table or floor lamps for the final atmospheric layer. The strongest homes in 2026 will not be the brightest. They will be the best controlled."
+        ]
+      }
+    ],
+    "contentMarkdown": "# 2026 lighting trends for Canadian homes: warm, layered, and dimmable.\n\nThe strongest lighting trend for 2026 is not one shape or finish. It is the move away from single overhead brightness toward warmer, layered, controllable rooms.\n\n## What deserves to be published today\n\nThe best article today is a trend report, not another product roundup. Homeowners are not only asking what looks current; they are asking which lighting decisions are worth making before a renovation, what will still feel good next year, and how to avoid rooms that look beautiful online but feel harsh at night.\n\nFor Elvato, the strongest opportunity is 2026 lighting trends for Canadian homes because it connects search demand, renovation planning, product discovery, and editorial authority. It also gives readers something useful: a filter for choosing fixtures with confidence.\n\n## The short version: lighting is becoming more residential again\n\nThe last few years pushed many homes toward bright recessed grids, cool LEDs, and fixtures chosen mainly for silhouette. In 2026, the better direction is softer and more human. Rooms are moving toward warm colour temperatures, dimming, layered sources, and fixtures that feel like part of the architecture rather than isolated objects.\n\nThat does not mean every home needs ornate lighting. Minimal rooms still work. Modern fixtures still work. The change is that homeowners are thinking less about how a fixture photographs by itself and more about how the room feels at 7 a.m., 4 p.m., and 9 p.m.\n\n## Trend one: warm LEDs are becoming the default\n\nFor most Canadian homes, warm white light between 2700K and 3000K is the safest starting point. It flatters skin tones, makes wood and stone feel richer, softens black and brass finishes, and helps living spaces feel calmer after sunset.\n\nThe practical shift is away from asking whether LED lighting is acceptable. It is. The better question is whether the LED source is warm enough, dimmable enough, and consistent with the other sources in the same sightline.\n\nIf a kitchen pendant, recessed ceiling light, under-cabinet strip, and dining chandelier are all visible together, they should feel related. A mix of warm, cool, blue-white, and amber sources can make an expensive renovation feel accidental.\n\n## Trend two: sculptural fixtures are becoming more disciplined\n\nStatement lighting is not going away. Sculptural chandeliers, organic pendants, textured glass, warm metals, and softened geometric forms are still important in 2026. The difference is that the best statement fixture is no longer chosen only because it is dramatic.\n\nA good sculptural fixture should solve scale, create a focal point, and improve the glow of the room. Over a dining table, it should bring the ceiling down emotionally without blocking faces. In a stairwell, it should fill vertical space without feeling heavy. In a living room, it should relate to the furniture plan below, not just the centre of the ceiling.\n\nThis is where homeowners should be careful with trends. A fixture can be current and still wrong for the room. Measure the ceiling height, table width, island length, sightlines, and surrounding finishes before choosing the most expressive piece.\n\n## Trend three: wall lights are moving from decorative to essential\n\nSconces are one of the most useful ways to make a home feel designed. They bring light down from the ceiling, soften hallways, improve bedside function, support mirrors, and add rhythm to entries and transitional spaces.\n\nIn bathrooms, wall lighting around the mirror is often more flattering than relying only on ceiling light. In bedrooms, sconces can free nightstand space and create a quieter evening layer. In hallways, a sequence of wall lights can make a narrow path feel intentional instead of forgotten.\n\nFor 2026 renovations, wall lights deserve to be planned early. Electrical locations, mirror widths, bed heights, door swings, and fixture projection all affect whether a sconce feels elegant or annoying.\n\n## Trend four: smart lighting is useful when it is invisible\n\nSmart lighting is moving from novelty to infrastructure. The best version is not a room changing colours for attention. It is a kitchen that brightens for prep, softens for dinner, and turns down naturally once the house moves into evening.\n\nDimmers are the foundation. Before investing in complex smart systems, confirm that the fixtures, bulbs, drivers, and controls are compatible. A beautiful integrated LED pendant with poor dimming behaviour will frustrate you more than a simpler fixture with reliable control.\n\nTunable white lighting can be useful in offices, kitchens, bathrooms, and multi-use rooms, especially when the same room supports focus during the day and relaxation at night. Use it with restraint. The goal is comfort, not constant adjustment.\n\n## Trend five: kitchens and bathrooms are being lit in layers\n\nKitchen lighting in 2026 is less about a row of pendants and more about zones. Pendants define the island, under-cabinet lighting supports prep, recessed or ceiling fixtures fill the room, and nearby dining or living lights help the whole space settle in the evening.\n\nBathrooms are moving the same way. One overhead fixture rarely does the job well. A better plan combines mirror-level light for faces, soft ambient light for the room, and dimming for late-night use. Warm, diffused light makes the bathroom feel more residential and less clinical.\n\nThe renovation lesson is simple: choose fixtures after deciding what each layer is supposed to do. If every light is trying to be the main light, the room will feel busy and flat at the same time.\n\n## How to apply the trend without over-renovating\n\nStart with the rooms you use after sunset. Living rooms, kitchens, dining rooms, bedrooms, bathrooms, and entries show lighting mistakes quickly because people move through them every day.\n\nReplace mismatched bulbs with consistent warm LEDs. Add dimmers where compatible. Use a table or floor lamp to soften one dark corner. Upgrade one visible fixture that anchors the room. If you are renovating, plan sconces, under-cabinet lighting, and switched zones before walls close.\n\nThe goal is not to chase every 2026 trend. The goal is to make each room more comfortable, more useful, and more intentional.\n\n## The Elvato recommendation\n\nIf you are choosing lighting this year, prioritize warmth, control, and layers before chasing a specific shape. Choose sculptural fixtures where they improve scale. Use wall lights where overhead lighting feels harsh. Add dimming anywhere the room changes function from day to night.\n\nFor shopping, build a short list by room: pendants for kitchens and dining zones, chandeliers for larger focal points, sconces for human-scale light, and table or floor lamps for the final atmospheric layer. The strongest homes in 2026 will not be the brightest. They will be the best controlled."
+  },
+  {
     "slug": "wet-rated-vs-damp-rated-outdoor-lighting",
     "category": "FAQ",
     "title": "Wet-rated vs. damp-rated outdoor lighting: what Canadian homeowners should know.",
