@@ -6,7 +6,7 @@ import LocalizedClientLink from "../../../../../modules/common/components/locali
 
 import { getPostBySlug, posts } from "../posts"
 
-export const revalidate = 300
+export const dynamic = "force-dynamic"
 export const dynamicParams = true
 
 type Props = {
