@@ -701,6 +701,7 @@ export default defineSchema({
         body: v.array(v.string()),
       })
     ),
+    contentMarkdown: v.optional(v.string()),
     relatedHref: v.string(),
     relatedLabel: v.string(),
     editorial: v.optional(

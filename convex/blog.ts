@@ -37,6 +37,7 @@ const blogPostArgs = {
   publishedAt: v.string(),
   dek: v.string(),
   sections: v.array(blogSectionValidator),
+  contentMarkdown: v.optional(v.string()),
   relatedHref: v.string(),
   relatedLabel: v.string(),
   editorial: v.optional(

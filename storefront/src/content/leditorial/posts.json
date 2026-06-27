@@ -1,5 +1,231 @@
 [
   {
+    "slug": "wet-rated-vs-damp-rated-outdoor-lighting",
+    "category": "FAQ",
+    "title": "Wet-rated vs. damp-rated outdoor lighting: what Canadian homeowners should know.",
+    "excerpt": "A practical guide to choosing outdoor fixtures for covered porches, open decks, patios, balconies, soffits, and wet Canadian weather.",
+    "image": "/homepage/v1/category-v2-wall.webp",
+    "alt": "Contemporary wall lights used in a warm residential outdoor-inspired setting",
+    "readTime": "8 min read",
+    "publishedAt": "2026-06-27",
+    "dek": "Outdoor lighting is not just a style decision. The fixture rating determines whether a light belongs under a protected roof, beside a door, on an open deck, or anywhere rain and snow can reach it.",
+    "relatedHref": "/store?category_id=pcat_01KF737MPK7JZFATG1DBV0RBC8",
+    "relatedLabel": "Shop outdoor lighting",
+    "editorial": {
+      "date": "2026-06-27",
+      "topic": "Wet-rated vs. damp-rated outdoor lighting for Canadian homes",
+      "objective": "Answer a high-intent customer service question, help homeowners buy safer outdoor fixtures, support summer renovation planning, and create natural paths into outdoor, wall, pendant, and design-service shopping journeys.",
+      "primaryKeyword": "wet rated vs damp rated lighting",
+      "secondaryKeywords": [
+        "damp rated lighting",
+        "wet rated outdoor lights",
+        "outdoor lighting Canada",
+        "patio lighting fixtures",
+        "porch lighting ideas",
+        "deck lighting ideas",
+        "outdoor wall lights"
+      ],
+      "searchIntent": "Homeowners want to understand which outdoor light rating is safe for a specific location before purchasing or installing fixtures.",
+      "targetAudience": "Canadian homeowners, renovators, condo owners, and design-conscious shoppers choosing patio, porch, balcony, deck, entry, or exterior wall lighting.",
+      "funnelStage": "Mid-funnel education with bottom-funnel purchase validation",
+      "articleType": "FAQ / Installation Guide / Buying Guide",
+      "estimatedReadingTime": "8 minutes",
+      "confidenceScore": "9.1/10"
+    },
+    "seo": {
+      "metaTitle": "Wet-Rated vs Damp-Rated Lighting: Outdoor Guide",
+      "metaDescription": "Learn the difference between wet-rated and damp-rated outdoor lighting for Canadian patios, porches, decks, balconies, and entries.",
+      "ogTitle": "Wet-Rated vs. Damp-Rated Outdoor Lighting",
+      "ogDescription": "A practical Elvato guide to choosing outdoor fixtures for covered porches, open decks, balconies, soffits, and wet Canadian weather.",
+      "canonicalPath": "/leditorial/wet-rated-vs-damp-rated-outdoor-lighting"
+    },
+    "hero": {
+      "headline": "Wet-rated vs. damp-rated outdoor lighting: what Canadian homeowners should know.",
+      "subtitle": "The fixture rating is the quiet detail that decides whether a porch light, patio pendant, balcony sconce, or deck fixture is actually right for the place it will live.",
+      "featuredImagePrompt": "Editorial residential exterior lighting scene in Canada at dusk, warm outdoor wall lights under a covered porch, nearby open deck, rain-safe fixture details, contemporary home materials, soft warm LED glow, premium architectural photography."
+    },
+    "images": [
+      {
+        "src": "/homepage/v1/category-v2-wall.webp",
+        "serpapiSearchQuery": "wet rated outdoor wall lights covered porch modern home Canada dusk",
+        "alt": "Warm wall lights used near an exterior entry and covered outdoor area",
+        "caption": "Wall lights are often the first outdoor fixtures homeowners choose, but the right rating depends on how much weather reaches the wall.",
+        "placement": "Hero"
+      },
+      {
+        "src": "/homepage/v1/room-dining.webp",
+        "serpapiSearchQuery": "covered patio dining pendant damp rated outdoor lighting warm LED",
+        "alt": "Warm pendant lighting over a dining setting that connects to outdoor entertaining",
+        "caption": "Covered dining zones may feel protected, but humidity, wind, and splash exposure still matter.",
+        "placement": "After section: The simple difference"
+      },
+      {
+        "src": "/homepage/v1/category-v2-pendants.webp",
+        "serpapiSearchQuery": "outdoor rated pendant light covered porch damp location Canada",
+        "alt": "Contemporary pendant fixtures suitable for protected entertaining zones",
+        "caption": "Pendants can work beautifully in protected outdoor rooms when the rating matches the installation conditions.",
+        "placement": "After section: Where damp-rated fixtures usually belong"
+      },
+      {
+        "src": "/homepage/v1/room-kitchen.webp",
+        "serpapiSearchQuery": "indoor outdoor kitchen patio threshold warm LED layered lighting",
+        "alt": "A warm kitchen with pendant lighting beside an outdoor living transition",
+        "caption": "The kitchen, door, and patio should read as one lighting plan, even when each fixture has a different rating requirement.",
+        "placement": "Product placement section"
+      }
+    ],
+    "internalLinks": [
+      {
+        "label": "Summer outdoor lighting guide",
+        "href": "/leditorial/summer-outdoor-lighting-guide",
+        "reason": "Connects safety and rating education to the broader seasonal patio and deck lighting plan."
+      },
+      {
+        "label": "Wall lighting",
+        "href": "/collections/wall",
+        "reason": "Natural product path for porch, entry, balcony, garage, and exterior wall fixtures."
+      },
+      {
+        "label": "Pendants",
+        "href": "/collections/pendants",
+        "reason": "Supports covered porch, dining, and outdoor-room fixture discovery when location ratings are appropriate."
+      },
+      {
+        "label": "Kitchen lighting",
+        "href": "/store?room_types=Kitchen",
+        "reason": "Links outdoor lighting decisions to the indoor threshold homeowners see from the patio."
+      },
+      {
+        "label": "Lighting sourcing and selection",
+        "href": "/design-services",
+        "reason": "Converts readers who need help confirming scale, finish, rating, or installation conditions."
+      }
+    ],
+    "productPlacements": [
+      {
+        "title": "Outdoor lighting edit",
+        "href": "/store?category_id=pcat_01KF737MPK7JZFATG1DBV0RBC8",
+        "context": "Feature weather-appropriate wall lights, ceiling lights, post lights, lanterns, and outdoor pendants for entries, decks, patios, balconies, and paths."
+      },
+      {
+        "title": "Wall lights",
+        "href": "/collections/wall",
+        "context": "Position as the first stop for porch, entry, garage, balcony, and exterior wall lighting where fixture rating and projection both matter."
+      },
+      {
+        "title": "Pendants",
+        "href": "/collections/pendants",
+        "context": "Recommend for protected outdoor rooms, covered dining areas, and kitchen thresholds only when the product rating fits the exposure."
+      },
+      {
+        "title": "Design services",
+        "href": "/design-services",
+        "context": "Offer help reviewing photos, ceiling conditions, weather exposure, finish direction, and fixture scale before a homeowner orders."
+      }
+    ],
+    "ctas": {
+      "newsletter": {
+        "label": "Join the newsletter",
+        "href": "mailto:hello@elvato.ca?subject=Newsletter signup",
+        "copy": "Get practical lighting guides, seasonal fixture edits, and room-by-room advice for Canadian homes."
+      },
+      "shopping": {
+        "label": "Shop outdoor lighting",
+        "href": "/store?category_id=pcat_01KF737MPK7JZFATG1DBV0RBC8",
+        "copy": "Browse fixtures for entries, patios, covered porches, decks, balconies, and outdoor paths."
+      },
+      "consultation": {
+        "label": "Ask before ordering",
+        "href": "/design-services",
+        "copy": "Send the location, photos, ceiling or wall condition, and exposure so the fixture rating can be checked before purchase."
+      }
+    },
+    "faq": [
+      {
+        "question": "What is the difference between wet-rated and damp-rated lighting?",
+        "answer": "Wet-rated lighting is designed for direct exposure to rain, snow, and water. Damp-rated lighting is designed for moisture and humidity in protected areas, but not for direct rainfall or heavy water contact."
+      },
+      {
+        "question": "Can damp-rated lights be used outside in Canada?",
+        "answer": "Yes, but only in protected outdoor locations where the fixture will not receive direct rain, snow, or regular splash. Covered porches, covered balconies, and sheltered soffits may be appropriate when the product specifications confirm damp-location use."
+      },
+      {
+        "question": "Do open decks and patios need wet-rated lights?",
+        "answer": "If the fixture is exposed to direct weather, choose a wet-rated product. Open decks, uncovered patios, fence posts, exposed pergolas, garden walls, and path areas generally need wet-rated lighting."
+      },
+      {
+        "question": "Is a covered porch considered damp or wet?",
+        "answer": "It depends on the exposure. A deep, protected porch may be a damp location, while a shallow porch that receives wind-driven rain or snow may require wet-rated fixtures. The safest answer comes from matching the fixture specifications to the actual site."
+      },
+      {
+        "question": "Should outdoor LED fixtures be installed by an electrician?",
+        "answer": "Hardwired outdoor fixtures should be installed by a qualified electrician. Plug-in or low-voltage products may be simpler, but homeowners should still follow the manufacturer instructions and use products rated for the location."
+      }
+    ],
+    "editorialNotes": {
+      "whyChosenToday": "Late June is peak outdoor living season in Canada, and Elvato already has a broad summer lighting guide live. The strongest next publication is a more specific customer-service article that answers the rating question homeowners ask before buying porch, patio, deck, and balcony fixtures.",
+      "expectedSeoValue": "The article targets high-intent informational queries around wet-rated vs damp-rated lighting, damp-rated outdoor lights, wet-rated outdoor lights, and outdoor lighting Canada. It strengthens topical authority around outdoor lighting safety while moving readers toward relevant product collections and design help.",
+      "futureFollowUps": [
+        "How to choose outdoor wall lights for a front entry",
+        "Balcony lighting ideas for condos and townhomes",
+        "How bright should patio and deck lighting be?",
+        "Outdoor lighting mistakes that make a home feel harsh at night"
+      ]
+    },
+    "sections": [
+      {
+        "heading": "The simple difference.",
+        "body": [
+          "Wet-rated lighting is made for direct exposure to water. Damp-rated lighting is made for moisture, humidity, and protected outdoor conditions, but not direct rainfall or heavy splash.",
+          "That distinction matters in Canada because outdoor fixtures deal with more than a beautiful summer evening. They may face wind-driven rain, snow, freeze-thaw cycles, humid covered porches, and seasonal debris. A fixture can look right and still be wrong for the location."
+        ]
+      },
+      {
+        "heading": "Where wet-rated fixtures usually belong.",
+        "body": [
+          "Choose wet-rated lighting anywhere water can reach the fixture directly. That includes open decks, uncovered patios, garden walls, exposed pergolas, path lights, post lights, fence-mounted fixtures, and many front entries.",
+          "Wet-rated does not mean the fixture should be treated casually. It still needs proper installation, suitable mounting, and product-specific instructions. But if the light will see rain or snow, wet-rated is the safer starting point."
+        ]
+      },
+      {
+        "heading": "Where damp-rated fixtures usually belong.",
+        "body": [
+          "Damp-rated fixtures can make sense in protected places: deep covered porches, covered balconies, screened rooms, sheltered soffits, or covered outdoor dining areas where humidity is present but direct water is not.",
+          "The phrase covered is not enough by itself. A shallow overhang may still catch wind-driven rain. A balcony ceiling may be protected in one corner and exposed near the rail. Before ordering, look at where water actually travels during a storm."
+        ]
+      },
+      {
+        "heading": "Use the porch test.",
+        "body": [
+          "Stand where the fixture will be installed and ask four questions. Can rain touch it directly? Can snow collect nearby? Can wind push water into the fixture location? Will a hose, sprinkler, or splash zone ever reach it?",
+          "If the answer is yes or maybe, consider wet-rated lighting. If the answer is confidently no and the product is approved for damp locations, damp-rated may be appropriate."
+        ]
+      },
+      {
+        "heading": "Match the rating to the design plan.",
+        "body": [
+          "Outdoor lighting should still feel designed. Use wall lights to define entries and architecture, pendants to lower the glow in protected outdoor rooms, and path or step lighting to make movement safer.",
+          "The best plans combine rating, scale, colour temperature, and placement. A wet-rated fixture that is too bright can still feel harsh. A damp-rated pendant in the wrong location can still be a problem. Treat the rating as the first filter, not the whole design decision."
+        ]
+      },
+      {
+        "heading": "What to check before buying.",
+        "body": [
+          "Read the product specifications before you fall in love with the silhouette. Look for wet location, damp location, outdoor rating, and any installation notes from the manufacturer. For Canada, also pay attention to installation requirements and consult a qualified electrician for hardwired outdoor fixtures.",
+          "If the rating is unclear, do not assume. Choose another fixture or ask for help before ordering."
+        ]
+      },
+      {
+        "heading": "The Elvato recommendation.",
+        "body": [
+          "For exposed patios, open decks, and exterior walls, start with wet-rated fixtures. For deep covered porches and protected outdoor rooms, damp-rated may work when the manufacturer documentation supports it.",
+          "For kitchens, dining rooms, and doors that visually connect to the patio, coordinate the indoor lighting so the outdoor scene feels warm and intentional after sunset."
+        ]
+      }
+    ],
+    "contentMarkdown": "# Wet-rated vs. damp-rated outdoor lighting: what Canadian homeowners should know.\n\nOutdoor lighting is not just a style decision. The fixture rating determines whether a light belongs under a protected roof, beside a door, on an open deck, or anywhere rain and snow can reach it.\n\n## The simple difference\n\nWet-rated lighting is made for direct exposure to water. Damp-rated lighting is made for moisture, humidity, and protected outdoor conditions, but not direct rainfall or heavy splash.\n\nThat distinction matters in Canada because outdoor fixtures deal with more than a beautiful summer evening. They may face wind-driven rain, snow, freeze-thaw cycles, humid covered porches, and seasonal debris. A fixture can look right and still be wrong for the location.\n\n## Where wet-rated fixtures usually belong\n\nChoose wet-rated lighting anywhere water can reach the fixture directly. That includes open decks, uncovered patios, garden walls, exposed pergolas, path lights, post lights, fence-mounted fixtures, and many front entries.\n\nWet-rated does not mean the fixture should be treated casually. It still needs proper installation, suitable mounting, and product-specific instructions. But if the light will see rain or snow, wet-rated is the safer starting point.\n\n## Where damp-rated fixtures usually belong\n\nDamp-rated fixtures can make sense in protected places: deep covered porches, covered balconies, screened rooms, sheltered soffits, or covered outdoor dining areas where humidity is present but direct water is not.\n\nThe phrase covered is not enough by itself. A shallow overhang may still catch wind-driven rain. A balcony ceiling may be protected in one corner and exposed near the rail. Before ordering, look at where water actually travels during a storm.\n\n## The porch test\n\nStand where the fixture will be installed and ask four questions. Can rain touch it directly? Can snow collect nearby? Can wind push water into the fixture location? Will a hose, sprinkler, or splash zone ever reach it?\n\nIf the answer is yes or maybe, consider wet-rated lighting. If the answer is confidently no and the product is approved for damp locations, damp-rated may be appropriate.\n\n## Match the rating to the design plan\n\nOutdoor lighting should still feel designed. Use wall lights to define entries and architecture, pendants to lower the glow in protected outdoor rooms, and path or step lighting to make movement safer.\n\nThe best plans combine rating, scale, colour temperature, and placement. A wet-rated fixture that is too bright can still feel harsh. A damp-rated pendant in the wrong location can still be a problem. Treat the rating as the first filter, not the whole design decision.\n\n## What to check before buying\n\nRead the product specifications before you fall in love with the silhouette. Look for wet location, damp location, outdoor rating, and any installation notes from the manufacturer. For Canada, also pay attention to installation requirements and consult a qualified electrician for hardwired outdoor fixtures.\n\nIf the rating is unclear, do not assume. Choose another fixture or ask for help before ordering.\n\n## The Elvato recommendation\n\nFor exposed patios, open decks, and exterior walls, start with wet-rated fixtures. For deep covered porches and protected outdoor rooms, damp-rated may work when the manufacturer documentation supports it. For kitchens, dining rooms, and doors that visually connect to the patio, coordinate the indoor lighting so the outdoor scene feels warm and intentional after sunset."
+  },
+  {
     "slug": "choosing-a-chandelier-that-feels-intentional",
     "category": "The Elvato Edit",
     "title": "How to choose a chandelier that feels intentional, not oversized.",
