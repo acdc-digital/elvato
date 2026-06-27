@@ -6,6 +6,26 @@ const blogSectionValidator = v.object({
   body: v.array(v.string()),
 });
 
+const blogLinkValidator = v.object({
+  label: v.string(),
+  href: v.string(),
+  reason: v.optional(v.string()),
+});
+
+const blogImageValidator = v.object({
+  src: v.string(),
+  serpapiSearchQuery: v.optional(v.string()),
+  alt: v.string(),
+  caption: v.optional(v.string()),
+  placement: v.optional(v.string()),
+});
+
+const blogCtaValidator = v.object({
+  label: v.string(),
+  href: v.string(),
+  copy: v.string(),
+});
+
 const blogPostArgs = {
   slug: v.string(),
   category: v.string(),
@@ -19,6 +39,70 @@ const blogPostArgs = {
   sections: v.array(blogSectionValidator),
   relatedHref: v.string(),
   relatedLabel: v.string(),
+  editorial: v.optional(
+    v.object({
+      date: v.string(),
+      topic: v.string(),
+      objective: v.string(),
+      primaryKeyword: v.string(),
+      secondaryKeywords: v.array(v.string()),
+      searchIntent: v.string(),
+      targetAudience: v.string(),
+      funnelStage: v.string(),
+      articleType: v.string(),
+      estimatedReadingTime: v.string(),
+      confidenceScore: v.string(),
+    })
+  ),
+  seo: v.optional(
+    v.object({
+      metaTitle: v.string(),
+      metaDescription: v.string(),
+      ogTitle: v.string(),
+      ogDescription: v.string(),
+      canonicalPath: v.string(),
+    })
+  ),
+  hero: v.optional(
+    v.object({
+      headline: v.string(),
+      subtitle: v.string(),
+      featuredImagePrompt: v.optional(v.string()),
+    })
+  ),
+  images: v.optional(v.array(blogImageValidator)),
+  internalLinks: v.optional(v.array(blogLinkValidator)),
+  productPlacements: v.optional(
+    v.array(
+      v.object({
+        title: v.string(),
+        href: v.string(),
+        context: v.string(),
+      })
+    )
+  ),
+  ctas: v.optional(
+    v.object({
+      newsletter: v.optional(blogCtaValidator),
+      shopping: v.optional(blogCtaValidator),
+      consultation: v.optional(blogCtaValidator),
+    })
+  ),
+  faq: v.optional(
+    v.array(
+      v.object({
+        question: v.string(),
+        answer: v.string(),
+      })
+    )
+  ),
+  editorialNotes: v.optional(
+    v.object({
+      whyChosenToday: v.string(),
+      expectedSeoValue: v.string(),
+      futureFollowUps: v.array(v.string()),
+    })
+  ),
   status: v.optional(
     v.union(v.literal("draft"), v.literal("published"), v.literal("archived"))
   ),

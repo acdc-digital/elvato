@@ -16,6 +16,74 @@ export type LeditorialPost = {
   }>
   relatedHref: string
   relatedLabel: string
+  editorial?: {
+    date: string
+    topic: string
+    objective: string
+    primaryKeyword: string
+    secondaryKeywords: string[]
+    searchIntent: string
+    targetAudience: string
+    funnelStage: string
+    articleType: string
+    estimatedReadingTime: string
+    confidenceScore: string
+  }
+  seo?: {
+    metaTitle: string
+    metaDescription: string
+    ogTitle: string
+    ogDescription: string
+    canonicalPath: string
+  }
+  hero?: {
+    headline: string
+    subtitle: string
+    featuredImagePrompt?: string
+  }
+  images?: Array<{
+    src: string
+    serpapiSearchQuery?: string
+    alt: string
+    caption?: string
+    placement?: string
+  }>
+  internalLinks?: Array<{
+    label: string
+    href: string
+    reason?: string
+  }>
+  productPlacements?: Array<{
+    title: string
+    href: string
+    context: string
+  }>
+  ctas?: {
+    newsletter?: {
+      label: string
+      href: string
+      copy: string
+    }
+    shopping?: {
+      label: string
+      href: string
+      copy: string
+    }
+    consultation?: {
+      label: string
+      href: string
+      copy: string
+    }
+  }
+  faq?: Array<{
+    question: string
+    answer: string
+  }>
+  editorialNotes?: {
+    whyChosenToday: string
+    expectedSeoValue: string
+    futureFollowUps: string[]
+  }
 }
 
 export const posts = [...(rawPosts as LeditorialPost[])].sort(
