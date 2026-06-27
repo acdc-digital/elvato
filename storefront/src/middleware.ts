@@ -123,11 +123,22 @@ async function getCountryCode(
 
 const USER_REGION_COOKIE_MAX_AGE = 60 * 60 * 24 * 365 // 1 year
 
+function getPathCountryCode(pathname: string) {
+  const segment = pathname.split("/")[1]?.toLowerCase()
+  return /^[a-z]{2}$/.test(segment) ? segment : null
+}
+
 /**
  * Middleware to handle region selection and onboarding status.
  */
 export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === "/callback") {
+    return NextResponse.next()
+  }
+
+  // Canonical region-prefixed URLs should not pay a Medusa regions lookup just
+  // to continue. Invalid region prefixes will fall through to the route layer.
+  if (getPathCountryCode(request.nextUrl.pathname)) {
     return NextResponse.next()
   }
 
