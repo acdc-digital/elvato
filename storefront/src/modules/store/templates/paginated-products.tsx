@@ -6,7 +6,8 @@ import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list"
 
-const DEFAULT_PRODUCT_LIMIT = 24
+const DEFAULT_PRODUCT_LIMIT = 12
+const PRIORITY_IMAGE_COUNT = 4
 
 type PaginatedProductsParams = {
   limit: number
@@ -104,6 +105,7 @@ export default async function PaginatedProducts({
       queryParams: { limit: hitIds.length, id: hitIds } as any,
       sortBy: "created_at",
       countryCode,
+      cacheScope: "public",
     })
 
     // Maintain MeiliSearch sort order
@@ -120,9 +122,14 @@ export default async function PaginatedProducts({
           className="grid grid-cols-2 w-full gap-x-3 gap-y-6 small:grid-cols-3 small:gap-x-4 small:gap-y-7 medium:grid-cols-4"
           data-testid="products-list"
         >
-          {canonicalProducts.map((p) => (
+          {canonicalProducts.map((p, index) => (
             <li key={p.id}>
-              <ProductPreview product={p} region={region} isFeatured />
+              <ProductPreview
+                product={p}
+                region={region}
+                isFeatured
+                imagePriority={index < PRIORITY_IMAGE_COUNT}
+              />
             </li>
           ))}
         </ul>
@@ -174,6 +181,7 @@ export default async function PaginatedProducts({
     queryParams,
     sortBy,
     countryCode,
+    cacheScope: "public",
   })
 
   products = await withCdnImagesBatch(products)
@@ -186,10 +194,15 @@ export default async function PaginatedProducts({
         className="grid grid-cols-2 w-full gap-x-3 gap-y-6 small:grid-cols-3 small:gap-x-4 small:gap-y-7 medium:grid-cols-4"
         data-testid="products-list"
       >
-        {products.map((p) => {
+        {products.map((p, index) => {
           return (
             <li key={p.id}>
-              <ProductPreview product={p} region={region} isFeatured />
+              <ProductPreview
+                product={p}
+                region={region}
+                isFeatured
+                imagePriority={index < PRIORITY_IMAGE_COUNT}
+              />
             </li>
           )
         })}

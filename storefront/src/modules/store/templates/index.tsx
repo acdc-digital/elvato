@@ -8,6 +8,11 @@ import SortDropdown from "@modules/store/components/refinement-list/sort-dropdow
 
 import PaginatedProducts from "./paginated-products"
 
+function toPerPageOption(value?: string): PerPageOption {
+  const parsed = value ? parseInt(value) : DEFAULT_PER_PAGE
+  return parsed === 24 || parsed === 48 ? parsed : DEFAULT_PER_PAGE
+}
+
 type StoreTemplateProps = {
   sortBy?: SortOptions
   page?: string
@@ -60,7 +65,7 @@ const StoreTemplate = ({
 }: StoreTemplateProps) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
-  const perPage = (limit ? parseInt(limit) : DEFAULT_PER_PAGE) as PerPageOption
+  const perPage = toPerPageOption(limit)
 
   // Parse category IDs from URL (comma-separated)
   const selectedCategoryIds = categoryId

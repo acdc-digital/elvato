@@ -111,11 +111,13 @@ export const listProductsWithSort = async ({
   queryParams,
   sortBy = "created_at",
   countryCode,
+  cacheScope = "personalized",
 }: {
   page?: number
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
   sortBy?: SortOptions
   countryCode: string
+  cacheScope?: "personalized" | "public"
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
   nextPage: number | null
@@ -135,6 +137,7 @@ export const listProductsWithSort = async ({
         fields: LISTING_FIELDS,
       },
       countryCode,
+      cacheScope,
     })
 
     const sortedProducts = sortProducts(products, sortBy)
@@ -162,5 +165,6 @@ export const listProductsWithSort = async ({
       fields: LISTING_FIELDS,
     },
     countryCode,
+    cacheScope,
   })
 }

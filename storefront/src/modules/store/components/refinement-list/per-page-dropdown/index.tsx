@@ -5,9 +5,9 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation"
 import { ChevronDown, Check } from "lucide-react"
 import { clx } from "@medusajs/ui"
 
-export const PER_PAGE_OPTIONS = [24, 48, 100] as const
+export const PER_PAGE_OPTIONS = [12, 24, 48] as const
 export type PerPageOption = (typeof PER_PAGE_OPTIONS)[number]
-export const DEFAULT_PER_PAGE: PerPageOption = 24
+export const DEFAULT_PER_PAGE: PerPageOption = 12
 
 type PerPageDropdownProps = {
   perPage: PerPageOption

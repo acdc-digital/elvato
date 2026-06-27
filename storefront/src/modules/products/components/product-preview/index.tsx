@@ -1,10 +1,7 @@
 import { Text } from "@medusajs/ui"
-import { listProducts } from "@lib/data/products"
-import { getProductPrice } from "@lib/util/get-product-price"
 import { HttpTypes } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
-import PreviewPrice from "./price"
 import CardActions from "./card-actions"
 import { convertToLocale } from "@lib/util/money"
 
@@ -54,10 +51,12 @@ function getSwatchClassName(value: string): string {
 export default async function ProductPreview({
   product,
   isFeatured,
+  imagePriority = false,
   region,
 }: {
   product: HttpTypes.StoreProduct
   isFeatured?: boolean
+  imagePriority?: boolean
   region: HttpTypes.StoreRegion
 }) {
   // Compute real price display from variant calculated_prices
@@ -131,7 +130,10 @@ export default async function ProductPreview({
                   src={thumbnail}
                   alt={product.title || 'Product'}
                   fill
-                  loading="lazy"
+                  quality={72}
+                  {...(imagePriority
+                    ? { priority: true, fetchPriority: "high" as const }
+                    : { loading: "lazy" as const })}
                   className="object-cover object-center"
                   sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
                 />

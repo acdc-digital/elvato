@@ -41,6 +41,7 @@ export default function imageLoader({ src, width, quality }: LoaderArgs): string
   if (host === BUNNY_HOST) {
     url.searchParams.set("width", String(width))
     url.searchParams.set("quality", String(quality ?? 80))
+    url.searchParams.set("format", "auto")
     return url.toString()
   }
 
