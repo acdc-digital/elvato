@@ -14,6 +14,7 @@ export type LeditorialPost = {
     heading: string
     body: string[]
   }>
+  contentMarkdown?: string
   relatedHref: string
   relatedLabel: string
   editorial?: {
