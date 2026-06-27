@@ -60,8 +60,8 @@ export default async function Nav() {
 
             <Button variant="link" asChild className="font-sans tracking-wide font-medium text-black">
               <LocalizedClientLink
-                href="/how-it-works"
-                data-testid="nav-how-link"
+                href="/leditorial"
+                data-testid="nav-leditorial-link"
               >
                 LED-itorial
               </LocalizedClientLink>
