@@ -830,5 +830,205 @@
         ]
       }
     ]
+  },
+  {
+    "slug": "bathroom-vanity-lighting-guide",
+    "category": "Room Guide",
+    "title": "Bathroom vanity lighting: height, spacing, and colour temperature for Canadian homes",
+    "excerpt": "A practical bathroom lighting guide for choosing vanity fixtures, placing sconces, avoiding mirror glare, and getting warm, accurate light for everyday routines.",
+    "image": "/homepage/v1/room-bathroom.webp",
+    "alt": "Bright bathroom vanity with balanced wall lighting beside a mirror",
+    "readTime": "7 min read",
+    "publishedAt": "2026-06-28",
+    "dek": "Good bathroom lighting is not just about brightness. It is about putting the right light at face height, choosing the right colour temperature, respecting damp conditions, and making the room feel calm at the start and end of the day.",
+    "relatedHref": "/leditorial/wall-sconces-are-not-just-accent-lights",
+    "relatedLabel": "Read more about using wall sconces well",
+    "editorial": {
+      "date": "2026-06-28",
+      "topic": "Bathroom vanity lighting placement and selection for Canadian homes",
+      "objective": "Answer common homeowner questions about vanity lighting while building room-specific lighting authority and guiding shoppers toward wall fixtures, bathroom-friendly selections, and sourcing help.",
+      "primaryKeyword": "bathroom vanity lighting",
+      "secondaryKeywords": [
+        "bathroom vanity light height",
+        "bathroom sconce placement",
+        "best colour temperature for bathroom lighting",
+        "bathroom lighting ideas",
+        "damp rated bathroom lights"
+      ],
+      "searchIntent": "Informational with commercial investigation: homeowners want practical placement and specification guidance before buying bathroom lighting.",
+      "targetAudience": "Canadian homeowners, renovators, condo owners, and design-conscious shoppers planning a bathroom refresh or fixture replacement.",
+      "funnelStage": "Middle funnel",
+      "articleType": "Room Guide / Installation Guide / Buying Guide",
+      "estimatedReadingTime": "7 minutes",
+      "confidenceScore": "High"
+    },
+    "seo": {
+      "metaTitle": "Bathroom Vanity Lighting Guide for Canadian Homes | Elvato",
+      "metaDescription": "Learn bathroom vanity light height, sconce spacing, colour temperature, damp ratings, and fixture selection tips for Canadian bathroom renovations.",
+      "ogTitle": "Bathroom vanity lighting: height, spacing, and colour temperature",
+      "ogDescription": "A homeowner-friendly guide to better bathroom vanity lighting, from mirror placement and glare control to warm LEDs and damp-rated fixture choices.",
+      "canonicalPath": "/leditorial/bathroom-vanity-lighting-guide"
+    },
+    "hero": {
+      "headline": "Bathroom vanity lighting should flatter faces, not just fill the room.",
+      "subtitle": "A practical guide to fixture height, spacing, colour temperature, damp ratings, and the details that make a bathroom feel calm, useful, and finished.",
+      "featuredImagePrompt": "A calm Canadian residential bathroom with a floating vanity, large mirror, warm wall sconces at face height, soft neutral tile, brushed metal finishes, and balanced natural-looking LED illumination."
+    },
+    "images": [
+      {
+        "src": "/homepage/v1/room-bathroom.webp",
+        "serpapiSearchQuery": "modern bathroom vanity wall sconces warm LED mirror design",
+        "alt": "Bathroom vanity with balanced lighting around a mirror",
+        "caption": "The best vanity lighting starts around the mirror, where light needs to reach the face evenly.",
+        "placement": "hero"
+      },
+      {
+        "src": "/homepage/v1/category-v2-wall.webp",
+        "serpapiSearchQuery": "bathroom wall sconce placement beside mirror",
+        "alt": "Wall light fixture suitable for layered residential lighting",
+        "caption": "Wall fixtures can provide more flattering bathroom light than a single overhead source when they are placed at the right height.",
+        "placement": "body"
+      }
+    ],
+    "internalLinks": [
+      {
+        "label": "Wall sconces are not just accent lights",
+        "href": "/leditorial/wall-sconces-are-not-just-accent-lights",
+        "reason": "Connects vanity guidance to a broader editorial article about functional wall lighting."
+      },
+      {
+        "label": "Warm vs. cool light: what colour temperature changes in a room",
+        "href": "/leditorial/warm-vs-cool-light-colour-temperature",
+        "reason": "Supports readers who want a deeper explanation of LED colour temperature before choosing bathroom bulbs or fixtures."
+      },
+      {
+        "label": "Explore lighting in the store",
+        "href": "/store",
+        "reason": "Provides a natural shopping path for readers comparing wall, ceiling, and decorative bathroom lighting options."
+      },
+      {
+        "label": "Request design and sourcing help",
+        "href": "/design-services",
+        "reason": "Helps homeowners who need support with scale, finish coordination, damp ratings, or fixture selection."
+      }
+    ],
+    "productPlacements": [
+      {
+        "title": "Wall sconces for vanity lighting",
+        "href": "/store",
+        "context": "Sconces placed beside a mirror can reduce under-eye shadows and create more comfortable light for grooming than a single ceiling fixture."
+      },
+      {
+        "title": "Flush and semi-flush ceiling fixtures",
+        "href": "/store",
+        "context": "Ceiling light still matters in a bathroom, but it should usually support the vanity layer rather than act as the only source of light."
+      },
+      {
+        "title": "Design services for fixture sizing",
+        "href": "/design-services",
+        "context": "Bathrooms often have tight clearances, mirrors, medicine cabinets, tile edges, and damp conditions that benefit from careful fixture review."
+      }
+    ],
+    "ctas": {
+      "newsletter": {
+        "label": "Join the newsletter",
+        "href": "mailto:hello@elvato.ca?subject=Newsletter signup",
+        "copy": "Receive seasonal lighting ideas, renovation notes, and practical fixture guidance for Canadian homes."
+      },
+      "shopping": {
+        "label": "Shop the edit",
+        "href": "/store",
+        "copy": "Browse lighting options that can support a layered bathroom plan, from wall fixtures to ceiling illumination."
+      },
+      "consultation": {
+        "label": "Request sourcing help",
+        "href": "/design-services",
+        "copy": "Get help comparing scale, finish, colour temperature, fixture rating, and placement before you order."
+      }
+    },
+    "faq": [
+      {
+        "question": "What is the best height for bathroom vanity sconces?",
+        "answer": "A common target is around eye level, often roughly 60 to 66 inches from the finished floor to the centre of the fixture. Adjust for mirror height, fixture shape, ceiling height, and the people using the bathroom."
+      },
+      {
+        "question": "Should bathroom vanity lights point up or down?",
+        "answer": "Either can work, but the goal is even face lighting with minimal glare. Downward shades can feel more direct, while diffused sconces beside the mirror often give softer, more flattering light."
+      },
+      {
+        "question": "What colour temperature is best for bathroom lighting?",
+        "answer": "Most homes do well with warm white to soft neutral light, usually 2700K to 3000K. If accurate grooming light is important, choose a quality LED source and avoid mixing very warm and very cool bulbs in the same bathroom."
+      },
+      {
+        "question": "Do bathroom lights need to be damp rated?",
+        "answer": "Many bathroom locations call for damp-rated fixtures, especially near moisture and humidity. Requirements depend on placement, local code, and the fixture instructions, so confirm suitability before buying and use a qualified electrician for electrical work."
+      },
+      {
+        "question": "Is one overhead light enough for a bathroom?",
+        "answer": "Usually not. A single overhead fixture can make the room bright but still cast shadows on the face. A better plan layers ceiling light with vanity lighting and, where useful, a separate shower or tub zone fixture rated for that location."
+      }
+    ],
+    "editorialNotes": {
+      "whyChosenToday": "Late June is active renovation season in Canada, and the existing LED-itorial library has strong outdoor, kitchen, chandelier, wall sconce, and colour-temperature coverage but no dedicated bathroom guide. Bathroom vanity lighting is a high-frequency homeowner question with clear practical value.",
+      "expectedSeoValue": "The article targets evergreen searches around bathroom vanity lighting, bathroom sconce placement, vanity light height, damp-rated bathroom lights, and bathroom colour temperature while extending Elvato's topical authority into room-specific renovation guidance.",
+      "futureFollowUps": [
+        "How to light a small bathroom without making it feel harsh",
+        "Damp-rated lighting explained for bathrooms, laundry rooms, and covered porches",
+        "The best mirror and sconce combinations for double vanities",
+        "Bathroom ceiling lighting: flush mount, recessed, or pendant?",
+        "How to choose lighting finishes for chrome, brass, black, and nickel bathrooms"
+      ]
+    },
+    "sections": [
+      {
+        "heading": "Start with the mirror, not the ceiling.",
+        "body": [
+          "Many bathroom lighting mistakes begin with the ceiling. A bright flush mount or recessed fixture can make the room look illuminated, but it often throws shadows under the brow, nose, and chin. That is why a bathroom can feel bright and still be difficult for shaving, makeup, skincare, or contact lenses.",
+          "The vanity is the working zone. Start by planning light around the mirror, then let the ceiling fixture support the rest of the room. If the mirror is where the daily routine happens, the best light should meet you there.",
+          "For most bathrooms, that means placing light at or near face height. A pair of sconces beside the mirror is often the most flattering solution because light arrives from both sides instead of only from above."
+        ]
+      },
+      {
+        "heading": "Use side lighting when the wall gives you room.",
+        "body": [
+          "If your vanity wall has enough width, place sconces on both sides of the mirror. A common target is to centre each fixture around 60 to 66 inches from the finished floor, but this is not a rule to follow blindly. The right height depends on the people using the bathroom, the mirror size, ceiling height, fixture shade, and whether the sconce throws light up, down, or through a diffuser.",
+          "Spacing matters as much as height. Fixtures should sit far enough from the mirror to spread light across the face, but not so far that they illuminate the side walls more than the person at the sink. In a double vanity, avoid treating one long mirror as an excuse for one weak central light. Two or three carefully spaced wall fixtures can make the whole vanity feel more intentional.",
+          "When there is no room beside the mirror, a linear vanity light above the mirror can still work. Choose one that is wide enough for the sink zone, diffused enough to control glare, and mounted so the shade does not fight the mirror frame."
+        ]
+      },
+      {
+        "heading": "Choose warm, accurate light.",
+        "body": [
+          "Bathroom light should be clear without feeling clinical. In most Canadian homes, 2700K to 3000K is the safest colour-temperature range for a comfortable bathroom. It feels warm enough for early mornings and evenings, but still practical for grooming when the LED quality is good.",
+          "Avoid mixing colour temperatures in the same view. A 2700K vanity fixture beside a cool 4000K ceiling light can make tile, paint, and skin tones look inconsistent. If you are replacing only one fixture, check the bulbs and integrated LEDs already in the room before choosing the next one.",
+          "Brightness should be layered rather than forced. The vanity needs useful light. The ceiling needs general light. A shower, tub, or water closet may need its own rated fixture depending on layout. Dimmers are worth considering because bathroom lighting has to support both task-heavy mornings and softer evening routines."
+        ]
+      },
+      {
+        "heading": "Respect moisture, clearances, and installation conditions.",
+        "body": [
+          "Bathrooms are not dry decorative rooms. Steam, condensation, splashing, and tight clearances all affect fixture choice. Many bathroom locations require damp-rated fixtures, and some wet zones require fixtures specifically rated for that location. Always check the fixture instructions, local code requirements, and the exact mounting position before ordering.",
+          "This is especially important in Canadian homes where older bathrooms may have limited ventilation, lower ceilings, or renovation layers behind the wall. A beautiful fixture is not the right fixture if it is not suitable for the environment.",
+          "Electrical work should be handled by a qualified professional. Homeowners can plan the look, scale, and lighting goals, but final placement and installation need to respect code, junction box locations, mirror mounting, tile, and the manufacturer's requirements."
+        ]
+      },
+      {
+        "heading": "Match the fixture scale to the vanity.",
+        "body": [
+          "A small powder room can often handle one expressive sconce or a compact vanity light. A family bathroom usually needs more even illumination. A double vanity may need multiple fixtures so both sinks feel equally lit.",
+          "Look at the full wall, not just the fixture width. The mirror, faucet finish, cabinet hardware, tile lines, medicine cabinets, and ceiling height all affect how large a light should feel. A fixture that looks modest online can feel oversized beside a narrow mirror, while a tiny shade can disappear on a long vanity wall.",
+          "Finish should also be deliberate. Matching every metal in the bathroom is not mandatory, but the lighting finish should have a relationship to the faucet, cabinet pulls, mirror frame, or shower trim. Black can add definition, brass can add warmth, chrome can feel crisp, and nickel often works when the goal is quiet continuity."
+        ]
+      },
+      {
+        "heading": "A simple homeowner checklist.",
+        "body": [
+          "Place the best light near the mirror. Use side sconces when space allows, or a well-diffused vanity light above the mirror when it does not. Aim for comfortable face-height illumination rather than raw brightness.",
+          "Keep bathroom LEDs in a consistent 2700K to 3000K range unless there is a specific reason to go cooler. Use dimmers where compatible. Confirm damp or wet ratings for the fixture location before buying.",
+          "Choose scale by looking at the vanity, mirror, ceiling height, and wall width together. If the room has unusual clearances, older wiring, tile constraints, or a tight shower zone, get professional guidance before finalizing the fixture."
+        ]
+      }
+    ],
+    "contentMarkdown": "# Bathroom vanity lighting: height, spacing, and colour temperature for Canadian homes\n\nGood bathroom lighting is not just about brightness. It is about putting the right light at face height, choosing the right colour temperature, respecting damp conditions, and making the room feel calm at the start and end of the day.\n\n## Start with the mirror, not the ceiling.\n\nMany bathroom lighting mistakes begin with the ceiling. A bright flush mount or recessed fixture can make the room look illuminated, but it often throws shadows under the brow, nose, and chin. That is why a bathroom can feel bright and still be difficult for shaving, makeup, skincare, or contact lenses.\n\nThe vanity is the working zone. Start by planning light around the mirror, then let the ceiling fixture support the rest of the room. If the mirror is where the daily routine happens, the best light should meet you there.\n\nFor most bathrooms, that means placing light at or near face height. A pair of sconces beside the mirror is often the most flattering solution because light arrives from both sides instead of only from above.\n\n## Use side lighting when the wall gives you room.\n\nIf your vanity wall has enough width, place sconces on both sides of the mirror. A common target is to centre each fixture around 60 to 66 inches from the finished floor, but this is not a rule to follow blindly. The right height depends on the people using the bathroom, the mirror size, ceiling height, fixture shade, and whether the sconce throws light up, down, or through a diffuser.\n\nSpacing matters as much as height. Fixtures should sit far enough from the mirror to spread light across the face, but not so far that they illuminate the side walls more than the person at the sink. In a double vanity, avoid treating one long mirror as an excuse for one weak central light. Two or three carefully spaced wall fixtures can make the whole vanity feel more intentional.\n\nWhen there is no room beside the mirror, a linear vanity light above the mirror can still work. Choose one that is wide enough for the sink zone, diffused enough to control glare, and mounted so the shade does not fight the mirror frame.\n\n## Choose warm, accurate light.\n\nBathroom light should be clear without feeling clinical. In most Canadian homes, 2700K to 3000K is the safest colour-temperature range for a comfortable bathroom. It feels warm enough for early mornings and evenings, but still practical for grooming when the LED quality is good.\n\nAvoid mixing colour temperatures in the same view. A 2700K vanity fixture beside a cool 4000K ceiling light can make tile, paint, and skin tones look inconsistent. If you are replacing only one fixture, check the bulbs and integrated LEDs already in the room before choosing the next one.\n\nBrightness should be layered rather than forced. The vanity needs useful light. The ceiling needs general light. A shower, tub, or water closet may need its own rated fixture depending on layout. Dimmers are worth considering because bathroom lighting has to support both task-heavy mornings and softer evening routines.\n\n## Respect moisture, clearances, and installation conditions.\n\nBathrooms are not dry decorative rooms. Steam, condensation, splashing, and tight clearances all affect fixture choice. Many bathroom locations require damp-rated fixtures, and some wet zones require fixtures specifically rated for that location. Always check the fixture instructions, local code requirements, and the exact mounting position before ordering.\n\nThis is especially important in Canadian homes where older bathrooms may have limited ventilation, lower ceilings, or renovation layers behind the wall. A beautiful fixture is not the right fixture if it is not suitable for the environment.\n\nElectrical work should be handled by a qualified professional. Homeowners can plan the look, scale, and lighting goals, but final placement and installation need to respect code, junction box locations, mirror mounting, tile, and the manufacturer's requirements.\n\n## Match the fixture scale to the vanity.\n\nA small powder room can often handle one expressive sconce or a compact vanity light. A family bathroom usually needs more even illumination. A double vanity may need multiple fixtures so both sinks feel equally lit.\n\nLook at the full wall, not just the fixture width. The mirror, faucet finish, cabinet hardware, tile lines, medicine cabinets, and ceiling height all affect how large a light should feel. A fixture that looks modest online can feel oversized beside a narrow mirror, while a tiny shade can disappear on a long vanity wall.\n\nFinish should also be deliberate. Matching every metal in the bathroom is not mandatory, but the lighting finish should have a relationship to the faucet, cabinet pulls, mirror frame, or shower trim. Black can add definition, brass can add warmth, chrome can feel crisp, and nickel often works when the goal is quiet continuity.\n\n## A simple homeowner checklist.\n\nPlace the best light near the mirror. Use side sconces when space allows, or a well-diffused vanity light above the mirror when it does not. Aim for comfortable face-height illumination rather than raw brightness.\n\nKeep bathroom LEDs in a consistent 2700K to 3000K range unless there is a specific reason to go cooler. Use dimmers where compatible. Confirm damp or wet ratings for the fixture location before buying.\n\nChoose scale by looking at the vanity, mirror, ceiling height, and wall width together. If the room has unusual clearances, older wiring, tile constraints, or a tight shower zone, get professional guidance before finalizing the fixture."
   }
 ]
