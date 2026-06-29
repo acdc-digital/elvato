@@ -4,17 +4,14 @@ import { cache } from "react"
 import { listProducts } from "@lib/data/products"
 import { getRegion, listRegions } from "@lib/data/regions"
 import ProductTemplate from "@modules/products/templates"
-import { HttpTypes, StoreRegion } from "@medusajs/types"
+import { HttpTypes } from "@medusajs/types"
 import { withCdnImages } from "@lib/data/convex-images"
 import { getBaseURL } from "@lib/util/env"
 import { buildAlternates } from "@lib/util/seo"
 import { isCanonicalProductImageUrl } from "@lib/util/canonical-product-image"
 
-// ISR: serve cached HTML and revalidate in the background every 5 minutes.
-// The page is still dynamically rendered per-request (cookies in downstream
-// data functions), but removing force-dynamic re-enables Next.js router cache
-// and avoids blanket disabling of fetch caching.
-export const revalidate = 300
+export const dynamic = "force-dynamic"
+export const dynamicParams = true
 
 type Props = {
   params: Promise<{ countryCode: string; handle: string }>
@@ -32,33 +29,8 @@ const getProduct = cache(async (countryCode: string, handle: string) => {
   }).then(({ response }) => response.products[0])
 })
 
-/**
- * Pre-generate routes for all published products × regions.
- * Next.js will also dynamically render any product not returned here
- * (fallback: "blocking" is the default with dynamicParams = true).
- */
 export async function generateStaticParams() {
-  try {
-    const countryCodes = await listRegions().then((regions: StoreRegion[]) =>
-      regions
-        ?.flatMap((r) => r.countries?.map((c) => c.iso_2))
-        .filter(Boolean) as string[]
-    )
-
-    const { response } = await listProducts({
-      countryCode: countryCodes[0] ?? "us",
-      queryParams: { limit: 100, fields: "handle" },
-    })
-
-    return countryCodes.flatMap((countryCode) =>
-      response.products.map((p) => ({
-        countryCode,
-        handle: p.handle!,
-      }))
-    )
-  } catch {
-    return []
-  }
+  return []
 }
 
 // TODO: Re-enable once CDN images carry Medusa image IDs so
