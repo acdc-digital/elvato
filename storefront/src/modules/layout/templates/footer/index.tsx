@@ -4,7 +4,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 export default async function Footer() {
   const { collections } = await listCollections({
-    fields: "*products",
+    fields: "id,handle,title",
   })
 
   return (
