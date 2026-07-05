@@ -156,7 +156,7 @@ cmds = ["npm run build", "cd .medusa/server && npm install --omit=dev"]
 cmd = "cd .medusa/server && npx medusa db:migrate && npm run start"
 ```
 
-### `admin-frontdoor/vercel.json`
+### `admin/frontdoor/vercel.json`
 
 Defines the edge front-door behavior for the admin custom domain:
 
@@ -275,6 +275,7 @@ Browser -> https://admin.elvato.shop/
 ### Vercel requirements
 
 - Project: `admin-frontdoor`
+- Project root directory for Git deployments: `admin/frontdoor`
 - Domain attached: `admin.elvato.shop`
 - Deployment Protection: production auth disabled (otherwise root may return `401`)
 
@@ -375,8 +376,8 @@ The Dockerfile pins Node 20 by digest for reproducibility. To update:
 | `admin/nixpacks.toml` | Nixpacks fallback if Dockerfile builder is disabled |
 | `admin/medusa-config.ts` | Medusa module configuration (DB, Redis, CORS) |
 | `admin/.env.template` | Local development environment variable template |
-| `admin-frontdoor/vercel.json` | Root redirect and Railway proxy for `admin.elvato.shop` |
-| `admin-frontdoor/package.json` | Minimal deploy package for front-door project |
+| `admin/frontdoor/vercel.json` | Root redirect and Railway proxy for `admin.elvato.shop` |
+| `admin/frontdoor/package.json` | Minimal deploy package for front-door project |
 | `railway.json` | Railway project-level build configuration |
 
 ## Reference Links

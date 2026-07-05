@@ -6,7 +6,6 @@
 /.vscode/
 /.vercel/
 /admin/
-/admin-frontdoor/
 /convex/
 /marketplace/
 /node_modules/

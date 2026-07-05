@@ -20,7 +20,7 @@
     "overlays": "images",
     "byRoom": "images",
     "payment": "dist",
-    "admin-frontdoor": "admin",
+    "frontdoor": "admin",
   },
   "chat.tools.terminal.autoApprove": {
     "npx medusa": true,

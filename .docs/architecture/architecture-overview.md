@@ -89,7 +89,7 @@ flowchart LR
 | Layer | Service | Provider / Runtime | Current role | Primary docs |
 | --- | --- | --- | --- | --- |
 | Customer storefront | Next.js storefront | Vercel | Public storefront at `https://elvato.shop`, SSR/static rendering, geo-routing middleware, checkout UI, product pages | `.docs/vercel-storefront-deployment.md` |
-| Admin front door | `admin-frontdoor` | Vercel | Public admin custom domain at `https://admin.elvato.shop`; redirects `/` to `/app` and proxies all non-root paths to Railway | `.docs/railway-admin-backend.md`, `admin-frontdoor/vercel.json` |
+| Admin front door | `admin-frontdoor` | Vercel | Public admin custom domain at `https://admin.elvato.shop`; redirects `/` to `/app` and proxies all non-root paths to Railway | `.docs/railway-admin-backend.md`, `admin/frontdoor/vercel.json` |
 | Commerce backend | `medusa-backend` | Railway Docker service | Medusa Store API, Admin API, admin UI static assets, workflows, payment/search modules | `.docs/railway-admin-backend.md`, `.docs/docker-container.md` |
 | Commerce framework | Medusa.js | Node.js inside Railway container | Catalog, cart, checkout, orders, admin UI, modules, workflow orchestration | `admin/medusa-config.ts` |
 | Relational database | Neon PostgreSQL | Neon | Primary Medusa database using pooled `DATABASE_URL`; stores products, categories, pricing, inventory, orders, carts, customers, regions, auth, workflow state | `.docs/neon-postgresql-database.md` |
