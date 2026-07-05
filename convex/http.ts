@@ -1,6 +1,6 @@
 import { httpRouter } from "convex/server";
 import { httpAction } from "./_generated/server";
-import { api } from "./_generated/api";
+import { api, internal } from "./_generated/api";
 import { registerRoutes } from "convex-fs";
 import { components } from "./_generated/api";
 import { fs } from "./fs";
@@ -73,6 +73,59 @@ http.route({
     if (action === "link_cj_order") {
       await ctx.runMutation(api.shipping.tracking.linkCjOrder, payload);
       return new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    return new Response(JSON.stringify({ error: "Unknown action" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }),
+});
+
+// =============================================================================
+// ADMIN SERVICE BILLING — receives billing reads/writes from Medusa admin relay
+// =============================================================================
+http.route({
+  path: "/admin/service-billing",
+  method: "POST",
+  handler: httpAction(async (ctx, request) => {
+    const secret = request.headers.get("x-webhook-secret");
+    const expectedSecret = process.env.CONVEX_WEBHOOK_SECRET;
+    if (!expectedSecret || secret !== expectedSecret) {
+      return new Response("Unauthorized", { status: 401 });
+    }
+
+    const body = await request.json();
+    const { action, payload } = body;
+
+    if (action === "list") {
+      const rows = await ctx.runQuery(internal.services.billing.list, payload);
+      return new Response(JSON.stringify({ rows }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    if (action === "upsert") {
+      const result = await ctx.runMutation(
+        internal.services.billing.upsert,
+        payload
+      );
+      return new Response(JSON.stringify(result), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    if (action === "seedDefaults") {
+      const result = await ctx.runMutation(
+        internal.services.billing.seedDefaults,
+        payload
+      );
+      return new Response(JSON.stringify(result), {
         status: 200,
         headers: { "Content-Type": "application/json" },
       });

@@ -25,6 +25,22 @@ export default defineSchema({
   }),
 
   // ---------------------------------------------------------------------------
+  // SERVICE BILLING
+  // ---------------------------------------------------------------------------
+
+  serviceBilling: defineTable({
+    serviceId: v.string(),
+    period: v.string(), // YYYY-MM
+    amountCents: v.number(),
+    currency: v.string(),
+    note: v.optional(v.string()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_service_period", ["serviceId", "period"])
+    .index("by_period", ["period"]),
+
+  // ---------------------------------------------------------------------------
   // LEGACY TABLES
   // ---------------------------------------------------------------------------
   

@@ -20,6 +20,7 @@ import type * as medusa_staging from "../medusa/staging.js";
 import type * as medusa_variantMapping from "../medusa/variantMapping.js";
 import type * as products_actionHistory from "../products/actionHistory.js";
 import type * as products_products from "../products/products.js";
+import type * as services_billing from "../services/billing.js";
 import type * as shipping_tracking from "../shipping/tracking.js";
 import type * as utils_copilot from "../utils/copilot.js";
 import type * as utils_files from "../utils/files.js";
@@ -43,6 +44,7 @@ declare const fullApi: ApiFromModules<{
   "medusa/variantMapping": typeof medusa_variantMapping;
   "products/actionHistory": typeof products_actionHistory;
   "products/products": typeof products_products;
+  "services/billing": typeof services_billing;
   "shipping/tracking": typeof shipping_tracking;
   "utils/copilot": typeof utils_copilot;
   "utils/files": typeof utils_files;
