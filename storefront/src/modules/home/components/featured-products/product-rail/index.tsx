@@ -25,7 +25,7 @@ const COLLECTION_COPY: Record<string, { eyebrow: string; body: string }> = {
 }
 
 function getCollectionHref(collection: HttpTypes.StoreCollection) {
-  return collection.handle ? `/collections/${collection.handle}` : "/store"
+  return collection.handle ? `/categories/${collection.handle}` : "/store"
 }
 
 export default async function ProductRail({

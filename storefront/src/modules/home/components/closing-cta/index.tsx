@@ -18,9 +18,9 @@ export default function ClosingCta() {
           Bring your space to light.
         </h2>
         <p className="mt-6 max-w-xl font-sans text-[15px] leading-relaxed text-grey-60">
-          Hundreds of curated fixtures, fair pricing, and a team that knows
-          lighting — ready to ship to your door. Find the piece that finishes
-          your room.
+          Our supplier catalogue is being refreshed. Explore the core lighting
+          categories or ask our team for sourcing help while the next edit is
+          prepared.
         </p>
 
         <div className="mt-9 flex flex-col gap-3 xsmall:flex-row xsmall:gap-4">
@@ -35,10 +35,10 @@ export default function ClosingCta() {
             />
           </LocalizedClientLink>
           <LocalizedClientLink
-            href="/collections"
+            href="/categories/chandeliers"
             className="inline-flex items-center justify-center gap-2 border border-black px-8 py-4 font-sans text-sm font-medium text-black transition-all duration-200 hover:bg-grey-90 hover:text-white hover:border-grey-90"
           >
-            Browse collections
+            Browse chandeliers
           </LocalizedClientLink>
         </div>
 

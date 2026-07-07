@@ -9,7 +9,7 @@ const ProductGrid = () => {
       price: "$995.00",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       image: "/placeholder.jpg",
-      href: "#",
+      href: "/categories/pendants",
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const ProductGrid = () => {
       price: "$995.00",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       image: "/placeholder.jpg",
-      href: "#",
+      href: "/categories/ceiling",
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ const ProductGrid = () => {
       price: "$995.00",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       image: "/placeholder.jpg",
-      href: "#",
+      href: "/categories/wall",
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const ProductGrid = () => {
       price: "$995.00",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
       image: "/placeholder.jpg",
-      href: "#",
+      href: "/categories/table-floor",
     },
   ]
 

@@ -17,7 +17,7 @@ import { HttpTypes } from "@medusajs/types"
 export const metadata: Metadata = {
   title: "Elvato | Contemporary Lighting for Your Next Project",
   description:
-    "Shop 803 published, affordable lighting designs — pendants, chandeliers, ceiling, wall, floor & table lamps, outdoor lighting, and smart controls.",
+    "Source contemporary lighting for projects — pendants, chandeliers, ceiling, wall, floor & table lamps, outdoor lighting, and smart controls.",
 }
 
 export const revalidate = 300
@@ -90,7 +90,7 @@ export default async function Home(props: {
 
   return (
     <>
-      <Hero />
+      <Hero region={region} />
       {/* TODO: PhotoGrid below hero */}
       {/* <PhotoGrid /> */}
       <CtaBanner />
@@ -118,9 +118,8 @@ export default async function Home(props: {
               </div>
               <div className="flex flex-col justify-end small:col-span-5">
                 <p className="max-w-md font-sans text-[15px] leading-relaxed text-grey-60">
-                  Handpicked, affordable, and ready to ship. Browse our most-loved
-                  categories — from statement chandeliers to everyday ceiling and
-                  wall lighting.
+                  Our catalogue is being refreshed with new suppliers. Browse
+                  the core lighting categories while the next edit is prepared.
                 </p>
                 <LocalizedClientLink
                   href="/store"

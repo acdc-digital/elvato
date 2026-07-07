@@ -1,7 +1,45 @@
 import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { listProducts } from "@lib/data/products"
+import { HttpTypes } from "@medusajs/types"
 
-const Hero = () => {
+/**
+ * Editor's Picks — sourced live from Medusa so the thumbnail always matches
+ * the actual product gallery. Never hardcode a static stock photo here: if a
+ * product's real photos are wrong, fix them in Medusa, don't paper over it
+ * with an unrelated local asset.
+ */
+const EDITORS_PICKS_HANDLES = [
+  "half-circle-modern-chandelier-for-bedroom-dining-90112512",
+  "modern-luxury-glass-bubble-chandelier-55049984",
+  "nordic-glass-orb-chandelier-with-textured-design-76930304",
+  "eclipse-resin-led-asymmetric-chandelier-4513445740",
+  "postmodern-creative-chandelier-for-living-rooms-06790656",
+]
+
+async function getEditorsPicks(region: HttpTypes.StoreRegion) {
+  const {
+    response: { products },
+  } = await listProducts({
+    regionId: region.id,
+    cacheScope: "public",
+    queryParams: {
+      handle: EDITORS_PICKS_HANDLES,
+      limit: EDITORS_PICKS_HANDLES.length,
+      fields: "id,handle,title,thumbnail",
+    },
+  })
+
+  const byHandle = new Map(products.map((product) => [product.handle, product]))
+
+  return EDITORS_PICKS_HANDLES.map((handle) => byHandle.get(handle)).filter(
+    (product): product is HttpTypes.StoreProduct => Boolean(product?.thumbnail)
+  )
+}
+
+const Hero = async ({ region }: { region: HttpTypes.StoreRegion }) => {
+  const picks = await getEditorsPicks(region)
+
   return (
     <div className="w-full bg-canvas">
       <div className="mx-auto grid max-w-8xl grid-cols-1 lg:grid-cols-2">
@@ -11,18 +49,21 @@ const Hero = () => {
           <div className="px-4 pt-4 pb-4 lg:px-8 lg:pt-6 lg:pb-0">
             <div className="flex flex-wrap gap-1">
               {[
-                { label: 'Featured', href: '#Featured' },
-                { label: 'Chandeliers', href: '#chandeliers' },
-                { label: 'Pendants', href: '#pendants' },
-                { label: 'Ceiling', href: '#ceiling' },
-                { label: 'Wall', href: '#wall' },
-                { label: 'Desk & Floor', href: '#table-floor' },
-                { label: 'Sale', href: '/' },
+                {
+                  label: "Featured",
+                  href: "/store",
+                },
+                { label: "Chandeliers", href: "/categories/chandeliers" },
+                { label: "Pendants", href: "/categories/pendants" },
+                { label: "Ceiling", href: "/categories/ceiling" },
+                { label: "Wall", href: "/categories/wall" },
+                { label: "Desk & Floor", href: "/categories/table-floor" },
+                { label: "Outdoor", href: "/categories/outdoor" },
               ].map((badge) => (
                 <LocalizedClientLink
                   key={badge.label}
                   href={badge.href}
-                  className={`px-3 py-1 text-sm font-sans font-medium uppercase tracking-wide hover:underline underline-offset-4 transition-all duration-200 ${badge.label === 'Sale' ? 'text-red-600' : 'text-black'}`}
+                  className="px-3 py-1 text-sm font-sans font-medium uppercase tracking-wide text-black hover:underline underline-offset-4 transition-all duration-200"
                 >
                   {badge.label}
                 </LocalizedClientLink>
@@ -42,8 +83,8 @@ const Hero = () => {
               lighting for your next project.
             </h1>
             <p className="mt-5 lg:mt-7 text-sm lg:text-base leading-relaxed font-sans text-black">
-              Elvato lighting is a curated collection of 803 published, affordable handpicked lighting designs
-              sourced from top manufacturers around the world.
+              Elvato lighting is a curated sourcing destination for affordable,
+              handpicked designs from manufacturers around the world.
             </p>
             
             <div className="flex flex-row gap-4 mt-8 lg:mt-10">
@@ -72,7 +113,7 @@ const Hero = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                 <span>Free Shipping</span>
               </div>
-              <span>803 Published Designs</span>
+              <span>Catalogue Refresh</span>
             </div>
           </div>
 
@@ -153,48 +194,17 @@ const Hero = () => {
               </p>
             </div>
             <div className="grid grid-cols-5 gap-2.5 lg:gap-3">
-              {[
-                {
-                  href: "/products/half-circle-modern-chandelier-for-bedroom-dining-90112512",
-                  img: "/homepage/v1/hero-feature-2.webp",
-                  label: "Sculptural Half-Circle Chandelier",
-                  imgClass: "",
-                },
-                {
-                  href: "/products/nordic-led-dining-room-chandelier-modern-minimalist-design-90625024",
-                  img: "/homepage/v1/hero-feature-3.webp",
-                  label: "Modern Branch Chandelier",
-                  imgClass: "",
-                },
-                {
-                  href: "/products/nordic-glass-orb-chandelier-with-textured-design-76930304",
-                  img: "/homepage/v1/hero-feature-4.webp",
-                  label: "Nordic Glass Orb Chandelier",
-                  imgClass: "",
-                },
-                {
-                  href: "/products/eclipse-resin-led-asymmetric-chandelier-4513445740",
-                  img: "/homepage/v1/hero-feature-5.webp",
-                  label: "Eclipse Resin Chandelier",
-                  imgClass: "",
-                },
-                {
-                  href: "/products/postmodern-creative-chandelier-for-living-rooms-06790656",
-                  img: "/homepage/v1/hero-feature-6.webp",
-                  label: "Postmodern Creative Chandelier",
-                  imgClass: "scale-110",
-                },
-              ].map((pick) => (
+              {picks.map((product) => (
                 <LocalizedClientLink
-                  key={pick.href}
-                  href={pick.href}
-                  aria-label={`Shop the ${pick.label}`}
+                  key={product.id}
+                  href={`/products/${product.handle}`}
+                  aria-label={`Shop ${product.title}`}
                   className="group/pick relative block aspect-square overflow-hidden bg-grey-5 ring-1 ring-black/10 transition-all duration-300 hover:ring-black/30"
                 >
                   <img
-                    src={pick.img}
-                    alt={pick.label}
-                    className={`h-full w-full object-cover transition-transform duration-500 ease-out group-hover/pick:scale-110 ${pick.imgClass}`}
+                    src={product.thumbnail ?? undefined}
+                    alt={product.title}
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/pick:scale-110"
                   />
                 </LocalizedClientLink>
               ))}

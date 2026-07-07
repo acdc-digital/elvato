@@ -11,27 +11,27 @@ type Room = {
 const rooms: Room[] = [
   {
     label: "Bedroom",
-    href: "/store?room_types=Bedroom",
+    href: "/categories/table-floor",
     image: "/homepage/v1/room-bedroom.webp",
   },
   {
     label: "Bathroom",
-    href: "/store?room_types=Bathroom",
+    href: "/categories/wall",
     image: "/homepage/v1/room-bathroom.webp",
   },
   {
     label: "Dining",
-    href: "/store?room_types=Dining",
+    href: "/categories/chandeliers",
     image: "/homepage/v1/room-dining.webp",
   },
   {
     label: "Kitchen",
-    href: "/store?room_types=Kitchen",
+    href: "/categories/pendants",
     image: "/homepage/v1/room-kitchen.webp",
   },
   {
     label: "Office",
-    href: "/store?room_types=Office",
+    href: "/categories/table-floor",
     image: "/homepage/v1/room-office.webp",
   },
 ]
